@@ -1,8 +1,11 @@
 {
-  "name": "hua5-web-ui",
-  "version": "1.0.0",
   "description": "web组件库",
-  "main": "index.js",
+  "packageManager": "pnpm@8.15.4",
+  "workspaces": [
+    "packages/*",
+    "example",
+    "docs"
+  ],
   "scripts": {
     "example:dev": "pnpm run -C example dev",
     "ui:dev": "",
