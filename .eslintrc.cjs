@@ -14,7 +14,7 @@ module.exports = {
   extends: [
     // js 设置
     'eslint:recommended',
-    
+
     // typescript 设置
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
