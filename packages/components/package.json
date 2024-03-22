@@ -1,13 +1,12 @@
 {
   "name": "hua5-web-ui",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "lib",
-  "module": "es",
+  "module": "lib",
   "type": "module",
   "types": "types/index.d.ts",
   "files": [
-    "es",
     "lib",
     "types",
     "global.d.ts"

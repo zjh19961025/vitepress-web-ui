@@ -1,1 +1,7 @@
-"use strict";const e=require("./Input/index.js"),t=require("./Richtext/index.js"),i=[e.GieInput,t.GieRichtext];module.exports=i;
+import { HuaTest as t } from "./hua-test/index.js";
+const a = [
+  t
+];
+export {
+  a as default
+};

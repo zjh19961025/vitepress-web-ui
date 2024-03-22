@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { HuaTest } from "hua5-web-ui"
+import { ref } from "vue"
 defineProps<
 {
   msg: string,
 }>()
+
+const user = ref({
+  name: "hello"
+})
 </script>
 
 <template>
   <div class="greetings">
+    <HuaTest v-model="user"></HuaTest>
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with

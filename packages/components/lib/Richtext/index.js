@@ -1,1 +1,0 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("../utils/install.js"),i=require("./Richtext.vue.js"),e=t.withInstall(i);exports.GieRichtext=e;exports.default=e;

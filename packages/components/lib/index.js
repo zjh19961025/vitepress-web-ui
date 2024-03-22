@@ -1,1 +1,9 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./utils/install.js"),t=require("./installs.js"),i=require("./Input/index.js"),n=require("./Richtext/index.js"),r=e.makeInstaller([...t]);exports.GieInput=i.GieInput;exports.GieRichtext=n.GieRichtext;exports.default=r;
+import "./__uno.css.js";
+import { makeInstaller as t } from "./utils/install.js";
+import o from "./installs.js";
+import { HuaTest as l } from "./hua-test/index.js";
+const a = t([...o]);
+export {
+  l as HuaTest,
+  a as default
+};

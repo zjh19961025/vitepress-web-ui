@@ -1,1 +1,18 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const s=(t,o)=>{if(t.install=l=>{for(const e of[t,...Object.values(o??{})])l.component(e.name,e)},o)for(const[l,e]of Object.entries(o))t[l]=e;return t},n=(t=[])=>({install:l=>{console.log(t),t.forEach(e=>l.use(e))}});exports.makeInstaller=n;exports.withInstall=s;
+const e = (o, s) => {
+  if (o.install = (l) => {
+    for (const t of [o, ...Object.values(s ?? {})])
+      l.component(t.name, t);
+  }, s)
+    for (const [l, t] of Object.entries(s))
+      o[l] = t;
+  return o;
+}, n = (o = []) => ({
+  // version,
+  install: (l) => {
+    console.log(o), o.forEach((t) => l.use(t));
+  }
+});
+export {
+  n as makeInstaller,
+  e as withInstall
+};

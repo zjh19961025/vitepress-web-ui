@@ -1,8 +1,5 @@
-import GieInput from './Input'
-import GieRichtext from './Richtext'
+import HuaTest from './hua-test'
 
 export default [
-  GieInput,
-  GieRichtext
+  HuaTest,
 ]
-  

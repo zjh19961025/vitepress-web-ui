@@ -8,13 +8,7 @@ import { PublicProps } from 'vue';
 
 declare type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
 
-declare type __VLS_NonUndefinedable_2<T> = T extends undefined ? never : T;
-
 declare type __VLS_Prettify<T> = {
-    [K in keyof T]: T[K];
-} & {};
-
-declare type __VLS_Prettify_2<T> = {
     [K in keyof T]: T[K];
 } & {};
 
@@ -27,23 +21,8 @@ declare type __VLS_TypePropsToRuntimeProps<T> = {
     };
 };
 
-declare type __VLS_TypePropsToRuntimeProps_2<T> = {
-    [K in keyof T]-?: {} extends Pick<T, K> ? {
-        type: PropType<__VLS_NonUndefinedable_2<T[K]>>;
-    } : {
-        type: PropType<T[K]>;
-        required: true;
-    };
-};
-
 declare type __VLS_WithDefaults<P, D> = {
     [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify<P[K] & {
-        default: D[K];
-    }> : P[K];
-};
-
-declare type __VLS_WithDefaults_2<P, D> = {
-    [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify_2<P[K] & {
         default: D[K];
     }> : P[K];
 };
@@ -53,42 +32,59 @@ declare const _default: {
 };
 export default _default;
 
-declare const _default_2: DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<InputProps>, {
-    modelValue: string;
+declare const _default_2: DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<PropsType>, {
+    msg: string;
+    user: () => {
+        name: string;
+        extra: string;
+    };
     disabled: boolean;
 }>, {
     focus: typeof focus_2;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => void;
-}, string, PublicProps, Readonly<ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<InputProps>, {
-    modelValue: string;
+    "update:user": (user: TestUserType, msg: string) => void;
+    test: (info: string) => void;
+}, string, PublicProps, Readonly<ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<PropsType>, {
+    msg: string;
+    user: () => {
+        name: string;
+        extra: string;
+    };
     disabled: boolean;
 }>>> & {
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+    "onUpdate:user"?: ((user: TestUserType, msg: string) => any) | undefined;
+    onTest?: ((info: string) => any) | undefined;
 }, {
-    modelValue: string;
+    user: TestUserType;
+    msg: string;
     disabled: boolean;
 }, {}>;
 
-declare const _default_3: DefineComponent<__VLS_WithDefaults_2<__VLS_TypePropsToRuntimeProps_2<RichtextProps>, {
-    modelValue: string;
-}>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => void;
-}, string, PublicProps, Readonly<ExtractPropTypes<__VLS_WithDefaults_2<__VLS_TypePropsToRuntimeProps_2<RichtextProps>, {
-    modelValue: string;
-}>>> & {
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-}, {
-    modelValue: string;
-}, {}>;
+/**
+ * 定义emit类型
+ */
+export declare type EmitType = {
+    "update:user": [user: TestUserType, msg: string];
+    "test": [info: string];
+};
 
 declare function focus_2(): void;
 
-export declare const GieInput: SFCWithInstall<DefineComponent<{
-    modelValue: {
-        type: PropType<string>;
+export declare const HuaTest: SFCWithInstall<DefineComponent<{
+    user: {
+        type: PropType<TestUserType>;
         required: true;
+        default: () => {
+            name: string;
+            extra: string;
+        };
+    };
+    msg: {
+        type: PropType<string>;
         default: string;
+    };
+    labels: {
+        type: PropType<string[]>;
     };
     disabled: {
         type: PropType<boolean>;
@@ -97,83 +93,58 @@ export declare const GieInput: SFCWithInstall<DefineComponent<{
 }, {
     focus: () => void;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => void;
+    "update:user": (user: TestUserType, msg: string) => void;
+    test: (info: string) => void;
 }, string, PublicProps, Readonly<ExtractPropTypes<{
-    modelValue: {
-        type: PropType<string>;
+    user: {
+        type: PropType<TestUserType>;
         required: true;
+        default: () => {
+            name: string;
+            extra: string;
+        };
+    };
+    msg: {
+        type: PropType<string>;
         default: string;
+    };
+    labels: {
+        type: PropType<string[]>;
     };
     disabled: {
         type: PropType<boolean>;
         default: boolean;
     };
 }>> & {
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+    "onUpdate:user"?: ((user: TestUserType, msg: string) => any) | undefined;
+    onTest?: ((info: string) => any) | undefined;
 }, {
-    modelValue: string;
+    user: TestUserType;
+    msg: string;
     disabled: boolean;
 }, {}>> & Record<string, any>;
-
-export declare const GieRichtext: SFCWithInstall<DefineComponent<{
-    modelValue: {
-        type: PropType<string>;
-        required: true;
-        default: string;
-    };
-}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => void;
-}, string, PublicProps, Readonly<ExtractPropTypes<{
-    modelValue: {
-        type: PropType<string>;
-        required: true;
-        default: string;
-    };
-}>> & {
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
-}, {
-    modelValue: string;
-}, {}>> & Record<string, any>;
-
-/**
- * 定义emit类型
- */
-export declare type InputEmits = {
-    'update:modelValue': [value: string];
-};
 
 /**
  * 定义instance类型
  */
 export declare type InputInstance = InstanceType<typeof _default_2>;
 
-/**
- * 定义props类型
- */
-export declare interface InputProps {
-    modelValue: string;
+export declare interface PropsType {
+    user: TestUserType;
+    msg?: string;
+    labels?: string[];
     disabled?: boolean;
 }
 
-/**
- * 定义emit类型
- */
-export declare type RichtextEmits = {
-    'update:modelValue': [value: string];
-};
-
-/**
- * 定义instance类型
- */
-export declare type RichtextInstance = InstanceType<typeof _default_3>;
+declare type SFCWithInstall<T> = T & Plugin_2
 
 /**
  * 定义props类型
  */
-export declare interface RichtextProps {
-    modelValue: string;
+export declare interface TestUserType {
+    name: string;
+    sex?: string;
+    age?: number;
 }
-
-declare type SFCWithInstall<T> = T & Plugin_2
 
 export { }
