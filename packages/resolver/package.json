@@ -1,6 +1,6 @@
 {
-  "name": "hua5-web-ui",
-  "version": "1.0.1",
+  "name": "resolver",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
