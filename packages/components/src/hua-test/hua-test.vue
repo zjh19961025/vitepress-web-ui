@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex flex-col bg-gray" @click="onUserClick">
+    <div class="flex flex-col hua5-web-ui-test-class" @click="onUserClick">
       <div>user</div>
       <div class="">
         <span>姓名</span>
@@ -22,7 +22,7 @@
         <span>标签</span>
         <span
           v-for="(item, index) in labels" :key="index"
-          class=" text-pink text-20px ml-8px"
+          class="text-scope-test text-20px ml-8px"
         >
           {{ item }}
         </span>
@@ -55,3 +55,9 @@ function onUserClick() {
   emits("userClick", props.user, `${props.user.name} click msg = ${props.msg}`)
 }
 </script>
+
+<style lang="scss" scoped>
+  .text-scope-test{
+    color: greenyellow;
+  }
+</style>
