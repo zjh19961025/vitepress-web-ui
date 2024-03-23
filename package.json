@@ -21,14 +21,15 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@hua5/eslint-config": "workspace:*",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
-    "@hua5/eslint-config": "workspace:*",
     "eslint": "^8.18.0",
     "eslint-define-config": "^1.5.1",
+    "sass": "^1.72.0",
     "typescript": "~5.4.0",
     "unocss": "^0.53.6",
     "unplugin-auto-import": "^0.16.4",

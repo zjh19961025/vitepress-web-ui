@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import 'element-plus/dist/index.css'
-import 'hua5-web-ui/style'
+import '@hua5/hua5-web-ui/style'
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import App from './App.vue'

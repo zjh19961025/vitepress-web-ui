@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import { HuaTest } from "hua5-web-ui"
+import { HuaTest } from "@hua5/hua5-web-ui"
 
 const user = ref({
   name: "测试组件",
