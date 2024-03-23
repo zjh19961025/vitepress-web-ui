@@ -1,11 +1,15 @@
-import type { App, Directive,Plugin } from 'vue'
+import type { App, Directive, Plugin } from 'vue'
 import type { SFCInstallWithContext, SFCWithInstall } from './typescript'
 
-const INSTALLED_KEY = Symbol('INSTALLED_KEY')
-
+/**
+ * 来源于 element-plus 中
+ * @param main 
+ * @param extra 
+ * @returns 
+ */
 export const withInstall = <T, E extends Record<string, any>>(
   main: T,
-  extra?: E
+  extra?: E,
 ) => {
   (main as SFCWithInstall<T>).install = (app): void => {
     for (const comp of [main, ...Object.values(extra ?? {})]) {
@@ -32,7 +36,7 @@ export const withInstallFunction = <T>(fn: T, name: string) => {
 
 export const withInstallDirective = <T extends Directive>(
   directive: T,
-  name: string
+  name: string,
 ) => {
   (directive as SFCWithInstall<T>).install = (app: App): void => {
     app.directive(name, directive)
@@ -41,13 +45,11 @@ export const withInstallDirective = <T extends Directive>(
   return directive as SFCWithInstall<T>
 }
 
-
 export const makeInstaller = (components: Plugin[] = []) => {
   const install = (app: App) => {
-    if (app[INSTALLED_KEY]) return
+    // if (app[INSTALLED_KEY]) return
 
-    app[INSTALLED_KEY] = true
-    console.log(components)
+    // app[INSTALLED_KEY] = true
     components.forEach((c) => app.use(c))
 
     // if (options) provideGlobalConfig(options, app, true)
