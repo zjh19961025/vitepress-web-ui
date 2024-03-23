@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "hua5-web-ui": "workspace:*",
+    "hua5-web-ui": "workspace:^",
     "vue-router": "^4.3.0"
   }
 }

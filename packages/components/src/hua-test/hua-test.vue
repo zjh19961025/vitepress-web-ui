@@ -1,47 +1,57 @@
 <template>
   <div class="">
-    <div class="text-red bg-blue">
-      <div>1</div>
-      <div class="text-yellow">2</div>
-      <div class=" text-red">hello</div>
+    <div class="flex flex-col bg-gray" @click="onUserClick">
+      <div>user</div>
+      <div class="">
+        <span>姓名</span>
+        <span class=" text-red ml-8px">{{ user.name }}</span>
+      </div>
+      <div class="">
+        <span>性别</span>
+        <span class=" text-blue text-20px ml-8px">{{ user.sex }}</span>
+      </div>
+      <div class="">
+        <span>年龄</span>
+        <span class="text-yellow text-20px ml-8px">{{ user.age }}</span>
+      </div>
+      <!-- <div class="">
+        <span>其他</span>
+        <span class="text-blue text-32">{{ user.extra }}</span>
+      </div> -->
+      <div class="">
+        <span>标签</span>
+        <span
+          v-for="(item, index) in labels" :key="index"
+          class=" text-pink text-20px ml-8px"
+        >
+          {{ item }}
+        </span>
+      </div>
     </div>
-    <el-input ref="inputRef" v-model="state.name" type="text" :disabled="props.disabled" />
+    <div>
+      <ElButton size="small" type="success" @click="onUserClick">按钮测试</ElButton>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { ElInput } from 'element-plus'
-import type { TestUserType, PropsType, EmitType } from "./hua-test"
+import { ElButton } from 'element-plus'
+import type { PropsType, EmitType } from "./hua-test"
 defineOptions({
   name: 'HuaTest',
 })
 
 const props = withDefaults(defineProps<PropsType>(), {
-  msg: "123",
   user: () => {
     return {
-      name: "123",
+      name: "1234",
       extra: "extra",
     }
   },
-  disabled: false,
+  msg: "hello",
+  labels: () => [],
 })
 const emits = defineEmits<EmitType>()
-
-const state = computed({
-  get: () => props.user,
-  set: (val: TestUserType) => {
-    emits('update:user', val, "hello")
-  },
-})
-
-const inputRef = ref<InstanceType<typeof ElInput>>()
-
-function focus() {
-  inputRef.value?.focus()
+function onUserClick() {
+  emits("userClick", props.user, `${props.user.name} click msg = ${props.msg}`)
 }
-
-defineExpose({
-  focus,
-})
 </script>

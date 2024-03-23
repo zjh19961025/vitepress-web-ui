@@ -1,18 +1,18 @@
-const e = (o, s) => {
-  if (o.install = (l) => {
-    for (const t of [o, ...Object.values(s ?? {})])
-      l.component(t.name, t);
+const e = (t, s) => {
+  if (t.install = (n) => {
+    for (const o of [t, ...Object.values(s ?? {})])
+      n.component(o.name, o);
   }, s)
-    for (const [l, t] of Object.entries(s))
-      o[l] = t;
-  return o;
-}, n = (o = []) => ({
+    for (const [n, o] of Object.entries(s))
+      t[n] = o;
+  return t;
+}, c = (t = []) => ({
   // version,
-  install: (l) => {
-    console.log(o), o.forEach((t) => l.use(t));
+  install: (n) => {
+    t.forEach((o) => n.use(o));
   }
 });
 export {
-  n as makeInstaller,
+  c as makeInstaller,
   e as withInstall
 };

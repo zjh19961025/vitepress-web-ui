@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
+import { defineConfig, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
 export default defineConfig({
   // 规则
@@ -34,10 +34,5 @@ export default defineConfig({
   // 预设
   presets: [
     presetUno(),
-    presetIcons({
-      collections: {
-        mdi: () => import('@iconify-json/mdi/icons.json').then((i) => i.default),
-      },
-    }),
   ],
 })

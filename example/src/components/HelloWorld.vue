@@ -8,13 +8,23 @@ defineProps<
 }>()
 
 const user = ref({
-  name: "hello",
+  name: "测试组件",
+  sex: "男",
+  age: 999,
 })
+const labels = ref(["测试", "第一个"])
+
+function onUserClick(user: any, msg: string) {
+  console.log("onUserClick", user, msg)
+  alert(user.name + msg)
+}
+
 </script>
 
 <template>
+  <HuaTest :user="user" :labels="labels" msg="hello" @user-click="onUserClick" />
+
   <div class="greetings">
-    <HuaTest v-model="user" />
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with

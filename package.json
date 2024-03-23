@@ -7,9 +7,8 @@
     "docs"
   ],
   "scripts": {
-    "example:dev": "pnpm run -C example dev",
-    "ui:dev": "",
-    "ui:build": "",
+    "dev": "pnpm -C example dev",
+    "build:ui": "pnpm -C packages/components build",
     "docs:dev": "",
     "docs:build": "",
     "test": "echo \"Error: no test specified\" && exit 1"
