@@ -1,5 +1,5 @@
 import './assets/main.css'
-import 'hua5-web-ui/lib/style.css'
+import 'hua5-web-ui/style'
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'virtual:uno.css'

@@ -1,9 +1,9 @@
 import { defineComponent as c, computed as p, ref as f, openBlock as x, createElementBlock as _, createVNode as v, unref as b, createElementVNode as t } from "vue";
-import { ElInput as y } from "element-plus";
-const V = { class: "" }, g = /* @__PURE__ */ t("div", { class: "text-red bg-blue" }, [
+import { ElInput as V } from "element-plus";
+const h = { class: "" }, y = /* @__PURE__ */ t("div", { class: "text-red bg-blue" }, [
   /* @__PURE__ */ t("div", null, "1"),
   /* @__PURE__ */ t("div", { class: "text-yellow" }, "2"),
-  /* @__PURE__ */ t("div", { class: "text-gray" }, "hello")
+  /* @__PURE__ */ t("div", { class: "text-red" }, "hello")
 ], -1), B = /* @__PURE__ */ c({
   name: "HuaTest",
   __name: "hua-test",
@@ -30,9 +30,9 @@ const V = { class: "" }, g = /* @__PURE__ */ t("div", { class: "text-red bg-blue
     }
     return n({
       focus: i
-    }), (e, o) => (x(), _("div", V, [
-      g,
-      v(b(y), {
+    }), (e, o) => (x(), _("div", h, [
+      y,
+      v(b(V), {
         modelValue: l.value.name,
         "onUpdate:modelValue": o[0] || (o[0] = (m) => l.value.name = m),
         ref_key: "inputRef",

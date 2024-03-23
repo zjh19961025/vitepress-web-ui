@@ -73,7 +73,7 @@ importers:
   example:
     dependencies:
       hua5-web-ui:
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../packages/components
       vue-router:
         specifier: ^4.3.0
@@ -105,8 +105,6 @@ importers:
         version: 0.8.0
 
   packages/resolver: {}
-
-  packages/unocss: {}
 
   packages/unocss-config: {}
 
@@ -5411,7 +5409,7 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@vue/devtools-api': 6.6.1
-      vue: 3.4.21
+      vue: 3.4.21(typescript@5.4.3)
     dev: false
 
   /vue-template-compiler@2.7.16:
@@ -5444,21 +5442,6 @@ packages:
       semver: 7.6.0
       typescript: 5.4.3
     dev: true
-
-  /vue@3.4.21:
-    resolution: {integrity: sha512-5hjyV/jLEIKD/jYl4cavMcnzKwjMKohureP8ejn3hhEjwhWIhWeuzL2kJAjzl/WyVsgPY56Sy4Z40C3lVshxXA==, tarball: https://registry.npmmirror.com/vue/-/vue-3.4.21.tgz}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@vue/compiler-dom': 3.4.21
-      '@vue/compiler-sfc': 3.4.21
-      '@vue/runtime-dom': 3.4.21
-      '@vue/server-renderer': 3.4.21(vue@3.4.21)
-      '@vue/shared': 3.4.21
-    dev: false
 
   /vue@3.4.21(typescript@5.4.3):
     resolution: {integrity: sha512-5hjyV/jLEIKD/jYl4cavMcnzKwjMKohureP8ejn3hhEjwhWIhWeuzL2kJAjzl/WyVsgPY56Sy4Z40C3lVshxXA==}

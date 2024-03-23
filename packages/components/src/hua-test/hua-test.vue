@@ -3,7 +3,7 @@
     <div class="text-red bg-blue">
       <div>1</div>
       <div class="text-yellow">2</div>
-      <div class=" text-gray">hello</div>
+      <div class=" text-red">hello</div>
     </div>
     <el-input v-model="state.name" ref="inputRef" type="text" :disabled="props.disabled" />
   </div>

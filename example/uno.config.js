@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss';
+import { defineConfig, presetUno, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
 
 export default defineConfig({
   // 规则
@@ -40,4 +40,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+})

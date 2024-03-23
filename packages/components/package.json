@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib",
-  "module": "lib",
   "type": "module",
   "types": "types/index.d.ts",
   "files": [
@@ -17,7 +16,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js"
+    },
+    "./types": "./types/index.d.ts",
+    "./style": "./lib/style.css",
+    "./package.json": "./package.json"
+  },
+  "author": "hua5",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",

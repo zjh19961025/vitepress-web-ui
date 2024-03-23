@@ -1,11 +1,10 @@
 {
-    "extends": "../../tsconfig.json",
-    "include": [
-      "src"
-    ],
-    "compilerOptions": {
-      "moduleResolution": "node",
-      "baseUrl": "."
-    }
+  "extends": "../../tsconfig.json",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": "."
   }
-  
+}
