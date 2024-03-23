@@ -1,6 +1,8 @@
 import type { App, Directive,Plugin } from 'vue'
 import type { SFCInstallWithContext, SFCWithInstall } from './typescript'
 
+const INSTALLED_KEY = Symbol('INSTALLED_KEY')
+
 export const withInstall = <T, E extends Record<string, any>>(
   main: T,
   extra?: E
@@ -42,9 +44,9 @@ export const withInstallDirective = <T extends Directive>(
 
 export const makeInstaller = (components: Plugin[] = []) => {
   const install = (app: App) => {
-    // if (app[INSTALLED_KEY]) return
+    if (app[INSTALLED_KEY]) return
 
-    // app[INSTALLED_KEY] = true
+    app[INSTALLED_KEY] = true
     console.log(components)
     components.forEach((c) => app.use(c))
 
