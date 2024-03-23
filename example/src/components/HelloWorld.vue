@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { HuaTest } from "hua5-web-ui"
 import { ref } from "vue"
-defineProps<
+const props = defineProps<
 {
   msg: string,
 }>()

@@ -19,11 +19,12 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
 
-    // 项目设置
-    // './build/description/.eslintrc-auto-import.json',
-
     // 针对 Vue 项目的 ESLint 推荐配置。
     'plugin:vue/vue3-recommended',
+    "plugin:@vue/eslint-config-typescript",
+
+    // 项目设置
+    // './build/description/.eslintrc-auto-import.json',
   ],
   plugins: [
     '@typescript-eslint',
