@@ -5,6 +5,7 @@ import { ExtractPropTypes } from 'vue';
 import type { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
+import { Ref } from 'vue';
 
 declare const _default: {
     install: (app: App<any>) => void;
@@ -78,5 +79,9 @@ export declare interface TestUserType {
     sex?: string;
     age?: number;
 }
+
+export declare const useHuaTest: (info: any) => {
+    testVlaue: Ref<string>;
+};
 
 export { }

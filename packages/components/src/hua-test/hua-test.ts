@@ -21,11 +21,14 @@ export type EmitType = {
 }
 
 
-export const useHuaTest = function(info: TestUserType) {
+export const useHuaTest = function(info: any) {
   const testVlaue = ref("")
-  watch(() => toRaw(info), (newVal) => {
-    testVlaue.value + newVal.name
-  })
+  
+  watch(info, (newVal) => {
+    console.log("newval", newVal.name)
+    testVlaue.value = newVal.name
+  }, {immediate: true})
+
   return {
     testVlaue,
   }

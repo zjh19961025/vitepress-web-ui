@@ -1,6 +1,6 @@
 import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
-export default function presetHua5() {
+export function presetHua5() {
   return {
     name: 'preset-hua5',
     // 规则

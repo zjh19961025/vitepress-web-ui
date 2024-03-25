@@ -1,6 +1,6 @@
-import { defineComponent as _, openBlock as a, createElementBlock as c, createElementVNode as e, toDisplayString as o, Fragment as m, renderList as h, createVNode as x, unref as f, withCtx as k, createTextVNode as v, pushScopeId as C, popScopeId as b } from "vue";
-import { ElButton as g } from "element-plus";
-const t = (s) => (C("data-v-4024db9b"), s = s(), b(), s), w = { class: "" }, y = /* @__PURE__ */ t(() => /* @__PURE__ */ e("div", null, "user", -1)), S = { class: "" }, B = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "姓名", -1)), E = { class: "text-red ml-8px" }, I = { class: "" }, N = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "性别", -1)), V = { class: "text-blue text-20px ml-8px" }, T = { class: "" }, $ = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "年龄", -1)), z = { class: "text-yellow text-20px ml-8px" }, D = { class: "" }, F = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "标签", -1)), j = /* @__PURE__ */ _({
+import { defineComponent as _, openBlock as a, createElementBlock as c, createElementVNode as e, toDisplayString as o, Fragment as m, renderList as h, createVNode as x, unref as f, withCtx as k, createTextVNode as v, pushScopeId as C, popScopeId as g } from "vue";
+import { ElButton as b } from "element-plus";
+const t = (s) => (C("data-v-2e61ddb7"), s = s(), g(), s), w = { class: "" }, y = /* @__PURE__ */ t(() => /* @__PURE__ */ e("div", null, "user", -1)), S = { class: "" }, B = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "姓名", -1)), E = { class: "text-red ml-8px" }, I = { class: "" }, N = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "性别", -1)), V = { class: "text-blue text-20px ml-8px" }, T = { class: "" }, $ = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "年龄", -1)), z = { class: "text-yellow text-20px ml-8px" }, D = { class: "" }, F = /* @__PURE__ */ t(() => /* @__PURE__ */ e("span", null, "标签", -1)), j = /* @__PURE__ */ _({
   name: "HuaTest",
   __name: "hua-test",
   props: {
@@ -12,10 +12,10 @@ const t = (s) => (C("data-v-4024db9b"), s = s(), b(), s), w = { class: "" }, y =
     labels: { default: () => [] }
   },
   emits: ["userClick"],
-  setup(s, { emit: r }) {
-    const n = s, d = r;
+  setup(s, { emit: d }) {
+    const n = s, r = d;
     function i() {
-      d("userClick", n.user, `${n.user.name} click msg = ${n.msg}`);
+      r("userClick", n.user, `${n.user.name} click msg = ${n.msg}`);
     }
     return (l, H) => (a(), c("div", w, [
       e("div", {
@@ -44,7 +44,7 @@ const t = (s) => (C("data-v-4024db9b"), s = s(), b(), s), w = { class: "" }, y =
         ])
       ]),
       e("div", null, [
-        x(f(g), {
+        x(f(b), {
           size: "small",
           type: "success",
           onClick: i
