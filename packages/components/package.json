@@ -13,7 +13,6 @@
   ],
   "scripts": {
     "build": "vite build",
-    "publish": "pnpm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
