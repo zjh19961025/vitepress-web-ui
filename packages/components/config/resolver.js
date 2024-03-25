@@ -13,6 +13,9 @@ export const Hua5UIResolver = () => {
       if (name.startsWith('Hua')) {
         return getHua5Resolved(name)
       }
+      if (name.startsWith('useHua')) {
+        return getHua5Resolved(name)
+      }
     },
   }
 }

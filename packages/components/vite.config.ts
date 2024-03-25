@@ -36,7 +36,7 @@ export default defineConfig({
       // 指定入口文件
       entry: 'src/index.ts',
       // 组件库名称
-      name: 'hua-web-ui',
+      name: 'hua5-web-ui',
     },
   },
 })
