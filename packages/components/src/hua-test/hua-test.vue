@@ -61,3 +61,4 @@ function onUserClick() {
     color: greenyellow;
   }
 </style>
+./hua-test-type

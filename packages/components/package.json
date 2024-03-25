@@ -8,6 +8,7 @@
   "files": [
     "lib",
     "types",
+    "config",
     "global.d.ts"
   ],
   "scripts": {
@@ -21,8 +22,8 @@
       "import": "./lib/index.js"
     },
     "./types": "./types/index.d.ts",
-    "./style": "./lib/style.css",
-    "./package.json": "./package.json"
+    "./config/*":"./config/*",
+    "./style": "./lib/style.css"
   },
   "author": "hua5",
   "license": "ISC",
