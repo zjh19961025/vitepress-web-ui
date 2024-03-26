@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [
+      "@hua5/eslint-config",
+       "./build/description/.eslintrc-auto-import.json"
+    ],
+  "rules": {
+    // 自定义规则
+  }
+}

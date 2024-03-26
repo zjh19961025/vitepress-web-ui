@@ -13,7 +13,7 @@ node_modules
 dist
 dist-ssr
 *.local
-/build/description
+description
 
 # Editor directories and files
 .vscode/*

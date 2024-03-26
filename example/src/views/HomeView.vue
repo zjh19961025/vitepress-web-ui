@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { HuaTest, useHuaTest } from "@hua5/hua5-web-ui"
-
+import { useHuaTest, HuaTest } from '@hua5/hua5-web-ui'
 const user = ref({
   name: "测试组件",
   sex: "男",
@@ -22,5 +20,6 @@ function onUserClick(user: any, msg: string) {
   <div class="flex">
     <div class=" text-yellowColor bg-mainColor">uno test</div>
     <HuaTest :user="user" :labels="labels" msg="hello" @user-click="onUserClick" />
+    <ElButton />
   </div>
 </template>
