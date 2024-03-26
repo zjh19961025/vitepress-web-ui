@@ -24,8 +24,6 @@ export default defineConfig({
           entryFileNames: '[name].js',
           // 打包目录和开发目录对应
           preserveModules: true,
-          // 输出目录
-          dir: 'lib',
           // 指定保留模块结构的根目录
           preserveModulesRoot: 'src',
         },

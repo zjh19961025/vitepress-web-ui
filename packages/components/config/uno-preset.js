@@ -1,8 +1,8 @@
 import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
-export function presetHua5() {
+export function presetWui() {
   return {
-    name: 'preset-hua5',
+    name: 'preset-Wui',
     // 规则
     rules: [],
     // 快捷方式

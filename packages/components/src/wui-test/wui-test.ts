@@ -21,7 +21,7 @@ export type EmitType = {
 }
 
 
-export const useHuaTest = function(info: any) {
+export const useWuiTest = function(info: any) {
   const testVlaue = ref("")
   
   watch(info, (newVal) => {

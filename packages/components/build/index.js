@@ -10,7 +10,6 @@ import createDts from './dts'
 // 插件集合
 export {
   createVue,
-  // createSetupExtend,
   createUnocss,
   createDts,
 }

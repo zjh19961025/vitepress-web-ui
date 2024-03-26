@@ -1,5 +1,5 @@
-import HuaTest from './hua-test'
+import WuiTest from './wui-test'
 
 export default [
-  HuaTest,
+  WuiTest,
 ]

@@ -1,5 +1,5 @@
-import { defineConfig, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
-import { presetHua5 } from '@hua5/hua5-web-ui/config/uno-preset'
+import { defineConfig, transformerDirectives, transformerVariantGroup } from 'unocss'
+import { presetWui } from '@hua5/hua5-web-ui/config/uno-preset'
 
 export default defineConfig({
   // 规则
@@ -34,7 +34,6 @@ export default defineConfig({
   },
   // 预设
   presets: [
-    presetUno(),
-    presetHua5(),
+    presetWui(),
   ],
 })

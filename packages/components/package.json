@@ -2,7 +2,7 @@
   "name": "@hua5/hua5-web-ui",
   "version": "1.0.0",
   "description": "",
-  "main": "lib",
+  "main": "dist",
   "type": "module",
   "types": "types/index.d.ts",
   "files": [
@@ -18,11 +18,11 @@
   "keywords": [],
   "exports": {
     ".": {
-      "import": "./lib/index.js"
+      "import": "./dist/index.js"
     },
     "./types": "./types/index.d.ts",
     "./config/*":"./config/*",
-    "./style": "./lib/style.css"
+    "./style": "./dist/style.css"
   },
   "author": "hua5",
   "license": "ISC",

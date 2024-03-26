@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useHuaTest, HuaTest } from '@hua5/hua5-web-ui'
+import { useWuiTest, WuiTest } from '@hua5/hua5-web-ui'
 const user = ref({
   name: "测试组件",
   sex: "男",
   age: 999,
 })
 const labels = ref(["测试", "第一个"])
-const { testVlaue } = useHuaTest(user)
+const { testVlaue } = useWuiTest(user)
 
 function onUserClick(user: any, msg: string) {
   console.log("onUserClick", user, msg)
@@ -19,7 +19,7 @@ function onUserClick(user: any, msg: string) {
 <template>
   <div class="flex">
     <div class=" text-yellowColor bg-mainColor">uno test</div>
-    <HuaTest :user="user" :labels="labels" msg="hello" @user-click="onUserClick" />
+    <WuiTest :user="user" :labels="labels" msg="hello" @user-click="onUserClick" />
     <ElButton />
   </div>
 </template>

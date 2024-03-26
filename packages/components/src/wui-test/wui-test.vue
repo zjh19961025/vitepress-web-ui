@@ -35,9 +35,9 @@
 </template>
 <script setup lang="ts">
 import { ElButton } from 'element-plus'
-import type { PropsType, EmitType } from "./hua-test"
+import type { PropsType, EmitType } from "./wui-test"
 defineOptions({
-  name: 'HuaTest',
+  name: 'WuiTest',
 })
 
 const props = withDefaults(defineProps<PropsType>(), {

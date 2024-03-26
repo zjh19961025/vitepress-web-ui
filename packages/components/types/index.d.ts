@@ -19,7 +19,28 @@ export declare type EmitType = {
     "userClick": [user: TestUserType, msg: string];
 };
 
-export declare const HuaTest: SFCWithInstall<DefineComponent<{
+export declare interface PropsType {
+    user: TestUserType;
+    msg?: string;
+    labels?: string[];
+}
+
+declare type SFCWithInstall<T> = T & Plugin_2
+
+/**
+ * 定义props类型
+ */
+export declare interface TestUserType {
+    name: string;
+    sex?: string;
+    age?: number;
+}
+
+export declare const useWuiTest: (info: any) => {
+    testVlaue: Ref<string>;
+};
+
+export declare const WuiTest: SFCWithInstall<DefineComponent<{
     user: {
         type: PropType<TestUserType>;
         required: true;
@@ -62,26 +83,5 @@ export declare const HuaTest: SFCWithInstall<DefineComponent<{
     msg: string;
     labels: string[];
 }, {}>> & Record<string, any>;
-
-export declare interface PropsType {
-    user: TestUserType;
-    msg?: string;
-    labels?: string[];
-}
-
-declare type SFCWithInstall<T> = T & Plugin_2
-
-/**
- * 定义props类型
- */
-export declare interface TestUserType {
-    name: string;
-    sex?: string;
-    age?: number;
-}
-
-export declare const useHuaTest: (info: any) => {
-    testVlaue: Ref<string>;
-};
 
 export { }
