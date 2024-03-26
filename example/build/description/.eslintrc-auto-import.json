@@ -62,8 +62,6 @@
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,
-    "watchSyncEffect": true,
-    "HuaTest": true,
-    "useHuaTest": true
+    "watchSyncEffect": true
   }
 }

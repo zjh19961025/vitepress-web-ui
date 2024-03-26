@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useWuiTest, WuiTest } from '@hua5/hua5-web-ui'
+import { WuiTest, useWuiTest } from "@hua5/hua5-web-ui"
 const user = ref({
   name: "测试组件",
   sex: "男",

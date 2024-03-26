@@ -3,7 +3,7 @@
 // components 配置
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-// import { Hua5UIResolver } from "@hua5/hua5-web-ui/config/resolver"
+// import { WuiResolver } from "@hua5/hua5-web-ui/config/resolver"
 
 export default function createAutoComponents() {
   return Components({
@@ -14,7 +14,7 @@ export default function createAutoComponents() {
       ElementPlusResolver({
         importStyle: 'sass',
       }),
-      // Hua5UIResolver(),
+      // WuiResolver(),
     ],
   })
 }
