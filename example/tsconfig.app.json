@@ -10,6 +10,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["./description/components.d.ts","./description/auto-imports.d.ts"]
+    "types": ["./description/components.d.ts","./description/auto-imports.d.ts", "@hua5/hua5-web-ui/global"]
   }
 }
