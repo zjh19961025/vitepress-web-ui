@@ -1,20 +1,20 @@
 
-function getWuiResolved(name) {
+function getHuiResolved(name) {
   return {
     name,
     from: '@hua5/hua5-web-ui',
   }
 }
 
-export const WuiResolver = () => {
+export const HuiResolver = () => {
   return {
     type: 'component',
     resolve: (name) => {
-      if (name.startsWith('Wui')) {
-        return getWuiResolved(name)
+      if (name.startsWith('Hui')) {
+        return getHuiResolved(name)
       }
-      if (name.startsWith('useWui')) {
-        return getWuiResolved(name)
+      if (name.startsWith('useHui')) {
+        return getHuiResolved(name)
       }
     },
   }

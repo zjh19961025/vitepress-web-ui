@@ -1,6 +1,6 @@
 import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
-export function presetWui() {
+export function presetHui() {
   return {
     name: 'preset-Wui',
     // 规则

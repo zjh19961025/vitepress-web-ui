@@ -1,4 +1,4 @@
-import WuiTest from './wui-test'
+import WuiTest from './hui-test'
 
 export default [
   WuiTest,
