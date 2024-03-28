@@ -18,6 +18,9 @@ importers:
       '@hua5/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
+      '@hua5/hua5-utils':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@tsconfig/node20':
         specifier: ^20.1.2
         version: 20.1.2
@@ -75,16 +78,12 @@ importers:
       vue-router:
         specifier: ^4.3.0
         version: 4.3.0(vue@3.4.21)
-    devDependencies:
-      unplugin-auto-import:
-        specifier: ^0.17.5
-        version: 0.17.5
-      unplugin-vue-components:
-        specifier: ^0.26.0
-        version: 0.26.0(vue@3.4.21)
 
   packages/components:
     dependencies:
+      '@hua5/hua5-utils':
+        specifier: ^1.0.0
+        version: 1.0.0
       element-plus:
         specifier: ^2.3.9
         version: 2.6.1(vue@3.4.21)
@@ -694,6 +693,9 @@ packages:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==, tarball: https://registry.npmmirror.com/@floating-ui/utils/-/utils-0.2.1.tgz}
     dev: false
 
+  /@hua5/hua5-utils@1.0.0:
+    resolution: {integrity: sha512-jucaxBQkju5pccQYlAPyd5dEIZm6P1uH+fPKEM81KhpOZMvKmcDhM7LrqEd7OpsRuO8GKJJuJGPIQ17EaglyEg==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-utils/-/@hua5/hua5-utils-1.0.0.tgz}
+
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==, tarball: https://registry.npmmirror.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz}
     engines: {node: '>=10.10.0'}
@@ -864,7 +866,7 @@ packages:
     dev: true
 
   /@sxzz/popperjs-es@2.11.7:
-    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==, tarball: https://registry.npmmirror.com/@sxzz/popperjs-es/-/popperjs-es-2.11.7.tgz}
+    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
     dev: false
 
   /@tsconfig/node20@20.1.2:
@@ -1789,7 +1791,7 @@ packages:
     dev: true
 
   /commander@9.5.0:
-    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==, tarball: https://registry.npmmirror.com/commander/-/commander-9.5.0.tgz}
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
     requiresBuild: true
     dev: true
@@ -2587,8 +2589,9 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
   /fsevents@2.3.3:
-    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.3.tgz}
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
     requiresBuild: true
     optional: true
 

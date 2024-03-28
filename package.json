@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@hua5/eslint-config": "workspace:*",
+    "@hua5/hua5-utils": "^1.0.0",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.28",
     "@vitejs/plugin-vue": "^5.0.4",

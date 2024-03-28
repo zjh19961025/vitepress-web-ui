@@ -2,9 +2,12 @@
 /* eslint-disable import/no-unresolved */
 import 'virtual:uno.css'
 import './css/index.css'
-import { makeInstaller } from './utils/install'
-import installs from './installs'
+// install 的时候全局加入的组件
+import componentsInstallList from './components-install-list'
+// 添加 install 的方法
+import { makeInstaller } from './utils/install-helper/install'
 
+export * from "./utils/index"
 export * from './components'
 
-export default makeInstaller([...installs])
+export default makeInstaller([...componentsInstallList])
