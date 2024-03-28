@@ -11,6 +11,9 @@
     "config",
     "global.d.ts"
   ],
+  "publishConfig": {
+    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
+  },
   "scripts": {
     "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
