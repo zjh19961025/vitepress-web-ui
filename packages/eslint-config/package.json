@@ -8,7 +8,7 @@
   ],
   "main": "index.js",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.0",
