@@ -30,3 +30,20 @@ component-name
 1. 在 utils/install-helper/install.ts 中进行添加
 2. 在 global.d.ts 中 的 ComponentCustomProperties 进行全局说明
 
+## 发布：
+1. [连接配置](https://packages.aliyun.com/npm/npm-registry/guide): 使用 pnpm 参照yarn进行配置
+```
+pnpm config set registry https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/
+npm config set registry=https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/
+npm config set always-auth true
+```
+2. 添加用户
+ * 在 cmd 中进行添加用户，[查看账号密码](https://packages.aliyun.com/npm/npm-registry/guide)，在页面中点看账号处的小眼睛查看
+```
+  // 在 cmd 中进行添加用户
+  pnpm adduser
+```
+3. 发布: 在对应包的文件夹中
+```
+  pnpm publish
+```
