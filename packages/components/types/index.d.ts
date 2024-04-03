@@ -2,7 +2,7 @@ import { App } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
 import { ExtractPropTypes } from 'vue';
-import type { Plugin as Plugin_2 } from 'vue';
+import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
 import { Ref } from 'vue';
@@ -66,7 +66,7 @@ export declare const HuiTest: SFCWithInstall_2<DefineComponent<{
     };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     userClick: (user: TestUserType, msg: string) => void;
-}, string, PublicProps, Readonly<ExtractPropTypes<{
+}, string, PublicProps, Readonly< ExtractPropTypes<{
     user: {
         type: PropType<TestUserType>;
         required: true;

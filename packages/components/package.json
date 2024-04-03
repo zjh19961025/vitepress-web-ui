@@ -38,6 +38,6 @@
     "vue": "^3.4.21",
     "unocss": "^0.58.7",
     "element-plus": "^2.3.9",
-    "@hua5/hua5-utils": "^1.0.0"
+    "@hua5/hua5-utils": ">=1.0.2"
   }
 }
