@@ -2,7 +2,7 @@ import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocs
 
 export function presetHui() {
   return {
-    name: 'preset-Wui',
+    name: 'presetHui',
     // 规则
     rules: [],
     // 快捷方式
