@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import 'element-plus/dist/index.css'
 import '@hua5/hua5-web-ui/style'
 import { createApp } from 'vue'
