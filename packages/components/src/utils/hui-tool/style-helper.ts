@@ -2,14 +2,14 @@ import { testUtils, stringUtils } from "@hua5/hua5-utils"
 
 /**
  * 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
- * @param value 
- * @param unit 
- * @returns 
+ * @param value
+ * @param unit
+ * @returns
  */
 export function addUnit(value: string | number = 'auto', unit = 'px') {
-  value = String(value);
+  value = String(value)
   // 判断是否为数值
-  return testUtils.isNum(value) ? `${value}${unit}` : value;
+  return testUtils.isNum(value) ? `${value}${unit}` : value
 }
 
 /**

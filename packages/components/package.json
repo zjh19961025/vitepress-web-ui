@@ -2,23 +2,19 @@
   "name": "@hua5/hua5-web-ui",
   "version": "1.0.1",
   "description": "",
-  "main": "dist/index.js",
   "type": "module",
-  "types": "types/index.d.ts",
+  "keywords": [],
+  "license": "ISC",
+  "author": "hua5",
   "files": [
     "dist",
     "types",
     "config",
-    "global.d.ts"
+    "global.d.ts",
+    "css"
   ],
-  "publishConfig": {
-    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
-  },
-  "scripts": {
-    "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -32,12 +28,17 @@
     },
     "./*": "./*"
   },
-  "author": "hua5",
-  "license": "ISC",
+  "publishConfig": {
+    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "peerDependencies": {
-    "vue": "^3.4.21",
-    "unocss": "^0.58.7",
+    "@hua5/hua5-utils": ">=1.0.3",
     "element-plus": "^2.3.9",
-    "@hua5/hua5-utils": ">=1.0.2"
+    "unocss": "^0.58.7",
+    "vue": "^3.4.21"
   }
 }

@@ -2,6 +2,7 @@ import { App } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
 import { ExtractPropTypes } from 'vue';
+import { HuiFormDialogParams } from 'UseHuiFormDialogType';
 import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
@@ -31,13 +32,6 @@ declare const _default: {
 export default _default;
 
 /**
- * 定义emit类型
- */
-export declare type EmitType = {
-    "userClick": [user: TestUserType, msg: string];
-};
-
-/**
  * option选项
  */
 declare type Hua5WebUIOptions = {
@@ -47,49 +41,135 @@ declare type Hua5WebUIOptions = {
 /**
  * 组件导出
  */
-export declare const HuiTest: SFCWithInstall_2<DefineComponent<{
-    user: {
-        type: PropType<TestUserType>;
-        required: true;
-        default: () => {
-            name: string;
-            extra: string;
-        };
-    };
-    msg: {
+export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
+    type: {
         type: PropType<string>;
         default: string;
     };
-    labels: {
-        type: PropType<string[]>;
+    isNeedDoubleConfirm: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    label: {
+        type: PropType<string>;
+        default: string;
+    };
+    prop: {
+        type: PropType<string>;
+        required: true;
+    };
+    placeholder: {
+        type: PropType<string>;
+    };
+    rules: {
+        type: PropType<any>;
+    };
+    selectDic: {
+        type: PropType< HuiLineEditDialogComboItem[]>;
+        required: true;
         default: () => any[];
     };
-}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    userClick: (user: TestUserType, msg: string) => void;
+    isSelectMuti: {
+        type: PropType<boolean>;
+        required: true;
+        default: boolean;
+    };
+    doubleConfirmTips: {
+        type: PropType<string>;
+        default: string;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onValueChange: (form: any, row?: any) => void;
+    onSubmit: (row: any, prop: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
-    user: {
-        type: PropType<TestUserType>;
-        required: true;
-        default: () => {
-            name: string;
-            extra: string;
-        };
-    };
-    msg: {
+    type: {
         type: PropType<string>;
         default: string;
     };
-    labels: {
-        type: PropType<string[]>;
+    isNeedDoubleConfirm: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    label: {
+        type: PropType<string>;
+        default: string;
+    };
+    prop: {
+        type: PropType<string>;
+        required: true;
+    };
+    placeholder: {
+        type: PropType<string>;
+    };
+    rules: {
+        type: PropType<any>;
+    };
+    selectDic: {
+        type: PropType< HuiLineEditDialogComboItem[]>;
+        required: true;
         default: () => any[];
+    };
+    isSelectMuti: {
+        type: PropType<boolean>;
+        required: true;
+        default: boolean;
+    };
+    doubleConfirmTips: {
+        type: PropType<string>;
+        default: string;
     };
 }>> & {
-    onUserClick?: (user: TestUserType, msg: string) => any;
+    onOnValueChange?: (form: any, row?: any) => any;
+    onOnSubmit?: (row: any, prop: string) => any;
 }, {
-    user: TestUserType;
-    msg: string;
-    labels: string[];
+    type: string;
+    isNeedDoubleConfirm: boolean;
+    title: string;
+    label: string;
+    selectDic: HuiLineEditDialogComboItem[];
+    isSelectMuti: boolean;
+    doubleConfirmTips: string;
 }, {}>> & Record<string, any>;
+
+/**
+ * 定义参数类型
+ */
+declare type HuiLineEditDialogComboItem = {
+    label: string;
+    value: string | number;
+};
+
+export declare const HuiRules: {
+    /**
+     * 是否url
+     * @param tips
+     * @returns
+     */
+    urlRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 是否版本号
+     * @param tips 错误提示
+     * @returns
+     */
+    versionRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+};
 
 export declare const HuiTool: {
     ok: (msg: any) => void;
@@ -102,27 +182,52 @@ export declare const makeInstaller: (components?: Plugin_2[]) => {
     install: (app: App, opt?: Hua5WebUIOptions) => void;
 };
 
-export declare interface PropsType {
-    user: TestUserType;
-    msg?: string;
-    labels?: string[];
-}
-
 declare type SFCWithInstall<T> = T & Plugin_2;
 
-declare type SFCWithInstall_2<T> = T & Plugin_2
+/**
+ * 普通弹框通用逻辑
+ * 集成 el-dialog 组件 的hooks，props 透传到 el-dialog
+ * @param { getData, beforeOpen, beforeClose }
+ * @returns
+ * @example
+ *  normalDialogTest.value?.open(id, payload)
+ * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="openNormalDialog" @close="closeNormalDialog" />
+ */
+export declare const useHuiDialog: () => {
+    id: Ref<string>;
+    show: Ref<boolean>;
+    payload: Ref<{}>;
+    dialogLoading: Ref<boolean>;
+    confirmLoading: Ref<boolean>;
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+};
 
 /**
- * 定义props类型
+ * 表单弹框通用逻辑
+ * 集成 el-dialog 组件 的hooks, props 透传到 el-dialog
+ * @param {*} HuiFormDialogParams
+ * @returns
+ * @example
+ * formDialogTest.value?.open()
+ * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
  */
-export declare interface TestUserType {
-    name: string;
-    sex?: string;
-    age?: number;
-}
-
-export declare const useHuiTest: (info: any) => {
-    testVlaue: Ref<string>;
+export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: HuiFormDialogParams) => {
+    show: Ref<boolean>;
+    form: Ref<{
+        [x: string]: any;
+        id?: string | number;
+    }>;
+    formRef: Ref<any>;
+    formLoading: Ref<boolean>;
+    confirmLoading: Ref<boolean>;
+    open: (id?: string, defaultFormValue?: {}) => void;
+    close: () => void;
+    handleSubmit: () => void;
+    submitOk: (res: any) => void;
+    handleCancel: () => void;
+    onOpen: () => void;
+    onClose: () => void;
 };
 
 /**
@@ -134,3 +239,57 @@ export declare const useHuiTest: (info: any) => {
 export declare const withInstall: <T, E extends Record<string, any>>(main: T, extra?: E) => SFCWithInstall<T> & E;
 
 export { }
+
+declare module "UseHuiFormDialogType" {
+    type FormVoidAction = (submitForm: FormBaseType) => void;
+    type FormAnyAction = (submitForm: FormBaseType) => any;
+    type FormBoolAction = (submitForm: FormBaseType) => boolean;
+    interface FormBaseType {
+        id?: string | number;
+        [key: string]: any;
+    }
+    interface DoubleConfirmConfig {
+        message: string;
+        title?: string;
+        cancelButtonText?: string;
+        confirmButtonText?: string;
+        [key: string]: any;
+    }
+    interface HuiFormDialogParams {
+        /**
+         * 表单格式
+         */
+        formModel: FormBaseType | object | null;
+        /**
+         * 是否显示提交成功提示
+         */
+        showSuccessTip?: boolean;
+        /**
+         * 提交之前的处理，可用于转化提交的表单
+         */
+        beforeSubmit?: null | FormAnyAction;
+        /**
+         * 提交之前的检查
+         */
+        submitCheck?: null | FormBoolAction;
+        /**
+         * 提交成功之后的处理
+         */
+        afterSubmit?: null | FormVoidAction;
+        /**
+         * 是否需要二次确认
+         */
+        isNeedDoubleConfirm?: boolean;
+        /**
+         * 二次确认弹框配置，不传使用默认值
+         */
+        doubleConfirmConfig?: DoubleConfirmConfig;
+        /**
+         * 二次确认方法，优先级高于配置, submitForm：要提交的表单; submitAction：提交吹; cancelAction: 取消提交处理
+         */
+        doubleConfirmAction?: null | ((submitForm: FormBaseType, submitAction: FormVoidAction, cancelAction: () => void) => void);
+        put?: any | null;
+        post?: any | null;
+    }
+}
+

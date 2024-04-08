@@ -13,18 +13,18 @@ type Hua5WebUIOptions = {
  * 默认选项
  */
 const defaultOptions:Hua5WebUIOptions = {
-  isInstallComponents: false
+  isInstallComponents: false,
 }
 /**
  * 是否已经安装
  */
-var isInstalledHu5WebUI = false
+let isInstalledHu5WebUI = false
 
 /**
  * 来源于 element-plus 中, 给每个组件添加 install 方法
- * @param main 
- * @param extra 
- * @returns 
+ * @param main
+ * @param extra
+ * @returns
  */
 export const withInstall = <T, E extends Record<string, any>>(
   main: T,
@@ -47,9 +47,9 @@ export const withInstall = <T, E extends Record<string, any>>(
 export const makeInstaller = (components: Plugin[] = []) => {
   const install = (app: App, opt: Hua5WebUIOptions = defaultOptions) => {
     if (isInstalledHu5WebUI) return
-    const options = {...defaultOptions, ...opt}
+    const options = { ...defaultOptions, ...opt }
 
-    if(options.isInstallComponents){
+    if (options.isInstallComponents) {
       components.forEach((c) => app.use(c))
     }
 
@@ -65,10 +65,10 @@ export const makeInstaller = (components: Plugin[] = []) => {
 
 /**
  * 全局配置相关
- * @param options 
- * @param app 
+ * @param options
+ * @param app
  */
-function provideGlobalConfig(options: object, app: App){
+function provideGlobalConfig(options: object, app: App) {
   app.config.globalProperties.addUnit = addUnit
   app.config.globalProperties.addStyle = addStyle
 }

@@ -1,5 +1,5 @@
-import HuiTest from './hui-test'
+import HuiLineEditDialog from './components/HuiLineEditDialog'
 
 export default [
-  HuiTest,
+  HuiLineEditDialog,
 ]

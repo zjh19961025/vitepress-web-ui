@@ -1,0 +1,14 @@
+# 忽略 eslint 检查的文件或目录
+.vscode
+dist
+node_modules
+public
+src/static
+src/assets
+build/description
+
+.gitignore
+index.html
+*.cjs
+*.md
+*.d.ts

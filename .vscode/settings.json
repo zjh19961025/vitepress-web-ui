@@ -48,6 +48,8 @@
         "html",
         "vue",
         "typescript",
-        "typescriptreact"
+        "typescriptreact",
+        "json",
+        "JSON"
     ],
 }

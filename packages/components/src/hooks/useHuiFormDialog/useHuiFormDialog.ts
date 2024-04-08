@@ -1,0 +1,170 @@
+import { ref, toRaw, getCurrentInstance } from 'vue'
+import { HuiTool } from "../../utils/index"
+import { ElMessageBox } from 'element-plus'
+import type { FormBaseType, HuiFormDialogParams } from "UseHuiFormDialogType"
+
+/**
+ * 表单弹框通用逻辑
+ * 集成 el-dialog 组件 的hooks, props 透传到 el-dialog
+ * @param {*} HuiFormDialogParams
+ * @returns
+ * @example
+ * formDialogTest.value?.open()
+ * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
+ */
+export const useHuiFormDialog = function({
+  formModel = {},
+  showSuccessTip = true,
+  isNeedDoubleConfirm = false,
+  doubleConfirmConfig = {
+    title: "提示",
+    message: "是否确认提交",
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+  },
+  beforeSubmit = null,
+  submitCheck = null,
+  afterSubmit = null,
+  doubleConfirmAction = null,
+  put = null,
+  post = null }: HuiFormDialogParams,
+) {
+  const instance = getCurrentInstance()
+
+  const show = ref(false)
+  const form = ref<FormBaseType>({})
+  const formLoading = ref(false)
+  const confirmLoading = ref(false)
+  const formRef = ref<any>(null)
+
+  const open = (id = "", defaultFormValue = {}) => {
+    form.value = { ...toRaw(formModel), ...toRaw(defaultFormValue) }
+    form.value.id = id
+    show.value = true
+  }
+
+  const close = () => {
+    show.value = false
+  }
+
+  const onOpen = () => {
+    formLoading.value = false
+    confirmLoading.value = false
+  }
+
+  const onClose = () => {
+    form.value = {}
+    formLoading.value = false
+    confirmLoading.value = false
+    if (formRef.value) formRef.value?.resetFields()
+  }
+
+  /**
+   * 处理提交
+   */
+  const handleSubmit = () => {
+    formRef?.value?.validate(async(valid: any) => {
+      if (valid) {
+        confirmLoading.value = true
+        // 用于表单数据的重新构造
+        let submitForm = { ...form.value }
+        if (beforeSubmit) {
+          const returnsubmitForm = beforeSubmit(submitForm)
+          if (returnsubmitForm) submitForm = returnsubmitForm
+        }
+
+        // 用于验证是否能提交表单
+        if (submitCheck) {
+          const isCanSubmit = submitCheck(submitForm)
+          if (!isCanSubmit) {
+            confirmLoading.value = false
+            return
+          }
+        }
+        // 二次确认处理
+        if (isNeedDoubleConfirm || doubleConfirmAction) {
+          showDoubleConfirm(submitForm)
+          return
+        }
+        // 提交表单
+        submit(submitForm)
+      } else {
+        HuiTool.err('验证未通过')
+        confirmLoading.value = false
+        return false
+      }
+    })
+  }
+
+  /**
+   * 二次确认
+   * @param submitForm
+   * @returns
+   */
+  const showDoubleConfirm = (submitForm: FormBaseType) => {
+    // 自定义二次确认
+    if (doubleConfirmAction) {
+      doubleConfirmAction(submitForm, submit, cancelSubmit)
+      return
+    }
+    // 默认二次确认
+    ElMessageBox.confirm(
+      doubleConfirmConfig.message,
+      doubleConfirmConfig.title,
+      doubleConfirmConfig,
+    ).then(() => {
+      submit(submitForm)
+    }).catch(() => {
+      // 关闭二次确认弹框
+      cancelSubmit()
+    })
+  }
+  // 二次确认提交
+  const submit = async(submitForm: FormBaseType) => {
+    if (!put && !post) {
+      confirmLoading.value = false
+      HuiTool.err('没有 put 或 post 提交方法')
+      return
+    }
+    const [, res] = form.value.id ? await put(form.value.id, submitForm) : await post(submitForm)
+    confirmLoading.value = false
+    if (afterSubmit) afterSubmit(res)
+    if (!res) return false
+    submitOk(res)
+  }
+  // 二次确认取消提交
+  const cancelSubmit = () => {
+    confirmLoading.value = false
+  }
+
+  /**
+   * 提交成功
+   * @param res
+   */
+  const submitOk = (res: any) => {
+    showSuccessTip && HuiTool.ok('提交成功')
+    instance?.proxy?.$emit('submitOk', res)
+    close()
+  }
+
+  const handleCancel = () => {
+    close()
+  }
+
+  return {
+    show,
+    form,
+    formRef,
+    formLoading,
+    confirmLoading,
+
+    open,
+    close,
+    handleSubmit,
+    submitOk,
+    handleCancel,
+    onOpen,
+    onClose,
+  }
+}

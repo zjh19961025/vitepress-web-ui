@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2021,
+    "ecmaVersion": "latest",
     // 指定 ECMAScript 语言版本
     sourceType: 'module', // 指定 ECMAScript 模块
   },
@@ -115,7 +115,7 @@ module.exports = {
       },
     },
     {
-      files: ['*.vue'],
+      files: ['*.vue', '*.ts'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
