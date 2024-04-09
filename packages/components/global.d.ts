@@ -6,7 +6,7 @@ declare module 'vue' {
    * 用于声明 Vue.js 中的全局组件，以便 Volar 插件可以正确识别这些组件并提供相应的智能提示和类型检查
    */
   export interface GlobalComponents {
-    HuiLineEditDialog: typeof import("@hua5/hua5-web-ui")[HuiLineEditDialog]
+    HuiLineEditDialog: typeof import("@hua5/hua5-web-ui")["HuiLineEditDialog"]
   }
 
   /**
