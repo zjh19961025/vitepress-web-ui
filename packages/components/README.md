@@ -1,9 +1,9 @@
 ## 组件添加
 1. src 编写组件
 ```
-component-name
-  - component-name.vue // 组件实现
-  - component-name.ts  // 组件相关事项，类型，hooks等
+ComponentName
+  - ComponentName.vue // 组件实现
+  - type.ts  // 组件相关类型，使用module形式
   - index.ts // 导出
 ```
 2. components.ts 中进行导出
@@ -23,27 +23,24 @@ component-name
 }
 ```
 
+## hooks添加
+在hooks中参照添加
+
 ## 工具方法添加： utils 中进行添加
 
 
-## 全局属性添加：
+## Vue属性添加：
 1. 在 utils/install-helper/install.ts 中进行添加
 2. 在 global.d.ts 中 的 ComponentCustomProperties 进行全局说明
 
 ## 发布：
-1. [连接配置](https://packages.aliyun.com/npm/npm-registry/guide): 使用 pnpm 参照yarn进行配置
-```
-pnpm config set registry https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/
-npm config set registry=https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/
-npm config set always-auth true
-```
-2. 添加用户
+1. 添加用户
  * 在 cmd 中进行添加用户，[查看账号密码](https://packages.aliyun.com/npm/npm-registry/guide)，在页面中点看账号处的小眼睛查看
 ```
   // 在 cmd 中进行添加用户
   pnpm adduser
 ```
-3. 发布: 在对应包的文件夹中
+2. 发布: 在对应包的文件夹中
 ```
   pnpm publish
 ```
