@@ -1,5 +1,5 @@
 <template>
-  <el-dialog
+  <ElDialog
     v-model="show"
     :title="title"
     width="520px"
@@ -9,14 +9,14 @@
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <el-form
+    <ElForm
       ref="formRef"
       :model="form"
       :rules="inputRules"
       size="small"
       class="mt-30px fw-bold w-100%"
     >
-      <el-form-item :label="label" prop="inputData" class="flex w-100%">
+      <ElFormItem :label="label" prop="inputData" class="flex w-100%">
         <template #label>
           <div>{{ label }}</div>
         </template>
@@ -25,23 +25,23 @@
         <el-input v-if="isInputType" ref="inputRef" v-model.trim="form.inputData" :type="type" :placeholder="inputPlaceHolder" clearable autosize @input="valueChange" @focus="valueChange" />
 
         <!-- select 选择栏 -->
-        <el-select
+        <ElSelect
           v-if="isSelectType"
           v-model="form.inputData"
           class="w-100%"
           :multiple="isSelectMuti"
           :placeholder="inputPlaceHolder"
         >
-          <el-option
+          <ElOption
             v-for="(item) in selectDic"
             :key="item.value"
             :label="item.label"
             :value="item.value"
           />
-        </el-select>
+        </ElSelect>
 
-      </el-form-item>
-    </el-form>
+      </ElFormItem>
+    </ElForm>
 
     <template #footer>
       <div>
@@ -49,12 +49,12 @@
         <ElButton type="primary" size="default" :loading="confirmLoading" @click="handleSubmit">确 定</ElButton>
       </div>
     </template>
-  </el-dialog>
+  </ElDialog>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, nextTick, reactive } from 'vue'
-import { ElForm, ElInput, ElButton, ElMessageBox, ElMessage } from 'element-plus'
+import { ElForm, ElInput, ElButton, ElMessageBox, ElMessage, ElFormItem, ElSelect, ElOption, ElDialog } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import type { HuiLineEditDialogPropsType, HuiLineEditDialogEmitType } from "./type"
 // 组件名
