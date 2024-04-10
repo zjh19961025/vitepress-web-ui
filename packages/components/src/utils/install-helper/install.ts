@@ -1,19 +1,16 @@
 import type { App, Plugin } from 'vue'
 import type { SFCWithInstall } from './typescript'
 import { addUnit, addStyle } from '../hui-tool'
-
-/**
- * option选项
- */
-type Hua5WebUIOptions = {
-  isInstallComponents: boolean
-}
+import type { HuiOptions } from './type/install-type'
 
 /**
  * 默认选项
  */
-const defaultOptions:Hua5WebUIOptions = {
+const defaultOptions: HuiOptions = {
   isInstallComponents: false,
+  delegate: {
+    getRegion: () => [],
+  },
 }
 /**
  * 是否已经安装
@@ -45,7 +42,7 @@ export const withInstall = <T, E extends Record<string, any>>(
 }
 
 export const makeInstaller = (components: Plugin[] = []) => {
-  const install = (app: App, opt: Hua5WebUIOptions = defaultOptions) => {
+  const install = (app: App, opt: HuiOptions = defaultOptions) => {
     if (isInstalledHu5WebUI) return
     const options = { ...defaultOptions, ...opt }
 
@@ -55,6 +52,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
 
     if (options) provideGlobalConfig(options, app)
     isInstalledHu5WebUI = true
+    window.huiDelegate = options.delegate
   }
 
   return {

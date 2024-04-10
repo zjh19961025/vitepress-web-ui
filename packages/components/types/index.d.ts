@@ -24,18 +24,21 @@ export declare function addStyle(customStyle: string | object, target?: string):
 export declare function addUnit(value?: string | number, unit?: string): string;
 
 declare const _default: {
-    install: (app: App<any>, opt?: {
-        isInstallComponents: boolean;
-    }) => void;
+    install: (app: App<any>, opt?: HuiOptions) => void;
 };
 export default _default;
 
-/**
- * option选项
- */
-declare type Hua5WebUIOptions = {
-    isInstallComponents: boolean;
-};
+declare interface HuiDelegate {
+    /** 地区的所有数据 */
+    getRegion: () => any[];
+    /**
+     * 上传oss
+     * @param file 文件信息
+     * @returns {Promise<[Error | null, any]>} 上传后的结果
+     */
+    putOss?: (file: File | Blob | any) => Promise<[Error | null, any]>;
+    [key: string]: any;
+}
 
 /**
  * 组件导出
@@ -149,6 +152,14 @@ declare type HuiLineEditDialogComboItem = {
     value: string | number;
 };
 
+/**
+ * option选项
+ */
+declare type HuiOptions = {
+    isInstallComponents: boolean;
+    delegate: HuiDelegate;
+};
+
 export declare const HuiRules: {
     /**
      * 是否url
@@ -217,7 +228,7 @@ export declare const HuiTool: {
 };
 
 export declare const makeInstaller: (components?: Plugin_2[]) => {
-    install: (app: App, opt?: Hua5WebUIOptions) => void;
+    install: (app: App, opt?: HuiOptions) => void;
 };
 
 declare type SFCWithInstall<T> = T & Plugin_2;
@@ -327,3 +338,15 @@ declare interface UseHuiFormDialogParams {
 export declare const withInstall: <T, E extends Record<string, any>>(main: T, extra?: E) => SFCWithInstall<T> & E;
 
 export { }
+
+
+/**
+ * window 全局变量声明
+ */
+declare global {
+    interface Window {
+        /** 依赖外部传入的delegate */
+        huiDelegate: HuiDelegate;
+    }
+}
+
