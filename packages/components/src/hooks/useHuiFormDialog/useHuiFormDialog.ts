@@ -1,7 +1,7 @@
-import { ref, toRaw, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance, toValue } from 'vue'
 import { HuiTool } from "../../utils/index"
 import { ElMessageBox } from 'element-plus'
-import type { FormBaseType, HuiFormDialogParams } from "UseHuiFormDialogType"
+import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
 
 /**
  * 表单弹框通用逻辑
@@ -23,23 +23,23 @@ export const useHuiFormDialog = function({
     cancelButtonText: '取消',
     type: 'warning',
   },
-  beforeSubmit = null,
-  submitCheck = null,
-  afterSubmit = null,
-  doubleConfirmAction = null,
-  put = null,
-  post = null }: HuiFormDialogParams,
+  beforeSubmit,
+  submitCheck,
+  afterSubmit,
+  doubleConfirmAction,
+  put,
+  post }: UseHuiFormDialogParams,
 ) {
   const instance = getCurrentInstance()
 
   const show = ref(false)
-  const form = ref<FormBaseType>({})
+  const form = ref<UseHuiFormDialogForm>({})
   const formLoading = ref(false)
   const confirmLoading = ref(false)
   const formRef = ref<any>(null)
 
   const open = (id = "", defaultFormValue = {}) => {
-    form.value = { ...toRaw(formModel), ...toRaw(defaultFormValue) }
+    form.value = { ...toValue(formModel), ...toValue(defaultFormValue) }
     form.value.id = id
     show.value = true
   }
@@ -73,6 +73,16 @@ export const useHuiFormDialog = function({
           const returnsubmitForm = beforeSubmit(submitForm)
           if (returnsubmitForm) submitForm = returnsubmitForm
         }
+        // 控制提交格式
+        const removeKeys = []
+        for (const key in submitForm) {
+          if (!Object.keys(toValue(formModel))?.includes(key)) {
+            removeKeys.push(key)
+          }
+        }
+        for (const key of removeKeys) {
+          delete submitForm[key]
+        }
 
         // 用于验证是否能提交表单
         if (submitCheck) {
@@ -102,7 +112,7 @@ export const useHuiFormDialog = function({
    * @param submitForm
    * @returns
    */
-  const showDoubleConfirm = (submitForm: FormBaseType) => {
+  const showDoubleConfirm = (submitForm: UseHuiFormDialogForm) => {
     // 自定义二次确认
     if (doubleConfirmAction) {
       doubleConfirmAction(submitForm, submit, cancelSubmit)
@@ -121,7 +131,7 @@ export const useHuiFormDialog = function({
     })
   }
   // 二次确认提交
-  const submit = async(submitForm: FormBaseType) => {
+  const submit = async(submitForm: UseHuiFormDialogForm) => {
     if (!put && !post) {
       confirmLoading.value = false
       HuiTool.err('没有 put 或 post 提交方法')

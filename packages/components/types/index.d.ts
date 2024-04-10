@@ -2,7 +2,6 @@ import { App } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
 import { ExtractPropTypes } from 'vue';
-import { HuiFormDialogParams } from 'UseHuiFormDialogType';
 import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
@@ -46,13 +45,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
-    isNeedDoubleConfirm: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
     title: {
         type: PropType<string>;
         default: string;
+    };
+    isNeedDoubleConfirm: {
+        type: PropType<boolean>;
+        default: boolean;
     };
     label: {
         type: PropType<string>;
@@ -93,13 +92,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
-    isNeedDoubleConfirm: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
     title: {
         type: PropType<string>;
         default: string;
+    };
+    isNeedDoubleConfirm: {
+        type: PropType<boolean>;
+        default: boolean;
     };
     label: {
         type: PropType<string>;
@@ -134,8 +133,8 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     onOnSubmit?: (row: any, prop: string) => any;
 }, {
     type: string;
-    isNeedDoubleConfirm: boolean;
     title: string;
+    isNeedDoubleConfirm: boolean;
     label: string;
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
@@ -212,7 +211,7 @@ export declare const useHuiDialog: () => {
  * formDialogTest.value?.open()
  * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
  */
-export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: HuiFormDialogParams) => {
+export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: UseHuiFormDialogParams) => {
     show: Ref<boolean>;
     form: Ref<{
         [x: string]: any;
@@ -230,6 +229,56 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     onClose: () => void;
 };
 
+declare interface UseHuiFormDialogConfirm {
+    message: string;
+    title?: string;
+    cancelButtonText?: string;
+    confirmButtonText?: string;
+    [key: string]: any;
+}
+
+declare interface UseHuiFormDialogForm {
+    id?: string | number;
+    [key: string]: any;
+}
+
+declare interface UseHuiFormDialogParams {
+    /**
+     * 表单格式
+     */
+    formModel: UseHuiFormDialogForm;
+    /**
+     * 是否显示提交成功提示
+     */
+    showSuccessTip?: boolean;
+    /**
+     * 提交之前的处理，可用于转化提交的表单
+     */
+    beforeSubmit?: (submitForm: UseHuiFormDialogForm) => UseHuiFormDialogForm;
+    /**
+     * 提交之前的检查
+     */
+    submitCheck?: (submitForm: UseHuiFormDialogForm) => boolean;
+    /**
+     * 提交成功之后的处理
+     */
+    afterSubmit?: (submitForm: UseHuiFormDialogForm) => void;
+    /**
+     * 是否需要二次确认
+     */
+    isNeedDoubleConfirm?: boolean;
+    /**
+     * 二次确认弹框配置，不传使用默认值
+     */
+    doubleConfirmConfig?: UseHuiFormDialogConfirm;
+    /**
+     * 二次确认方法，优先级高于配置, submitForm：要提交的表单; submitAction：提交吹; cancelAction: 取消提交处理
+     */
+    doubleConfirmAction?: (submitForm: UseHuiFormDialogForm, submitAction: (submitForm: UseHuiFormDialogForm) => void, cancelAction: () => void) => void;
+    put?: any | null;
+    post?: any | null;
+}
+
 /**
  * 来源于 element-plus 中, 给每个组件添加 install 方法
  * @param main
@@ -239,57 +288,3 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
 export declare const withInstall: <T, E extends Record<string, any>>(main: T, extra?: E) => SFCWithInstall<T> & E;
 
 export { }
-
-declare module "UseHuiFormDialogType" {
-    type FormVoidAction = (submitForm: FormBaseType) => void;
-    type FormAnyAction = (submitForm: FormBaseType) => any;
-    type FormBoolAction = (submitForm: FormBaseType) => boolean;
-    interface FormBaseType {
-        id?: string | number;
-        [key: string]: any;
-    }
-    interface DoubleConfirmConfig {
-        message: string;
-        title?: string;
-        cancelButtonText?: string;
-        confirmButtonText?: string;
-        [key: string]: any;
-    }
-    interface HuiFormDialogParams {
-        /**
-         * 表单格式
-         */
-        formModel: FormBaseType | object | null;
-        /**
-         * 是否显示提交成功提示
-         */
-        showSuccessTip?: boolean;
-        /**
-         * 提交之前的处理，可用于转化提交的表单
-         */
-        beforeSubmit?: null | FormAnyAction;
-        /**
-         * 提交之前的检查
-         */
-        submitCheck?: null | FormBoolAction;
-        /**
-         * 提交成功之后的处理
-         */
-        afterSubmit?: null | FormVoidAction;
-        /**
-         * 是否需要二次确认
-         */
-        isNeedDoubleConfirm?: boolean;
-        /**
-         * 二次确认弹框配置，不传使用默认值
-         */
-        doubleConfirmConfig?: DoubleConfirmConfig;
-        /**
-         * 二次确认方法，优先级高于配置, submitForm：要提交的表单; submitAction：提交吹; cancelAction: 取消提交处理
-         */
-        doubleConfirmAction?: null | ((submitForm: FormBaseType, submitAction: FormVoidAction, cancelAction: () => void) => void);
-        put?: any | null;
-        post?: any | null;
-    }
-}
-
