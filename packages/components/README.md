@@ -5,6 +5,7 @@ ComponentName
   - ComponentName.vue // 组件实现
   - type.ts  // 组件相关类型，使用module形式
   - index.ts // 导出
+  - ... // 其他
 ```
 2. components.ts 中进行导出
 3. components-install-list.ts 中进行添加
