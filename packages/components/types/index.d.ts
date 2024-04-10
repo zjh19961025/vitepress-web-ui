@@ -152,19 +152,58 @@ declare type HuiLineEditDialogComboItem = {
 export declare const HuiRules: {
     /**
      * 是否url
-     * @param tips
-     * @returns
+     * @param isCanEmpty 是否可以为空，默认不能为空
+     * @param tips 错误提示
      */
-    urlRule: (tips?: string) => {
+    urlRule: (isCanEmpty?: boolean, tips?: string) => {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };
     /**
      * 是否版本号
      * @param tips 错误提示
-     * @returns
      */
     versionRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 是否json
+     * @param tips 错误提示
+     */
+    jsonRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 是否正整数
+     * @param tips 错误提示
+     */
+    intNumRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 指定最大小数位验证
+     * @param digit 小数位数
+     */
+    digitNumRule: (digit?: number) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 是否非负数
+     * @param tips 错误提示
+     */
+    isPosIntRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
+    /**
+     * 是否非负的整数
+     * @param tips 错误提示
+     */
+    allNumRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };
