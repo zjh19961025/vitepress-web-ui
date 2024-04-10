@@ -21,12 +21,10 @@
       "import": "./dist/index.js"
     },
     "./style": "./dist/style.css",
-    "./types": "./types/index.d.ts",
     "./config/*":"./config/*",
     "./global": {
       "types": "./global.d.ts"
-    },
-    "./*": "./*"
+    }
   },
   "publishConfig": {
     "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
