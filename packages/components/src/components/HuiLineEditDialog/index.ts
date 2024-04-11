@@ -1,4 +1,4 @@
-import { withInstall } from '../../utils'
+import { withInstall } from '../../install-helper/install'
 import HuiLineEditDialogComp from './HuiLineEditDialog.vue'
 
 /**

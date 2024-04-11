@@ -29,14 +29,20 @@ declare const _default: {
 export default _default;
 
 declare interface HuiDelegate {
-    /** 地区的所有数据 */
-    getRegion: () => any[];
+    /**
+     * 地区的所有数据
+     * @returns
+     */
+    getRegion?: () => any[];
     /**
      * 上传oss
      * @param file 文件信息
      * @returns {Promise<[Error | null, any]>} 上传后的结果
      */
-    putOss?: (file: File | Blob | any) => Promise<[Error | null, any]>;
+    putOss?: (file: File | Blob | any) => Promise<[any, any]>;
+    /**
+     * 其他配置
+     */
     [key: string]: any;
 }
 
@@ -157,7 +163,7 @@ declare type HuiLineEditDialogComboItem = {
  */
 declare type HuiOptions = {
     isInstallComponents: boolean;
-    delegate: HuiDelegate;
+    delegate?: HuiDelegate;
 };
 
 /**
@@ -285,10 +291,6 @@ export declare const HuiTool: {
     addStyle: typeof addStyle;
 };
 
-export declare const makeInstaller: (components?: Plugin_2[]) => {
-    install: (app: App, opt?: HuiOptions) => void;
-};
-
 declare type SFCWithInstall<T> = T & Plugin_2;
 
 /**
@@ -386,14 +388,6 @@ declare interface UseHuiFormDialogParams {
     put?: any | null;
     post?: any | null;
 }
-
-/**
- * 来源于 element-plus 中, 给每个组件添加 install 方法
- * @param main
- * @param extra
- * @returns
- */
-export declare const withInstall: <T, E extends Record<string, any>>(main: T, extra?: E) => SFCWithInstall<T> & E;
 
 export { }
 

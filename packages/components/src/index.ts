@@ -4,7 +4,7 @@ import 'virtual:uno.css'
 // install 的时候全局加入的组件
 import componentsInstallList from './components-install-list'
 // 添加 install 的方法
-import { makeInstaller } from './utils/install-helper/install'
+import { makeInstaller } from './install-helper/install'
 
 export * from "./utils/index"
 export * from "./hooks"
