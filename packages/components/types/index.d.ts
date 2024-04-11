@@ -240,6 +240,44 @@ export declare const HuiRules: {
     };
 };
 
+/**
+ * 链接预览弹窗
+ */
+export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+}>>, {
+    title: string;
+    width: string;
+    height: string;
+}, {}>> & Record<string, any>;
+
 export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;

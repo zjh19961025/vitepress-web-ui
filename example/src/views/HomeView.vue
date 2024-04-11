@@ -6,6 +6,7 @@ const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
 const lineEditDialog = ref(null)
 const previewRichTextDialog = ref(null)
+const showUrlDialog = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -63,6 +64,15 @@ function onPreviewRichTextClick() {
   })
 }
 
+function onShowUrlDialogClick() {
+  showUrlDialog.value.open('', {
+    url: "http://localhost:5173/#/home",
+  })
+}
+
+function showUrlDialogClose() {
+  console.log("showUrlDialogClose, 我被关闭了")
+}
 </script>
 
 <template>
@@ -80,6 +90,9 @@ function onPreviewRichTextClick() {
       <div class=" mt-10px">
         <ElButton @click="onPreviewRichTextClick">富文本预览</ElButton>
       </div>
+      <div class=" mt-10px">
+        <ElButton @click="onShowUrlDialogClick">链接预览</ElButton>
+      </div>
     </div>
 
     <NormalDialogTest ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen" @close="onNormalDialogClose" />
@@ -93,6 +106,7 @@ function onPreviewRichTextClick() {
       @on-submit="handleRowEdit"
     />
     <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
+    <HuiShowUrlDialog ref="showUrlDialog" title="查看链接" @close="showUrlDialogClose" />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"
