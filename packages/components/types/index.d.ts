@@ -160,6 +160,26 @@ declare type HuiOptions = {
     delegate: HuiDelegate;
 };
 
+/**
+ * 富文本预览组件
+ */
+export declare const HuiPreviewRichTextDialog: SFCWithInstall<DefineComponent<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+}>>, {
+    title: string;
+}, {}>> & Record<string, any>;
+
 export declare const HuiRules: {
     /**
      * 是否url

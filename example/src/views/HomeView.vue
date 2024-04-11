@@ -5,6 +5,7 @@ import FormDialogTest from "@/components/FormDialogTest.vue"
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
 const lineEditDialog = ref(null)
+const previewRichTextDialog = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -56,6 +57,12 @@ function onValueChange(form, row) {
   console.log("onValueChange", form, row, testRow)
 }
 
+function onPreviewRichTextClick() {
+  previewRichTextDialog.value.open('', {
+    content: "<h1>Hello World <strong style='color:red;'>red</strong></h1>",
+  })
+}
+
 </script>
 
 <template>
@@ -70,6 +77,9 @@ function onValueChange(form, row) {
       <div class=" mt-10px">
         <ElButton @click="onLineEditDialogBtnClick">lineEditDialog</ElButton>
       </div>
+      <div class=" mt-10px">
+        <ElButton @click="onPreviewRichTextClick">富文本预览</ElButton>
+      </div>
     </div>
 
     <NormalDialogTest ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen" @close="onNormalDialogClose" />
@@ -82,6 +92,7 @@ function onValueChange(form, row) {
       @on-value-change="onValueChange"
       @on-submit="handleRowEdit"
     />
+    <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"

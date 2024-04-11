@@ -7,6 +7,7 @@ declare module 'vue' {
    */
   export interface GlobalComponents {
     HuiLineEditDialog: typeof import("@hua5/hua5-web-ui")["HuiLineEditDialog"]
+    HuiPreviewRichTextDialog: typeof import("@hua5/hua5-web-ui")["HuiPreviewRichTextDialog"]
   }
 
   /**
