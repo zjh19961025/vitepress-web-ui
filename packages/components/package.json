@@ -35,6 +35,7 @@
   },
   "peerDependencies": {
     "@hua5/hua5-utils": ">=1.0.3",
+    "@unocss/preset-rem-to-px": "^0.59.0",
     "element-plus": "^2.3.9",
     "unocss": "^0.58.7",
     "vue": "^3.4.21"

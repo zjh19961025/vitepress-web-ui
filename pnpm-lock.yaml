@@ -27,6 +27,9 @@ importers:
       '@types/node':
         specifier: ^20.12.5
         version: 20.12.5
+      '@unocss/preset-rem-to-px':
+        specifier: ^0.59.1
+        version: 0.59.1
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.4(vite@5.2.8)(vue@3.4.21)
@@ -1530,6 +1533,9 @@ packages:
 
   /@unocss/core@0.58.9:
     resolution: {integrity: sha512-wYpPIPPsOIbIoMIDuH8ihehJk5pAZmyFKXIYO/Kro98GEOFhz6lJoLsy6/PZuitlgp2/TSlubUuWGjHWvp5osw==, tarball: https://registry.npmmirror.com/@unocss/core/-/core-0.58.9.tgz}
+
+  /@unocss/core@0.59.1:
+    resolution: {integrity: sha512-4T9eSmEhmxlYnz0xilIavROiEWvEcEtWixIQEaP4MqWabaRew6yN1ky4ALZZgaTUdS50EXGR3bYVz1vah9sfFw==, tarball: https://registry.npmmirror.com/@unocss/core/-/core-0.59.1.tgz}
     dev: true
 
   /@unocss/extractor-arbitrary-variants@0.58.7:
@@ -1640,6 +1646,12 @@ packages:
       '@unocss/rule-utils': 0.58.9
     dev: true
 
+  /@unocss/preset-rem-to-px@0.59.1:
+    resolution: {integrity: sha512-7rFvGZpDosupstjV+G4wENs+bPTmV6wM8Gbtd4KMgEGSjqE4XEIVb1NRjl4DxfvEpJREMNSg3G8x9QRvWu3PRg==, tarball: https://registry.npmmirror.com/@unocss/preset-rem-to-px/-/preset-rem-to-px-0.59.1.tgz}
+    dependencies:
+      '@unocss/core': 0.59.1
+    dev: true
+
   /@unocss/preset-tagify@0.58.7:
     resolution: {integrity: sha512-IDR9+QDgPjcANRIWzlmubPPtgYTXGxWFqrEfRyz7ZQ4YLiA2sSLpVyOwOBW5mP7Bl2hF5oGlTKYyprk4pRzyUA==, tarball: https://registry.npmmirror.com/@unocss/preset-tagify/-/preset-tagify-0.58.7.tgz}
     dependencies:
@@ -1726,7 +1738,7 @@ packages:
     resolution: {integrity: sha512-SbMwAUSgx5v4TXy+MXiWbqzoMjVHSeMaJpJOruU9PmtrOuZmqeajffMtI6pLtGlgrEL76frLRyMmSErxhyNelw==, tarball: https://registry.npmmirror.com/@unocss/rule-utils/-/rule-utils-0.58.7.tgz}
     engines: {node: '>=14'}
     dependencies:
-      '@unocss/core': 0.58.7
+      '@unocss/core': 0.58.9
       magic-string: 0.30.8
     dev: false
 

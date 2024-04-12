@@ -88,7 +88,7 @@ function handleStringArrayInputSubmit(id, inputInfo) {
   <div class="flex">
     <div class="test-color-1">123</div>
     <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno test</div>
-    <div class="flex ml-10px">
+    <div class="flex ml-10">
       <div class="flex flex-col">
         <div><ElButton @click="onDialogBtnClick">普通弹框测试</ElButton></div>
         <div class=" mt-10px">

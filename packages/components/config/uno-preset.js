@@ -1,4 +1,5 @@
 import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
 
 export function presetHui() {
   return {
@@ -6,7 +7,36 @@ export function presetHui() {
     // 规则
     rules: [],
     // 快捷方式
-    shortcuts: [],
+    shortcuts: [
+      {
+        'rel': 'relative',
+      },
+      {
+        'abs': 'absolute',
+      },
+      {
+        'fxd': 'fixed',
+      },
+      {
+        'flex-center': 'flex justify-center items-center',
+      },
+      {
+        'abs-center': 'absolute left-50% top-50% transform-translate-x--50% transform-translate-y--50%',
+      },
+      {
+        'abs-x-center': 'absolute left-50% transform-translate-x--50%',
+      },
+      {
+        'abs-y-center': 'absolute top-50% transform-translate-y--50%',
+      },
+      {
+        'text-over-clip': 'text-clip whitespace-nowrap overflow-hidden',
+      },
+      {
+        'text-over-ellipsis': 'text-ellipsis whitespace-nowrap overflow-hidden',
+      },
+      [/^text-over-ellipsis-(\d+)$/, ([, lines]) => `line-clamp-${lines}`],
+    ],
     // 主题
     theme: {
       colors: {
@@ -81,19 +111,15 @@ export function presetHui() {
     // 预飞行
     preflights: [],
     // 分层
-    layers: {
-      // 基础层
-      base: 1,
-      // 组件层
-      components: 2,
-      // 工具层
-      utilities: 3,
-      // 默认层
-      default: 4,
-    },
+    layers: {},
     // 预设
     presets: [
       presetUno(),
+      // 转换 rem 到 px
+      presetRemToPx({
+      // 1单位 = 0.25*rem --> 1rem = 4px
+        baseFontSize: 4,
+      }),
     ],
   }
 }

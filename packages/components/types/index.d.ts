@@ -39,7 +39,7 @@ declare interface HuiDelegate {
     /**
      * 上传oss
      * @param file 文件信息
-     * @returns {Promise<[Error | null, any]>} 上传后的结果
+     * @returns {Promise<[any, any]>} 上传后的结果
      */
     putOss?: (file: File | Blob | any) => Promise<[any, any]>;
     /**
