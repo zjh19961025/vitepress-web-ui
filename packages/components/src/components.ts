@@ -1,3 +1,4 @@
 export * from './components/HuiLineEditDialog'
 export * from './components/HuiPreviewRichTextDialog'
 export * from './components/HuiShowUrlDialog'
+export * from './components/HuiStringArrayInputDialog'

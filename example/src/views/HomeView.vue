@@ -7,6 +7,7 @@ const formDialogTest = ref(null)
 const lineEditDialog = ref(null)
 const previewRichTextDialog = ref(null)
 const showUrlDialog = ref(null)
+const stringArrayInputDialog = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -73,26 +74,38 @@ function onShowUrlDialogClick() {
 function showUrlDialogClose() {
   console.log("showUrlDialogClose, 我被关闭了")
 }
+
+function onStringArrayInputClick() {
+  stringArrayInputDialog.value.open('', { inputInfo: ['a', 'b', 'c'] })
+}
+
+function handleStringArrayInputSubmit(id, inputInfo) {
+  console.log("handleStringArrayInputSubmit", id, inputInfo)
+}
 </script>
 
 <template>
   <div class="flex">
     <div class="test-color-1">123</div>
     <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno test</div>
-    <div class="flex flex-col ml-10px">
-      <div><ElButton @click="onDialogBtnClick">普通弹框测试</ElButton></div>
-      <div class=" mt-10px">
-        <ElButton @click="onFormDialogBtnClick">表单弹框测试</ElButton>
+    <div class="flex ml-10px">
+      <div class="flex flex-col">
+        <div><ElButton @click="onDialogBtnClick">普通弹框测试</ElButton></div>
+        <div class=" mt-10px">
+          <ElButton @click="onFormDialogBtnClick">表单弹框测试</ElButton>
+        </div>
+        <div class=" mt-10px">
+          <ElButton @click="onLineEditDialogBtnClick">lineEditDialog</ElButton>
+        </div>
+        <div class=" mt-10px">
+          <ElButton @click="onPreviewRichTextClick">富文本预览</ElButton>
+        </div>
+        <div class=" mt-10px">
+          <ElButton @click="onShowUrlDialogClick">链接预览</ElButton>
+        </div>
       </div>
-      <div class=" mt-10px">
-        <ElButton @click="onLineEditDialogBtnClick">lineEditDialog</ElButton>
-      </div>
-      <div class=" mt-10px">
-        <ElButton @click="onPreviewRichTextClick">富文本预览</ElButton>
-      </div>
-      <div class=" mt-10px">
-        <ElButton @click="onShowUrlDialogClick">链接预览</ElButton>
-      </div>
+      <ElButton @click="onStringArrayInputClick">字符串数组编辑</ElButton>
+
     </div>
 
     <NormalDialogTest ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen" @close="onNormalDialogClose" />
@@ -107,6 +120,13 @@ function showUrlDialogClose() {
     />
     <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
     <HuiShowUrlDialog ref="showUrlDialog" title="查看链接" @close="showUrlDialogClose" />
+    <HuiStringArrayInputDialog
+      ref="stringArrayInputDialog"
+      title="编辑字符串数组"
+      label="标签" placeholder="请输入标签，使用' , '分隔"
+      :rules="[{ required: true, message: '请输入标签', trigger: 'blur' }]"
+      @on-submit="handleStringArrayInputSubmit"
+    />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"

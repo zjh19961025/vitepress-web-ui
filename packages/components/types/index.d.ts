@@ -1,7 +1,9 @@
 import { App } from 'vue';
+import { Arrayable } from 'element-plus/es/utils';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
 import { ExtractPropTypes } from 'vue';
+import { FormItemRule } from 'element-plus';
 import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
@@ -282,6 +284,66 @@ export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<{
     title: string;
     width: string;
     height: string;
+}, {}>> & Record<string, any>;
+
+/**
+ * 逗号分割字符串输入对话框
+ */
+export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
+    title: {
+        type: PropType<string>;
+        required: true;
+    };
+    label: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    placeholder: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    rules: {
+        type: PropType<Arrayable<FormItemRule>>;
+    };
+    tips: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onSubmit: (id: string, info: string) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        required: true;
+    };
+    label: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    placeholder: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    rules: {
+        type: PropType<Arrayable<FormItemRule>>;
+    };
+    tips: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}>> & {
+    onOnSubmit?: (id: string, info: string) => any;
+}, {
+    label: string;
+    placeholder: string;
+    tips: boolean;
 }, {}>> & Record<string, any>;
 
 export declare const HuiTool: {
