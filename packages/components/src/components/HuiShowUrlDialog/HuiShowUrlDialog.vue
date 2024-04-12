@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, toValue } from "vue"
 import { useHuiDialog } from "../../hooks/index"
-import { HuiShowUrlDialogPropsType } from './type'
+import type { HuiShowUrlDialogPropsType } from './type'
 import { testUtils } from "@hua5/hua5-utils"
 import { ElDialog } from 'element-plus'
 

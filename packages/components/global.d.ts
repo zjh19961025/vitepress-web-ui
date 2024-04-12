@@ -10,6 +10,7 @@ declare module 'vue' {
     HuiPreviewRichTextDialog: typeof import("@hua5/hua5-web-ui")["HuiPreviewRichTextDialog"]
     HuiShowUrlDialog: typeof import("@hua5/hua5-web-ui")["HuiShowUrlDialog"]
     HuiStringArrayInputDialog: typeof import("@hua5/hua5-web-ui")["HuiStringArrayInputDialog"]
+    HuiCountDownButton: typeof import("@hua5/hua5-web-ui")["HuiCountDownButton"]
   }
 
   /**

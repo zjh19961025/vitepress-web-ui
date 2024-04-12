@@ -6,4 +6,9 @@ export default defineConfig({
   presets: [
     presetHui(),
   ],
+  theme: {
+    colors: {
+      fresh: '#27B3C5',
+    },
+  },
 })

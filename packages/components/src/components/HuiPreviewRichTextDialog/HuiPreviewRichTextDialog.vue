@@ -3,7 +3,7 @@ import { ElDialog, ElButton } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import { ref, toValue } from 'vue'
 import { testUtils } from '@hua5/hua5-utils'
-import { HuiPreviewRichTextDialogPropsType } from './type'
+import type { HuiPreviewRichTextDialogPropsType } from './type'
 
 withDefaults(defineProps<HuiPreviewRichTextDialogPropsType>(), {
   title: '内容预览',
@@ -48,7 +48,7 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <div class="rd-5px px-10px b b-solid  b-borderColor overflow-y-auto h-80vh" v-html="content" />
+    <div class="rd-5 px-10 b b-solid  b-borderColor overflow-y-auto h-80vh" v-html="content" />
     <template #footer>
       <ElButton type="primary" size="large" @click="handleCancel">关 闭</ElButton>
     </template>

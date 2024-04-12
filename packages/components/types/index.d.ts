@@ -30,6 +30,57 @@ declare const _default: {
 };
 export default _default;
 
+/**
+ * 倒计时按钮
+ */
+export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
+    title: {
+        type: PropType<string>;
+        required: true;
+    };
+    timeCount: {
+        type: PropType<string | number>;
+        required: true;
+        default: number;
+    };
+    enableClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    disableClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+}, {
+    resetState: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        required: true;
+    };
+    timeCount: {
+        type: PropType<string | number>;
+        required: true;
+        default: number;
+    };
+    enableClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    disableClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+}>>, {
+    timeCount: string | number;
+    enableClass: string;
+    disableClass: string;
+}, {}>> & Record<string, any>;
+
 declare interface HuiDelegate {
     /**
      * 地区的所有数据
@@ -52,11 +103,11 @@ declare interface HuiDelegate {
  * 组件导出
  */
 export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
-    type: {
+    title: {
         type: PropType<string>;
         default: string;
     };
-    title: {
+    type: {
         type: PropType<string>;
         default: string;
     };
@@ -99,11 +150,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     onValueChange: (form: any, row?: any) => void;
     onSubmit: (row: any, prop: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
-    type: {
+    title: {
         type: PropType<string>;
         default: string;
     };
-    title: {
+    type: {
         type: PropType<string>;
         default: string;
     };
@@ -143,8 +194,8 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     onOnValueChange?: (form: any, row?: any) => any;
     onOnSubmit?: (row: any, prop: string) => any;
 }, {
-    type: string;
     title: string;
+    type: string;
     isNeedDoubleConfirm: boolean;
     label: string;
     selectDic: HuiLineEditDialogComboItem[];
@@ -293,6 +344,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         required: true;
+        default: string;
     };
     label: {
         type: PropType<string>;
@@ -320,6 +372,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         required: true;
+        default: string;
     };
     label: {
         type: PropType<string>;
@@ -341,6 +394,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 }>> & {
     onOnSubmit?: (id: string, info: string) => any;
 }, {
+    title: string;
     label: string;
     placeholder: string;
     tips: boolean;

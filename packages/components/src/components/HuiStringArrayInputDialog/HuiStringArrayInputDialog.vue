@@ -13,7 +13,7 @@ const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 const emits = defineEmits<HuiStringArrayInputDialogEmitType>()
 // 参数默认值
 const props = withDefaults(defineProps<HuiStringArrayInputDialogPropsType>(), {
-  // title: '请输入',
+  title: '请输入',
   label: '内容',
   placeholder: '请输入',
   tips: true,
@@ -81,18 +81,18 @@ defineExpose({
       :model="form"
       :rules="inputInfoRules"
       size="small"
-      class="mt-30px font-bold w-100%"
+      class="mt-30 font-bold w-100%"
     >
       <ElFormItem :label="label" prop="inputInfo" class="flex w-100%">
         <ElInput v-model.trim="form.inputInfo" :placeholder="placeholder" @keyup.enter="handleSubmit" />
       </ElFormItem>
-      <div v-if="tips" class="text-redColor ml-50px">{{ placeholder }}</div>
+      <div v-if="tips" class="text-redColor ml-50">{{ placeholder }}</div>
     </ElForm>
 
     <template #footer>
       <div>
         <ElButton @click="close">取 消</ElButton>
-        <ElButton type="primary" class="w-100px" :loading="confirmLoading" @click="handleSubmit">确 定</ElButton>
+        <ElButton type="primary" class="w-100" :loading="confirmLoading" @click="handleSubmit">确 定</ElButton>
       </div>
     </template>
   </ElDialog>

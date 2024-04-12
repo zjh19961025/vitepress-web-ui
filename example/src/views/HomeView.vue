@@ -1,13 +1,15 @@
 <script setup>
-import { HuiTool, HuiRules } from "@hua5/hua5-web-ui"
+import { HuiTool, HuiRules, HuiCountDownButton } from "@hua5/hua5-web-ui"
 import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
+
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
 const lineEditDialog = ref(null)
 const previewRichTextDialog = ref(null)
 const showUrlDialog = ref(null)
 const stringArrayInputDialog = ref(null)
+const countDownButton = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -82,15 +84,26 @@ function onStringArrayInputClick() {
 function handleStringArrayInputSubmit(id, inputInfo) {
   console.log("handleStringArrayInputSubmit", id, inputInfo)
 }
+
+function onGetCodeClick() {
+  console.log('开始倒计时了')
+  setTimeout(() => {
+    countDownButton.value.resetState()
+  }, 10000)
+}
 </script>
 
 <template>
   <div class="flex">
     <div class="test-color-1">123</div>
-    <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno test</div>
-    <div class="flex ml-10">
+    <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
+      test
+    </div>
+    <div class="flex ml-10px">
       <div class="flex flex-col">
-        <div><ElButton @click="onDialogBtnClick">普通弹框测试</ElButton></div>
+        <div>
+          <ElButton @click="onDialogBtnClick">普通弹框测试</ElButton>
+        </div>
         <div class=" mt-10px">
           <ElButton @click="onFormDialogBtnClick">表单弹框测试</ElButton>
         </div>
@@ -104,11 +117,18 @@ function handleStringArrayInputSubmit(id, inputInfo) {
           <ElButton @click="onShowUrlDialogClick">链接预览</ElButton>
         </div>
       </div>
-      <ElButton @click="onStringArrayInputClick">字符串数组编辑</ElButton>
-
+      <div class="flex flex-col ml-10">
+        <ElButton @click="onStringArrayInputClick">字符串数组编辑</ElButton>
+        <div class="mt-10px">
+          <HuiCountDownButton ref="countDownButton" title="获取验证码" :time-count="30" @click="onGetCodeClick" />
+        </div>
+      </div>
     </div>
 
-    <NormalDialogTest ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen" @close="onNormalDialogClose" />
+    <NormalDialogTest
+      ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen"
+      @close="onNormalDialogClose"
+    />
     <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
     <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"

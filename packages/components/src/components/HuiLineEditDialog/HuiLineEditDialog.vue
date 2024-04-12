@@ -14,7 +14,7 @@
       :model="form"
       :rules="inputRules"
       size="small"
-      class="mt-30px fw-bold w-100%"
+      class="mt-30 fw-bold w-100%"
     >
       <ElFormItem :label="label" prop="inputData" class="flex w-100%">
         <template #label>
