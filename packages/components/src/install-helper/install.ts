@@ -8,7 +8,7 @@ import { defaultDelegate } from "../delegate"
  */
 const defaultOptions: HuiOptions = {
   isInstallComponents: false,
-  delegate: {},
+  delegate: defaultDelegate,
 }
 /**
  * 是否已经安装
@@ -31,7 +31,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
 
     if (options) provideGlobalConfig(options, app)
     isInstalledHu5WebUI = true
-    window.huiDelegate = { ...defaultDelegate, ...options.delegate }
+    window.huiDelegate = { ...defaultOptions.delegate, ...options.delegate }
   }
 
   return {
