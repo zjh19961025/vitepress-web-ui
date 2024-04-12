@@ -6,6 +6,7 @@ import App from './App.vue'
 import 'virtual:uno.css'
 import router from './router'
 import hua5WebUI from "@hua5/hua5-web-ui"
+import "./css/color.css"
 
 const app = createApp(App)
 

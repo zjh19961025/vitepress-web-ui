@@ -95,12 +95,15 @@ function onGetCodeClick() {
 
 <template>
   <div class="flex">
-    <div class="test-color-1">123</div>
+    <div class=" flex-y">
+      <div class="w-20 admin-remark text-over-ellipsis">1231231231231231231232133</div>
+      <div class="w-20 admin-link text-over-ellipsis text-t_primary">1231231231231231231232133</div>
+    </div>
     <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test
     </div>
     <div class="flex ml-10px">
-      <div class="flex flex-col">
+      <div class="flex-y">
         <div>
           <ElButton @click="onDialogBtnClick">普通弹框测试</ElButton>
         </div>

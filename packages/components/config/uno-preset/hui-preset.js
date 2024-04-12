@@ -1,5 +1,7 @@
 import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
+import commonShortcuts from './common-shortcuts'
+import adminShortcuts from './admin-shortcuts'
 
 export function presetHui() {
   return {
@@ -8,45 +10,42 @@ export function presetHui() {
     rules: [],
     // 快捷方式
     shortcuts: [
-      {
-        'rel': 'relative',
-      },
-      {
-        'abs': 'absolute',
-      },
-      {
-        'fxd': 'fixed',
-      },
-      {
-        'flex-center': 'flex justify-center items-center',
-      },
-      {
-        'abs-center': 'absolute left-50% top-50% transform-translate-x--50% transform-translate-y--50%',
-      },
-      {
-        'abs-x-center': 'absolute left-50% transform-translate-x--50%',
-      },
-      {
-        'abs-y-center': 'absolute top-50% transform-translate-y--50%',
-      },
-      {
-        'text-over-clip': 'text-clip whitespace-nowrap overflow-hidden',
-      },
-      {
-        'text-over-ellipsis': 'text-ellipsis whitespace-nowrap overflow-hidden',
-      },
-      [/^text-over-ellipsis-(\d+)$/, ([, lines]) => `line-clamp-${lines}`],
+      ...commonShortcuts,
+      ...adminShortcuts,
     ],
     // 主题
     theme: {
       colors: {
-        // 1. 基本颜色
-        whiteColor: '#FFFFFF',
-        blackColor: '#000000',
-        cColor: '#cccccc',
-        dColor: '#dddddd',
-        eColor: '#eeeeee',
-        themeColor: '#FFD939', // 基础颜色
+        // 基础颜色
+        white: 'var(--color-white)',
+        black: 'var(--color-black)',
+        cColor: 'var(--color-cColor)',
+        dColor: 'var(--color-dColor)',
+        eColor: 'var(--color-eColor)',
+        // 类型颜色
+        primary: 'var(--color-primary)',
+        success: 'var(--color-success)',
+        warning: 'var(--color-warning)',
+        danger: 'var(--color-danger)',
+        error: 'var(--color-error)',
+        info: 'var(--color-info)',
+        // 文本颜色 t打头
+        t_primary: "var(--text-color-primary)",
+        t_regular: "var(--text-color-regular)",
+        t_secondary: "var(--text-color-secondary)",
+        t_placeholder: "var(--text-color-placeholder)",
+        t_disabled: "var(--text-color-disabled)",
+        // 边框
+        b_normal: "var(--border-color)",
+        b_light: "var(--border-color-light)",
+        b_lighter: "var(--border-color-lighter)",
+        b_extra_light: "var(--border-color-extra-light)",
+        b_dark: "var(--border-color-dark)",
+        b_darker: "var(--border-color-darker)",
+
+        /**
+         * 待删除
+         */
         // 2. 文本颜色
         mainColor: '#333333', // 主要文字颜色一般用于内容的标题等，如新闻列表的标题
         mainColorLight: '#1B1B1B', // 主要文字颜色高亮，比如需要突出显示的时候

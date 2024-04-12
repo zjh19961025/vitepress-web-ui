@@ -11,7 +11,7 @@
     "types",
     "config",
     "global.d.ts",
-    "css"
+    "src/css"
   ],
   "main": "dist/index.js",
   "types": "types/index.d.ts",
