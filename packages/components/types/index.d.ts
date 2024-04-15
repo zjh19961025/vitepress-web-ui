@@ -266,34 +266,38 @@ export declare const HuiRules: {
         trigger: string;
     };
     /**
-     * 是否正整数
-     * @param tips 错误提示
+     * 验证整数
+     * @param isCanZero 是否能输0
+     * @param isCanNegative 是否能输负数
      */
-    intNumRule: (tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+    intNumRule: (isCanZero?: boolean, isCanNegative?: boolean) => {
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
-     * 指定最大小数位验证
+     * 验证小数
      * @param digit 小数位数
+     * @param isCanZero 是否能输0
+     * @param isCanNegative 是否能输负数
      */
-    digitNumRule: (digit?: number) => {
+    digitNumRule: (digit?: number, isCanZero?: boolean, isCanNegative?: boolean) => {
+        validator: (rule: any, value: any, callback: any) => any;
+        trigger: string;
+    };
+    /**
+     * 验证码验证
+     * @param tips 错误提示
+     * @param codeLength 验证码长度
+     */
+    codeRule: (tips?: string, codeLength?: number) => {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };
     /**
-     * 是否非负数
+     * 电话号码验证
      * @param tips 错误提示
      */
-    isPosIntRule: (tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
-        trigger: string;
-    };
-    /**
-     * 是否非负的整数
-     * @param tips 错误提示
-     */
-    allNumRule: (tips?: string) => {
+    phoneNumRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };

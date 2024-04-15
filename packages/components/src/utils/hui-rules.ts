@@ -56,14 +56,25 @@ export const HuiRules = {
   },
 
   /**
-   * 是否正整数
-   * @param tips 错误提示
+   * 验证整数
+   * @param isCanZero 是否能输0
+   * @param isCanNegative 是否能输负数
    */
-  intNumRule: (tips = '请输入一个正整数') => {
+  intNumRule: (isCanZero = true, isCanNegative = true) => {
     return {
       validator: (rule, value, callback) => {
-        if (testUtils.isEmptyNoZero(value) || !Number.isInteger(Number(value)) || (value <= 0)) {
-          callback(new Error(tips))
+        const numVal = Number(value)
+        // 如果不是整数，则返回错误
+        if (!Number.isInteger(numVal) || testUtils.isEmpty(value)) {
+          return callback(new Error('输入的值不能为空且必须是整数'))
+        }
+        // 如果不允许输入 0，且输入的值是 0，则返回错误
+        if (!isCanZero && numVal === 0) {
+          return callback(new Error('输入的值不能为 0'))
+        }
+        // 如果不允许输入负数，且输入的值是负数，则返回错误
+        if (!isCanNegative && numVal < 0) {
+          return callback(new Error('输入的值不能为负数'))
         }
         callback()
       },
@@ -72,17 +83,30 @@ export const HuiRules = {
   },
 
   /**
-   * 指定最大小数位验证
+   * 验证小数
    * @param digit 小数位数
+   * @param isCanZero 是否能输0
+   * @param isCanNegative 是否能输负数
    */
-  digitNumRule: (digit = 2) => {
+  digitNumRule: (digit = 2, isCanZero = true, isCanNegative = true) => {
     return {
       validator: (rule, value, callback) => {
-        if (isNaN(Number(value))) {
-          callback(new Error('请输入有效的数字'))
+        const numVal = Number(value)
+        // 如果不是数字，则返回错误
+        if (isNaN(numVal) || testUtils.isEmpty(value)) {
+          return callback(new Error('输入的值不能为空且必须是数字'))
         }
-        if ((value?.toString()?.split('.')?.[1]?.length > digit)) {
-          callback(new Error(`最多只能有${digit}位小数`))
+        // 如果不满足小数位数要求，则返回错误
+        if (value?.toString()?.split('.')?.[1]?.length > digit) {
+          return callback(new Error(`输入的值最多只能有 ${digit} 位小数`))
+        }
+        // 如果不允许输入 0，且输入的值是 0，则返回错误
+        if (!isCanZero && numVal === 0) {
+          return callback(new Error('输入的值不能为 0'))
+        }
+        // 如果不允许输入负数，且输入的值是负数，则返回错误
+        if (!isCanNegative && numVal < 0) {
+          return callback(new Error('输入的值不能为负数'))
         }
         callback()
       },
@@ -91,13 +115,14 @@ export const HuiRules = {
   },
 
   /**
-   * 是否非负数
+   * 验证码验证
    * @param tips 错误提示
+   * @param codeLength 验证码长度
    */
-  isPosIntRule: (tips = '请输入一个大于等于0的数字') => {
+  codeRule: (tips = '请输入正确的验证码', codeLength = 6) => {
     return {
       validator: (rule, value, callback) => {
-        if (isNaN(Number(value)) || (value < 0)) {
+        if (testUtils.isEmpty(value) || !testUtils.isCode(value, codeLength)) {
           callback(new Error(tips))
         }
         callback()
@@ -107,13 +132,13 @@ export const HuiRules = {
   },
 
   /**
-   * 是否非负的整数
+   * 电话号码验证
    * @param tips 错误提示
    */
-  allNumRule: (tips = '请输入一个大于等于0的整数') => {
+  phoneNumRule: (tips = '请输入正确的电话号码') => {
     return {
       validator: (rule, value, callback) => {
-        if (!testUtils.isNonNegInt(value)) {
+        if (testUtils.isEmpty(value) || !testUtils.isMobile(value)) {
           callback(new Error(tips))
         }
         callback()

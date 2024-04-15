@@ -26,20 +26,17 @@
       <el-form-item label="json" prop="jsonProp" class="flex w-100%">
         <el-input v-model="form.jsonProp" placeholder="请输入json" />
       </el-form-item>
-      <el-form-item label="正整数" prop="intNum" class="flex w-100%">
-        <el-input v-model="form.intNum" placeholder="请输入正整数" />
+      <el-form-item label="整数" prop="intNum" class="flex w-100%">
+        <el-input v-model="form.intNum" placeholder="请输入整数" />
       </el-form-item>
       <el-form-item label="指定最大小数位数字" prop="digitNum" class="flex w-100%">
         <el-input v-model="form.digitNum" placeholder="请输入数字" />
       </el-form-item>
-      <el-form-item label="非负数" prop="posIntNum" class="flex w-100%">
-        <el-input v-model="form.posIntNum" placeholder="请输入非负数" />
+      <el-form-item label="验证码" prop="code" class="flex w-100%">
+        <el-input v-model="form.code" placeholder="请输入验证码" />
       </el-form-item>
-      <el-form-item label="最大两位小数金额" prop="money" class="flex w-100%">
-        <el-input v-model="form.money" placeholder="请输入金额" />
-      </el-form-item>
-      <el-form-item label="非负的整数" prop="allNum" class="flex w-100%">
-        <el-input v-model="form.allNum" placeholder="请输入非负的整数" />
+      <el-form-item label="电话号码" prop="phone" class="flex w-100%">
+        <el-input v-model="form.phone" placeholder="请输入电话" />
       </el-form-item>
     </el-form>
 
@@ -61,9 +58,8 @@ const formModel = {
   jsonProp: '{"test": 1}',
   intNum: 1,
   digitNum: 1.22,
-  posIntNum: 5.9999,
-  money: 3.22,
-  allNum: 5,
+  code: 56963,
+  phone: 12345678901,
 }
 const {
   show, open, close, form, formRef,
@@ -80,11 +76,10 @@ const {
 const rules = {
   testProp: HuiRules.urlRule(),
   jsonProp: [HuiRules.jsonRule()],
-  intNum: HuiRules.intNumRule(),
-  digitNum: HuiRules.digitNumRule(2),
-  posIntNum: HuiRules.isPosIntRule(),
-  money: [HuiRules.isPosIntRule(), HuiRules.digitNumRule(2)],
-  allNum: HuiRules.allNumRule(),
+  intNum: HuiRules.intNumRule(false, true),
+  digitNum: HuiRules.digitNumRule(3, true, false),
+  code: HuiRules.codeRule('请输入5位数字验证码', 5),
+  phone: HuiRules.phoneNumRule(),
 }
 
 function beforeSubmit(submitForm: any) {
