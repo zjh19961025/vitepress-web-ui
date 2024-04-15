@@ -19,19 +19,6 @@ export default defineConfig({
     // 变体组转换器
     transformerVariantGroup(),
   ],
-  // 预飞行
-  preflights: [],
-  // 分层
-  layers: {
-    // 基础层
-    base: 1,
-    // 组件层
-    components: 2,
-    // 工具层
-    utilities: 3,
-    // 默认层
-    default: 4,
-  },
   // 预设
   presets: [
     presetHui(),

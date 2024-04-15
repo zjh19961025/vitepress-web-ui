@@ -29,6 +29,8 @@ export function presetHui() {
         danger: 'var(--color-danger)',
         error: 'var(--color-error)',
         info: 'var(--color-info)',
+        disabled: 'var(--color-disabled)',
+        special: 'var(--color-special)',
         // 文本颜色 t打头
         t_primary: "var(--text-color-primary)",
         t_regular: "var(--text-color-regular)",
