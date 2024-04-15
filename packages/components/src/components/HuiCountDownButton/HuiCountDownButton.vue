@@ -5,8 +5,8 @@ import { onUnmounted, ref } from 'vue'
 
 const props = withDefaults(defineProps<HuiCountDownButtonPropsType>(), {
   timeCount: 60,
-  enableClass: '!bg-fresh !text-white',
-  disableClass: '!bg-bgColor !text-placeholderColor',
+  enableClass: '!bg-special !text-white',
+  disableClass: '!bg-bg_normal !text-t_disabled',
 })
 
 const isDisabled = ref(false)

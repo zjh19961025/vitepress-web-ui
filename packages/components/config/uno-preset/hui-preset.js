@@ -19,9 +19,9 @@ export function presetHui() {
         // 基础颜色
         white: 'var(--color-white)',
         black: 'var(--color-black)',
-        cColor: 'var(--color-cColor)',
-        dColor: 'var(--color-dColor)',
-        eColor: 'var(--color-eColor)',
+        ccc: 'var(--color-ccc)',
+        ddd: 'var(--color-ddd)',
+        eee: 'var(--color-eee)',
         // 类型颜色
         primary: 'var(--color-primary)',
         success: 'var(--color-success)',
@@ -31,6 +31,10 @@ export function presetHui() {
         info: 'var(--color-info)',
         disabled: 'var(--color-disabled)',
         special: 'var(--color-special)',
+        // 背景颜色
+        bg_normal: 'var(--bg-color)',
+        bg_page: 'var(--bg-color-page)',
+        bg_overlay: 'var(--bg-color-overlay)',
         // 文本颜色 t打头
         t_primary: "var(--text-color-primary)",
         t_regular: "var(--text-color-regular)",
@@ -44,58 +48,6 @@ export function presetHui() {
         b_extra_light: "var(--border-color-extra-light)",
         b_dark: "var(--border-color-dark)",
         b_darker: "var(--border-color-darker)",
-
-        /**
-         * 待删除
-         */
-        // 2. 文本颜色
-        mainColor: '#333333', // 主要文字颜色一般用于内容的标题等，如新闻列表的标题
-        mainColorLight: '#1B1B1B', // 主要文字颜色高亮，比如需要突出显示的时候
-        contentColor: '#666666', // 常规文字颜色一般用于内容的主体，如新闻列表的概要
-        tipsColor: '#999999', // 次要文字颜色一般用于内容的提示部分，如新闻列表底部的时间，评论数量的提示文字
-        lightColor: '#cccccc', // 占位文字颜色属于更浅的灰色，看场景选择使用
-        placeholderColor: '#909399', // 颜色更深的占位符
-        // 3. 背景 边框颜色
-        // 背景
-        bgColor: '#f4f4f4', // 背景颜色
-        titleBgColor: '#304156', // 标题
-        // 边框颜色
-        borderColor: '#dddddd', // 边框颜色
-        borderEColor: '#eeeeee',
-        disabledColor: '#cccccc', // 不可用颜色
-        // 4. 主题颜色：
-        // 使用这些 主题色 分别对应各个类型：primary, warning, success, error
-        // 颜色 可以有多个，但是类型只有这四个，可以定义更多颜色，然后对对应相应的类型，覆盖uview中的各个类型
-        // 蓝(基本色)，黄(警告色)，绿(成功色), 红(错误色).....
-        // 状态：
-        // 1. 普通：正常显示的颜色
-        // 2. dark: 按钮被按下时，使用的是primary的加深颜色，也即dark状态
-        // 3. disabled: 按钮处于禁止状态时，使用的是primary的稍浅颜色，也即disabled状态
-        // 4. light: 按钮设置为镂空状态(plain为true)时，背景色为primary的变浅颜色，也即light状态。
-        infoColor: '#999999',
-        infoDarkColor: '#82848a',
-        infoDisabledColor: '#cccccc',
-        infoLightColor: '#f4f4f5',
-
-        blueColor: '#007EFF',
-        blueDarkColor: '#0074e9',
-        blueDisabledColor: '#7ab9f9',
-        blueLightColor: '#ecf5ff',
-
-        yellowColor: '#FFD939',
-        yellowDarkColor: '#f0ca32',
-        yellowDisabledColor: '#f9e696',
-        yellowLightColor: '#fdf6ec',
-
-        greenColor: '#22652C',
-        greenDarkColor: '#1f5f25',
-        greenDisabledColor: '#8bac90',
-        greenLightColor: '#CCEBD0',
-
-        redColor: '#C60C0C',
-        redDarkColor: '#ba0505',
-        redDisabledColor: '#dd8080',
-        redLightColor: '#fef0f0',
       },
     },
     // 变体

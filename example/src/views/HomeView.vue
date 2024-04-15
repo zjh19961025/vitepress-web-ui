@@ -99,7 +99,7 @@ function onGetCodeClick() {
       <div class="w-20 admin-remark text-over-ellipsis">1231231231231231231232133</div>
       <div class="w-20 admin-link text-over-ellipsis text-t_primary">1231231231231231231232133</div>
     </div>
-    <div class="text-yellowColor bg-mainColor" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
+    <div class="text-danger bg-success" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test
     </div>
     <div class="flex ml-10px">
@@ -159,6 +159,3 @@ function onGetCodeClick() {
     /> -->
   </div>
 </template>
-
-<style scoped lang="scss">
-</style>

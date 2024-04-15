@@ -48,7 +48,7 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <div class="rd-5 px-10 b b-solid  b-borderColor overflow-y-auto h-80vh" v-html="content" />
+    <div class="rd-5 px-10 b b-solid b-ddd overflow-y-auto h-80vh" v-html="content" />
     <template #footer>
       <ElButton type="primary" size="large" @click="handleCancel">关 闭</ElButton>
     </template>

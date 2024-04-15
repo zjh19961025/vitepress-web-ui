@@ -86,7 +86,7 @@ defineExpose({
       <ElFormItem :label="label" prop="inputInfo" class="flex w-100%">
         <ElInput v-model.trim="form.inputInfo" :placeholder="placeholder" @keyup.enter="handleSubmit" />
       </ElFormItem>
-      <div v-if="tips" class="text-redColor ml-50">{{ placeholder }}</div>
+      <div v-if="tips" class="text-danger ml-50">{{ placeholder }}</div>
     </ElForm>
 
     <template #footer>
