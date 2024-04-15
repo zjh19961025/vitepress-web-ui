@@ -45,3 +45,14 @@ ComponentName
 ```
   pnpm publish
 ```
+
+## css 相关
+#### 颜色使用
+1. 对 web-ui 颜色覆盖：重写 src/css/corlor 中的颜色
+2. element-plus 颜色覆盖
+
+
+#### 公共css
+1. 使用 uno 的 shortcuts 替换 公共css。
+2. 在 config/uno-preset 添加公共的 shortcuts
+
