@@ -16,5 +16,12 @@ export default defineConfig(({ mode, command }) => {
       // 导入时想要省略的扩展名列表
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/css/element/index.scss" as *;`,
+        },
+      },
+    },
   }
 })

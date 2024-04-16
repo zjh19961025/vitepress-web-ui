@@ -1,0 +1,50 @@
+$--colors: (
+  "primary": (
+    "base": #409eff,
+  ),
+  "success": (
+    "base": #1CA817,
+  ),
+  "warning": (
+    "base": #ECA232,
+  ),
+  "danger": (
+    "base": #CA2020,
+  ),
+  "error": (
+    "base": #CA2020,
+  ),
+  "info": (
+    "base": #909399,
+  ),
+);
+
+$--text-colors: (
+  "primary":  #303133,
+  "regular": #606266,
+  "secondary": #909399,
+  "placeholder": #c0c4cc,
+  "disabled": #c0c4cc,
+);
+
+$--bg-colors: (
+  "": #F5F7FA,
+  "page": #F5F7FA,
+  "overlay": #ffffff,
+);
+
+$--border-colors: (
+  "": #dcdfe6,
+  "light": #e4e7ed,
+  "lighter": #ebeef5,
+  "extra-light": #f2f6fc,
+  "dark": #d4d7de,
+  "darker": #cdd0d6,
+);
+
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: $--colors,
+  $text-color: $--text-colors,
+  $border-color: $--border-colors,
+  $bg-color: $--bg-colors,
+);
