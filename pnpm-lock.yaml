@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hua5/hua5-web-lib':
-        specifier: ^1.0.2
-        version: 1.0.2(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21)
+        specifier: ^1.0.3
+        version: 1.0.3(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21)
       element-plus:
         specifier: ^2.6.3
         version: 2.6.3(vue@3.4.21)
@@ -956,6 +956,18 @@ packages:
 
   /@hua5/hua5-web-lib@1.0.2(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21):
     resolution: {integrity: sha512-90+CKS4uStnpuJO2+Uj7+0u4lqc0r7U9981NBwQS8me1l+H7j0NvpwdasqLW5gBvysmxq4j/mfgyeLX3tZIRUw==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-web-lib/-/@hua5/hua5-web-lib-1.0.2.tgz}
+    peerDependencies:
+      '@hua5/hua5-utils': '>=1.0.2'
+      vue: ^3.4.21
+      vue-router: ^4.3.0
+    dependencies:
+      '@hua5/hua5-utils': 1.0.3
+      vue: 3.4.21(typescript@5.4.4)
+      vue-router: 4.3.0(vue@3.4.21)
+    dev: false
+
+  /@hua5/hua5-web-lib@1.0.3(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21):
+    resolution: {integrity: sha512-WSVQTT3QIuu/UcYGspgSgxD/txBamGyAeQsysIiq5XXZRYxiMd4/PDu0F+o6p0Jfr1kUogZG8eds3rSbqPAghg==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-web-lib/-/@hua5/hua5-web-lib-1.0.3.tgz}
     peerDependencies:
       '@hua5/hua5-utils': '>=1.0.2'
       vue: ^3.4.21

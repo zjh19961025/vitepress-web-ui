@@ -3,7 +3,7 @@ export interface HuiDelegate {
    * 地区的所有数据
    * @returns
    */
-  getRegion?: () => any[];
+  getRegionTree?: () => any[];
   /**
    * 上传oss
    * @param file 文件信息
@@ -30,7 +30,7 @@ declare global {
  * window.hlibDelegate 默认设置
  */
 window.huiDelegate = {
-  getRegion: () => {
+  getRegionTree: () => {
     return []
   },
   putOss: async() => {

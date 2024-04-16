@@ -55,7 +55,7 @@ const testRow = {
 }
 async function onLineEditDialogBtnClick() {
   lineEditDialog.value.open('name', testRow)
-  const test = await getRegionNameByCode("123")
+  const test = await getRegionNameByCode("110101")
   console.log(test)
 }
 function handleRowEdit(row, prop) {

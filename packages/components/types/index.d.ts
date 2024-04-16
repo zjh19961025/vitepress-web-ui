@@ -65,12 +65,12 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
     disableClass: string;
 }, {}>> & Record<string, any>;
 
-declare interface HuiDelegate {
+export declare interface HuiDelegate {
     /**
      * 地区的所有数据
      * @returns
      */
-    getRegion?: () => any[];
+    getRegionTree?: () => any[];
     /**
      * 上传oss
      * @param file 文件信息
@@ -198,8 +198,8 @@ declare type HuiLineEditDialogComboItem = {
 /**
  * option选项
  */
-declare type HuiOptions = {
-    isInstallComponents: boolean;
+export declare type HuiOptions = {
+    isInstallComponents?: boolean;
     delegate?: HuiDelegate;
 };
 

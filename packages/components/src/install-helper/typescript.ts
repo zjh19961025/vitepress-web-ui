@@ -5,7 +5,7 @@ import type { AppContext, Plugin } from 'vue'
  * option选项
  */
 export type HuiOptions = {
-  isInstallComponents: boolean,
+  isInstallComponents?: boolean,
   delegate?: HuiDelegate,
 }
 
