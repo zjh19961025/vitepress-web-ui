@@ -23,7 +23,7 @@ const isShowTree = ref(false)
 const regionTree = ref(window.huiDelegate.getRegionTree())
 
 // 组件实例
-const treeRef = ref<InstanceType<typeof ElTree>>(null)
+const treeRef = ref<InstanceType<typeof ElTree> | null>(null)
 
 watch(filterText, (val) => {
   treeRef.value.filter(val)

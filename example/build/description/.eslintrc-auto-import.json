@@ -64,6 +64,7 @@
     "watchPostEffect": true,
     "watchSyncEffect": true,
     "HuiTest": true,
-    "useHuiTest": true
+    "useHuiTest": true,
+    "ElMessage": true
   }
 }

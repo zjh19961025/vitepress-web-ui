@@ -2,7 +2,7 @@ import { withInstall } from '../../install-helper/install'
 import HuiRegionTreePopoverComp from './HuiRegionTreePopover.vue'
 
 /**
- * 组件导出
+ * 地区树Popover
  */
 export const HuiRegionTreePopover = withInstall(HuiRegionTreePopoverComp)
 export default HuiRegionTreePopover

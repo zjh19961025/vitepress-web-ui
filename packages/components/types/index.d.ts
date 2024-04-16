@@ -224,7 +224,74 @@ export declare const HuiPreviewRichTextDialog: SFCWithInstall<DefineComponent<{
 }, {}>> & Record<string, any>;
 
 /**
- * 组件导出
+ * 地区选择弹窗
+ */
+export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<{
+    accordion: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    nodeKey: {
+        type: PropType<string>;
+        default: string;
+    };
+    treeLabelKey: {
+        type: PropType<string>;
+        default: string;
+    };
+    isConfirmClose: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    showCheckbox: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+    confirmLoading: Ref<boolean>;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onSubmit: (region: {
+        id: string;
+        regionList: any[];
+    }) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    accordion: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    nodeKey: {
+        type: PropType<string>;
+        default: string;
+    };
+    treeLabelKey: {
+        type: PropType<string>;
+        default: string;
+    };
+    isConfirmClose: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    showCheckbox: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}>> & {
+    onOnSubmit?: (region: {
+        id: string;
+        regionList: any[];
+    }) => any;
+}, {
+    accordion: boolean;
+    nodeKey: string;
+    treeLabelKey: string;
+    isConfirmClose: boolean;
+    showCheckbox: boolean;
+}, {}>> & Record<string, any>;
+
+/**
+ * 地区树Popover
  */
 export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     region: PropType<string>;
@@ -232,13 +299,13 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
-    onlySelectLeaf: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
     treeLabelKey: {
         type: PropType<string>;
         default: string;
+    };
+    onlySelectLeaf: {
+        type: PropType<boolean>;
+        default: boolean;
     };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRegionChange: (region: string) => void;
@@ -248,20 +315,20 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
-    onlySelectLeaf: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
     treeLabelKey: {
         type: PropType<string>;
         default: string;
+    };
+    onlySelectLeaf: {
+        type: PropType<boolean>;
+        default: boolean;
     };
 }>> & {
     onOnRegionChange?: (region: string) => any;
 }, {
     accordion: boolean;
-    onlySelectLeaf: boolean;
     treeLabelKey: string;
+    onlySelectLeaf: boolean;
 }, {}>> & Record<string, any>;
 
 export declare const HuiRules: {

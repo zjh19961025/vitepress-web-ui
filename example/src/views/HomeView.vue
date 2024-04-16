@@ -12,6 +12,7 @@ const showUrlDialog = ref(null)
 const stringArrayInputDialog = ref(null)
 const countDownButton = ref(null)
 const region = ref('')
+const regionTreeDialogRef = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -100,6 +101,25 @@ function onGetCodeClick() {
 function onRegionChange(value) {
   console.log('onRegionChange', value)
 }
+
+const selectedRegion = ref([])
+function onRegionTreeDialogClick() {
+  regionTreeDialogRef.value.open('2', {
+    // 默认选中
+    defaultCheckedKeys: readonly(selectedRegion.value),
+    // 禁用的地区code
+    disabledRegions: ['120103', '120104'],
+  })
+}
+
+function onRegionsSubmit({ id, regionList }) {
+  console.log('onRegionsSubmit', id, regionList)
+  selectedRegion.value = regionList
+  ElMessage.success('2秒后自动关闭')
+  setTimeout(() => {
+    regionTreeDialogRef.value.close()
+  }, 2000)
+}
 </script>
 
 <template>
@@ -137,6 +157,9 @@ function onRegionChange(value) {
         <div class="mt-10px">
           <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />
         </div>
+        <div class="mt-10px">
+          <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>
+        </div>
       </div>
     </div>
 
@@ -162,6 +185,7 @@ function onRegionChange(value) {
       :rules="[{ required: true, message: '请输入标签', trigger: 'blur' }]"
       @on-submit="handleStringArrayInputSubmit"
     />
+    <HuiRegionTreeDialog ref="regionTreeDialogRef" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"

@@ -4,6 +4,7 @@ import HuiShowUrlDialog from './components/HuiShowUrlDialog'
 import HuiStringArrayInputDialog from './components/HuiStringArrayInputDialog'
 import HuiCountDownButton from './components/HuiCountDownButton'
 import HuiRegionTreePopover from './components/HuiRegionTreePopover'
+import HuiRegionTreeDialog from './components/HuiRegionTreeDialog'
 
 export default [
   HuiLineEditDialog,
@@ -12,4 +13,5 @@ export default [
   HuiStringArrayInputDialog,
   HuiCountDownButton,
   HuiRegionTreePopover,
+  HuiRegionTreeDialog,
 ]
