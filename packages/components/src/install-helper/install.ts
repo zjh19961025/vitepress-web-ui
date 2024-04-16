@@ -1,6 +1,5 @@
 import type { App, Plugin } from 'vue'
 import type { SFCWithInstall, HuiOptions } from './typescript'
-import { addUnit, addStyle } from '../utils/hui-tool'
 import { defaultDelegate } from "../delegate"
 
 /**
@@ -29,7 +28,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
       components.forEach((c) => app.use(c))
     }
 
-    if (options) provideGlobalConfig(options, app)
+    provideGlobalConfig(options, app)
     isInstalledHu5WebUI = true
     window.huiDelegate = { ...defaultOptions.delegate, ...options.delegate }
   }
@@ -41,12 +40,14 @@ export const makeInstaller = (components: Plugin[] = []) => {
 
 /**
  * 全局配置相关
+ * 添加到vue 原型上的属性
  * @param options
  * @param app
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function provideGlobalConfig(options: HuiOptions, app: App) {
-  app.config.globalProperties.addUnit = addUnit
-  app.config.globalProperties.addStyle = addStyle
+  // 添加到vue 原型上的属性
+
 }
 
 /**

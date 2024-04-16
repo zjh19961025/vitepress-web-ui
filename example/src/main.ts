@@ -5,12 +5,13 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import 'virtual:uno.css'
 import router from './router'
+import hua5WebLib from "@hua5/hua5-web-lib"
 import hua5WebUI from "@hua5/hua5-web-ui"
 import "./css/color.css"
 
 const app = createApp(App)
 
-app.use(router)
-// app.use(ElementPlus)
+app.use(router as any)
+app.use(hua5WebLib)
 app.use(hua5WebUI)
 app.mount('#app')

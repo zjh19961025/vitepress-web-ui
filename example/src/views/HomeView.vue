@@ -2,6 +2,7 @@
 import { HuiTool, HuiRules, HuiCountDownButton } from "@hua5/hua5-web-ui"
 import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
+import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
 
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
@@ -21,7 +22,7 @@ const selectDic = ref([
   },
 ])
 
-const testStyle = ref(`width: ${HuiTool.addUnit(200)}`)
+const testStyle = ref(`width: ${addUnit(200)}`)
 
 function onDialogBtnClick() {
   normalDialogTest.value?.open()
@@ -31,6 +32,7 @@ function onNormalDialogOpen() {
   console.log("onNormalDialogOpen", new Date().getTime())
 }
 function onNormalDialogClose() {
+  HuiTool.ok("close")
   console.log("onNormalDialogClose", new Date().getTime())
 }
 
@@ -51,8 +53,10 @@ const testRow = {
     temp: 1,
   },
 }
-function onLineEditDialogBtnClick() {
+async function onLineEditDialogBtnClick() {
   lineEditDialog.value.open('name', testRow)
+  const test = await getRegionNameByCode("123")
+  console.log(test)
 }
 function handleRowEdit(row, prop) {
   console.log("handleRowEdit", row, prop, testRow)
@@ -96,8 +100,8 @@ function onGetCodeClick() {
 <template>
   <div class="flex">
     <div class=" flex-y">
-      <div class="w-20 admin-remark text-over-ellipsis">1231231231231231231232133</div>
-      <div class="w-20 admin-link text-over-ellipsis text-t_primary">1231231231231231231232133</div>
+      <div class="admin-remark">admin-remark</div>
+      <div class="admin-link">admin-link</div>
     </div>
     <div class="text-danger bg-success" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test

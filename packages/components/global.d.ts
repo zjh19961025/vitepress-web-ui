@@ -17,8 +17,7 @@ declare module 'vue' {
    * 已添加到原型上的
    */
   interface ComponentCustomProperties {
-    addUnit: typeof import('@hua5/hua5-web-ui')['addUnit']
-    addStyle: typeof import('@hua5/hua5-web-ui')['addStyle']
+    
   }
 }
 

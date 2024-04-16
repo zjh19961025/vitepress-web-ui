@@ -9,22 +9,6 @@ import { PropType } from 'vue';
 import { PublicProps } from 'vue';
 import { Ref } from 'vue';
 
-/**
- * 样式转换, 对象转字符串，或者字符串转对象
- * @param {object | string} customStyle 需要转换的目标
- * @param {String} target 转换的目的，object-转为对象，string-转为字符串
- * @returns {object|string}
- */
-export declare function addStyle(customStyle: string | object, target?: string): {};
-
-/**
- * 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
- * @param value
- * @param unit
- * @returns
- */
-export declare function addUnit(value?: string | number, unit?: string): string;
-
 declare const _default: {
     install: (app: App<any>, opt?: HuiOptions) => void;
 };
@@ -407,8 +391,6 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;
-    addUnit: typeof addUnit;
-    addStyle: typeof addStyle;
 };
 
 declare type SFCWithInstall<T> = T & Plugin_2;
