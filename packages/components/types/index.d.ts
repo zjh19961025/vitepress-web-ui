@@ -223,6 +223,47 @@ export declare const HuiPreviewRichTextDialog: SFCWithInstall<DefineComponent<{
     title: string;
 }, {}>> & Record<string, any>;
 
+/**
+ * 组件导出
+ */
+export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
+    region: PropType<string>;
+    accordion: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    onlySelectLeaf: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    treeLabelKey: {
+        type: PropType<string>;
+        default: string;
+    };
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onRegionChange: (region: string) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    region: PropType<string>;
+    accordion: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    onlySelectLeaf: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    treeLabelKey: {
+        type: PropType<string>;
+        default: string;
+    };
+}>> & {
+    onOnRegionChange?: (region: string) => any;
+}, {
+    accordion: boolean;
+    onlySelectLeaf: boolean;
+    treeLabelKey: string;
+}, {}>> & Record<string, any>;
+
 export declare const HuiRules: {
     /**
      * 是否url

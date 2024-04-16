@@ -11,6 +11,7 @@ const previewRichTextDialog = ref(null)
 const showUrlDialog = ref(null)
 const stringArrayInputDialog = ref(null)
 const countDownButton = ref(null)
+const region = ref('')
 const selectDic = ref([
   {
     label: 1,
@@ -95,6 +96,10 @@ function onGetCodeClick() {
     countDownButton.value.resetState()
   }, 10000)
 }
+
+function onRegionChange(value) {
+  console.log('onRegionChange', value)
+}
 </script>
 
 <template>
@@ -128,6 +133,9 @@ function onGetCodeClick() {
         <ElButton @click="onStringArrayInputClick">字符串数组编辑</ElButton>
         <div class="mt-10px">
           <HuiCountDownButton ref="countDownButton" title="获取验证码" :time-count="30" @click="onGetCodeClick" />
+        </div>
+        <div class="mt-10px">
+          <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />
         </div>
       </div>
     </div>
