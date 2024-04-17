@@ -496,6 +496,70 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
     tips: boolean;
 }, {}>> & Record<string, any>;
 
+/**
+ * 富文本编辑弹窗
+ */
+export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    height: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    linkAttribute: {
+        type: PropType< HuiTinymceDialogLink[]>;
+        required: true;
+        default: () => {
+            title: string;
+            value: string;
+        }[];
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onSubmit: (tinymceContent: string, row: any, field: string) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    height: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    linkAttribute: {
+        type: PropType< HuiTinymceDialogLink[]>;
+        required: true;
+        default: () => {
+            title: string;
+            value: string;
+        }[];
+    };
+}>> & {
+    onOnSubmit?: (tinymceContent: string, row: any, field: string) => any;
+}, {
+    width: string | number;
+    height: string | number;
+    linkAttribute: HuiTinymceDialogLink[];
+}, {}>> & Record<string, any>;
+
+/**
+ *  链接支持的属性
+ */
+declare interface HuiTinymceDialogLink {
+    /** 链接标题 */
+    title: string;
+    /** 链接对象的key */
+    value: string;
+}
+
 export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;

@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@hua5/hua5-web-lib": "^1.0.3",
+    "@tinymce/tinymce-vue": "^5",
     "element-plus": "^2.6.3",
     "vue": "^3.4.21"
   },

@@ -13,6 +13,7 @@ const stringArrayInputDialog = ref(null)
 const countDownButton = ref(null)
 const region = ref('')
 const regionTreeDialogRef = ref(null)
+const tinymceDialogRef = ref(null)
 const selectDic = ref([
   {
     label: 1,
@@ -120,6 +121,20 @@ function onRegionsSubmit({ id, regionList }) {
     regionTreeDialogRef.value.close()
   }, 2000)
 }
+
+const content = ref('')
+function onTniymceClick() {
+  tinymceDialogRef.value.open('2', {
+    content: readonly(content),
+    row: { name: '测试' },
+    field: 'name',
+  })
+}
+
+function onTinymceSubmit(tinymceContent, row, field) {
+  console.log('onTinymceSubmit', tinymceContent, row, field)
+  content.value = tinymceContent
+}
 </script>
 
 <template>
@@ -160,6 +175,9 @@ function onRegionsSubmit({ id, regionList }) {
         <div class="mt-10px">
           <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>
         </div>
+        <div class="mt-10px">
+          <ElButton @click="onTniymceClick">富文本编辑弹框</ElButton>
+        </div>
       </div>
     </div>
 
@@ -186,6 +204,7 @@ function onRegionsSubmit({ id, regionList }) {
       @on-submit="handleStringArrayInputSubmit"
     />
     <HuiRegionTreeDialog ref="regionTreeDialogRef" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
+    <HuiTinymceDialog ref="tinymceDialogRef" @on-submit="onTinymceSubmit" />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"
@@ -195,3 +214,4 @@ function onRegionsSubmit({ id, regionList }) {
     /> -->
   </div>
 </template>
+

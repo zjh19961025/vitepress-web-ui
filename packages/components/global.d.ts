@@ -13,6 +13,7 @@ declare module 'vue' {
     HuiCountDownButton: typeof import("@hua5/hua5-web-ui")["HuiCountDownButton"]
     HuiRegionTreePopover: typeof import("@hua5/hua5-web-ui")["HuiRegionTreePopover"]
     HuiRegionTreeDialog: typeof import("@hua5/hua5-web-ui")["HuiRegionTreeDialog"]
+    HuiTinymceDialog: typeof import("@hua5/hua5-web-ui")["HuiTinymceDialog"]
   }
 
   /**

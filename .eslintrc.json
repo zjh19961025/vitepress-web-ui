@@ -3,5 +3,7 @@
   "extends": ["@hua5/eslint-config"],
   "rules": {
     // 自定义规则
+    // promise函数中禁止使用async/await 
+    "no-async-promise-executor": 0
   }
 }
