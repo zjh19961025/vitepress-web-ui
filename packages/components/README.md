@@ -98,3 +98,12 @@ ComponentName
 1. 对于之前实现的公共class, 使用 uno 的 shortcuts 来实现
 2. 在 config/uno-preset 添加公共的 shortcuts
 
+#### 富文本组件使用说明
+1. 将example/public/tinymce的文件夹复制到项目的public文件夹下
+2. 在项目的index.html中引入tinymce.min.js
+   ```js
+   <script src="/tinymce/tinymce.min.js"></script>
+   ```
+3. 安装@tinymce/tinymce-vue
+    pnpm add --save "@tinymce/tinymce-vue@^5"
+
