@@ -14,6 +14,7 @@ declare module 'vue' {
     HuiRegionTreePopover: typeof import("@hua5/hua5-web-ui")["HuiRegionTreePopover"]
     HuiRegionTreeDialog: typeof import("@hua5/hua5-web-ui")["HuiRegionTreeDialog"]
     HuiTinymceDialog: typeof import("@hua5/hua5-web-ui")["HuiTinymceDialog"]
+    HuiTinymce: typeof import("@hua5/hua5-web-ui")["HuiTinymce"]
   }
 
   /**

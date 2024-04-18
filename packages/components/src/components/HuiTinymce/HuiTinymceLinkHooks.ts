@@ -1,8 +1,8 @@
 import { ElMessage } from "element-plus"
-import type { HuiTinymceDialogLinkHooksType } from "./type"
+import type { HuiTinymceLinkHooksType } from "./type"
 import { computed } from "vue"
 
-export const HuiTinymceDialogLinkHooks: HuiTinymceDialogLinkHooksType = (linkPayload) => {
+export const HuiTinymceLinkHooks: HuiTinymceLinkHooksType = (linkPayload) => {
   const { props } = linkPayload
 
   const linkExpandAttributeStr = computed<string>(() => {

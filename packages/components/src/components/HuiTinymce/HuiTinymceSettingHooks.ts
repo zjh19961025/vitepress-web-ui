@@ -1,7 +1,7 @@
 import { ref } from "vue"
-import type { HuiTinymceDialogSettingHooksType } from './type'
+import type { HuiTinymceSettingHooksType } from './type'
 
-export const HuiTinymceDialogSettingHooks: HuiTinymceDialogSettingHooksType = (settingPayload) => {
+export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayload) => {
   const { props, linkExpandAttributeStr, linkSetup } = settingPayload
   const setting = ref({
     menubar: true, // 顶部菜单栏是否开启

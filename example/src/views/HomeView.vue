@@ -135,6 +135,11 @@ function onTinymceSubmit(tinymceContent, row, field) {
   console.log('onTinymceSubmit', tinymceContent, row, field)
   content.value = tinymceContent
 }
+
+const richTextContent = ref('')
+watch(richTextContent, (val) => {
+  console.log('富文本内容', val)
+})
 </script>
 
 <template>
@@ -179,6 +184,9 @@ function onTinymceSubmit(tinymceContent, row, field) {
           <ElButton @click="onTniymceClick">富文本编辑弹框</ElButton>
         </div>
       </div>
+      <div class="flex flex-col ml-10">
+        <HuiTinymce v-model:tinymceContent="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
+      </div>
     </div>
 
     <NormalDialogTest
@@ -204,7 +212,7 @@ function onTinymceSubmit(tinymceContent, row, field) {
       @on-submit="handleStringArrayInputSubmit"
     />
     <HuiRegionTreeDialog ref="regionTreeDialogRef" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
-    <HuiTinymceDialog ref="tinymceDialogRef" @on-submit="onTinymceSubmit" />
+    <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
     <!-- <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="input" :rules="HuiRules.urlRule()"

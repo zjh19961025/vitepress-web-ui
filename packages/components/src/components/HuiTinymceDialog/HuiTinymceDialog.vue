@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { ref, toValue } from 'vue'
-import Editor from '@tinymce/tinymce-vue'
 import { useHuiDialog } from "../../hooks/index"
 import { ElButton, ElDialog } from 'element-plus'
+import HuiTinymce from '../HuiTinymce/HuiTinymce.vue'
 import type { HuiTinymceDialogPropsType, HuiTinymceDialogEmitType } from './type'
-import { HuiTinymceDialogLinkHooks } from './HuiTinymceDialogLinkHooks'
-import { HuiTinymceDialogSettingHooks } from './HuiTinymceDialogSettingHooks'
 
 // 接收的参数
-const props = withDefaults(defineProps<HuiTinymceDialogPropsType>(), {
+withDefaults(defineProps<HuiTinymceDialogPropsType>(), {
   width: '80%',
   height: '80vh',
   linkAttribute: () => {
@@ -22,8 +20,6 @@ const props = withDefaults(defineProps<HuiTinymceDialogPropsType>(), {
 const emit = defineEmits<HuiTinymceDialogEmitType>()
 // useHuiDialog
 const { show, open, close, payload, confirmLoading } = useHuiDialog()
-const { linkExpandAttributeStr, linkSetup } = HuiTinymceDialogLinkHooks({ props })
-const { setting } = HuiTinymceDialogSettingHooks({ props, linkSetup, linkExpandAttributeStr })
 
 const tinymceContent = ref('')
 const submitBtnText = ref('提交')
@@ -64,12 +60,7 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <Editor
-      v-if="show"
-      v-model="tinymceContent"
-      :init="setting"
-      api-key="no-api-key"
-    />
+    <HuiTinymce v-model:tinymceContent="tinymceContent" :height="height" :link-attribute="linkAttribute" />
     <template #footer>
       <div>
         <ElButton @click="close">取 消</ElButton>
@@ -78,18 +69,3 @@ defineExpose({
     </template>
   </ElDialog>
 </template>
-
-<style lang="scss">
-.tox-promotion{
-  .tox-promotion-link{
-    display: none !important;
-  }
-}
-.tox-tinymce-aux {
-  z-index: 9999 !important;
-}
-.tox .tox-collection--list .tox-collection__item--active{
-  background-color: var(--bg-color) !important;
-  color: var(--text-color-primary) !important;
-}
-</style>

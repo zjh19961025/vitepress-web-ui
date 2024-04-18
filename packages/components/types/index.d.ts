@@ -499,6 +499,55 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 /**
  * 富文本编辑弹窗
  */
+export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
+    tinymceContent: PropType<string>;
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    height: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    linkAttribute: {
+        type: PropType< HuiTinymceLink[]>;
+        required: true;
+        default: () => {
+            title: string;
+            value: string;
+        }[];
+    };
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    tinymceContent: PropType<string>;
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    height: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    linkAttribute: {
+        type: PropType< HuiTinymceLink[]>;
+        required: true;
+        default: () => {
+            title: string;
+            value: string;
+        }[];
+    };
+}>>, {
+    width: string | number;
+    height: string | number;
+    linkAttribute: HuiTinymceLink[];
+}, {}>> & Record<string, any>;
+
+/**
+ * 富文本编辑弹窗
+ */
 export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
     width: {
         type: PropType<string | number>;
@@ -511,7 +560,7 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
         default: string;
     };
     linkAttribute: {
-        type: PropType< HuiTinymceDialogLink[]>;
+        type: PropType< HuiTinymceLink[]>;
         required: true;
         default: () => {
             title: string;
@@ -522,7 +571,7 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    onSubmit: (tinymceContent: string, row: any, field: string) => void;
+    onSubmit: (tinymceContent: string, row?: any, field?: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     width: {
         type: PropType<string | number>;
@@ -535,7 +584,7 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
         default: string;
     };
     linkAttribute: {
-        type: PropType< HuiTinymceDialogLink[]>;
+        type: PropType< HuiTinymceLink[]>;
         required: true;
         default: () => {
             title: string;
@@ -543,17 +592,17 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
         }[];
     };
 }>> & {
-    onOnSubmit?: (tinymceContent: string, row: any, field: string) => any;
+    onOnSubmit?: (tinymceContent: string, row?: any, field?: string) => any;
 }, {
     width: string | number;
     height: string | number;
-    linkAttribute: HuiTinymceDialogLink[];
+    linkAttribute: HuiTinymceLink[];
 }, {}>> & Record<string, any>;
 
 /**
  *  链接支持的属性
  */
-declare interface HuiTinymceDialogLink {
+declare interface HuiTinymceLink {
     /** 链接标题 */
     title: string;
     /** 链接对象的key */
