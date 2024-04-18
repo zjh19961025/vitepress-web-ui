@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, nextTick, toValue } from 'vue'
+import { ref, watch, nextTick, toValue, onMounted } from 'vue'
 import { ElDialog, ElInput, ElTree, ElButton } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import type { HuiRegionTreeDialogPropsType, HuiRegionTreePopoverEmitType } from './type'
@@ -19,8 +19,12 @@ const props = withDefaults(defineProps<HuiRegionTreeDialogPropsType>(), {
 const emit = defineEmits<HuiRegionTreePopoverEmitType>()
 
 const filterText = ref('')
-const regionTree = ref(window.huiDelegate.getRegionTree())
+const regionTree = ref<any[]>([])
 const treeRef = ref<InstanceType<typeof ElTree> | null>(null)
+
+onMounted(async() => {
+  regionTree.value = await window.huiDelegate.getRegionTree()
+})
 
 watch(filterText, (val) => {
   treeRef.value?.filter(val)

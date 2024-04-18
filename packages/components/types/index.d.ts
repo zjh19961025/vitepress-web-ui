@@ -70,7 +70,7 @@ export declare interface HuiDelegate {
      * 地区的所有数据
      * @returns
      */
-    getRegionTree?: () => any[];
+    getRegionTree?: () => any[] | Promise<any[]>;
     /**
      * 上传oss
      * @param file 文件信息

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ElInput, ElTree, ElPopover, ClickOutside as vClickOutside } from 'element-plus'
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, onMounted } from 'vue'
 import type { HuiRegionTreePopoverPropsType, HuiRegionTreePopoverEmitType } from './type'
 import { testUtils } from '@hua5/hua5-utils'
 import { getRegionNameByCode } from '@hua5/hua5-web-lib'
@@ -20,7 +20,11 @@ const emit = defineEmits<HuiRegionTreePopoverEmitType>()
 const filterText = ref('')
 const regionText = ref('')
 const isShowTree = ref(false)
-const regionTree = ref(window.huiDelegate.getRegionTree())
+const regionTree = ref<any[]>([])
+
+onMounted(async() => {
+  regionTree.value = await window.huiDelegate.getRegionTree()
+})
 
 // 组件实例
 const treeRef = ref<InstanceType<typeof ElTree> | null>(null)
