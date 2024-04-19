@@ -96,6 +96,9 @@ importers:
       '@hua5/hua5-web-lib':
         specifier: ^1.0.1
         version: 1.0.2(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21)
+      '@tinymce/tinymce-vue':
+        specifier: ^5
+        version: 5.1.1(vue@3.4.21)
       '@unocss/preset-rem-to-px':
         specifier: ^0.59.0
         version: 0.59.1
