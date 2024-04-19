@@ -11,7 +11,7 @@
   "author": "hua5",
   "scripts": {
     "dev": "pnpm -C example dev",
-    "build:ui": "pnpm -C packages/components build",
+    "build:ui": "pnpm -C packages/hui build",
     "docs:dev": "",
     "docs:build": "",
     "update:hua5": "pnpm update @hua5/hua5-utils @hua5/hua5-web-lib",
