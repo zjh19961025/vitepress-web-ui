@@ -10,6 +10,7 @@ import { makeInstaller } from './install-helper/install'
 export * from "./utils/index"
 export * from "./hooks"
 export * from './components'
+export * from './directives'
 // 类型导出
 export type { HuiDelegate } from "./delegate"
 export type { HuiOptions } from "./install-helper/typescript"

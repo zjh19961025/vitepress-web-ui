@@ -2,6 +2,7 @@ import { App } from 'vue';
 import { Arrayable } from 'element-plus/es/utils';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
+import { Directive } from 'vue';
 import { ExtractPropTypes } from 'vue';
 import { FormItemRule } from 'element-plus';
 import { Plugin as Plugin_2 } from 'vue';
@@ -613,6 +614,8 @@ export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;
 };
+
+export declare const selectLoadmore: Directive;
 
 declare type SFCWithInstall<T> = T & Plugin_2;
 

@@ -1,5 +1,5 @@
 <script setup>
-import { HuiTool, HuiRules, HuiCountDownButton } from "@hua5/hua5-web-ui"
+import { HuiTool, HuiRules, HuiCountDownButton, selectLoadmore as vSelectLoadmore } from "@hua5/hua5-web-ui"
 import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
 import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
@@ -14,6 +14,11 @@ const countDownButton = ref(null)
 const region = ref('')
 const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
+const options = ref(new Array(20).fill({
+  value: 'Option1',
+  label: 'Option1',
+}))
+const selectValue = ref('')
 const selectDic = ref([
   {
     label: 1,
@@ -131,6 +136,10 @@ function onTniymceClick() {
   })
 }
 
+function loadmore() {
+  console.log('触底了')
+}
+
 function onTinymceSubmit(tinymceContent, row, field) {
   console.log('onTinymceSubmit', tinymceContent, row, field)
   content.value = tinymceContent
@@ -185,7 +194,19 @@ watch(richTextContent, (val) => {
         </div>
       </div>
       <div class="flex flex-col ml-10">
-        <HuiTinymce v-model:tinymceContent="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
+
+        <el-select v-model="selectValue" v-select-loadmore="loadmore" placeholder="Select" style="width: 240px">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+
+        <div class="mt-10">
+          <HuiTinymce v-model:tinymceContent="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
+        </div>
       </div>
     </div>
 

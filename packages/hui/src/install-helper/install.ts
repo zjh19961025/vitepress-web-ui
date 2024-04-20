@@ -1,6 +1,7 @@
 import type { App, Plugin } from 'vue'
 import type { SFCWithInstall, HuiOptions } from './typescript'
 import { defaultDelegate } from "../delegate"
+import { installDirective } from '../directives/install-loadmore'
 
 /**
  * 默认选项
@@ -27,7 +28,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
     if (options.isInstallComponents) {
       components.forEach((c) => app.use(c))
     }
-
+    installDirective(app)
     provideGlobalConfig(options, app)
     isInstalledHu5WebUI = true
     window.huiDelegate = { ...defaultOptions.delegate, ...options.delegate }
