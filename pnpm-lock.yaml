@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.1
+        version: 2.3.1(vue@3.4.21)
       '@hua5/hua5-web-lib':
         specifier: ^1.0.3
         version: 1.0.3(@hua5/hua5-utils@1.0.3)(vue-router@4.3.0)(vue@3.4.21)
@@ -142,6 +145,9 @@ importers:
 
   packages/hui:
     dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.1
+        version: 2.3.1(vue@3.4.22)
       '@hua5/hua5-utils':
         specifier: ^1.0.3
         version: 1.0.3

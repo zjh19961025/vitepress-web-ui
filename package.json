@@ -18,6 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@hua5/hua5-web-lib": "^1.0.3",
     "@tinymce/tinymce-vue": "^5",
     "element-plus": "^2.6.3",

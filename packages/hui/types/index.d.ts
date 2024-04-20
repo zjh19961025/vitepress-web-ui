@@ -397,6 +397,37 @@ export declare const HuiRules: {
 };
 
 /**
+ * select下来加载状态组件
+ */
+export declare const HuiSelectLoadStatus: SFCWithInstall<DefineComponent<{
+    loading: {
+        type: PropType<boolean>;
+        required: true;
+    };
+    length: {
+        type: PropType<number>;
+        required: true;
+    };
+    leave: {
+        type: PropType<number>;
+        required: true;
+    };
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    loading: {
+        type: PropType<boolean>;
+        required: true;
+    };
+    length: {
+        type: PropType<number>;
+        required: true;
+    };
+    leave: {
+        type: PropType<number>;
+        required: true;
+    };
+}>>, {}, {}>> & Record<string, any>;
+
+/**
  * 链接预览弹窗
  */
 export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<{

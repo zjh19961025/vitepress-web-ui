@@ -136,8 +136,24 @@ function onTniymceClick() {
   })
 }
 
-function loadmore() {
-  console.log('触底了')
+const loading = ref(false)
+const leave = ref(60)
+async function loadmore() {
+  if (leave.value > 0) {
+    loading.value = true
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        options.value.push(...new Array(20).fill({
+          value: 'Option1',
+          label: 'Option1',
+        }))
+        console.log(options.value)
+        resolve('')
+      }, 2000)
+    })
+    leave.value -= 20
+    loading.value = false
+  }
 }
 
 function onTinymceSubmit(tinymceContent, row, field) {
@@ -202,6 +218,7 @@ watch(richTextContent, (val) => {
             :label="item.label"
             :value="item.value"
           />
+          <HuiSelectLoadStatus :loading="loading" :length="options.length" :leave="leave" />
         </el-select>
 
         <div class="mt-10">
