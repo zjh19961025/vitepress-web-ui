@@ -197,7 +197,14 @@ watch(richTextContent, (val) => {
       <div class="flex flex-col ml-10">
         <ElButton @click="onStringArrayInputClick">字符串数组编辑</ElButton>
         <div class="mt-10px">
-          <HuiCountDownButton ref="countDownButton" title="获取验证码" :time-count="30" @click="onGetCodeClick" />
+          <HuiCountDownButton
+            ref="countDownButton"
+            title="发送验证码" :time-count="30"
+            base-class="w-80"
+            enable-class="text-primary"
+            disable-class="text-gray-400"
+            @click="onGetCodeClick"
+          />
         </div>
         <div class="mt-10px">
           <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />

@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ElButton } from 'element-plus'
-import type { HuiCountDownButtonPropsType } from './type.ts'
+import type { HuiCountDownButtonPropsType, HuiCountDownButtonEmitType } from './type.ts'
 import { onUnmounted, ref } from 'vue'
 
 const props = withDefaults(defineProps<HuiCountDownButtonPropsType>(), {
   timeCount: 60,
   enableClass: '!bg-special !text-white',
   disableClass: '!bg-bg_normal !text-t_disabled',
+  type: 'text',
 })
+
+const emit = defineEmits<HuiCountDownButtonEmitType>()
 
 const isDisabled = ref(false)
 const leftCount = ref(0)
@@ -15,6 +18,7 @@ let countDowntimer = null
 
 function handleClick() {
   startcountDown()
+  emit('click')
 }
 
 function startcountDown() {
@@ -49,11 +53,23 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <ElButton
-    :disabled="isDisabled"
-    :class="[isDisabled ? disableClass : enableClass]"
-    @click="handleClick"
-  >
-    {{ isDisabled ? leftCount + 's' : title }}
-  </ElButton>
+  <!-- cursor-not-allowed 和 pointer-events-none 存在冲突, 所以必须分开在不同的节点上是使用 -->
+  <div class="inline-block" :class="{'cursor-not-allowed': isDisabled}">
+    <div class="inline-block" :class="isDisabled ? 'pointer-events-none' : 'cursor-pointer'" @click="handleClick">
+      <div
+        v-if="type === 'text'"
+        :class="[isDisabled ? disableClass : enableClass, baseClass]"
+      >
+        {{ isDisabled ? leftCount + 's' : title }}
+      </div>
+      <ElButton
+        v-if="type === 'button'"
+        :disabled="isDisabled"
+        :class="[isDisabled ? disableClass : enableClass, baseClass]"
+      >
+        {{ isDisabled ? leftCount + 's' : title }}
+      </ElButton>
+    </div>
+  </div>
+
 </template>
