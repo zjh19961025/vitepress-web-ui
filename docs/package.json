@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev --port 5001",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@hua5/hua5-web-ui": "workspace:^"
+  },
+  "devDependencies": {
+    "vitepress": "^1.1.3"
+  }
+}
