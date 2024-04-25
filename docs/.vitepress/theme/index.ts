@@ -5,8 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import countDownButton from '../../examples/HuiCountDownButton/CountDownButton.vue'
-
+// const modules = import.meta.glob('../../**/**/*.vue')
 
 export default {
   extends: DefaultTheme,
@@ -16,6 +15,15 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.use(ElementPlus);
-    app.component("countDownButton", countDownButton);
+
+    // 挂载组件
+    // for (const path in modules) {
+    //   modules[path]().then((mod) => {
+    //     const component = mod.default
+    //     console.log(component,mod.default.name);
+        
+    //     app.component(mod.default.name, component)
+    //   })
+    // }
   }
 } satisfies Theme
