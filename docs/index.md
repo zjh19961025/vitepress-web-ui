@@ -1,25 +1,13 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "hua5-web-ui"
-  text: "hua5-web-ui"
-  tagline: My great project tagline
+  tagline: web端快速开发基础UI组件支持
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
-
+      text: 使用指南
+      link: /guide/index
+    - theme: brand
+      text: 组件文档
+      link: /components/index
