@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { HuiCountDownButton } from '@hua5/hua5-web-ui'
-import { ref } from 'vue'
 
 const countDownButton = ref<InstanceType<typeof HuiCountDownButton> | null>(null)
 
