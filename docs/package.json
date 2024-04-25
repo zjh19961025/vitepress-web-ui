@@ -16,6 +16,7 @@
     "element-plus": "^2.7.1"
   },
   "devDependencies": {
+    "unocss": "^0.59.4",
     "vitepress": "^1.1.3"
   }
 }

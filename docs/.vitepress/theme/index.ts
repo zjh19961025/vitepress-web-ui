@@ -1,10 +1,12 @@
 import { h } from 'vue'
+import "virtual:uno.css";
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import countDownButton from '../../examples/HuiCountDownButton/CountDownButton.vue'
+
 
 export default {
   extends: DefaultTheme,
