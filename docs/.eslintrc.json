@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": [
+    "@hua5/eslint-config"
+  ],
+  "rules": {
+    // 自定义规则
+    // 使用别名报错关闭
+    "import/no-unresolved": "off",
+    // 不需要显示说明后缀
+    "import/extensions": "off",
+    "import/namespace": "off",
+    // .native' modifier on 'v-on' directive is deprecated.
+    "vue/no-deprecated-v-on-native-modifier": "off"
+  }
+}
