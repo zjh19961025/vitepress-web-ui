@@ -1,11 +1,20 @@
 import { h } from 'vue'
-import "virtual:uno.css";
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
+// 自定义组件
+import { VPDemo } from '../../vitepress'
+// element相关
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-// const modules = import.meta.glob('../../**/**/*.vue')
+import 'element-plus/theme-chalk/dark/css-vars.css'
+// hua5WebUI相关
+import hua5WebUI from "@hua5/hua5-web-ui"
+import '@hua5/hua5-web-ui/style'
+// unocss相关
+import "virtual:uno.css";
+
 
 export default {
   extends: DefaultTheme,
@@ -15,15 +24,10 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.use(ElementPlus);
-
-    // 挂载组件
-    // for (const path in modules) {
-    //   modules[path]().then((mod) => {
-    //     const component = mod.default
-    //     console.log(component,mod.default.name);
-        
-    //     app.component(mod.default.name, component)
-    //   })
-    // }
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
+    }
+    app.component('Demo', VPDemo)
+    app.use(hua5WebUI)
   }
 } satisfies Theme
