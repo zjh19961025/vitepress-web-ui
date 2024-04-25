@@ -10,6 +10,12 @@ export const sidebar = {
   ],
   '/components/': [
     {
+      text: '颜色',
+      items: [
+        { text: '颜色', link: '/components/HuiColor' },
+      ],
+    },
+    {
       text: '组件',
       items: [
         { text: '倒计时', link: '/components/HuiCountDownButton' },
