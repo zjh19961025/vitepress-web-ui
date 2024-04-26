@@ -80,7 +80,6 @@ function filterNode(value: string, data: any, node: any) {
 defineExpose({
   open,
   close,
-  confirmLoading,
 })
 </script>
 

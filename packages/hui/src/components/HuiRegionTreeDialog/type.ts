@@ -4,7 +4,7 @@
 export interface HuiRegionTreeDialogPropsType {
   /** 是否每次只打开一个同级树节点展开 */
   accordion?: boolean,
-  /** 只能选择到地区 */
+  /** 每个树节点用来作为唯一标识的属性 */
   nodeKey?: string,
   /** 树label对应的key */
   treeLabelKey?: string,
