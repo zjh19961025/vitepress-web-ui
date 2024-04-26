@@ -25,7 +25,7 @@ HuiRegionTreeDialog/HuiRegionTreeDialogNotClose
 | 方法名 | 描述     | 参数                                                         |
 | ------ | -------- | ------------------------------------------------------------ |
 | open   | 打开弹窗 | (id,payload)，payload={<br />defaultCheckedKeys: [100101] 默认选中的地区<br />disabledRegions: [120103]   禁用的地区<br />} |
-|        | 关闭弹窗 | -                                                            |
+| close  | 关闭弹窗 | -                                                            |
 
 ### 事件（defineEmits）
 
