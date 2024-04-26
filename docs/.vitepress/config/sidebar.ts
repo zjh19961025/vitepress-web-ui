@@ -23,6 +23,7 @@ export const sidebar = {
         { text: '富文本预览弹窗', link: '/components/HuiPreviewRichTextDialog' },
         { text: '地区选择弹窗', link: '/components/HuiRegionTreeDialog' },
         { text: '地区选择输入框', link: '/components/HuiRegionTreePopover' },
+        // { text: 'select下拉状态', link: '/components/HuiSelectLoadStatus' },
       ],
     },
   ],

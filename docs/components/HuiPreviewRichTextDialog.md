@@ -16,5 +16,5 @@ HuiPreviewRichTextDialog/HuiPreviewRichTextDialog
 
 | 方法名 | 描述     | 参数                                             |
 | ------ | -------- | ------------------------------------------------ |
-| open   | 打开弹窗 | ('',payload)，payload: { content :  富文本内容 } |
+| open   | 打开弹窗 | ('',payload),payload\: { content \:  富文本内容 } |
 | close  | 关闭弹窗 | -                                                |
