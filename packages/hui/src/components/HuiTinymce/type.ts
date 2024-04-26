@@ -14,9 +14,9 @@ export interface HuiTinymceLink {
  * HuiTinymce 需要的props参数
  */
 export interface HuiTinymcePropsType {
-  /** 弹窗高度 */
-  width: string | number;
-  /** 弹窗宽度 */
+  /** 宽度 */
+  width: string;
+  /** 高度 */
   height: string | number;
   /**
    * 链接属性

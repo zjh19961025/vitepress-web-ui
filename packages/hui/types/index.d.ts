@@ -556,7 +556,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
     tinymceContent: PropType<string>;
     width: {
-        type: PropType<string | number>;
+        type: PropType<string>;
         required: true;
         default: string;
     };
@@ -576,7 +576,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     tinymceContent: PropType<string>;
     width: {
-        type: PropType<string | number>;
+        type: PropType<string>;
         required: true;
         default: string;
     };
@@ -594,7 +594,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
         }[];
     };
 }>>, {
-    width: string | number;
+    width: string;
     height: string | number;
     linkAttribute: HuiTinymceLink[];
 }, {}>> & Record<string, any>;
@@ -604,7 +604,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
  */
 export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
     width: {
-        type: PropType<string | number>;
+        type: PropType<string>;
         required: true;
         default: string;
     };
@@ -628,7 +628,7 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
     onSubmit: (tinymceContent: string, row?: any, field?: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     width: {
-        type: PropType<string | number>;
+        type: PropType<string>;
         required: true;
         default: string;
     };
@@ -648,7 +648,7 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
 }>> & {
     onOnSubmit?: (tinymceContent: string, row?: any, field?: string) => any;
 }, {
-    width: string | number;
+    width: string;
     height: string | number;
     linkAttribute: HuiTinymceLink[];
 }, {}>> & Record<string, any>;
