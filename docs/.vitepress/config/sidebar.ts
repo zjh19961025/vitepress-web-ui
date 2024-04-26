@@ -20,6 +20,7 @@ export const sidebar = {
       items: [
         { text: '倒计时', link: '/components/HuiCountDownButton' },
         { text: '行编辑弹窗', link: '/components/HuiLineEditDialog' },
+        { text: '富文本预览弹窗', link: '/components/HuiPreviewRichTextDialog' },
       ],
     },
   ],
