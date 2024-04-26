@@ -274,7 +274,6 @@ export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<{
 }, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-    confirmLoading: Ref<boolean>;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (region: {
         id: string;
