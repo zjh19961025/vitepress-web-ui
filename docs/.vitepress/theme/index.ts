@@ -11,6 +11,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 // hua5WebUI相关
 import hua5WebUI from "@hua5/hua5-web-ui"
 import '@hua5/hua5-web-ui/style'
+import { huiDelegate } from '../../delegate/HuiDelegate'
 // unocss相关
 import "virtual:uno.css";
 
@@ -26,6 +27,8 @@ export default {
       app.component(key, component)
     }
     app.component('Demo', VPDemo)
-    app.use(hua5WebUI)
+    app.use(hua5WebUI,{
+      delegate: huiDelegate,
+    })
   }
 } satisfies Theme

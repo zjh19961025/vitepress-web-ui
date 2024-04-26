@@ -141,3 +141,7 @@
   display: none;
 }
 
+.el-message{
+  z-index: 3000 !important;
+}
+
