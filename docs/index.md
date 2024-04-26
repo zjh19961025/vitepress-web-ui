@@ -10,4 +10,4 @@ hero:
       link: /guide/index
     - theme: brand
       text: 组件文档
-      link: /components/index
+      link: /components/HuiColor

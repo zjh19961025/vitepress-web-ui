@@ -39,5 +39,8 @@ export default defineConfig({
   themeConfig: {
     nav,
     sidebar,
+    search: {
+      provider: 'local'
+    }
   },
 })
