@@ -15,6 +15,7 @@
     "@element-plus/icons-vue": "^2.3.1",
     "@hua5/hua5-web-lib": "^1.0.6",
     "@hua5/hua5-web-ui": "workspace:^",
+    "@tinymce/tinymce-vue": "^5",
     "@vueuse/core": "^10.9.0",
     "element-plus": "^2.7.1"
   },

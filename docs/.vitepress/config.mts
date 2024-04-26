@@ -12,6 +12,9 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   title: "hua5-web-ui",
   description: "hua5-web-ui",
+  head: [
+    ['script', { src: '/tinymce/tinymce.min.js' }]
+  ],
   vite: {
     plugins: [
       UnoCSS(),

@@ -25,7 +25,8 @@ export const sidebar = {
         { text: '地区选择输入框', link: '/components/HuiRegionTreePopover' },
         // { text: 'select下拉状态', link: '/components/HuiSelectLoadStatus' },
         { text: '显示链接弹框', link: '/components/HuiShowUrlDialog' },
-        { text: '字符串数组编辑弹窗', link: '/components/HuiStringArrayInputDialog' }
+        { text: '字符串数组编辑弹窗', link: '/components/HuiStringArrayInputDialog' },
+        { text: '富文本编辑', link: '/components/HuiTinymce' }
       ],
     },
   ],

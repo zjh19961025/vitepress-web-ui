@@ -93,6 +93,9 @@ importers:
       '@hua5/hua5-web-ui':
         specifier: workspace:^
         version: link:../packages/hui
+      '@tinymce/tinymce-vue':
+        specifier: ^5
+        version: 5.1.1(vue@3.4.24)
       '@vueuse/core':
         specifier: ^10.9.0
         version: 10.9.0(vue@3.4.24)
@@ -1457,6 +1460,15 @@ packages:
     dependencies:
       tinymce: 6.8.3
       vue: 3.4.22(typescript@5.4.4)
+    dev: false
+
+  /@tinymce/tinymce-vue@5.1.1(vue@3.4.24):
+    resolution: {integrity: sha512-iO57HOWesFOhsaqjA5Ea6sDvQBmJJH3/dq00Uvg7metlct2kLF+ctRgoDsetLt6gmeZ7COPftr814/XzqnJ/dg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      tinymce: 6.8.3
+      vue: 3.4.24(typescript@5.4.4)
     dev: false
 
   /@tsconfig/node20@20.1.4:
