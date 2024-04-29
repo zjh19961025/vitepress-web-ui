@@ -36,5 +36,11 @@ export const sidebar = {
         { text: '富文本编辑弹窗', link: '/components/HuiTinymceDialog' }
       ],
     },
+    {
+      text: '验证规则',
+      items: [
+        { text: 'rules', link: '/components/rules/HuiRule'}
+      ]
+    }
   ],
 }
