@@ -24,4 +24,4 @@ HuiTinymceDialog/HuiTinymceDialog
 
 | 事件名   | 说明           | 回调参数                                                     |
 | -------- | -------------- | ------------------------------------------------------------ |
-| onSubmit | 点击确定后触发 | (tinymceContent,row,field)，tinymceContent\: 富文本内容,row\:行数据,field\:字段名 |
+| onSubmit | 点击提交后触发 | (tinymceContent,row,field)，tinymceContent\: 富文本内容,row\:行数据,field\:字段名 |

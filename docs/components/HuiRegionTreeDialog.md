@@ -31,5 +31,5 @@ HuiRegionTreeDialog/HuiRegionTreeDialogNotClose
 
 | 事件名   | 说明           | 回调参数                                                     |
 | -------- | -------------- | ------------------------------------------------------------ |
-| onSubmit | 点击确定后触发 | (region)，region={<br />id<br />regionList 选中的地区code<br />} |
+| onSubmit | 点击提交后触发 | (region)，region={<br />id<br />regionList 选中的地区code<br />} |
 

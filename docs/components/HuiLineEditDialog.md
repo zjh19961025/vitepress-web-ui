@@ -39,5 +39,5 @@ HuiLineEditDialog/LineEditInputOrTextarea
 | 事件名        | 说明         | 回调参数                                      |
 | ------------- | ------------ | --------------------------------------------- |
 | onValueChange | 输入修改触发 | (form,row)，form修改字段组成的对象，row行数据 |
-| onSubmit      | 提交触发     | (row,prop)，row行数据，prop要修改字段名       |
+| onSubmit      | 确定后触发     | (row,prop)，row行数据，prop要修改字段名       |
 
