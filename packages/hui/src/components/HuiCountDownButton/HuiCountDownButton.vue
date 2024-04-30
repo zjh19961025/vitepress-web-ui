@@ -3,6 +3,11 @@ import { ElButton } from 'element-plus'
 import type { HuiCountDownButtonPropsType, HuiCountDownButtonEmitType } from './type.ts'
 import { onUnmounted, ref } from 'vue'
 
+// 定义组件名字，全局安装的时候会用到
+defineOptions({
+  name: 'HuiCountDownButton',
+})
+
 const props = withDefaults(defineProps<HuiCountDownButtonPropsType>(), {
   timeCount: 60,
   enableClass: '!bg-special !text-white',
