@@ -5,6 +5,10 @@ import type { HuiShowUrlDialogPropsType } from './type'
 import { testUtils } from "@hua5/hua5-utils"
 import { ElDialog } from 'element-plus'
 
+defineOptions({
+  name: 'HuiShowUrlDialog',
+})
+
 const { show, payload, open, close } = useHuiDialog()
 
 withDefaults(defineProps<HuiShowUrlDialogPropsType>(), {

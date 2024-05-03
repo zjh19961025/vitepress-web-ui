@@ -4,6 +4,10 @@ import type { HuiTinymcePropsType } from './type'
 import { HuiTinymceLinkHooks } from './HuiTinymceLinkHooks'
 import { HuiTinymceSettingHooks } from './HuiTinymceSettingHooks'
 
+defineOptions({
+  name: 'HuiTinymce',
+})
+
 // 接收的参数
 const props = withDefaults(defineProps<HuiTinymcePropsType>(), {
   width: '100%',

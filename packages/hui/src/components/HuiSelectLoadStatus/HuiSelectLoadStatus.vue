@@ -3,6 +3,10 @@ import { ElIcon, ElOption } from 'element-plus'
 import { Loading } from '@element-plus/icons-vue'
 import { HuiSelectLoadStatusPropsType } from './type'
 defineProps<HuiSelectLoadStatusPropsType>()
+
+defineOptions({
+  name: 'HuiSelectLoadStatus',
+})
 </script>
 
 <template>

@@ -5,6 +5,10 @@ import { ElButton, ElDialog } from 'element-plus'
 import HuiTinymce from '../HuiTinymce/HuiTinymce.vue'
 import type { HuiTinymceDialogPropsType, HuiTinymceDialogEmitType } from './type'
 
+defineOptions({
+  name: 'HuiTinymceDialog',
+})
+
 // 接收的参数
 withDefaults(defineProps<HuiTinymceDialogPropsType>(), {
   width: '80%',

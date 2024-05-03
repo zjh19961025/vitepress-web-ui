@@ -3,6 +3,10 @@ import { ref, watch, nextTick, toValue, onMounted } from 'vue'
 import { ElDialog, ElInput, ElTree, ElButton } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import type { HuiRegionTreeDialogPropsType, HuiRegionTreePopoverEmitType } from './type'
+
+defineOptions({
+  name: 'HuiRegionTreeDialog',
+})
 // useHuiDialog
 const { id, show, open, close, payload, confirmLoading } = useHuiDialog()
 

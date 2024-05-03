@@ -5,6 +5,10 @@ import { ref, toValue } from 'vue'
 import { testUtils } from '@hua5/hua5-utils'
 import type { HuiPreviewRichTextDialogPropsType } from './type'
 
+defineOptions({
+  name: 'HuiPreviewRichTextDialog',
+})
+
 withDefaults(defineProps<HuiPreviewRichTextDialogPropsType>(), {
   title: '内容预览',
 })

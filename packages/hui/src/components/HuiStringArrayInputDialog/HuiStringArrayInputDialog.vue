@@ -6,6 +6,10 @@ import { reactive, ref, toValue } from 'vue'
 import type { HuiStringArrayInputDialogForm, HuiStringArrayInputDialogPropsType, HuiStringArrayInputDialogRules, HuiStringArrayInputDialogEmitType } from './type'
 const { id, show, payload, confirmLoading, open, close } = useHuiDialog()
 
+defineOptions({
+  name: 'HuiStringArrayInputDialog',
+})
+
 // form 实例
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 

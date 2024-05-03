@@ -5,6 +5,10 @@ import type { HuiRegionTreePopoverPropsType, HuiRegionTreePopoverEmitType } from
 import { testUtils } from '@hua5/hua5-utils'
 import { getRegionNameByCode } from '@hua5/hua5-web-lib'
 
+defineOptions({
+  name: 'HuiRegionTreePopover',
+})
+
 // 接收的参数
 const props = withDefaults(defineProps<HuiRegionTreePopoverPropsType>(), {
   accordion: true,
