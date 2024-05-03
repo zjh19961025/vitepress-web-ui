@@ -14,6 +14,7 @@ const app = createApp(App)
 
 app.use(hua5WebUI, {
   delegate: hlibDelegate,
+  isInstallComponents: false // 是否自动安装组件
 })
 app.mount('#app')
 
