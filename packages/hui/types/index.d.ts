@@ -416,6 +416,16 @@ export declare const HuiRules: {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };
+    /**
+     * 验证数字范围
+     * @param min 最小值
+     * @param max 最大值
+     * @param tips 错误提示
+     */
+    numRangeRule: (min: any, max: any, tips: any) => {
+        validator: (rule: any, value: any, callback: any) => void;
+        trigger: string;
+    };
 };
 
 /**

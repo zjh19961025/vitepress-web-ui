@@ -38,6 +38,9 @@
       <el-form-item label="电话号码" prop="phone" class="flex w-100%">
         <el-input v-model="form.phone" placeholder="请输入电话" />
       </el-form-item>
+      <el-form-item label="数字范围" prop="numRange" class="flex w-100%">
+        <el-input v-model="form.numRange" placeholder="请输入数字" />
+      </el-form-item>
     </el-form>
 
     <template #footer>
@@ -60,6 +63,7 @@ const formModel = {
   digitNum: 1.22,
   code: 56963,
   phone: 12345678901,
+  numRange: 5,
 }
 const {
   show, open, close, form, formRef,
@@ -80,6 +84,7 @@ const rules = {
   digitNum: HuiRules.digitNumRule(3, true, false),
   code: HuiRules.codeRule('请输入5位数字验证码', 5),
   phone: HuiRules.phoneNumRule(),
+  numRange: HuiRules.numRangeRule(1, 10, '请输入1-10之间的数字'),
 }
 
 function beforeSubmit(submitForm: any) {

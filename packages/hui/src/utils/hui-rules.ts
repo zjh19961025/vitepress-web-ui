@@ -146,4 +146,25 @@ export const HuiRules = {
       trigger: 'blur',
     }
   },
+
+  /**
+   * 验证数字范围
+   * @param min 最小值
+   * @param max 最大值
+   * @param tips 错误提示
+   */
+  numRangeRule: (min, max, tips) => {
+    return {
+      validator: (rule, value, callback) => {
+        if (isNaN(Number(value))) {
+          callback(new Error('请输入数字'))
+        }
+        if (Number(value) < Number(min) || Number(value) > Number(max)) {
+          callback(new Error(tips))
+        }
+        callback()
+      },
+      trigger: 'blur',
+    }
+  },
 }
