@@ -153,7 +153,7 @@ export const HuiRules = {
    * @param max 最大值
    * @param tips 错误提示
    */
-  numRangeRule: (min, max, tips) => {
+  numRangeRule: (min: number | string, max: number | string, tips: string) => {
     return {
       validator: (rule, value, callback) => {
         if (isNaN(Number(value))) {

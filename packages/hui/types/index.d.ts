@@ -422,7 +422,7 @@ export declare const HuiRules: {
      * @param max 最大值
      * @param tips 错误提示
      */
-    numRangeRule: (min: any, max: any, tips: any) => {
+    numRangeRule: (min: number | string, max: number | string, tips: string) => {
         validator: (rule: any, value: any, callback: any) => void;
         trigger: string;
     };
