@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { HuiStringArrayInputDialog } from '@hua5/hua5-web-ui'
 const stringArrayInputDialog = ref<InstanceType<typeof HuiStringArrayInputDialog>| null >(null)
 
 // 打开弹窗

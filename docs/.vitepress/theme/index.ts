@@ -9,11 +9,9 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "element-plus/dist/index.css";
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // hua5WebUI相关
-import hua5WebUI from "@hua5/hua5-web-ui"
 import '@hua5/hua5-web-ui/style'
 import { huiDelegate } from '../../delegate/HuiDelegate'
 // hua5WebLib相关
-import hua5WebLib from "@hua5/hua5-web-lib"
 import { hlibDelegate } from '../../delegate/HlibDelegate'
 // unocss相关
 import "virtual:uno.css";
@@ -25,16 +23,21 @@ export default {
     return h(DefaultTheme.Layout, null, {
     })
   },
-  enhanceApp({ app, router, siteData }) {
+  async enhanceApp({ app, router, siteData }) {
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component)
     }
     app.component('Demo', VPDemo)
-    app.use(hua5WebUI,{
-      delegate: huiDelegate,
-    })
-    app.use(hua5WebLib, {
-      delegate: hlibDelegate,
-    })
+    if(!import.meta.env.SSR){
+      const hua5WebUI = await import("@hua5/hua5-web-ui")
+      app.use(hua5WebUI.default,{
+        delegate: huiDelegate,
+        isInstallComponents: true
+      })
+      const hua5WebLib = await import("@hua5/hua5-web-lib")
+      app.use(hua5WebLib.default, {
+        delegate: hlibDelegate,
+      })
+    }
   }
 } satisfies Theme

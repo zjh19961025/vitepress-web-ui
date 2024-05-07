@@ -1,6 +1,26 @@
 <script setup lang="ts">
-import { HuiRules } from '@hua5/hua5-web-ui'
+// CSR 模式下正常使用es导入
+// import { HuiRules } from "@hua5/hua5-web-ui"
 import type { FormInstance, FormRules } from 'element-plus'
+
+const rules = ref<FormRules>()
+// SSR || SSG 模式下，请使用这种导入方式
+onMounted(async() => {
+  const res = await import("@hua5/hua5-web-ui")
+  type THuiRules = typeof res.HuiRules
+  const HuiRules: THuiRules = res.HuiRules
+
+  rules.value = {
+    url: HuiRules.urlRule?.(),
+    version: [{ required: true, message: '请输入版本号', trigger: 'blur' }, HuiRules.versionRule()],
+    json: [{ required: true, message: '请输入json字符串', trigger: 'blur' }, HuiRules.jsonRule()],
+    intNum: [{ required: true, message: '请输入整数', trigger: 'blur' }, HuiRules.intNumRule(false, true)],
+    digitNum: [{ required: true, message: '请输入小数', trigger: 'blur' }, HuiRules.digitNumRule(3, true, false)],
+    code: [{ required: true, message: '请输入验证码', trigger: 'blur' }, HuiRules.codeRule('请输入5位数字验证码', 5)],
+    phone: [{ required: true, message: '请输入电话号码', trigger: 'blur' }, HuiRules.phoneNumRule()],
+    numRange: [{ required: true, message: '请输入数字', trigger: 'blur' }, HuiRules.numRangeRule(0, 10, '请输入0-10之间的数字')],
+  }
+})
 
 const formRef = ref<FormInstance>()
 
@@ -12,16 +32,7 @@ const form = reactive({
   digitNum: 1.22,
   code: 56963,
   phone: 12345678901,
-})
-
-const rules = reactive<FormRules>({
-  url: HuiRules.urlRule(),
-  version: [{ required: true, message: '请输入版本号', trigger: 'blur' }, HuiRules.versionRule()],
-  json: [{ required: true, message: '请输入json字符串', trigger: 'blur' }, HuiRules.jsonRule()],
-  intNum: [{ required: true, message: '请输入整数', trigger: 'blur' }, HuiRules.intNumRule(false, true)],
-  digitNum: [{ required: true, message: '请输入小数', trigger: 'blur' }, HuiRules.digitNumRule(3, true, false)],
-  code: [{ required: true, message: '请输入验证码', trigger: 'blur' }, HuiRules.codeRule('请输入5位数字验证码', 5)],
-  phone: [{ required: true, message: '请输入电话号码', trigger: 'blur' }, HuiRules.phoneNumRule()],
+  numRange: 5,
 })
 
 async function handleSubmit() {
@@ -64,6 +75,9 @@ async function handleSubmit() {
     </el-form-item>
     <el-form-item label="电话号码" prop="phone" class="flex w-100%">
       <el-input v-model="form.phone" placeholder="请输入电话" />
+    </el-form-item>
+    <el-form-item label="数字区间" prop="numRange" class="flex w-100%">
+      <el-input v-model="form.numRange" placeholder="请输入0-10之间的数字" />
     </el-form-item>
   </el-form>
 

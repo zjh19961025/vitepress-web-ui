@@ -2,6 +2,7 @@
   "name": "docs",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "keywords": [],
   "license": "ISC",
   "author": "",
@@ -17,7 +18,8 @@
     "@hua5/hua5-web-ui": "workspace:^",
     "@tinymce/tinymce-vue": "^5",
     "@vueuse/core": "^10.9.0",
-    "element-plus": "^2.7.1"
+    "element-plus": "^2.7.1",
+    "vue": "3.4.21"
   },
   "devDependencies": {
     "chalk": "^5.3.0",

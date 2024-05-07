@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiPreviewRichTextDialog } from '@hua5/hua5-web-ui'
-
 const previewRichTextDialog = ref<InstanceType<typeof HuiPreviewRichTextDialog> | null>(null)
 
 function onOpen() {

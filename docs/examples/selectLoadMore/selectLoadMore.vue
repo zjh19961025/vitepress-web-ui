@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { selectLoadmore as vSelectLoadmore } from '@hua5/hua5-web-ui'
 import HuiSelectLoadStatus from './HuiSelectLoadStatus.vue'
 
 const options = ref(new Array(20).fill({

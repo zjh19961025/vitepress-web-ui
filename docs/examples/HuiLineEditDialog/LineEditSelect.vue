@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { HuiRules, HuiLineEditDialog } from "@hua5/hua5-web-ui"
+// CSR 模式下正常使用es导入
+// import { HuiRules } from "@hua5/hua5-web-ui"
+
+// SSR || SSG 模式下，请使用这种导入方式
+const HuiRules = ref<any>({})
+onMounted(async() => {
+  const res = await import("@hua5/hua5-web-ui")
+  HuiRules.value = res.HuiRules
+})
 
 const lineEditDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
 
@@ -10,12 +18,12 @@ const selectDic = ref([
   },
   {
     label: '链接2',
-    value: "http://127.0.0.1:5174/",
+    value: "5555555",
   },
 ])
 
 const testRow = {
-  name: "http://127.0.0.1:5174/",
+  name: "http://127.0.0.1:5173/",
   test: "234",
   test2: {
     temp: 1,
@@ -46,7 +54,7 @@ function handleRowEdit(row, prop) {
     title="修改链接"
     label="链接"
     type="select"
-    :rules="HuiRules.urlRule()"
+    :rules="HuiRules?.urlRule?.()"
     :select-dic="selectDic"
     :is-need-double-confirm="true"
     double-confirm-tips="测试二次确认"

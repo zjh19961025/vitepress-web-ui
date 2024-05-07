@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiTinymce } from '@hua5/hua5-web-ui'
-
 const richTextContent = ref('')
 
 watch(richTextContent, (val) => {

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiShowUrlDialog } from '@hua5/hua5-web-ui'
-
 const showUrlDialog = ref<InstanceType<typeof HuiShowUrlDialog> | null>(null)
 
 function onShowUrlDialogClick() {

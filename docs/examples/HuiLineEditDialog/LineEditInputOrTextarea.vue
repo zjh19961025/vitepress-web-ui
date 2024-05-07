@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiLineEditDialog } from "@hua5/hua5-web-ui"
-
 const lineEditInputDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
 const lineEditTextareaDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
 

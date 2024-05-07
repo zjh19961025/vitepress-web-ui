@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiRegionTreePopover } from '@hua5/hua5-web-ui'
-
 const region = ref('')
 
 function onRegionChange(value) {

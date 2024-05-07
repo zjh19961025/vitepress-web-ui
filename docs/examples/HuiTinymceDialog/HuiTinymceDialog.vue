@@ -1,12 +1,10 @@
 <script lang="ts" setup>
-import { HuiTinymceDialog } from '@hua5/hua5-web-ui'
-
-const tinymceDialogRef = ref<instanceType<typeof HuiTinymceDialog> | null>(null)
+const tinymceDialogRef = ref<InstanceType<typeof HuiTinymceDialog> | null>(null)
 
 const content = ref('')
 
 function onTniymceClick() {
-  tinymceDialogRef.value.open('2', {
+  tinymceDialogRef.value?.open('2', {
     content: readonly(content),
     row: { name: '测试' },
     field: 'name',

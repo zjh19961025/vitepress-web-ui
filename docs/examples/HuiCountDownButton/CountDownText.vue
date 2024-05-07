@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { HuiCountDownButton } from '@hua5/hua5-web-ui'
-
 const countDownButton = ref<InstanceType<typeof HuiCountDownButton> | null>(null)
 
 function onGetCodeClick() {

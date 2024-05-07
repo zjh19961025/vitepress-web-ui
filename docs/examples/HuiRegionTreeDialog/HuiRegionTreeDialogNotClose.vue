@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { HuiRegionTreeDialog } from '@hua5/hua5-web-ui'
-
 const regionTreeDialogRef = ref<InstanceType<typeof HuiRegionTreeDialog> | null>(null)
 
 const selectedRegion = ref([])

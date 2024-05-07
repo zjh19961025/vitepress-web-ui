@@ -20,7 +20,7 @@ export default defineConfig({
       UnoCSS(),
       vueSetupExtend(),
       AutoImport({
-        imports: ['vue', 'vue-router', 'pinia'],
+        imports: ['vue', 'vue-router',],
         // 生成的文件名和位置
         dts: 'declare-auto/auto-import.d.ts',
         resolvers: [ElementPlusResolver()],
@@ -35,6 +35,9 @@ export default defineConfig({
         resolvers: [ElementPlusResolver()],
       }),
     ],
+    ssr: {
+      noExternal: [/element-plus/],
+    },
   },
   markdown: {
     config: (md) => mdPlugin(md),
