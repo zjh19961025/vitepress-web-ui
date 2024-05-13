@@ -41,6 +41,13 @@ export const sidebar = {
       items: [
         { text: 'rules', link: '/components/rules/HuiRule'}
       ]
+    },
+    {
+      text: 'hooks',
+      items: [
+        { text: 'useHuiDialog', link: '/components/hooks/useHuiDialog' },
+        { text: 'useHuiFormDialog', link: '/components/hooks/useHuiFormDialog' },
+      ]
     }
   ],
 }

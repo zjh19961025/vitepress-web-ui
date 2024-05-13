@@ -11,6 +11,7 @@
     "import/extensions": "off",
     "import/namespace": "off",
     // .native' modifier on 'v-on' directive is deprecated.
-    "vue/no-deprecated-v-on-native-modifier": "off"
+    "vue/no-deprecated-v-on-native-modifier": "off",
+    "no-unused-vars": "off"
   }
 }
