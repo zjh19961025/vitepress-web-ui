@@ -1,4 +1,4 @@
-import { ref, toRaw } from "vue"
+import { ref, toValue } from "vue"
 /**
  * 普通弹框通用逻辑
  * 集成 el-dialog 组件 的hooks，props 透传到 el-dialog
@@ -18,7 +18,7 @@ export const useHuiDialog = function() {
 
   const open = (dataId = "", info = {}) => {
     id.value = dataId
-    payload.value = toRaw(info)
+    payload.value = toValue(info)
     show.value = true
   }
 
