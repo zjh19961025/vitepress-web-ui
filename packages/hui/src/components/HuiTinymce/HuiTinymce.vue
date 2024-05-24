@@ -48,7 +48,7 @@ const tinymceContent = defineModel<string>('tinymceContent')
   z-index: 9999 !important;
 }
 .tox .tox-collection--list .tox-collection__item--active{
-  background-color: var(--bg-color) !important;
-  color: var(--text-color-primary) !important;
+  background-color: theme('backgroundColor.normal') !important;
+  color: theme('textColor.normal') !important;
 }
 </style>

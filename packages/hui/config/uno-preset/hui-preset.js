@@ -1,4 +1,4 @@
-import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
+import { presetUno } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import commonShortcuts from './common-shortcuts'
 import adminShortcuts from './admin-shortcuts'
@@ -14,57 +14,50 @@ export function presetHui() {
       ...adminShortcuts,
     ],
     // 主题
+    // 基础颜色：colors中定义
+    // 功能颜色：功能属性中进行定义
+    // 注意：各个功能颜色可重名，但不能和基础颜色重名
     theme: {
       colors: {
         // 基础颜色
-        white: 'var(--color-white)',
-        black: 'var(--color-black)',
-        ccc: 'var(--color-ccc)',
-        ddd: 'var(--color-ddd)',
-        eee: 'var(--color-eee)',
+        white: '#FFFFFF',
+        black: '#000000',
+        ccc: '#cccccc',
+        ddd: '#dddddd',
+        eee: '#eeeeee',
         // 类型颜色
-        primary: 'var(--color-primary)',
-        success: 'var(--color-success)',
-        warning: 'var(--color-warning)',
-        danger: 'var(--color-danger)',
-        error: 'var(--color-error)',
-        info: 'var(--color-info)',
-        disabled: 'var(--color-disabled)',
-        special: 'var(--color-special)',
-        // 背景颜色
-        bg_normal: 'var(--bg-color)',
-        bg_page: 'var(--bg-color-page)',
-        bg_overlay: 'var(--bg-color-overlay)',
-        // 文本颜色 t打头
-        t_primary: "var(--text-color-primary)",
-        t_regular: "var(--text-color-regular)",
-        t_secondary: "var(--text-color-secondary)",
-        t_placeholder: "var(--text-color-placeholder)",
-        t_disabled: "var(--text-color-disabled)",
-        // 边框
-        b_normal: "var(--border-color)",
-        b_light: "var(--border-color-light)",
-        b_lighter: "var(--border-color-lighter)",
-        b_extra_light: "var(--border-color-extra-light)",
-        b_dark: "var(--border-color-dark)",
-        b_darker: "var(--border-color-darker)",
+        primary: '#409eff',
+        success: '#1CA817',
+        warning: '#ECA232',
+        danger: '#CA2020',
+        error: '#CA2020',
+        info: '#909399',
+        disabled: '#c0c4cc',
+        special: '#27B3C5',
+      },
+      // 文本颜色
+      textColor: {
+        normal: "#303133",
+        regular: "#606266",
+        secondary: "#909399",
+        placeholder: "#c0c4cc",
+      },
+      // 背景颜色
+      backgroundColor: {
+        normal: '#F5F7FA',
+        page: '#F5F7FA',
+        overlay: '#ffffff',
+      },
+      // 边框颜色
+      borderColor: {
+        normal: "#dcdfe6",
+        light: "#e4e7ed",
+        lighter: "#ebeef5",
+        extra_light: "#f2f6fc",
+        dark: "#d4d7de",
+        darker: "#cdd0d6",
       },
     },
-    // 变体
-    variants: [],
-    // 提取器
-    extractors: [],
-    // 转换器
-    transformers: [
-      // 指令转换器
-      transformerDirectives(),
-      // 变体组转换器
-      transformerVariantGroup(),
-    ],
-    // 预飞行
-    preflights: [],
-    // 分层
-    layers: {},
     // 预设
     presets: [
       presetUno(),

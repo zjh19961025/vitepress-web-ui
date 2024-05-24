@@ -46,19 +46,35 @@ ComponentName
   pnpm publish
 ```
 
+#### 富文本组件使用说明
+1. 将example/public/tinymce的文件夹复制到项目的public文件夹下
+2. 在项目的index.html中引入tinymce.min.js
+   ``` html
+   <script src="/tinymce/tinymce.min.js"></script>
+   ```
+3. 安装@tinymce/tinymce-vue
+    pnpm add --save "@tinymce/tinymce-vue@^5"
+
+
 ## css 相关
 #### 颜色使用
-1. 对 web-ui 颜色覆盖：重写 src/css/corlor 中的颜色
-
-   在项目的公共css文件中将需要被覆盖的颜色进行重写即可。
-
-   ```css
-   :root {
-       --color-primary: xxx;
-       --color-danger: xxx;
-       ...
-   }
-   ```
+1. 对 web-ui 颜色覆盖：对 unocss中的颜色进行覆盖
+``` 
+theme: {
+  colors:{
+    primary: '#409eff'
+  },
+  textColor:{
+    normal: '#F5F7FA',
+  },
+  backgroundColor:{
+    normal: '#F5F7FA',
+  },
+  borderColor: {
+    normal: "#dcdfe6",
+  } 
+}
+```
 
 2. element-plus 颜色覆盖
 
@@ -94,16 +110,5 @@ ComponentName
       ```
 
 #### 公共css
-
 1. 对于之前实现的公共class, 使用 uno 的 shortcuts 来实现
 2. 在 config/uno-preset 添加公共的 shortcuts
-
-#### 富文本组件使用说明
-1. 将example/public/tinymce的文件夹复制到项目的public文件夹下
-2. 在项目的index.html中引入tinymce.min.js
-   ```js
-   <script src="/tinymce/tinymce.min.js"></script>
-   ```
-3. 安装@tinymce/tinymce-vue
-    pnpm add --save "@tinymce/tinymce-vue@^5"
-

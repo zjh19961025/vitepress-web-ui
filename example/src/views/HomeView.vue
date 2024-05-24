@@ -172,6 +172,7 @@ watch(richTextContent, (val) => {
     <div class=" flex-y">
       <div class="admin-remark">admin-remark</div>
       <div class="admin-link">admin-link</div>
+      <div class=" text-regular bg-normal b-(dark solid 1)">unocss color test</div>
     </div>
     <div class="text-danger bg-success" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test

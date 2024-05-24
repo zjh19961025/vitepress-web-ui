@@ -11,7 +11,7 @@ defineOptions({
 const props = withDefaults(defineProps<HuiCountDownButtonPropsType>(), {
   timeCount: 60,
   enableClass: '!bg-special !text-white',
-  disableClass: '!bg-bg_normal !text-t_disabled',
+  disableClass: '!bg-normal !text-disabled',
   type: 'text',
 })
 

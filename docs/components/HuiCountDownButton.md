@@ -20,7 +20,7 @@ HuiCountDownButton/CountDownButton
 | baseClass    | 基础的样式         | string           | -                              |
 | timeCount    | 倒计时时长         | number \| string | 60                             |
 | enableClass  | **未**禁用时的样式 | string           | !bg-special !text-white        |
-| disableClass | 禁用时的样式       | string           | !bg-bg_normal !text-t_disabled |
+| disableClass | 禁用时的样式       | string           | !bg-normal !text-disabled |
 | type         | 倒计时显示的类型   | text \| button   | text                           |
 
 ### 方法（defineExpose）

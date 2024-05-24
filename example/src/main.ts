@@ -7,7 +7,6 @@ import 'virtual:uno.css'
 import router from './router'
 import hua5WebLib from "@hua5/hua5-web-lib"
 import hua5WebUI from "@hua5/hua5-web-ui"
-import "./css/color.css"
 import { hlibDelegate } from "./delegate/HlibDelegate"
 import { huiDelegate } from "./delegate/HuiDelegate"
 
