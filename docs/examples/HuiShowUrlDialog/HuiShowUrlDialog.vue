@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const showUrlDialog = ref<InstanceType<typeof HuiShowUrlDialog> | null>(null)
+const showUrlDialog = ref<any>(null)
 
 function onShowUrlDialogClick() {
   showUrlDialog.value?.open('', {

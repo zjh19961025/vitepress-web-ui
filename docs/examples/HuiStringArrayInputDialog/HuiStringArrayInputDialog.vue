@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const stringArrayInputDialog = ref<InstanceType<typeof HuiStringArrayInputDialog>| null >(null)
+const stringArrayInputDialog = ref<any>(null)
 
 // 打开弹窗
 function onStringArrayInputClick() {

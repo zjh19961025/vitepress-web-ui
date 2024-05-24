@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const regionTreeDialogRef = ref<InstanceType<typeof HuiRegionTreeDialog> | null>(null)
+const regionTreeDialogRef = ref<any>(null)
 
 const selectedRegion = ref([])
 // 打开地区选择弹框

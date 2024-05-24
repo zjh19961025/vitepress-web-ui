@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const countDownButton = ref<InstanceType<typeof HuiCountDownButton> | null>(null)
+const countDownButton = ref<any>(null)
 
 function onGetCodeClick() {
   console.log('开始倒计时了, 10秒钟后倒计时自动结束')

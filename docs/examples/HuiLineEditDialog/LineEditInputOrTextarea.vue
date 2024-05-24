@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const lineEditInputDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
-const lineEditTextareaDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
+const lineEditInputDialog = ref<any>(null)
+const lineEditTextareaDialog = ref<any>(null)
 
 const testRow = {
   name: "满十减一",

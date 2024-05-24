@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const previewRichTextDialog = ref<InstanceType<typeof HuiPreviewRichTextDialog> | null>(null)
+const previewRichTextDialog = ref<any>(null)
 
 function onOpen() {
   previewRichTextDialog.value?.open('id', {

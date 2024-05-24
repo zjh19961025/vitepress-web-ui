@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const tinymceDialogRef = ref<InstanceType<typeof HuiTinymceDialog> | null>(null)
+const tinymceDialogRef = ref<any>(null)
 
 const content = ref('')
 

@@ -9,7 +9,7 @@ onMounted(async() => {
   HuiRules.value = res.HuiRules
 })
 
-const lineEditDialog = ref<InstanceType<typeof HuiLineEditDialog> | null>(null)
+const lineEditDialog = ref<any>(null)
 
 const selectDic = ref([
   {
