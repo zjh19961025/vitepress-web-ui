@@ -21,7 +21,7 @@
       "import": "./dist/index.js"
     },
     "./style": "./dist/style.css",
-    "./config/*":"./config/*",
+    "./config/*": "./config/*",
     "./global": {
       "types": "./global.d.ts"
     }
@@ -31,7 +31,8 @@
   },
   "scripts": {
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:ui": "pnpm ./deploy/deploy.sh"
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.3.1",
