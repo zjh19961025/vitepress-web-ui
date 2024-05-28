@@ -29,7 +29,6 @@ const commonShortcuts = [
   {
     'text-over-ellipsis': 'text-ellipsis whitespace-nowrap overflow-hidden',
   },
-  [/^text-over-ellipsis-(\d+)$/, ([, lines]) => `line-clamp-${lines}`],
 ]
 
 export default commonShortcuts
