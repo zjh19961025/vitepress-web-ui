@@ -20,6 +20,15 @@ export function presetHui() {
       ...commonShortcuts,
       ...adminShortcuts,
     ],
+    autocomplete: {
+      templates: [
+        'bg-$backgroundColor',
+        'text-$textColor',
+        'c-$textColor',
+        'b-$borderColor',
+        'border-$borderColor',
+      ],
+    },
     // 预设
     presets: [
       presetUno(),
