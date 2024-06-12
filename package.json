@@ -20,30 +20,30 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@hua5/hua5-web-lib": "^1.0.3",
-    "@tinymce/tinymce-vue": "^5",
-    "element-plus": "^2.6.3",
-    "vue": "^3.4.21"
+    "@hua5/hua5-web-lib": "^1.0.7",
+    "@tinymce/tinymce-vue": "^5.1.1",
+    "element-plus": "^2.7.5",
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@hua5/eslint-config": "workspace:*",
-    "@hua5/hua5-utils": "^1.0.3",
+    "@hua5/hua5-utils": "^1.0.6",
     "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20.12.5",
-    "@unocss/preset-rem-to-px": "^0.59.1",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@types/node": "^20.14.2",
+    "@unocss/preset-rem-to-px": "^0.59.4",
+    "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.57.0",
     "eslint-define-config": "^1.24.1",
-    "sass": "^1.74.1",
-    "typescript": "~5.4.4",
+    "sass": "^1.77.5",
+    "typescript": "~5.4.5",
     "unocss": "^0.58.9",
-    "unplugin-auto-import": "^0.17.5",
+    "unplugin-auto-import": "^0.17.6",
     "unplugin-vue-components": "^0.26.0",
-    "vite": "^5.2.8",
-    "vite-plugin-dts": "^3.8.1",
-    "vite-plugin-vue-devtools": "^7.0.25",
-    "vue-tsc": "^2.0.10"
+    "vite": "^5.2.13",
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-vue-devtools": "^7.2.1",
+    "vue-tsc": "^2.0.21"
   }
 }
