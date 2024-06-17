@@ -1,21 +1,19 @@
 {
   "name": "@hua5/unocss-preset",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "type": "module",
   "keywords": [],
   "license": "ISC",
   "author": "",
   "files": [
-    "rules",
-    "shorts",
-    "index.ts",
-    "theme.ts"
+    "src",
+    "global.d.ts"
   ],
-  "main": "index.ts",
+  "main": "src/index.ts",
   "exports": {
     ".": {
-      "import": "./index.ts"
+      "import": "./src/index.ts"
     },
     "./global": {
       "types": "./global.d.ts"
