@@ -1,7 +1,8 @@
 {
   "name": "@hua5/unocss-preset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "type": "module",
   "keywords": [],
   "license": "ISC",
   "author": "",
@@ -11,7 +12,7 @@
     "index.ts",
     "theme.ts"
   ],
-  "main": "index.js",
+  "main": "index.ts",
   "exports": {
     ".": {
       "import": "./index.ts"

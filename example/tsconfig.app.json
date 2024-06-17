@@ -6,7 +6,7 @@
     "src/**/*.vue",
     "build/description/components.d.ts",
     "build/description/auto-imports.d.ts",
-    "*.ts"
+    "unocss.theme.ts"
   ],
   "exclude": [
     "src/**/__tests__/*"

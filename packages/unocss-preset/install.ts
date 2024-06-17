@@ -18,7 +18,7 @@ declare global {
 
 type optionType = Partial<UITheme>
 
-export function install(app: App, options: optionType) {
+export function install(app: App, options?: optionType) {
   window.theme = uiTheme
   if (options) {
     const theme = objectUtils.deepMerge(objectUtils.deepClone(uiTheme), objectUtils.deepClone(options))
