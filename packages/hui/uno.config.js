@@ -1,5 +1,5 @@
 import { defineConfig } from 'unocss'
-import { presetHui } from "./config/uno-preset/hui-preset"
+import { presetHui } from "@hua5/unocss-preset"
 
 export default defineConfig({
   // 预设

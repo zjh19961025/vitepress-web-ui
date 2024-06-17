@@ -50,7 +50,6 @@ function handleSubmit() {
       close()
     } else {
       ElMessage.error('验证未通过')
-      return false
     }
   })
 }

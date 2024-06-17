@@ -177,6 +177,9 @@ watch(richTextContent, (val) => {
     <div class="text-danger bg-success" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test
     </div>
+    <div :style="{color: theme.colors.primary}">
+      覆盖颜色
+    </div>
     <div class="flex ml-10px">
       <div class="flex-y">
         <div>

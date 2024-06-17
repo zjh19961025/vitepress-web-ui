@@ -1,11 +1,10 @@
-import { presetUno } from 'unocss'
+import { presetUno, type PresetOptions } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
-import commonShortcuts from './common-shortcuts'
-import adminShortcuts from './admin-shortcuts'
-import theme from "./theme"
+import commonShortcuts from './shorts/common-shortcuts'
+import adminShortcuts from './shorts/admin-shortcuts'
+import { uiTheme as theme } from "./theme"
 import rules from './rules'
-
-export function presetHui() {
+export function presetHui(): PresetOptions {
   return {
     name: 'presetHui',
     // 自定义规则

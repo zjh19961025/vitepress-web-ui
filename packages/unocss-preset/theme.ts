@@ -1,4 +1,4 @@
-const theme = {
+export const uiTheme = {
   colors: {
     // 基础颜色
     white: '#FFFFFF',
@@ -39,4 +39,6 @@ const theme = {
     darker: "#cdd0d6",
   },
 }
-export default theme
+
+export type UITheme = typeof uiTheme & { [key: string]: any }
+

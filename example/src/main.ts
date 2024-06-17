@@ -9,6 +9,8 @@ import hua5WebLib from "@hua5/hua5-web-lib"
 import hua5WebUI from "@hua5/hua5-web-ui"
 import { hlibDelegate } from "./delegate/HlibDelegate"
 import { huiDelegate } from "./delegate/HuiDelegate"
+import unocssPreset from '@hua5/unocss-preset'
+import theme from '../unocss.theme'
 
 const app = createApp(App)
 
@@ -20,4 +22,6 @@ app.use(hua5WebUI, {
   isInstallComponents: false,
   delegate: huiDelegate,
 })
+
+app.use(unocssPreset, theme)
 app.mount('#app')

@@ -1,0 +1,33 @@
+{
+  "name": "@hua5/unocss-preset",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "rules",
+    "shorts",
+    "index.ts",
+    "theme.ts"
+  ],
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.ts"
+    },
+    "./global": {
+      "types": "./global.d.ts"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "@unocss/preset-rem-to-px": "^0.59.0",
+    "unocss": "^0.58.7"
+  }
+}

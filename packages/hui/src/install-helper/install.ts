@@ -29,7 +29,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
       components.forEach((c) => app.use(c))
     }
     installDirective(app)
-    provideGlobalConfig(options, app)
+    provideGlobalConfig(app, options)
     isInstalledHu5WebUI = true
     window.huiDelegate = { ...defaultOptions.delegate, ...options.delegate }
   }
@@ -46,7 +46,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
  * @param app
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function provideGlobalConfig(options: HuiOptions, app: App) {
+function provideGlobalConfig(app: App, options: HuiOptions) {
   // 添加到vue 原型上的属性
 
 }

@@ -28,6 +28,7 @@
   "devDependencies": {
     "@hua5/eslint-config": "workspace:*",
     "@hua5/hua5-utils": "^1.0.6",
+    "@hua5/unocss-preset": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.2",
     "@unocss/preset-rem-to-px": "^0.59.4",
