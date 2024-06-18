@@ -22,10 +22,8 @@ export function presetHui(): PresetOptions {
     autocomplete: {
       templates: [
         'bg-$backgroundColor',
-        'text-$textColor',
-        'c-$textColor',
-        'b-$borderColor',
-        'border-$borderColor',
+        '(text|c)-$textColor',
+        '(border|b)-$borderColor',
       ],
     },
     // 预设
