@@ -8,6 +8,7 @@ import HuiRegionTreeDialog from './components/HuiRegionTreeDialog'
 import HuiTinymceDialog from './components/HuiTinymceDialog'
 import HuiTinymce from './components/HuiTinymce'
 import HuiSelectLoadStatus from './components/HuiSelectLoadStatus'
+import HuiLineEditPopover from './components/HuiLineEditPopover'
 
 export default [
   HuiLineEditDialog,
@@ -20,4 +21,5 @@ export default [
   HuiTinymceDialog,
   HuiTinymce,
   HuiSelectLoadStatus,
+  HuiLineEditPopover,
 ]

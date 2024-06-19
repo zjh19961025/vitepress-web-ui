@@ -14,6 +14,9 @@ const countDownButton = ref(null)
 const region = ref('')
 const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
+const popoverRow = ref({
+  sort: 9,
+})
 const options = ref(new Array(20).fill({
   value: 'Option1',
   label: 'Option1',
@@ -165,6 +168,10 @@ const richTextContent = ref('')
 watch(richTextContent, (val) => {
   console.log('富文本内容', val)
 })
+
+function lineEditPopoverConfirm(row) {
+  console.log('row', row.sort)
+}
 </script>
 
 <template>
@@ -219,6 +226,9 @@ watch(richTextContent, (val) => {
         <div class="mt-10px">
           <ElButton @click="onTniymceClick">富文本编辑弹框</ElButton>
         </div>
+        <div class="mt-10px">
+          <HuiLineEditPopover :row="popoverRow" field="sort" @confirm="lineEditPopoverConfirm" />
+        </div>
       </div>
       <div class="flex flex-col ml-10">
 
@@ -262,13 +272,6 @@ watch(richTextContent, (val) => {
     />
     <HuiRegionTreeDialog ref="regionTreeDialogRef" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
-    <!-- <HuiLineEditDialog
-      ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
-      type="input" :rules="HuiRules.urlRule()"
-      :is-need-double-confirm="true" double-confirm-tips="测试二次确认"
-      @on-value-change="onValueChange"
-      @on-submit="handleRowEdit"
-    /> -->
   </div>
 </template>
 

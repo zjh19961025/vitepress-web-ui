@@ -1,6 +1,10 @@
+import { AllowedComponentProps } from 'vue';
 import { App } from 'vue';
 import { Arrayable } from 'element-plus/es/utils';
+import { ComponentCustomProps } from 'vue';
+import { ComponentOptionsBase } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
+import { CreateComponentPublicInstance } from 'vue';
 import { DefineComponent } from 'vue';
 import { Directive } from 'vue';
 import { ExtractPropTypes } from 'vue';
@@ -9,6 +13,7 @@ import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
 import { Ref } from 'vue';
+import { VNodeProps } from 'vue';
 
 declare const _default: {
     install: (app: App<any>, opt?: HuiOptions) => void;
@@ -218,6 +223,155 @@ declare type HuiLineEditDialogComboItem = {
     label: string;
     value: string | number;
 };
+
+/**
+ * 行编辑popover
+ */
+export declare const HuiLineEditPopover: SFCWithInstall<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
+        row: PropType<{
+            [key: string]: string;
+        }>;
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        width: {
+            type: PropType<number>;
+            required: true;
+            default: number;
+        };
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
+    }>> & {
+        onConfirm?: (row: {
+            [key: string]: string;
+        }) => any;
+    }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+        confirm: (row: {
+            [key: string]: string;
+        }) => void;
+    }, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        row: PropType<{
+            [key: string]: string;
+        }>;
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        width: {
+            type: PropType<number>;
+            required: true;
+            default: number;
+        };
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
+    }>> & {
+        onConfirm?: (row: {
+            [key: string]: string;
+        }) => any;
+    }, {
+        baseClass: string;
+        disabled: boolean;
+        width: number;
+    }, true, {}, {}, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly< ExtractPropTypes<{
+        row: PropType<{
+            [key: string]: string;
+        }>;
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        width: {
+            type: PropType<number>;
+            required: true;
+            default: number;
+        };
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
+    }>> & {
+        onConfirm?: (row: {
+            [key: string]: string;
+        }) => any;
+    }, {}, {}, {}, {}, {
+        baseClass: string;
+        disabled: boolean;
+        width: number;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    row: PropType<{
+        [key: string]: string;
+    }>;
+    baseClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        required: true;
+        default: boolean;
+    };
+    width: {
+        type: PropType<number>;
+        required: true;
+        default: number;
+    };
+    field: {
+        type: PropType<string>;
+        required: true;
+    };
+}>> & {
+    onConfirm?: (row: {
+        [key: string]: string;
+    }) => any;
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    confirm: (row: {
+        [key: string]: string;
+    }) => void;
+}, string, {
+    baseClass: string;
+    disabled: boolean;
+    width: number;
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+})> & Record<string, any>;
 
 /**
  * option选项
