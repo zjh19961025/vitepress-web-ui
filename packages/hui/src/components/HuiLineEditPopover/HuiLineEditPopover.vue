@@ -4,6 +4,10 @@ import { ElInput, ElPopover, ElButton } from 'element-plus'
 import { onBeforeUnmount, onMounted, ref, toValue } from 'vue'
 import type { HuiLineEditPopoverPropsType, HuiLineEditPopoverEmitType } from './type'
 
+defineOptions({
+  name: 'HuiLineEditPopover',
+})
+
 const { field } = withDefaults(defineProps<HuiLineEditPopoverPropsType>(), {
   width: 180,
   baseClass: 'text-primary px-4',
