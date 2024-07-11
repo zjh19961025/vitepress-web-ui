@@ -17,7 +17,7 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     | bold italic underline strikethrough 
     | hua5Link unlink 
     | image axupimgs media 
-    | nonbreaking
+    | formatpainter nonbreaking
     | undo redo
     | indent outdent 
     | table
@@ -27,13 +27,13 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     | codesample 
     | print searchreplace emoticons`,
     // 需要加载的插件
-    plugins: 'link image media table preview code nonbreaking codesample searchreplace emoticons axupimgs letterspacing',
+    plugins: 'link image media table preview code nonbreaking codesample searchreplace emoticons axupimgs letterspacing formatpainter',
     file_picker_types: 'image media', // 文件上传可选的类型
     branding: false, // 是否显示右下角logo
     nonbreaking_force_tab: true, // 开启tab为添加空格
     extended_valid_elements: `a[href]`, // 标签可以设置的属性
     image_title: true, // 图片可以加标题
-    font_size_formats: '8pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 32pt 40pt', // 字体大小
+    font_size_formats: '1.25rem 1.5rem 1.75rem 1.875rem 2rem 2.5rem 2.625rem 8pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 32pt 40pt', // 字体大小
     line_height_formats: '1 1.2 1.4 1.6 1.8 2 2.4 2.8 3', // 行高
     letterspacing: '0px 2px 4px 6px 8px 10px', // 字符间距
     toolbar_mode: 'Wrap', // 工具栏模式
