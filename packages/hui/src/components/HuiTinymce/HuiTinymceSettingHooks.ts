@@ -12,7 +12,7 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     // 自定义工具栏
     toolbar: `code 
     | forecolor backcolor
-    | alignleft aligncenter alignright alignjustify 
+    | alignleft aligncenter alignright alignjustify fontsizeinput 
     | fontsize lineheight letterspacing fontfamily blocks
     | bold italic underline strikethrough 
     | hua5Link unlink 
