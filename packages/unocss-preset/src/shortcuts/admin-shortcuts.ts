@@ -6,5 +6,8 @@ const adminShortcuts = [
   {
     "admin-link": "text-primary cursor-pointer",
   },
+  {
+    "hand": "cursor-pointer",
+  },
 ]
 export default adminShortcuts
