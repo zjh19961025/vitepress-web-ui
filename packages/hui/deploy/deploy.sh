@@ -5,4 +5,6 @@ pnpm eslint --fix package.json
 pnpm build
 git add -A
 git commit -m "update version and publish"
+git pull --rebase
+git push -u
 pnpm publish
