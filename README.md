@@ -10,6 +10,7 @@ node版本：18.20.2 以上
     pnpm dev // 启动测试工程
     pnpm build:ui // 打包 Hui 库
     pnpm publish:ui // 发布 Hui 库
+    pnpm update:hua5 // 更新 hua5 依赖库
 ```
 
 # package/hui
