@@ -9,11 +9,15 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+const siteBase = "/front-end/hua5-web-ui/"
+
 export default defineConfig({
+  base: siteBase, // 部署路径设置, host + base 进行访问
   title: "hua5-web-ui",
   description: "hua5-web-ui",
   head: [
-    ['script', { src: '/tinymce/tinymce.min.js' }]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${siteBase}/logo.svg` }],
+    ['script', { src: `${siteBase}tinymce/tinymce.min.js` }]
   ],
   vite: {
     plugins: [
@@ -43,6 +47,7 @@ export default defineConfig({
     config: (md) => mdPlugin(md),
   },
   themeConfig: {
+    logo: '/logo.svg',
     nav,
     sidebar,
     search: {
