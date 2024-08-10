@@ -11,6 +11,13 @@ export interface HuiDelegate {
    */
   putOss?: (file: File | Blob | any) => Promise<[any, any]>;
   /**
+   * 地图相关配置
+   */
+  amapConfig?: {
+    key: string,
+    serviceHost: string,
+  },
+  /**
    * 其他配置
    */
   [key: string]: any;
@@ -36,7 +43,9 @@ window.huiDelegate = {
   putOss: async() => {
     return [{ msg: "delegate未实现上传接口" }, null]
   },
-
+  amapConfig: {
+    key: '',
+    serviceHost: "",
+  },
 }
-
 export const defaultDelegate = window.huiDelegate
