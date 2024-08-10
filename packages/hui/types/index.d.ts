@@ -9,6 +9,7 @@ import { DefineComponent } from 'vue';
 import { Directive } from 'vue';
 import { ExtractPropTypes } from 'vue';
 import { FormItemRule } from 'element-plus';
+import { ModelRef } from 'vue';
 import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
@@ -23,10 +24,129 @@ export default _default;
 /**
  * 倒计时按钮
  */
+export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<{
+    poi: PropType<any>;
+    value: {
+        type: PropType<any>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    showInput: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}, {
+    loadMap: () => void;
+    setupMap: () => void;
+    poi: ModelRef<any, string>;
+    submitInfo: () => boolean;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    poi: PropType<any>;
+    value: {
+        type: PropType<any>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    showInput: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+}>>, {
+    disabled: boolean;
+    width: string;
+    height: string;
+    showInput: boolean;
+}, {}>> & Record<string, any>;
+
+/**
+ * 地图选择位置弹窗
+ */
+export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    showInput: {
+        type: PropType<boolean>;
+    };
+}, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onSubmit: (poi: any) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    showInput: {
+        type: PropType<boolean>;
+    };
+}>> & {
+    onOnSubmit?: (poi: any) => any;
+}, {
+    title: string;
+    width: string;
+}, {}>> & Record<string, any>;
+
+/**
+ * 倒计时按钮
+ */
 export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         required: true;
+    };
+    type: {
+        type: PropType<"button" | "text">;
+        required: true;
+        default: string;
     };
     baseClass: {
         type: PropType<string>;
@@ -44,11 +164,6 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
     };
     disableClass: {
         type: PropType<string>;
-        required: true;
-        default: string;
-    };
-    type: {
-        type: PropType<"text" | "button">;
         required: true;
         default: string;
     };
@@ -61,6 +176,11 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         required: true;
     };
+    type: {
+        type: PropType<"button" | "text">;
+        required: true;
+        default: string;
+    };
     baseClass: {
         type: PropType<string>;
         required: true;
@@ -80,18 +200,13 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
         required: true;
         default: string;
     };
-    type: {
-        type: PropType<"text" | "button">;
-        required: true;
-        default: string;
-    };
 }>> & {
     onClick?: () => any;
 }, {
+    type: "button" | "text";
     timeCount: string | number;
     enableClass: string;
     disableClass: string;
-    type: "text" | "button";
 }, {}>> & Record<string, any>;
 
 export declare interface HuiDelegate {
@@ -123,6 +238,10 @@ export declare interface HuiDelegate {
  * 组件导出
  */
 export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
+    label: {
+        type: PropType<string>;
+        default: string;
+    };
     title: {
         type: PropType<string>;
         default: string;
@@ -131,9 +250,8 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
-    label: {
+    placeholder: {
         type: PropType<string>;
-        default: string;
     };
     isNeedDoubleConfirm: {
         type: PropType<boolean>;
@@ -142,9 +260,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     prop: {
         type: PropType<string>;
         required: true;
-    };
-    placeholder: {
-        type: PropType<string>;
     };
     rules: {
         type: PropType<any>;
@@ -170,6 +285,10 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     onSubmit: (row: any, prop: string) => void;
     onValueChange: (form: any, row?: any) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
+    label: {
+        type: PropType<string>;
+        default: string;
+    };
     title: {
         type: PropType<string>;
         default: string;
@@ -178,9 +297,8 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
-    label: {
+    placeholder: {
         type: PropType<string>;
-        default: string;
     };
     isNeedDoubleConfirm: {
         type: PropType<boolean>;
@@ -189,9 +307,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     prop: {
         type: PropType<string>;
         required: true;
-    };
-    placeholder: {
-        type: PropType<string>;
     };
     rules: {
         type: PropType<any>;
@@ -214,9 +329,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
 }, {
+    label: string;
     title: string;
     type: string;
-    label: string;
     isNeedDoubleConfirm: boolean;
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
@@ -239,11 +354,6 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        baseClass: {
-            type: PropType<string>;
-            required: true;
-            default: string;
-        };
         disabled: {
             type: PropType<boolean>;
             required: true;
@@ -253,6 +363,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             type: PropType<number>;
             required: true;
             default: number;
+        };
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
         };
         field: {
             type: PropType<string>;
@@ -270,11 +385,6 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        baseClass: {
-            type: PropType<string>;
-            required: true;
-            default: string;
-        };
         disabled: {
             type: PropType<boolean>;
             required: true;
@@ -285,6 +395,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             required: true;
             default: number;
         };
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
         field: {
             type: PropType<string>;
             required: true;
@@ -294,9 +409,9 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             [key: string]: string;
         }) => any;
     }, {
-        baseClass: string;
         disabled: boolean;
         width: number;
+        baseClass: string;
     }, true, {}, {}, {
         P: {};
         B: {};
@@ -308,11 +423,6 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        baseClass: {
-            type: PropType<string>;
-            required: true;
-            default: string;
-        };
         disabled: {
             type: PropType<boolean>;
             required: true;
@@ -323,6 +433,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             required: true;
             default: number;
         };
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
         field: {
             type: PropType<string>;
             required: true;
@@ -332,9 +447,9 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             [key: string]: string;
         }) => any;
     }, {}, {}, {}, {}, {
-        baseClass: string;
         disabled: boolean;
         width: number;
+        baseClass: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -343,11 +458,6 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     row: PropType<{
         [key: string]: string;
     }>;
-    baseClass: {
-        type: PropType<string>;
-        required: true;
-        default: string;
-    };
     disabled: {
         type: PropType<boolean>;
         required: true;
@@ -357,6 +467,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         type: PropType<number>;
         required: true;
         default: number;
+    };
+    baseClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
     };
     field: {
         type: PropType<string>;
@@ -371,9 +486,9 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         [key: string]: string;
     }) => void;
 }, string, {
-    baseClass: string;
     disabled: boolean;
     width: number;
+    baseClass: string;
 }, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
@@ -662,12 +777,12 @@ export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<{
  * 逗号分割字符串输入对话框
  */
 export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
-    title: {
+    label: {
         type: PropType<string>;
         required: true;
         default: string;
     };
-    label: {
+    title: {
         type: PropType<string>;
         required: true;
         default: string;
@@ -690,12 +805,12 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (id: string, info: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
-    title: {
+    label: {
         type: PropType<string>;
         required: true;
         default: string;
     };
-    label: {
+    title: {
         type: PropType<string>;
         required: true;
         default: string;
@@ -715,8 +830,8 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
 }>> & {
     onOnSubmit?: (id: string, info: string) => any;
 }, {
-    title: string;
     label: string;
+    title: string;
     placeholder: string;
     tips: boolean;
 }, {}>> & Record<string, any>;

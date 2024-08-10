@@ -3,6 +3,7 @@ import { HuiTool, HuiRules, HuiCountDownButton, selectLoadmore as vSelectLoadmor
 import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
 import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
+import { ref } from "vue"
 
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
@@ -14,6 +15,7 @@ const countDownButton = ref(null)
 const region = ref('')
 const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
+const AMapSelectAddressDialogRef = ref(null)
 const popoverRow = ref({
   sort: 9,
 })
@@ -36,7 +38,7 @@ const selectDic = ref([
 const testStyle = ref(`width: ${addUnit(200)}`)
 
 function onDialogBtnClick() {
-  normalDialogTest.value?.open()
+  normalDialogTest.value?.open('', { rigthCode: '1111' })
 }
 
 function onNormalDialogOpen() {
@@ -48,7 +50,7 @@ function onNormalDialogClose() {
 }
 
 function onFormDialogBtnClick() {
-  formDialogTest.value?.open()
+  formDialogTest.value?.open('', { rigthCode: '1111' })
 }
 function onFormDialogOpen() {
   console.log("onFormDialogOpen", new Date().getTime())
@@ -172,6 +174,26 @@ watch(richTextContent, (val) => {
 function lineEditPopoverConfirm(row) {
   console.log('row', row.sort)
 }
+
+const poi = ref({
+  latitude: '25.05329348090535',
+  longitude: '102.74809961646793',
+  formattedAddress: '云南省昆明市盘龙区青云街道昙华路',
+})
+
+function onAMapSelectAddressClick() {
+  const poi = {
+    latitude: '25.05396249981161',
+    longitude: '102.6680535596609',
+    formattedAddress: '云南省昆明市五华区黑林铺街道康宏小区(西门)',
+  }
+  AMapSelectAddressDialogRef.value.open('', poi)
+}
+const HuiAMapSelectAddressRef = ref(null)
+function onSubmit(data) {
+  poi.value = data
+  HuiAMapSelectAddressRef.value.setupMap()
+}
 </script>
 
 <template>
@@ -227,6 +249,9 @@ function lineEditPopoverConfirm(row) {
           <ElButton @click="onTniymceClick">富文本编辑弹框</ElButton>
         </div>
         <div class="mt-10px">
+          <ElButton @click="onAMapSelectAddressClick">地图选择</ElButton>
+        </div>
+        <div class="mt-10px">
           <HuiLineEditPopover :row="popoverRow" field="sort" @confirm="lineEditPopoverConfirm" />
         </div>
       </div>
@@ -246,6 +271,9 @@ function lineEditPopoverConfirm(row) {
           <HuiTinymce v-model:tinymceContent="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
         </div>
       </div>
+      <div class="mt-10">
+        <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model:poi="poi" />
+      </div>
     </div>
 
     <NormalDialogTest
@@ -262,6 +290,7 @@ function lineEditPopoverConfirm(row) {
       @on-submit="handleRowEdit"
     />
     <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
+    <HuiAMapSelectAddressDialog ref="AMapSelectAddressDialogRef" @on-submit="onSubmit" />
     <HuiShowUrlDialog ref="showUrlDialog" title="查看链接" @close="showUrlDialogClose" />
     <HuiStringArrayInputDialog
       ref="stringArrayInputDialog"
