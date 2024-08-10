@@ -9,6 +9,12 @@ export const sidebar = {
     },
   ],
   '/components/': [
+    { 
+      text: '开发',
+      items: [
+        { text: '开发说明', link: '/components/readme-develop' },
+      ] 
+    },
     {
       text: '颜色',
       items: [

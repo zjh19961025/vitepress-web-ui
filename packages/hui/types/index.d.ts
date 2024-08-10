@@ -107,6 +107,13 @@ export declare interface HuiDelegate {
      */
     putOss?: (file: File | Blob | any) => Promise<[any, any]>;
     /**
+     * 地图相关配置
+     */
+    amapConfig?: {
+        key: string;
+        serviceHost: string;
+    };
+    /**
      * 其他配置
      */
     [key: string]: any;

@@ -2,7 +2,7 @@
 
 ## 引入
 
-```ts{3-5,10-12}
+```ts{3-5,10-13}
 // main.ts
 import { createApp } from 'vue'
 import '@hua5/hua5-web-ui/style'
@@ -14,7 +14,7 @@ const app = createApp(App)
 
 app.use(hua5WebUI, {
   delegate: huiDelegate,
-  isInstallComponents: false // 是否自动安装组件
+  isInstallComponents: false // 是否自动安装组件, 默认为false
 })
 app.mount('#app')
 
