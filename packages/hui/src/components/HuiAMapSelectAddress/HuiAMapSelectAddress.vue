@@ -84,6 +84,7 @@ function clearMarker() {
 }
 
 function getAddress(longitude: number, latitude: number) {
+  // eslint-disable-next-line new-cap
   new window.AMap.service('AMap.Geocoder', () => {
     const geocoder = new window.AMap.Geocoder({})
     geocoder.getAddress([longitude, latitude], (status:string, result:any) => {
