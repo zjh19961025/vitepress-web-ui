@@ -32,6 +32,32 @@ export const huiDelegate: HuiDelegate = {
   putOss,
 }
 ```
+```ts
+export declare interface HuiDelegate {
+    /**
+     * 地区的所有数据
+     * @returns
+     */
+    getRegionTree?: () => any[] | Promise<any[]>;
+    /**
+     * 上传oss
+     * @param file 文件信息
+     * @returns {Promise<[any, any]>} 上传后的结果
+     */
+    putOss?: (file: File | Blob | any) => Promise<[any, any]>;
+    /**
+     * 地图相关配置
+     */
+    amapConfig?: {
+        key: string;
+        serviceHost: string;
+    };
+    /**
+     * 其他配置
+     */
+    [key: string]: any;
+}
+```
 
 ## Volar 支持
 在 `tsconfig.json` 中通过 `compilerOptions.type` 指定全局组件类型。

@@ -6,8 +6,8 @@ hero:
   tagline: web端快速开发基础UI组件支持
   actions:
     - theme: brand
-      text: 使用指南
-      link: /guide/index
-    - theme: brand
       text: 组件文档
-      link: /components/HuiColor
+      link: /components/guide/
+    - theme: brand
+      text: unocss预设
+      link: /unocssPreset/index

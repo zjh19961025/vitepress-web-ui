@@ -77,7 +77,7 @@ dev 上编写文档，**需要对 hui 中的 package.json 做修改, 将 import 
 
 ## css 相关
 ### element-plus 颜色覆盖
-1. 参考`example`中 `/src/css/element/index.scss`文件，直接把该文件复制到项目中，将需要被覆盖的样式直接修改为对应的颜色即可。
+1. 参考[example工程](https://codeup.aliyun.com/hua5/web/common/hua5-web-ui/blob/master/example/src/css/element/index.scss)中的文件，可直接把该文件复制到项目中，修改对应的颜色。
 
 ```scss
 $--colors: (
@@ -96,7 +96,7 @@ $--colors: (
 );
 ```
 
-2. 将此文件在`vite.config.ts`中引入
+2. 将此文件在[vite.config.ts](https://codeup.aliyun.com/hua5/web/common/hua5-web-ui/blob/master/example/vite.config.ts)中引入
 
 ```typescript
 css: {
