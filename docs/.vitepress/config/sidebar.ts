@@ -1,18 +1,31 @@
 export const sidebar = {
-  '/guide/': [
+  '/unocssPreset/': [
     {
-      text: '指南',
+      text: '快速开始', link: "/unocssPreset/"
+    },
+    {
+      text: '颜色',
       items: [
-        { text: '安装', link: '/guide/' },
-        { text: '快速开始', link: '/guide/start' },
+        { text: '默认颜色', link: '/unocssPreset/color' },
+        { text: '颜色使用', link: '/unocssPreset/colorUse' },
+        { text: '颜色定义', link: '/unocssPreset/colorDefine' },
+
+      ],
+    },
+    {
+      text: 'unocss',
+      items: [
+        { text: 'tips', link: '/unocssPreset/unocssTips' },
       ],
     },
   ],
   '/components/': [
     {
-      text: '颜色',
+      text: '指南',
       items: [
-        { text: '颜色', link: '/components/HuiColor' },
+        { text: '安装', link: '/components/guide/' },
+        { text: '快速开始', link: '/components/guide/start' },
+        { text: '开发指南', link: '/components/guide/develop' },
       ],
     },
     {

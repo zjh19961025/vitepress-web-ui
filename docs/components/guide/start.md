@@ -2,7 +2,7 @@
 
 ## 引入
 
-```ts{3-5,10-12}
+```ts{3-5,10-13}
 // main.ts
 import { createApp } from 'vue'
 import '@hua5/hua5-web-ui/style'
@@ -14,7 +14,7 @@ const app = createApp(App)
 
 app.use(hua5WebUI, {
   delegate: huiDelegate,
-  isInstallComponents: false // 是否自动安装组件
+  isInstallComponents: false // 是否自动安装组件, 默认为false
 })
 app.mount('#app')
 
@@ -30,6 +30,32 @@ export const huiDelegate: HuiDelegate = {
   getRegionTree,
   // oss 上传
   putOss,
+}
+```
+```ts
+export declare interface HuiDelegate {
+    /**
+     * 地区的所有数据
+     * @returns
+     */
+    getRegionTree?: () => any[] | Promise<any[]>;
+    /**
+     * 上传oss
+     * @param file 文件信息
+     * @returns {Promise<[any, any]>} 上传后的结果
+     */
+    putOss?: (file: File | Blob | any) => Promise<[any, any]>;
+    /**
+     * 地图相关配置
+     */
+    amapConfig?: {
+        key: string;
+        serviceHost: string;
+    };
+    /**
+     * 其他配置
+     */
+    [key: string]: any;
 }
 ```
 

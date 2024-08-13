@@ -27,4 +27,4 @@ node版本：18.20.2 以上
 * **只允许在master上进行发布操作**
 * 发布命令只做到了 patch 版本号自增，MAJOR 版本（主版本号）和 MINOR 版本（次版本号） 发布都必须手动进行发布
 
-### 3. [组件编写说明](./packages/hui/README.md)
+### 3. [组件编写说明](http://192.168.31.5/front-end/hua5-web-ui/guide/develop.html)

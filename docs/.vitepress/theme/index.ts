@@ -13,6 +13,7 @@ import '@hua5/hua5-web-ui/style'
 import { huiDelegate } from '../../delegate/HuiDelegate'
 // hua5WebLib相关
 import { hlibDelegate } from '../../delegate/HlibDelegate'
+import unocssPreset from '@hua5/unocss-preset'
 // unocss相关
 import "virtual:uno.css";
 
@@ -24,6 +25,7 @@ export default {
     })
   },
   async enhanceApp({ app, router, siteData }) {
+    app.use(unocssPreset)
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component)
     }

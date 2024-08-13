@@ -9,6 +9,8 @@ import HuiTinymceDialog from './components/HuiTinymceDialog'
 import HuiTinymce from './components/HuiTinymce'
 import HuiSelectLoadStatus from './components/HuiSelectLoadStatus'
 import HuiLineEditPopover from './components/HuiLineEditPopover'
+import HuiAMapSelectAddress from "./components/HuiAMapSelectAddress"
+import HuiAMapSelectAddressDialog from './components/HuiAMapSelectAddressDialog'
 
 export default [
   HuiLineEditDialog,
@@ -22,4 +24,6 @@ export default [
   HuiTinymce,
   HuiSelectLoadStatus,
   HuiLineEditPopover,
+  HuiAMapSelectAddress,
+  HuiAMapSelectAddressDialog,
 ]

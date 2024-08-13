@@ -17,13 +17,15 @@ declare module 'vue' {
     HuiTinymce: typeof import("@hua5/hua5-web-ui")["HuiTinymce"]
     HuiSelectLoadStatus: typeof import("@hua5/hua5-web-ui")["HuiSelectLoadStatus"]
     HuiLineEditPopover: typeof import("@hua5/hua5-web-ui")["HuiLineEditPopover"]
+    HuiAMapSelectAddress:typeof import("@hua5/hua5-web-ui")["HuiAMapSelectAddress"]
+    HuiAMapSelectAddressDialog:typeof import("@hua5/hua5-web-ui")["HuiAMapSelectAddressDialog"]
   }
 
   /**
    * 已添加到原型上的
    */
   interface ComponentCustomProperties {
-    
+
   }
 }
 
