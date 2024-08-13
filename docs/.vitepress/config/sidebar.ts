@@ -46,7 +46,9 @@ export const sidebar = {
         { text: '显示链接弹框', link: '/components/HuiShowUrlDialog' },
         { text: '字符串数组编辑弹窗', link: '/components/HuiStringArrayInputDialog' },
         { text: '富文本编辑', link: '/components/HuiTinymce' },
-        { text: '富文本编辑弹窗', link: '/components/HuiTinymceDialog' }
+        { text: '富文本编辑弹窗', link: '/components/HuiTinymceDialog' },
+        { text: '地址信息显示组件', link: '/components/HuiAMapSelectAddress' },
+        { text: '地图地址选择弹窗', link: '/components/HuiAMapSelectAddressDialog' }
       ],
     },
     {

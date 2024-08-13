@@ -1,0 +1,20 @@
+# 地图信息显示组件
+
+### 用法
+:::demo
+HuiAMapSelectAddressDialog/HuiAMapSelectAddressDialog
+:::
+
+### 属性（props）
+
+| 属性名   | 说明           | 类型    | 默认值 |
+| -------- | -------------- | ------- | ------ |
+| width    | 弹窗宽度       | string  | 1000px |
+| title    | 弹窗标题       | string  | 500px  |
+| disabled | 输入框是否禁用 | boolean | false  |
+
+### 方法（defineExpose）
+
+| 方法名   | 描述           | 参数                                 |
+| -------- | -------------- | ------------------------------------ |
+| onSubmit | 点击提交后触发 | (data)，data: 高德地图返回的地址信息 |

@@ -3,6 +3,7 @@ import { addAMap } from './config'
 import { testUtils } from "@hua5/hua5-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick } from 'vue'
+import { ElInput } from 'element-plus'
 import type { HuiAMapSelectAddressPropsType } from './type.ts'
 
 // 定义组件名字，全局安装的时候会用到
@@ -193,7 +194,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
 
 <template>
   <div class="AMap" :style="{width:width,height:height}">
-    <el-input
+    <ElInput
       v-if="showInput"
       id="map__input"
       v-model="address"
