@@ -137,6 +137,7 @@ function init(callback: () => void) {
       }
     })(),
   })
+  map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
   initPoip()
   addClick()
   callback()
@@ -163,8 +164,8 @@ function handlePoiPicked(poiResult: any) {
   const poiItem = poiResult.item
   poi.value = Object.assign(poiItem, {
     formattedAddress: poiItem.name,
-    longitude: poiItem.location.R,
-    latitude: poiItem.location.P,
+    longitude: poiItem.location?.R,
+    latitude: poiItem.location?.P,
   })
   if (source !== 'search') {
     window.poiPicker.searchByKeyword(poiItem.name)
