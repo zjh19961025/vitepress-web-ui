@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "src",
+    "src/**/*",
+  ],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "types": ["./node_modules/@hua5/hua5-utils/dist/index.d.ts"]
+  },
+}
