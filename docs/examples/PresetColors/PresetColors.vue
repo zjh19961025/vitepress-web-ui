@@ -5,9 +5,10 @@
       <div class="flex flex-wrap">
         <div
           v-for="(item, index) in colorCat.list" :key="index"
+          v-clipboard="`${colorCat.copyFormat.replace('${color}', item.label)}`"
+          :clipboard-fun="copySuccessCallback"
           class="hand"
           :class="colorCat.itemClass" :style="[colorCat.getItemStyle(item.value)]"
-          @click="onItemClick(colorCat, item)"
         >
           <div>{{ colorCat.textPrefix + item.label }}</div>
           <div>{{ item.value }}</div>
@@ -19,7 +20,6 @@
 
 <script setup lang="ts">
 import { uiTheme } from "@hua5/unocss-preset"
-import { useClipboard } from '@vueuse/core'
 import { ElMessage } from 'element-plus'
 
 const colorsCatKey = ["colors", "textColor", "backgroundColor", "borderColor"]
@@ -85,29 +85,10 @@ function getBorderColorItemStyle(color) {
     "border-color": color,
   }
 }
-function onItemClick(catItem, colorItem) {
-  const source = catItem.copyFormat.replace("${color}", colorItem.label)
-  copyToClipboard(source)
-}
 
-/**
- * 写入剪贴板
- */
-const { copy, isSupported } = useClipboard()
-const copyToClipboard = async(source) => {
-  if (isSupported) {
-    try {
-      console.log("copy", source)
-      await copy(source)
-      ElMessage.success(`复制成功:${source}`)
-    } catch (error) {
-      console.error('Failed to copy text: ', error)
-    }
-  } else {
-    console.error('Clipboard API is not supported in this browser.')
-  }
+function copySuccessCallback(value) {
+  ElMessage.success(`复制成功:${value}`)
 }
-
 </script>
 
 <style lang="scss" scoped>
