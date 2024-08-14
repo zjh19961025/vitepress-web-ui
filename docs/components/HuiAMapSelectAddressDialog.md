@@ -15,6 +15,13 @@ HuiAMapSelectAddressDialog/HuiAMapSelectAddressDialog
 
 ### 方法（defineExpose）
 
+| 方法名 | 描述     | 参数                                                         |
+| ------ | -------- | ------------------------------------------------------------ |
+| open   | 打开弹窗 | (id,payload)，payload={<br />latitude\: 经纬度<br />longitude\: 经纬度<br />formattedAddress\:地理位置信息<br />} |
+| close  | 关闭弹窗 | -                                                            |
+
+### 方法（defineEmits）
+
 | 方法名   | 描述           | 参数                                 |
 | -------- | -------------- | ------------------------------------ |
 | onSubmit | 点击提交后触发 | (data)，data: 高德地图返回的地址信息 |
