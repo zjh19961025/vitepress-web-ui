@@ -86,19 +86,20 @@ function getBorderColorItemStyle(color) {
   }
 }
 function onItemClick(catItem, colorItem) {
-  const text = catItem.copyFormat.replace("${color}", colorItem.label)
-  copyToClipboard(text)
+  const source = catItem.copyFormat.replace("${color}", colorItem.label)
+  copyToClipboard(source)
 }
 
 /**
  * 写入剪贴板
  */
-const { text, copy, isSupported } = useClipboard()
+const { copy, isSupported } = useClipboard()
 const copyToClipboard = async(source) => {
   if (isSupported) {
     try {
+      console.log("copy", source)
       await copy(source)
-      ElMessage.success(`复制成功:${text}`)
+      ElMessage.success(`复制成功:${source}`)
     } catch (error) {
       console.error('Failed to copy text: ', error)
     }
