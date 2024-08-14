@@ -39,6 +39,7 @@ export const sidebar = {
       items: [
         { text: '倒计时', link: '/components/HuiCountDownButton' },
         { text: '行编辑弹窗', link: '/components/HuiLineEditDialog' },
+        { text: '表格排序修改悬浮组件', link: '/components/HuiLineEditPopover' },
         { text: '富文本预览弹窗', link: '/components/HuiPreviewRichTextDialog' },
         { text: '地区选择弹窗', link: '/components/HuiRegionTreeDialog' },
         { text: '地区选择输入框', link: '/components/HuiRegionTreePopover' },
