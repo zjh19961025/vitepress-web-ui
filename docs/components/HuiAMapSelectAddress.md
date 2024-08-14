@@ -7,11 +7,11 @@ HuiAMapSelectAddress/HuiAMapSelectAddress
 
 ### 属性（props）
 
-| 属性名            | 说明     | 类型                                                                                             | 默认值 |
-| ----------------- | -------- |------------------------------------------------------------------------------------------------| ------ |
+| 属性名            | 说明     | 类型                                                         | 默认值 |
+| ----------------- | -------- | ------------------------------------------------------------ | ------ |
 | v-model:poi="poi" | 地址信息 | {<br />    latitude:string;<br />    longitude:string;<br />    formattedAddress:string<br />} | -      |
-| width             | 组件宽度 | string                                                                                         | 1000px |
-| height            | 组件高度 | string                                                                                         | 500px  |
+| width             | 组件宽度 | string                                                       | 40vw   |
+| height            | 组件高度 | string                                                       | 40vh   |
 
 ### 方法（defineExpose）
 

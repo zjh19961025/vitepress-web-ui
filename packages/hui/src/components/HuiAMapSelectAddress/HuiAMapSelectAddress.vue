@@ -14,8 +14,8 @@ defineOptions({
 const props = withDefaults(defineProps<HuiAMapSelectAddressPropsType>(), {
   disabled: false,
   showInput: false,
-  width: '1000px',
-  height: '500px',
+  width: '40vw',
+  height: '40vh',
 })
 
 /** 选择的地址位置 */
@@ -206,7 +206,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
       @input="handleInput"
     />
     <div class="AMap__content-box" :class="showInput ? '' :'noEvents'">
-      <div :id="map__container" class="AMap__content-container" tabindex="0" />
+      <div :id="map__container" :style="{height:height}" class="AMap__content-container" tabindex="0" />
       <div v-if="showInput" id="map__result" class="AMap__content-result">
         <h3 class="w-full text-center text-12">暂无搜索结果</h3>
       </div>
@@ -240,7 +240,6 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
     }
     &-container {
       width: 100%;
-      height: 450px;
     }
     &-result {
       display: block !important;
