@@ -23,5 +23,5 @@ function onSubmit(data) {
 <template>
   <el-button @click="onAMapSelectAddressClick">地图选择弹窗</el-button>
   <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model:poi="poi" width="100%" />
-  <HuiAMapSelectAddressDialog ref="HuiAMapSelectAddressDialogRef" width="100%" @on-submit="onSubmit" />
+  <HuiAMapSelectAddressDialog ref="HuiAMapSelectAddressDialogRef" @on-submit="onSubmit" />
 </template>

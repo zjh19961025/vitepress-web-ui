@@ -7,11 +7,10 @@ HuiAMapSelectAddressDialog/HuiAMapSelectAddressDialog
 
 ### 属性（props）
 
-| 属性名   | 说明           | 类型    | 默认值 |
-| -------- | -------------- | ------- | ------ |
-| width    | 弹窗宽度       | string  | 1000px |
-| title    | 弹窗标题       | string  | 500px  |
-| disabled | 输入框是否禁用 | boolean | false  |
+| 属性名 | 说明     | 类型   | 默认值   |
+| ------ | -------- | ------ | -------- |
+| width  | 弹窗宽度 | string | 80%      |
+| title  | 弹窗标题 | string | 选择位置 |
 
 ### 方法（defineExpose）
 
