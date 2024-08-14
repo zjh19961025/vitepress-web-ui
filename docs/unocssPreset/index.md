@@ -77,3 +77,11 @@ import unocssPreset from '@hua5/unocss-preset'
 // vue 相关
 app.use(unocssPreset, appTheme)
 ```
+
+## 发布
+1. [pnpm 账号配置](https://thoughts.aliyun.com/workspaces/645b543034e5e2001a169b10/docs/660a3fd32d39760001c10ad0)
+2. 发布:
+  * **进入 packages/unocss-preset 目录**
+  ``` bash
+    pnpm publish // 发布 unocss-preset
+  ```
