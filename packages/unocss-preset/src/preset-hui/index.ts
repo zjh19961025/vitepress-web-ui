@@ -2,7 +2,7 @@ import { presetUno, type PresetOptions } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import commonShortcuts from './shortcuts/common-shortcuts'
 import adminShortcuts from './shortcuts/admin-shortcuts'
-import { uiTheme as theme } from "./theme"
+import { uiTheme as theme } from "../theme"
 import rules from './rules'
 export function presetHui(): PresetOptions {
   return {

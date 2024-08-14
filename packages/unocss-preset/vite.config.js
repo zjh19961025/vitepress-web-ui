@@ -1,15 +1,19 @@
 import { defineConfig } from 'vite'
-import {
-  createVue,
-  createUnocss,
-  createDts,
-} from "./build"
-
+import dts from 'vite-plugin-dts'
+/**
+ * 主要用来生成声明文件
+ * 使用端使用的还是源码引入，可查看 package.json
+ */
 export default defineConfig({
   plugins: [
-    createVue(),
-    createUnocss(),
-    createDts(),
+    dts({
+      // 输出目录
+      outDir: ['types', "dist"],
+      // 将动态引入转换为静态（例如：`import('vue').DefineComponent` 转换为 `import { DefineComponent } from 'vue'`）
+      staticImport: true,
+      // 将所有的类型合并到一个文件中
+      rollupTypes: true,
+    }),
   ],
   resolve: {
     // 导入时想要省略的扩展名列表
@@ -19,20 +23,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       // 排除不需要的依赖
-      external: [
-        'vue', 'unocss',
-        'element-plus', "@hua5/hua5-utils", "@hua5/hua5-web-lib", "@hua5/unocss-preset",
-        "@tinymce/tinymce-vue", "@element-plus/icons-vue"],
+      external: ['vue', 'unocss', "@hua5/hua5-utils"],
       output: [
         {
           // 打包成 es module
           format: 'es',
           // 重命名
           entryFileNames: '[name].js',
-          // 打包目录和开发目录对应
-          preserveModules: true,
-          // 指定保留模块结构的根目录
-          preserveModulesRoot: 'src',
         },
       ],
     },
@@ -41,7 +38,7 @@ export default defineConfig({
       // 指定入口文件
       entry: 'src/index.ts',
       // 组件库名称
-      name: 'hua5-web-ui',
+      name: 'unocss-preset',
     },
   },
 })

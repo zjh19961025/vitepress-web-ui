@@ -1,5 +1,6 @@
 import { defineConfig } from 'unocss'
-import { presetHui } from "@hua5/unocss-preset"
+// eslint-disable-next-line import/no-unresolved
+import { presetHui } from '@hua5/unocss-preset/presetHui'
 
 export default defineConfig({
   // 预设

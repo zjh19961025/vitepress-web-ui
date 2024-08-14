@@ -2,12 +2,9 @@ export const addAMap = function() {
   const result = isHaveAmapScript()
   if (!result) return new Promise((resolve) => resolve(''))
   window._AMapSecurityConfig = {
-    // securityJsCode: 'f1eef966d465d88b7de5a1941f7fd7e3',
     serviceHost: window.huiDelegate.amapConfig.serviceHost,
-    // serviceHost: 'http://192.168.31.5/_AMapService',
   }
   const key = window.huiDelegate.amapConfig.key
-  // const key = '0510ba1445c11816c9d45d45c10c23fe'
   return new Promise((resolve) => {
     const script = document.createElement('script')
     script.type = 'text/javascript'

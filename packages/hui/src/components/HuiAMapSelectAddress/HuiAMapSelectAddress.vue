@@ -3,6 +3,7 @@ import { addAMap } from './config'
 import { testUtils } from "@hua5/hua5-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick } from 'vue'
+import { ElInput } from 'element-plus'
 import type { HuiAMapSelectAddressPropsType } from './type.ts'
 
 // 定义组件名字，全局安装的时候会用到
@@ -136,6 +137,7 @@ function init(callback: () => void) {
       }
     })(),
   })
+  map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
   initPoip()
   addClick()
   callback()
@@ -162,8 +164,8 @@ function handlePoiPicked(poiResult: any) {
   const poiItem = poiResult.item
   poi.value = Object.assign(poiItem, {
     formattedAddress: poiItem.name,
-    longitude: poiItem.location.R,
-    latitude: poiItem.location.P,
+    longitude: poiItem.location?.R,
+    latitude: poiItem.location?.P,
   })
   if (source !== 'search') {
     window.poiPicker.searchByKeyword(poiItem.name)
@@ -193,7 +195,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
 
 <template>
   <div class="AMap" :style="{width:width,height:height}">
-    <el-input
+    <ElInput
       v-if="showInput"
       id="map__input"
       v-model="address"
