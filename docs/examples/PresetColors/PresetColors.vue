@@ -87,19 +87,17 @@ function getBorderColorItemStyle(color) {
 }
 function onItemClick(catItem, colorItem) {
   const text = catItem.copyFormat.replace("${color}", colorItem.label)
-  console.log(catItem.copyFormat, text)
   copyToClipboard(text)
 }
 
 /**
  * 写入剪贴板
  */
-const { copy, isSupported } = useClipboard()
-const copyToClipboard = async(text) => {
+const { text, copy, isSupported } = useClipboard()
+const copyToClipboard = async(source) => {
   if (isSupported) {
     try {
-      await copy(text)
-      console.log('Text copied to clipboard!')
+      await copy(source)
       ElMessage.success(`复制成功:${text}`)
     } catch (error) {
       console.error('Failed to copy text: ', error)
