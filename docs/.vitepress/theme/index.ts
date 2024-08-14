@@ -25,12 +25,17 @@ export default {
     })
   },
   async enhanceApp({ app, router, siteData }) {
-    app.use(unocssPreset)
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component)
     }
     app.component('Demo', VPDemo)
+    /**
+     * 库中使用了window, 只有在客户端渲染才能使用window
+     * 所以此处，只有客户端渲染才能 app.use
+     */
     if(!import.meta.env.SSR){
+      app.use(unocssPreset)
+
       const hua5WebUI = await import("@hua5/hua5-web-ui")
       app.use(hua5WebUI.default,{
         delegate: huiDelegate,

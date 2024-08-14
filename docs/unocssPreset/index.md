@@ -23,24 +23,24 @@ pnpm add @hua5/unocss-preset
 # 配置
 ``` ts
 import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
-import { presetHui } from '@hua5/unocss-preset'
-import appTheme from './unocss.theme'
-import hua5Shortcuts from './unocss.shortcuts.ts'
+import { presetHui } from '@hua5/unocss-preset/presetHui' // 核心配置， 基础预设引入 很重要
+import appTheme from './unocss.theme' // 主题定义
+import addminShortcuts from './unocss.shortcuts.ts' // 快捷方式定义
 export default defineConfig({
-  // 快捷方式
+  // 快捷方式，自定义配置
   shortcuts: [
     // 自定义快捷方式
-    ...hua5Shortcuts,
+    ...addminShortcuts,
   ],
   // 主题
-  theme: appTheme,
+  theme: appTheme, // 自定义配置
   transformers: [
-    transformerDirectives(),
-    transformerVariantGroup(),
+    transformerDirectives(), // 核心配置
+    transformerVariantGroup(), // 核心配置
   ],
   // 预设
   presets: [
-    presetHui(),
+    presetHui(), // 核心配置
   ],
 })
 ```

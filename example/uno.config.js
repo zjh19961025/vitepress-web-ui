@@ -1,5 +1,5 @@
 import { defineConfig, transformerDirectives, transformerVariantGroup } from 'unocss'
-import { presetHui } from "@hua5/unocss-preset"
+import { presetHui } from '@hua5/unocss-preset/presetHui'
 
 export default defineConfig({
   // 规则

@@ -15,6 +15,7 @@
     ".": {
       "import": "./src/index.ts"
     },
+    "./presetHui": "./src/preset-hui/index.ts",
     "./global": {
       "types": "./global.d.ts"
     }

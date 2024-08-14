@@ -11,6 +11,10 @@ export default defineConfig({
     createUnocss(),
     createDts(),
   ],
+  resolve: {
+    // 导入时想要省略的扩展名列表
+    extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+  },
   // 打包配置
   build: {
     rollupOptions: {
