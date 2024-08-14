@@ -5,10 +5,10 @@
       <div class="flex flex-wrap">
         <div
           v-for="(item, index) in colorCat.list" :key="index"
-          v-clipboard="`${colorCat.copyFormat.replace('${color}', item.label)}`"
-          :clipboard-fun="copySuccessCallback"
           class="hand"
-          :class="colorCat.itemClass" :style="[colorCat.getItemStyle(item.value)]"
+          :class="colorCat.itemClass"
+          :style="[colorCat.getItemStyle(item.value)]"
+          @click="onItemClick(colorCat, item)"
         >
           <div>{{ colorCat.textPrefix + item.label }}</div>
           <div>{{ item.value }}</div>
@@ -21,6 +21,7 @@
 <script setup lang="ts">
 import { uiTheme } from "@hua5/unocss-preset"
 import { ElMessage } from 'element-plus'
+import Clipboard from "./clipboard"
 
 const colorsCatKey = ["colors", "textColor", "backgroundColor", "borderColor"]
 const theme = {
@@ -86,8 +87,11 @@ function getBorderColorItemStyle(color) {
   }
 }
 
-function copySuccessCallback(value) {
-  ElMessage.success(`复制成功:${value}`)
+function onItemClick(colorCat, item) {
+  const source = colorCat.copyFormat.replace('${color}', item.label)
+  console.log("source", source)
+
+  Clipboard({ text: source }).then(() => ElMessage.success(`复制成功:${source}`))
 }
 </script>
 
