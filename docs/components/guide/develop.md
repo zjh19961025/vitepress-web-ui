@@ -39,9 +39,9 @@ ComponentName
 
 ## 发布
 1. [pnpm 账号配置](https://thoughts.aliyun.com/workspaces/645b543034e5e2001a169b10/docs/660a3fd32d39760001c10ad0)
-2. 发布: 在对应包的文件夹中
+2. 发布: 根目录
 ```
-  pnpm publish
+  pnpm publish:ui // 发布 hui 组件库
 ```
 
 ## 文档

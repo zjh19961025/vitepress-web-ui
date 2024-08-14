@@ -21,19 +21,21 @@ pnpm add @hua5/unocss-preset
 ```
 
 # 配置
+**uno.config.js**
 ``` ts
+// uno.config.js
 import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
 import { presetHui } from '@hua5/unocss-preset/presetHui' // 核心配置， 基础预设引入 很重要
 import appTheme from './unocss.theme' // 主题定义
 import addminShortcuts from './unocss.shortcuts.ts' // 快捷方式定义
 export default defineConfig({
-  // 快捷方式，自定义配置
+  // 快捷方式，自定义配置， 可选
   shortcuts: [
     // 自定义快捷方式
     ...addminShortcuts,
   ],
   // 主题
-  theme: appTheme, // 自定义配置
+  theme: appTheme, // 自定义配置, 可选
   transformers: [
     transformerDirectives(), // 核心配置
     transformerVariantGroup(), // 核心配置
@@ -77,3 +79,11 @@ import unocssPreset from '@hua5/unocss-preset'
 // vue 相关
 app.use(unocssPreset, appTheme)
 ```
+
+## 发布
+1. [pnpm 账号配置](https://thoughts.aliyun.com/workspaces/645b543034e5e2001a169b10/docs/660a3fd32d39760001c10ad0)
+2. 发布:
+  * **进入 packages/unocss-preset 目录**
+  ``` bash
+    pnpm publish // 发布 unocss-preset
+  ```
