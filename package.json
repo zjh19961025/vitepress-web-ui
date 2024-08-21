@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@hua5/hua5-web-lib": "^1.0.7",
+    "@hua5/hua5-web-lib": "^1.0.10",
     "@tinymce/tinymce-vue": "^5.1.1",
     "element-plus": "^2.7.5",
     "vue": "^3.4.27"
