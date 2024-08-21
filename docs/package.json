@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@hua5/hua5-web-lib": "^1.0.7",
     "@hua5/hua5-web-ui": "workspace:^",
     "@hua5/unocss-preset": "workspace:^",
     "@tinymce/tinymce-vue": "^5.1.1",

@@ -19,9 +19,13 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * 为了兼容服务端渲染，不能在组件中直接 import hua5WebLib
+ * 因此，挂载在 window 上供组件使用
+ */
+// import { webUtils } from '@hua5/hua5-web-lib'
 import { uiTheme } from "@hua5/unocss-preset"
 import { ElMessage } from 'element-plus'
-import Clipboard from "./clipboard"
 
 const colorsCatKey = ["colors", "textColor", "backgroundColor", "borderColor"]
 const theme = {
@@ -91,7 +95,7 @@ function onItemClick(colorCat, item) {
   const source = colorCat.copyFormat.replace('${color}', item.label)
   console.log("source", source)
 
-  Clipboard({ text: source }).then(() => ElMessage.success(`复制成功:${source}`))
+  window.hua5WebLib.webUtils.clipboard({ text: source }).then(() => ElMessage.success(`复制成功:${source}`))
 }
 </script>
 

@@ -13,8 +13,8 @@ import '@hua5/hua5-web-ui/style'
 import { huiDelegate } from '../../delegate/HuiDelegate'
 // hua5WebLib相关
 import { hlibDelegate } from '../../delegate/HlibDelegate'
-import unocssPreset from '@hua5/unocss-preset'
 // unocss相关
+import unocssPreset from '@hua5/unocss-preset'
 import "virtual:uno.css";
 
 
@@ -45,6 +45,11 @@ export default {
       app.use(hua5WebLib.default, {
         delegate: hlibDelegate,
       })
+      /**
+       * 为了兼容服务端渲染，不能在组件中直接 import hua5WebLib
+       * 因此，挂载在 window 上供组件使用
+       */
+      window.hua5WebLib=hua5WebLib
     }
   }
 } satisfies Theme
