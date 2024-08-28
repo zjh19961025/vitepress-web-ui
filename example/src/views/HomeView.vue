@@ -194,6 +194,12 @@ function onSubmit(data) {
   poi.value = data
   HuiAMapSelectAddressRef.value.setupMap()
 }
+
+async function onMessageBox() {
+  // const [, res] = await HuiTool.msgBox('要删除所有历史记录吗？', { type: "danger" })
+  const [, res] = await HuiTool.msgBoxQues('要删除所有历史记录吗？', { type: 'danger' })
+  console.info("🚀 ~ file:HomeView method:onMessageBox line:204 -----", res)
+}
 </script>
 
 <template>
@@ -212,7 +218,7 @@ function onSubmit(data) {
     <div class="flex ml-10px">
       <div class="flex-y">
         <div>
-          <ElButton @click="onDialogBtnClick">普通弹框测试</ElButton>
+          <ElButton @click="onDialogBtnClick">普通弹框测试1</ElButton>
         </div>
         <div class=" mt-10px">
           <ElButton @click="onFormDialogBtnClick">表单弹框测试</ElButton>
@@ -250,6 +256,9 @@ function onSubmit(data) {
         </div>
         <div class="mt-10px">
           <ElButton @click="onAMapSelectAddressClick">地图选择</ElButton>
+        </div>
+        <div class="mt-10px">
+          <ElButton @click="onMessageBox">命令式弹窗组件</ElButton>
         </div>
         <div class="mt-10px">
           <HuiLineEditPopover :row="popoverRow" field="sort" @confirm="lineEditPopoverConfirm" />
