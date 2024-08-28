@@ -1,6 +1,7 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable import/no-unresolved */
 import 'virtual:uno.css'
+import './css/index.scss'
 // install 的时候全局加入的组件
 import componentsInstallList from './components-install-list'
 // 添加 install 的方法
