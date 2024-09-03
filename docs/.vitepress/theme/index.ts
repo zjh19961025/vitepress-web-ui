@@ -37,6 +37,7 @@ export default {
       app.use(unocssPreset)
 
       const hua5WebUI = await import("@hua5/hua5-web-ui")
+      window.hua5WebUI=hua5WebUI
       app.use(hua5WebUI.default,{
         delegate: huiDelegate,
         isInstallComponents: true
