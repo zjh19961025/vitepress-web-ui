@@ -9,7 +9,7 @@ defineOptions({
 })
 
 const { field } = withDefaults(defineProps<HuiLineEditPopoverPropsType>(), {
-  width: 180,
+  width: 206,
   baseClass: 'text-primary px-4',
   disabled: false,
 })
@@ -64,15 +64,17 @@ onBeforeUnmount(() => {
     :width="width"
     trigger="click"
     :disabled="disabled"
+    popper-style="height:76px;"
     @show="editShow"
   >
     <div v-if="show" class="flex">
       <el-input
-        ref="inputRef" v-model="row[field]" class="!m-2" size="small" :style="{'max-width': width+'px'}"
-        @keyup.enter.prevent="confirm" @focus="onFocus($event)"
+        ref="inputRef" v-model="row[field]" class="!m-2 p-0" size="small"
+        @keyup.enter.prevent="confirm"
+        @focus="onFocus($event)"
       />
-      <el-button class="button-icon-mini !m-2 !w-32" type="primary" :icon="Check" @click="confirm" />
-      <el-button class="button-icon-mini !m-2 !w-32" :icon="Close" @click="close()" />
+      <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" type="primary" :icon="Check" @click="confirm" />
+      <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" :icon="Close" @click="close()" />
     </div>
     <template #reference>
       <span :class="[baseClass, disabled ? 'cursor-not-allowed' : 'cursor-pointer']">
@@ -81,3 +83,12 @@ onBeforeUnmount(() => {
     </template>
   </el-popover>
 </template>
+
+<style lang="scss" scoped>
+:deep(.el-input--small){
+  width: 102px;
+}
+:deep(.el-input__wrapper){
+  padding: 0 15px !important;
+}
+</style>
