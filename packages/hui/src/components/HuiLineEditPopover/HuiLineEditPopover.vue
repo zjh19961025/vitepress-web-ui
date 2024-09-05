@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Check, Close } from '@element-plus/icons-vue'
 import { ElInput, ElPopover, ElButton } from 'element-plus'
-import { onBeforeUnmount, onMounted, ref, toValue } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, toValue } from 'vue'
 import type { HuiLineEditPopoverPropsType, HuiLineEditPopoverEmitType } from './type'
 
 defineOptions({
@@ -31,8 +31,9 @@ function editShow() {
   }, 10)
 }
 
-function onFocus(event) {
-  event.currentTarget.select()
+async function onFocus(event) {
+  await nextTick()
+  event.currentTarget?.select() && event.currentTarget?.select()
 }
 
 function confirm() {
