@@ -12,6 +12,8 @@ export interface HuiMsgBoxProp {
   cancelText:string,
   /** 确定按钮的文本 */
   confirmText:string,
+  /** 弹窗宽度 */
+  width:number,
   /** 关闭事件 */
   closeBox: ()=> void,
   /** 确定事件事件 */
@@ -19,11 +21,12 @@ export interface HuiMsgBoxProp {
   /** 取消事件 */
   cancelHandler:()=> void,
 }
-const { iconType, type, content, cancelText, confirmText, closeBox, confirmHandler, cancelHandler } = withDefaults(defineProps<HuiMsgBoxProp>(), {
+const { iconType, type, content, cancelText, confirmText, closeBox, confirmHandler, cancelHandler, width } = withDefaults(defineProps<HuiMsgBoxProp>(), {
   iconType: 'info',
   type: 'info',
   cancelText: '取消',
   confirmText: '确定',
+  width: 320,
 })
 
 const iconTypeClass = computed<string>(() => {
@@ -101,7 +104,7 @@ const close = () => {
   <div class="hua5-message-box">
     <ElDialog
       v-model="isVisible"
-      width="400"
+      :width="width"
       @closed="close"
     >
       <div class="flex justify-center flex-center h-110">
