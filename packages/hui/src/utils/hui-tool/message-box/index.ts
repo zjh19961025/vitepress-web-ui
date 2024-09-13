@@ -11,9 +11,11 @@ export interface PayLoadType {
   cancelText?:string,
   /** 确定按钮的文本 */
   confirmText?:string
+  /** 弹窗宽度 */
+  width?: number
 }
 export const hua5MsgBox = (content: string, payLoad:PayLoadType = {}) => {
-  const { iconType = 'info', type = 'info', cancelText, confirmText } = payLoad
+  const { iconType = 'info', type = 'info', cancelText, confirmText, width } = payLoad
   return new Promise((resolve) => {
     // 取消按钮事件
     const cancelHandler = () => {
@@ -37,6 +39,7 @@ export const hua5MsgBox = (content: string, payLoad:PayLoadType = {}) => {
       type,
       cancelText,
       confirmText,
+      width,
       cancelHandler,
       confirmHandler,
       closeBox,

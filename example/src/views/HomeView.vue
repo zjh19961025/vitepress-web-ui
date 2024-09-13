@@ -197,7 +197,7 @@ function onSubmit(data) {
 
 async function onMessageBox() {
   // const [, res] = await HuiTool.msgBox('要删除所有历史记录吗？', { type: "danger" })
-  const [, res] = await HuiTool.msgBoxQues('要删除所有历史记录吗？', { type: 'danger' })
+  const [, res] = await HuiTool.msgBoxQues('要删除所有历史记录吗？', { type: 'danger', width: 500 })
   console.info("🚀 ~ file:HomeView method:onMessageBox line:204 -----", res)
 }
 </script>
