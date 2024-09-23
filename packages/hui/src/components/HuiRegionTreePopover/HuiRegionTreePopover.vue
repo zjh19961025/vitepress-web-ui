@@ -14,6 +14,7 @@ const props = withDefaults(defineProps<HuiRegionTreePopoverPropsType>(), {
   accordion: true,
   onlySelectLeaf: false,
   treeLabelKey: 'title',
+  isReadonly: true,
 })
 
 // 双向绑定的值
@@ -25,6 +26,7 @@ const filterText = ref('')
 const regionText = ref('')
 const isShowTree = ref(false)
 const regionTree = ref<any[]>([])
+const filterTextInput = ref(null)
 
 onMounted(async() => {
   regionTree.value = await window.huiDelegate.getRegionTree()
@@ -80,6 +82,9 @@ function handleOutSide() {
 
 function onRegionInputClick() {
   isShowTree.value = true
+  setTimeout(() => {
+    props.isReadonly && filterTextInput.value.focus()
+  }, 0)
 }
 
 function filterNode(value: string, data: any, node: any) {
@@ -110,6 +115,7 @@ function filterNode(value: string, data: any, node: any) {
           v-model="regionText"
           placeholder="请选择地区"
           clearable
+          :readonly="isReadonly"
           @clear="handleBackspace"
           @click="onRegionInputClick"
         />
@@ -117,6 +123,7 @@ function filterNode(value: string, data: any, node: any) {
       <template #default>
         <div class="rel h-300 overflow-y-scroll">
           <ElInput
+            ref="filterTextInput"
             v-model="filterText"
             class="sticky top-0 left-0 z-10"
             :placeholder="`输入关键字进行过滤${onlySelectLeaf ? '，只允许选择地区' : ''}`"

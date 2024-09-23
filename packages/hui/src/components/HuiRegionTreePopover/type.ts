@@ -8,6 +8,8 @@ export interface HuiRegionTreePopoverPropsType {
   onlySelectLeaf?: boolean,
   /** 树label对应的key */
   treeLabelKey?: string,
+  /** 输入框只读 不可编辑 */
+  isReadonly?: boolean,
 }
 
 /**
