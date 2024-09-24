@@ -606,6 +606,10 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    isReadonly: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRegionChange: (region: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
@@ -622,12 +626,17 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    isReadonly: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }>> & {
     onOnRegionChange?: (region: string) => any;
 }, {
     accordion: boolean;
     treeLabelKey: string;
     onlySelectLeaf: boolean;
+    isReadonly: boolean;
 }, {}>> & Record<string, any>;
 
 export declare const HuiRules: {
