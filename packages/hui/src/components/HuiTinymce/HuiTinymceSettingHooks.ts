@@ -36,13 +36,13 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     letterspacing: '0px 2px 4px 6px 8px 10px', // 字符间距
     toolbar_mode: 'sliding', // 工具栏模式
     // 顶部菜单栏配置
-    menu: {
-      file: { title: '文件', items: '' },
-      edit: { title: '编辑', items: 'undo redo | cut copy paste pastetext | selectall' },
-      insert: { title: '插入', items: 'media image | hr' },
-      view: { title: '查看', items: 'visualaid' },
-      format: { title: '格式', items: 'bold italic underline strikethrough superscript subscript | formats | removeformat | styleselect blocks lineheight ' },
-    },
+    // menu: {
+    //   file: { title: '文件', items: '' },
+    //   edit: { title: '编辑', items: 'undo redo | cut copy paste pastetext | selectall' },
+    //   insert: { title: '插入', items: 'media image | hr' },
+    //   view: { title: '查看', items: 'visualaid' },
+    //   format: { title: '格式', items: 'bold italic underline strikethrough superscript subscript | formats | removeformat | styleselect blocks lineheight ' },
+    // },
     // resize_img_proportional: false, // 是否可以自由调整图片，视频大小，false为可以
     // 图片上传
     images_upload_handler: (blobInfo) => {
