@@ -4,28 +4,26 @@ import type { HuiTinymceSettingHooksType } from './type'
 export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayload) => {
   const { props, linkExpandAttributeStr, linkSetup } = settingPayload
   const setting = ref({
-    menubar: true, // 顶部菜单栏是否开启
+    menubar: false, // 顶部菜单栏是否开启
     license_key: 'gpl', // 使用开源模式
     height: props.height, // 编辑器高度
     language: 'zh_CN', // 中文设置
     convert_urls: false, // 禁止自动转换路径
     // 自定义工具栏
-    toolbar: `code 
-    | forecolor backcolor
-    | alignleft aligncenter alignright alignjustify fontsizeinput 
-    | fontsize lineheight letterspacing fontfamily blocks
-    | bold italic underline strikethrough 
-    | hua5Link unlink 
-    | image axupimgs media 
-    | formatpainter nonbreaking
-    | undo redo
-    | indent outdent 
-    | table
-    | preview  removeformat 
+    toolbar: `code undo redo
+    | image axupimgs media hua5Link unlink
+    | alignleft aligncenter alignright alignjustify
+    | forecolor fontsize
+    | bold italic underline strikethrough fontfamily fontsizeinput blocks  
+    | formatpainter backcolor
+    | lineheight letterspacing 
+    | table nonbreaking
+    | indent outdent
     | cut copy paste
+    | preview  removeformat
     | subscript superscript
-    | codesample 
-    | print searchreplace emoticons`,
+    | print searchreplace emoticons
+    | codesample`,
     // 需要加载的插件
     plugins: 'link image media table preview code nonbreaking codesample searchreplace emoticons axupimgs letterspacing formatpainter',
     file_picker_types: 'image media', // 文件上传可选的类型
@@ -36,7 +34,7 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     font_size_formats: '1.25rem 1.5rem 1.75rem 1.875rem 2rem 2.5rem 2.625rem 8pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 32pt 40pt', // 字体大小
     line_height_formats: '1 1.2 1.4 1.6 1.8 2 2.4 2.8 3', // 行高
     letterspacing: '0px 2px 4px 6px 8px 10px', // 字符间距
-    toolbar_mode: 'Wrap', // 工具栏模式
+    toolbar_mode: 'sliding', // 工具栏模式
     // 顶部菜单栏配置
     menu: {
       file: { title: '文件', items: '' },
