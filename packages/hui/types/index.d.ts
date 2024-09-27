@@ -979,6 +979,19 @@ declare interface PayLoadType {
     width?: number;
 }
 
+declare interface PayLoadType_2 {
+    /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
+    iconType?: 'info' | 'success' | 'question';
+    /** 控制图标展示的颜色 */
+    type?: "info" | "success" | "danger" | "warning";
+    /** 取消按钮的文本 */
+    cancelText?: string;
+    /** 确定按钮的文本 */
+    confirmText?: string;
+    /** 弹窗宽度 */
+    width?: number;
+}
+
 export declare const selectLoadmore: Directive;
 
 declare type SFCWithInstall<T> = T & Plugin_2;
@@ -1031,10 +1044,7 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
 
 declare interface UseHuiFormDialogConfirm {
     message: string;
-    title?: string;
-    cancelButtonText?: string;
-    confirmButtonText?: string;
-    [key: string]: any;
+    payload?: PayLoadType_2;
 }
 
 declare interface UseHuiFormDialogForm {
