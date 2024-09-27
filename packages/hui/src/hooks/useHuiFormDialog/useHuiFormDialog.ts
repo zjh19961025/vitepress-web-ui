@@ -1,6 +1,5 @@
 import { ref, getCurrentInstance, toValue } from 'vue'
 import { HuiTool } from "../../utils/index"
-import { ElMessageBox } from 'element-plus'
 import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
 
 /**
@@ -17,11 +16,8 @@ export const useHuiFormDialog = function({
   showSuccessTip = true,
   isNeedDoubleConfirm = false,
   doubleConfirmConfig = {
-    title: "提示",
-    message: "是否确认提交",
-    confirmButtonText: '确定',
-    cancelButtonText: '取消',
-    type: 'warning',
+    message: "是否确认提交?",
+    payload: { iconType: 'success' },
   },
   beforeSubmit,
   submitCheck,
@@ -112,23 +108,14 @@ export const useHuiFormDialog = function({
    * @param submitForm
    * @returns
    */
-  const showDoubleConfirm = (submitForm: UseHuiFormDialogForm) => {
+  const showDoubleConfirm = async(submitForm: UseHuiFormDialogForm) => {
     // 自定义二次确认
     if (doubleConfirmAction) {
       doubleConfirmAction(submitForm, submit, cancelSubmit)
       return
     }
-    // 默认二次确认
-    ElMessageBox.confirm(
-      doubleConfirmConfig.message,
-      doubleConfirmConfig.title,
-      doubleConfirmConfig,
-    ).then(() => {
-      submit(submitForm)
-    }).catch(() => {
-      // 关闭二次确认弹框
-      cancelSubmit()
-    })
+    const [, res] = await HuiTool.msgBox(doubleConfirmConfig.message, doubleConfirmConfig.payload)
+    res ? submit(submitForm) : cancelSubmit()
   }
   // 二次确认提交
   const submit = async(submitForm: UseHuiFormDialogForm) => {
