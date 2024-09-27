@@ -41,7 +41,7 @@ const {
 | formModel           | 表单中需要提交的属性                                         | object   | {}                                                           |
 | showSuccessTip      | 提交成功时是否显示提示                                       | boolean  | true                                                         |
 | isNeedDoubleConfirm | 表单提交时是否需要二次确认                                   | boolean  | false                                                        |
-| doubleConfirmConfig | 表单二次确认时放入提示配置                                   | object   | {<br />title: "提示",<br />message: "是否确认提交",<br />confirmButtonText: '确定',<br />cancelButtonText: '取消',<br />type: 'warning',<br />} |
+| doubleConfirmConfig | 表单二次确认时放入提示配置                                   | object   | {<br />message: "是否确认提交",<br />payload: { iconType: 'success'},<br />payload配置参考msgBox传参} |
 | doubleConfirmAction | 自定义二次确认，接收三个参数，`submitForm`表单数据，`submit`确认提交，`cancelSubmit`取消提交 | function | -                                                            |
 | beforeSubmit        | 提交前的前置处理，接收一个`submitForm`的表单参数，方便对表单的重写 | function | -                                                            |
 | submitCheck         | 用于验证是否能提交表单，接收一个`submitForm`的表单参数，方便对表单的校验 | function | -                                                            |
