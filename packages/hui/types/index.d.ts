@@ -1076,7 +1076,7 @@ declare interface UseHuiFormDialogParams {
     /**
      * 是否需要二次确认
      */
-    isNeedDoubleConfirm?: boolean;
+    isNeedDoubleConfirm?: boolean | Ref<boolean> | any;
     /**
      * 二次确认弹框配置，不传使用默认值
      */
