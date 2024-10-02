@@ -26,16 +26,16 @@ export default _default;
  */
 export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<{
     poi: PropType<any>;
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
         type: PropType<any>;
     };
     disabled: {
         type: PropType<boolean>;
         default: boolean;
-    };
-    width: {
-        type: PropType<string>;
-        default: string;
     };
     height: {
         type: PropType<string>;
@@ -52,16 +52,16 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<{
     submitInfo: () => boolean;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     poi: PropType<any>;
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
         type: PropType<any>;
     };
     disabled: {
         type: PropType<boolean>;
         default: boolean;
-    };
-    width: {
-        type: PropType<string>;
-        default: string;
     };
     height: {
         type: PropType<string>;
@@ -72,8 +72,8 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<{
         default: boolean;
     };
 }>>, {
-    disabled: boolean;
     width: string;
+    disabled: boolean;
     height: string;
     showInput: boolean;
 }, {}>> & Record<string, any>;
@@ -86,15 +86,15 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
         type: PropType<any>;
     };
     disabled: {
         type: PropType<boolean>;
-    };
-    width: {
-        type: PropType<string>;
-        default: string;
     };
     height: {
         type: PropType<string>;
@@ -112,15 +112,15 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
         type: PropType<any>;
     };
     disabled: {
         type: PropType<boolean>;
-    };
-    width: {
-        type: PropType<string>;
-        default: string;
     };
     height: {
         type: PropType<string>;
@@ -354,15 +354,15 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        disabled: {
-            type: PropType<boolean>;
-            required: true;
-            default: boolean;
-        };
         width: {
             type: PropType<number>;
             required: true;
             default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
@@ -385,15 +385,15 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        disabled: {
-            type: PropType<boolean>;
-            required: true;
-            default: boolean;
-        };
         width: {
             type: PropType<number>;
             required: true;
             default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
@@ -409,8 +409,8 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             [key: string]: string;
         }) => any;
     }, {
-        disabled: boolean;
         width: number;
+        disabled: boolean;
         baseClass: string;
     }, true, {}, {}, {
         P: {};
@@ -423,15 +423,15 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        disabled: {
-            type: PropType<boolean>;
-            required: true;
-            default: boolean;
-        };
         width: {
             type: PropType<number>;
             required: true;
             default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
@@ -447,8 +447,8 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             [key: string]: string;
         }) => any;
     }, {}, {}, {}, {}, {
-        disabled: boolean;
         width: number;
+        disabled: boolean;
         baseClass: string;
     }>;
     __isFragment?: never;
@@ -458,15 +458,15 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     row: PropType<{
         [key: string]: string;
     }>;
-    disabled: {
-        type: PropType<boolean>;
-        required: true;
-        default: boolean;
-    };
     width: {
         type: PropType<number>;
         required: true;
         default: number;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        required: true;
+        default: boolean;
     };
     baseClass: {
         type: PropType<string>;
@@ -486,8 +486,8 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         [key: string]: string;
     }) => void;
 }, string, {
-    disabled: boolean;
     width: number;
+    disabled: boolean;
     baseClass: string;
 }, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
@@ -606,6 +606,10 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    isReadonly: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRegionChange: (region: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
@@ -622,12 +626,17 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    isReadonly: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }>> & {
     onOnRegionChange?: (region: string) => any;
 }, {
     accordion: boolean;
     treeLabelKey: string;
     onlySelectLeaf: boolean;
+    isReadonly: boolean;
 }, {}>> & Record<string, any>;
 
 export declare const HuiRules: {
@@ -966,6 +975,21 @@ declare interface PayLoadType {
     cancelText?: string;
     /** 确定按钮的文本 */
     confirmText?: string;
+    /** 弹窗宽度 */
+    width?: number;
+}
+
+declare interface PayLoadType_2 {
+    /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
+    iconType?: 'info' | 'success' | 'question';
+    /** 控制图标展示的颜色 */
+    type?: "info" | "success" | "danger" | "warning";
+    /** 取消按钮的文本 */
+    cancelText?: string;
+    /** 确定按钮的文本 */
+    confirmText?: string;
+    /** 弹窗宽度 */
+    width?: number;
 }
 
 export declare const selectLoadmore: Directive;
@@ -1020,10 +1044,7 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
 
 declare interface UseHuiFormDialogConfirm {
     message: string;
-    title?: string;
-    cancelButtonText?: string;
-    confirmButtonText?: string;
-    [key: string]: any;
+    payload?: PayLoadType_2;
 }
 
 declare interface UseHuiFormDialogForm {

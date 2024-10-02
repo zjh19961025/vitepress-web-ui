@@ -71,8 +71,7 @@ const {
   handleCancel, handleSubmit,
   onOpen, onClose,
 } = useHuiFormDialog({ formModel,
-  isNeedDoubleConfirm: true,
-  doubleConfirmAction,
+  isNeedDoubleConfirm: false,
   beforeSubmit, submitCheck, afterSubmit,
   put, post,
 })
