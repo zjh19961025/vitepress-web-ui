@@ -89,7 +89,7 @@ export const useHuiFormDialog = function({
           }
         }
         // 二次确认处理
-        if (isNeedDoubleConfirm || doubleConfirmAction) {
+        if (toValue(isNeedDoubleConfirm) || doubleConfirmAction) {
           showDoubleConfirm(submitForm)
           return
         }
