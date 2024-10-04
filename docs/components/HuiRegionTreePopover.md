@@ -18,6 +18,7 @@ HuiRegionTreePopover/HuiRegionTreePopoverMustLast
 | accordion      | 是否每次只打开一个同级树节点展开 | boolean | true   |
 | onlySelectLeaf | 只能选择到地区                   | boolean | false  |
 | treeLabelKey   | 树label对应的key                 | string  | title  |
+| isReadonly     | 输入框是否只读                   | boolean | true   |
 
 ### 事件（defineEmits）
 
