@@ -39,11 +39,13 @@ watch(filterText, (val) => {
   treeRef.value.filter(val)
 })
 
-watch(region, (val) => {
+watch(region, async(val) => {
   if (testUtils.isEmpty(val)) {
     regionText.value = ''
+  } else {
+    regionText.value = await getRegionNameByCode(region.value)
   }
-})
+}, { immediate: true })
 
 watch(isShowTree, (val) => {
   // 打开tree并且有region值，滚动到当前节点
