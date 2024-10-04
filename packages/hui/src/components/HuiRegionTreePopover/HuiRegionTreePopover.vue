@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<HuiRegionTreePopoverPropsType>(), {
   onlySelectLeaf: false,
   treeLabelKey: 'title',
   isReadonly: true,
+  width: '400',
 })
 
 // 双向绑定的值
@@ -111,7 +112,7 @@ function filterNode(value: string, data: any, node: any) {
 
 <template>
   <div v-click-outside="handleOutSide">
-    <ElPopover :visible="isShowTree" width="450" :teleported="false">
+    <ElPopover :visible="isShowTree" :width="width" :teleported="false">
       <template #reference>
         <ElInput
           v-model="regionText"
