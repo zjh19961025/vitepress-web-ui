@@ -2,7 +2,7 @@
   <ElDialog
     v-model="show"
     :title="title"
-    :width="width"
+    width="450px"
     top="35vh"
     :modal-append-to-body="false"
     append-to-body
@@ -71,11 +71,8 @@ const props = withDefaults(defineProps<HuiLineEditDialogPropsType>(), {
   type: "input",
   selectDic: () => [],
   isSelectMuti: false,
-  width: '450px',
   labelWidth: '94',
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  attr: () => ({
-  }),
+  attr: () => { return {} },
 })
 // 事件通知
 const emits = defineEmits<HuiLineEditDialogEmitType>()
@@ -87,7 +84,7 @@ const formRef = ref<any>()
 const inputRef = ref<any>()
 const row = ref(null)
 const form = reactive({
-  inputData: '',
+  inputData: null,
 })
 
 const isInputType = computed(() => props.type === 'input' || props.type === 'textarea')

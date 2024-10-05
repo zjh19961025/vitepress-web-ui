@@ -28,10 +28,6 @@ export interface HuiLineEditDialogPropsType {
      */
     placeholder?: string
     /**
-     * 弹窗宽度
-     */
-    width?:string
-    /**
      * label 宽度
      */
     labelWidth:string
