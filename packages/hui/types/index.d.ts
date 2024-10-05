@@ -261,6 +261,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         required: true;
     };
+    labelWidth: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
     rules: {
         type: PropType<any>;
     };
@@ -277,6 +282,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     doubleConfirmTips: {
         type: PropType<string>;
         default: string;
+    };
+    attr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
     };
 }, {
     open: (dataId?: string, info?: {}) => void;
@@ -308,6 +320,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         required: true;
     };
+    labelWidth: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
     rules: {
         type: PropType<any>;
     };
@@ -325,6 +342,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
+    attr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
 }>> & {
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
@@ -333,9 +357,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     title: string;
     type: string;
     isNeedDoubleConfirm: boolean;
+    labelWidth: string;
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
     doubleConfirmTips: string;
+    attr: {};
 }, {}>> & Record<string, any>;
 
 /**
