@@ -2,7 +2,7 @@
   <ElDialog
     v-model="show"
     :title="title"
-    width="520px"
+    :width="width"
     top="35vh"
     :modal-append-to-body="false"
     append-to-body
@@ -14,21 +14,21 @@
       :model="form"
       :rules="inputRules"
       size="small"
+      require-asterisk-position="right"
       class="mt-30 fw-bold w-100%"
+      :label-width="labelWidth"
     >
       <ElFormItem :label="label" prop="inputData" class="flex w-100%">
-        <template #label>
-          <div>{{ label }}</div>
-        </template>
-
         <!-- input 输入栏 -->
-        <el-input v-if="isInputType" ref="inputRef" v-model.trim="form.inputData" :type="type" :placeholder="inputPlaceHolder" clearable autosize @input="valueChange" @focus="valueChange" />
+        <el-input v-if="isInputType" v-bind="attr" ref="inputRef" v-model.trim="form.inputData" :type="type" :placeholder="inputPlaceHolder" clearable autosize @input="valueChange" @focus="valueChange" />
 
         <!-- select 选择栏 -->
         <ElSelect
           v-if="isSelectType"
+          v-bind="attr"
           v-model="form.inputData"
           class="w-100%"
+          filterable
           :multiple="isSelectMuti"
           :placeholder="inputPlaceHolder"
         >
@@ -45,8 +45,8 @@
 
     <template #footer>
       <div>
-        <ElButton size="default" @click="handleCancel">取 消</ElButton>
-        <ElButton type="primary" size="default" :loading="confirmLoading" @click="handleSubmit">确 定</ElButton>
+        <ElButton size="default" class="!text-[theme(colors.primary)] !border !border-1 !border-[theme(colors.primary)] !px-16 !text-14" @click="handleCancel">取 消</ElButton>
+        <ElButton type="primary" size="default" :loading="confirmLoading" class="w-120 !ml-20" @click="handleSubmit">确 定</ElButton>
       </div>
     </template>
   </ElDialog>
@@ -54,9 +54,10 @@
 
 <script setup lang="ts">
 import { ref, computed, nextTick, reactive } from 'vue'
-import { ElForm, ElInput, ElButton, ElMessageBox, ElMessage, ElFormItem, ElSelect, ElOption, ElDialog } from 'element-plus'
+import { ElForm, ElInput, ElButton, ElMessage, ElFormItem, ElSelect, ElOption, ElDialog } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import type { HuiLineEditDialogPropsType, HuiLineEditDialogEmitType } from "./type"
+import { HuiTool } from "../../utils/hui-tool/index"
 // 组件名
 defineOptions({
   name: 'HuiLineEditDialog',
@@ -70,6 +71,11 @@ const props = withDefaults(defineProps<HuiLineEditDialogPropsType>(), {
   type: "input",
   selectDic: () => [],
   isSelectMuti: false,
+  width: '450px',
+  labelWidth: '94',
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  attr: () => ({
+  }),
 })
 // 事件通知
 const emits = defineEmits<HuiLineEditDialogEmitType>()
@@ -98,19 +104,16 @@ const handleSubmit = async() => {
     if (valid) {
       row.value[props.prop] = form.inputData
       if (props.isNeedDoubleConfirm) {
-        ElMessageBox.confirm(props.doubleConfirmTips, '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-        }).then(() => {
+        const [, res] = await HuiTool.msgBox(props.doubleConfirmTips)
+        if (res) {
           emits('onSubmit', row.value, props.prop)
           close()
-        }).catch(() => {
+        } else {
           ElMessage({
             type: 'info',
             message: '操作已取消',
           })
-        })
+        }
       } else {
         emits('onSubmit', row.value, props.prop)
         close()

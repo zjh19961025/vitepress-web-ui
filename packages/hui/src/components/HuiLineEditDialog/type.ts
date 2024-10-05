@@ -28,6 +28,14 @@ export interface HuiLineEditDialogPropsType {
      */
     placeholder?: string
     /**
+     * 弹窗宽度
+     */
+    width?:string
+    /**
+     * label 宽度
+     */
+    labelWidth:string
+    /**
      * 输入规则, input 类有效
      */
     rules?: any,
@@ -47,6 +55,12 @@ export interface HuiLineEditDialogPropsType {
      * 二次确认说明
      */
     doubleConfirmTips?: string,
+    /**
+     * 其他属性
+     */
+    attr: {
+      [key: string]: any
+    }
   }
 
 /**
