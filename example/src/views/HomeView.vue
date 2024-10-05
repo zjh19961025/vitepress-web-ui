@@ -67,7 +67,7 @@ const testRow = {
   },
 }
 async function onLineEditDialogBtnClick() {
-  lineEditDialog.value.open('name', testRow)
+  lineEditDialog.value.open()
   const test = await getRegionNameByCode("110101")
   console.log(test)
 }
@@ -294,6 +294,8 @@ async function onMessageBox() {
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="select" :rules="HuiRules.urlRule()"
       :select-dic="selectDic"
+      :attr="{tagType:'success'}"
+      :is-select-muti="true"
       :is-need-double-confirm="true" double-confirm-tips="测试二次确认"
       @on-value-change="onValueChange"
       @on-submit="handleRowEdit"
