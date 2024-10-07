@@ -625,6 +625,10 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         required: true;
         default: string;
     };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     accordion: {
         type: PropType<boolean>;
         default: boolean;
@@ -650,6 +654,10 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         required: true;
         default: string;
     };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     accordion: {
         type: PropType<boolean>;
         default: boolean;
@@ -670,6 +678,7 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     onOnRegionChange?: (region: string) => any;
 }, {
     width: string | number;
+    disabled: boolean;
     accordion: boolean;
     treeLabelKey: string;
     onlySelectLeaf: boolean;
