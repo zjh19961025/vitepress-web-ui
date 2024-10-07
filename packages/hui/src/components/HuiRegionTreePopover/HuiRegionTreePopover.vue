@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<HuiRegionTreePopoverPropsType>(), {
   onlySelectLeaf: false,
   treeLabelKey: 'title',
   isReadonly: true,
+  disabled: false,
   width: '400',
 })
 
@@ -119,6 +120,7 @@ function filterNode(value: string, data: any, node: any) {
           placeholder="请选择地区"
           clearable
           :readonly="isReadonly"
+          :disabled="disabled"
           @clear="handleBackspace"
           @click="onRegionInputClick"
         />

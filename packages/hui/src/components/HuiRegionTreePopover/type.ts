@@ -10,6 +10,8 @@ export interface HuiRegionTreePopoverPropsType {
   treeLabelKey?: string,
   /** 输入框只读 不可编辑 */
   isReadonly?: boolean,
+  /** 输入框禁用*/
+  disabled?:boolean,
   /** 组件宽度 */
   width: number | string
 }
