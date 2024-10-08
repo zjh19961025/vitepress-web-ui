@@ -31,7 +31,7 @@ const regionTree = ref<any[]>([])
 const filterTextInput = ref(null)
 
 onMounted(async() => {
-  regionTree.value = await window.huiDelegate.getRegionTree()
+  regionTree.value = props.treeData ? props.treeData : await window.huiDelegate.getRegionTree()
 })
 
 // 组件实例

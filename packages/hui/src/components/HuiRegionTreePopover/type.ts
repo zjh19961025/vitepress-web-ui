@@ -13,7 +13,9 @@ export interface HuiRegionTreePopoverPropsType {
   /** 输入框禁用*/
   disabled?:boolean,
   /** 组件宽度 */
-  width: number | string
+  width: number | string,
+  /** tree渲染数据 */
+  treeData?: any
 }
 
 /**
