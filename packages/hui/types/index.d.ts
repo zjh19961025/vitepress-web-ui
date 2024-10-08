@@ -645,6 +645,9 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    treeData: {
+        type: PropType<any>;
+    };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRegionChange: (region: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
@@ -673,6 +676,9 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     isReadonly: {
         type: PropType<boolean>;
         default: boolean;
+    };
+    treeData: {
+        type: PropType<any>;
     };
 }>> & {
     onOnRegionChange?: (region: string) => any;
