@@ -29,14 +29,14 @@ declare interface hua5DynamicConfig {
     /** 提示内容 */
     placeholder?: string;
     /** 显示输入框还是下拉选择 */
-    type?: string;
+    type?: 'input' | 'select';
     /** 输入框数据类型 默认为number */
     dataType?: string;
     /** 输入框的style主要用来设置颜色 */
     style?: string;
     /** 下拉选择的数据字典 */
     dict?: {
-        [key: string]: string;
+        [key: string]: any;
     }[];
     /** 是否只读 */
     readonly?: boolean;
