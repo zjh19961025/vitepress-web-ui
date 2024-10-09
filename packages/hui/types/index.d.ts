@@ -21,6 +21,37 @@ declare const _default: {
 };
 export default _default;
 
+declare interface hua5DynamicConfig {
+    /** 列表项的key */
+    prop: string;
+    /** 输入框append插槽显示的内容 */
+    append?: string;
+    /** 提示内容 */
+    placeholder?: string;
+    /** 显示输入框还是下拉选择 */
+    type?: string;
+    /** 输入框数据类型 默认为number */
+    dataType?: string;
+    /** 输入框的style主要用来设置颜色 */
+    style?: string;
+    /** 下拉选择的数据字典 */
+    dict?: {
+        [key: string]: string;
+    }[];
+    /** 是否只读 */
+    readonly?: boolean;
+    /** 标题 */
+    title: string;
+    /** 错误提示信息 */
+    errMsg?: string;
+    /** 标题宽度 */
+    width: string;
+    /** v-bind其他属性值 */
+    attr?: {
+        [key: string]: any;
+    };
+}
+
 /**
  * 倒计时按钮
  */
@@ -233,6 +264,148 @@ export declare interface HuiDelegate {
      */
     [key: string]: any;
 }
+
+/**
+ * 倒计时按钮
+ */
+export declare const HuiGridForm: SFCWithInstall<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        getData: () => any;
+    }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        handSort: boolean;
+        isCanAppend: boolean;
+        handDelete: boolean;
+        listData: {
+            [key: string]: any;
+        }[];
+    }, true, {}, {}, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        getData: () => any;
+    }, {}, {}, {}, {
+        handSort: boolean;
+        isCanAppend: boolean;
+        handDelete: boolean;
+        listData: {
+            [key: string]: any;
+        }[];
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    config: {
+        type: PropType< hua5DynamicConfig[]>;
+        required: true;
+    };
+    handSort: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    isCanAppend: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    handDelete: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    listData: {
+        type: PropType<{
+            [key: string]: any;
+        }[]>;
+        default: () => any[];
+    };
+}>>, {
+    getData: () => any;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+    handSort: boolean;
+    isCanAppend: boolean;
+    handDelete: boolean;
+    listData: {
+        [key: string]: any;
+    }[];
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: Partial<Record<string, (_: {
+        dataItem: any;
+        el: hua5DynamicConfig;
+        prop: string;
+    }) => any>>;
+})> & Record<string, any>;
 
 /**
  * 组件导出
