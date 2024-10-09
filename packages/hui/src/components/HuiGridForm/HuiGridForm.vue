@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { ElInput, ElButton, ElSelect, ElOption } from 'element-plus'
-import type { hua5DynamicListProp } from "./type"
+import type { HuiGridFormProp } from './type.ts'
 import { objectUtils, testUtils } from "@hua5/hua5-utils"
 import { useDynamicList } from './HuiGridFormHooks.ts'
+// 定义组件名字，全局安装的时候会用到
+defineOptions({
+  name: 'HuiGridForm',
+})
+
 const { moveItem, removeItem } = useDynamicList()
-const { handSort, isCanAppend, handDelete, config, listData } = withDefaults(defineProps<hua5DynamicListProp>(), {
+
+const { handSort, isCanAppend, handDelete, config, listData } = withDefaults(defineProps<HuiGridFormProp>(), {
   /** 是否可以排序 */
   handSort: false,
   /** 是否可以删除 */
@@ -83,7 +89,7 @@ defineExpose({ getData })
             v-bind="el.attr"
             v-model="item[el.prop]"
             :disabled="el.readonly"
-            :placeholder="el.placeholder"
+            :placeholder="el.placeholder || '请选择'"
           >
             <ElOption
               v-for="option in el.dict" :key="option.value"
@@ -97,7 +103,7 @@ defineExpose({ getData })
             v-model="item[el.prop]"
             :type="el.dataType ? el.dataType : 'number'"
             :readonly="el.readonly"
-            :placeholder="el.placeholder"
+            :placeholder="el.placeholder || '请输入'"
             class="inputFund"
           >
             <template #append>{{ el.append }}</template>

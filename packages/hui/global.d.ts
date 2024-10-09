@@ -19,6 +19,7 @@ declare module 'vue' {
     HuiLineEditPopover: typeof import("@hua5/hua5-web-ui")["HuiLineEditPopover"]
     HuiAMapSelectAddress:typeof import("@hua5/hua5-web-ui")["HuiAMapSelectAddress"]
     HuiAMapSelectAddressDialog:typeof import("@hua5/hua5-web-ui")["HuiAMapSelectAddressDialog"]
+    HuiGridForm:typeof import("@hua5/hua5-web-ui")["HuiGridForm"]
   }
 
   /**

@@ -21,6 +21,37 @@ declare const _default: {
 };
 export default _default;
 
+declare interface hua5DynamicConfig {
+    /** 列表项的key */
+    prop: string;
+    /** 输入框append插槽显示的内容 */
+    append?: string;
+    /** 提示内容 */
+    placeholder?: string;
+    /** 显示输入框还是下拉选择 */
+    type?: 'input' | 'select';
+    /** 输入框数据类型 默认为number */
+    dataType?: string;
+    /** 输入框的style主要用来设置颜色 */
+    style?: string;
+    /** 下拉选择的数据字典 */
+    dict?: {
+        [key: string]: any;
+    }[];
+    /** 是否只读 */
+    readonly?: boolean;
+    /** 标题 */
+    title: string;
+    /** 错误提示信息 */
+    errMsg?: string;
+    /** 标题宽度 */
+    width: string;
+    /** v-bind其他属性值 */
+    attr?: {
+        [key: string]: any;
+    };
+}
+
 /**
  * 倒计时按钮
  */
@@ -235,6 +266,148 @@ export declare interface HuiDelegate {
 }
 
 /**
+ * 动态网格表单
+ */
+export declare const HuiGridForm: SFCWithInstall<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        getData: () => any;
+    }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        handSort: boolean;
+        isCanAppend: boolean;
+        handDelete: boolean;
+        listData: {
+            [key: string]: any;
+        }[];
+    }, true, {}, {}, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< hua5DynamicConfig[]>;
+            required: true;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+    }>>, {
+        getData: () => any;
+    }, {}, {}, {}, {
+        handSort: boolean;
+        isCanAppend: boolean;
+        handDelete: boolean;
+        listData: {
+            [key: string]: any;
+        }[];
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    config: {
+        type: PropType< hua5DynamicConfig[]>;
+        required: true;
+    };
+    handSort: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    isCanAppend: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    handDelete: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    listData: {
+        type: PropType<{
+            [key: string]: any;
+        }[]>;
+        default: () => any[];
+    };
+}>>, {
+    getData: () => any;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+    handSort: boolean;
+    isCanAppend: boolean;
+    handDelete: boolean;
+    listData: {
+        [key: string]: any;
+    }[];
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: Partial<Record<string, (_: {
+        dataItem: any;
+        el: hua5DynamicConfig;
+        prop: string;
+    }) => any>>;
+})> & Record<string, any>;
+
+/**
  * 组件导出
  */
 export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
@@ -261,6 +434,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         required: true;
     };
+    labelWidth: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
     rules: {
         type: PropType<any>;
     };
@@ -277,6 +455,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     doubleConfirmTips: {
         type: PropType<string>;
         default: string;
+    };
+    attr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
     };
 }, {
     open: (dataId?: string, info?: {}) => void;
@@ -308,6 +493,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         required: true;
     };
+    labelWidth: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
     rules: {
         type: PropType<any>;
     };
@@ -325,6 +515,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         type: PropType<string>;
         default: string;
     };
+    attr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
 }>> & {
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
@@ -333,9 +530,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     title: string;
     type: string;
     isNeedDoubleConfirm: boolean;
+    labelWidth: string;
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
     doubleConfirmTips: string;
+    attr: {};
 }, {}>> & Record<string, any>;
 
 /**
@@ -594,6 +793,15 @@ export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<{
  */
 export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     region: PropType<string>;
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     accordion: {
         type: PropType<boolean>;
         default: boolean;
@@ -609,11 +817,23 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     isReadonly: {
         type: PropType<boolean>;
         default: boolean;
+    };
+    treeData: {
+        type: PropType<any>;
     };
 }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRegionChange: (region: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     region: PropType<string>;
+    width: {
+        type: PropType<string | number>;
+        required: true;
+        default: string;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     accordion: {
         type: PropType<boolean>;
         default: boolean;
@@ -630,9 +850,14 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    treeData: {
+        type: PropType<any>;
+    };
 }>> & {
     onOnRegionChange?: (region: string) => any;
 }, {
+    width: string | number;
+    disabled: boolean;
     accordion: boolean;
     treeLabelKey: string;
     onlySelectLeaf: boolean;

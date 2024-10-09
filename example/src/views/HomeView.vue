@@ -57,7 +57,6 @@ const config = ref(
     title: 'title3',
     append: '扎111',
     value: 1,
-    placeholder: '请选择',
     // errMsg: '请输入今日鲜花数量',
     width: '30%',
   },
