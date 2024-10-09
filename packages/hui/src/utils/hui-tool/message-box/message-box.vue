@@ -105,6 +105,7 @@ const close = () => {
     <ElDialog
       v-model="isVisible"
       :width="width"
+      align-center
       @closed="close"
     >
       <div class="flex justify-center flex-center h-110">

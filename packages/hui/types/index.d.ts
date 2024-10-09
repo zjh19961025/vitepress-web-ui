@@ -266,7 +266,7 @@ export declare interface HuiDelegate {
 }
 
 /**
- * 倒计时按钮
+ * 动态网格表单
  */
 export declare const HuiGridForm: SFCWithInstall<{
     new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
