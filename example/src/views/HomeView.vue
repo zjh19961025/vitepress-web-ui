@@ -35,6 +35,57 @@ const selectDic = ref([
   },
 ])
 
+const HuiGridFormRef = ref(null)
+const config = ref(
+  [{
+    prop: 'test',
+    title: 'title1',
+    append: '扎',
+    placeholder: '请选择',
+    type: 'select',
+    dataType: 'text',
+    dict: [
+      { label: 'ceshi', value: 1 },
+      { label: 'ceshi2', value: 2 },
+    ],
+    style: 'color:#409EFF;font-weight: 700;',
+    errMsg: '请输入今日鲜花数量',
+    width: '20%',
+  },
+  {
+    prop: 'test1',
+    title: 'title3',
+    append: '扎111',
+    value: 1,
+    placeholder: '请选择',
+    // errMsg: '请输入今日鲜花数量',
+    width: '30%',
+  },
+  {
+    prop: 'test13',
+    title: 'title3',
+    append: '扎',
+    value: 1,
+    placeholder: '请选择',
+    // errMsg: '请输入今日鲜花数量',
+    width: '20%',
+  },
+  {
+    prop: 'test2',
+    title: 'title2',
+    append: '扎',
+    placeholder: '请选择',
+    type: 'select',
+    dataType: 'text',
+    dict: [
+      { label: 'ceshi', value: 1 },
+      { label: 'ceshi2', value: 2 },
+    ],
+    style: 'color:#409EFF;font-weight: 700;',
+    errMsg: '请输入今日鲜花数量',
+    width: '20%',
+  }],
+)
 const testStyle = ref(`width: ${addUnit(200)}`)
 
 function onDialogBtnClick() {
@@ -203,7 +254,7 @@ async function onMessageBox() {
 </script>
 
 <template>
-  <div class="flex">
+  <div class="">
     <div class=" flex-y mlr-10">
       <div class="admin-remark">admin-remark</div>
       <div class="admin-link">admin-link</div>
@@ -214,6 +265,16 @@ async function onMessageBox() {
     </div>
     <div :style="{color: theme.colors.primary}">
       覆盖颜色
+    </div>
+    <div class="m-y-10">
+      <HuiGridForm
+        ref="HuiGridFormRef"
+        hand-sort
+        is-can-append
+        hand-delete
+        :is-have-operate="true" :config="config"
+      />
+      <el-button class="mt-10" @click="HuiGridFormRef.getData()">获取组件数据</el-button>
     </div>
     <div class="flex ml-10px">
       <div class="flex-y">
@@ -265,7 +326,6 @@ async function onMessageBox() {
         </div>
       </div>
       <div class="flex flex-col ml-10">
-
         <el-select v-model="selectValue" v-select-loadmore="loadmore" placeholder="Select" style="width: 240px">
           <el-option
             v-for="item in options"

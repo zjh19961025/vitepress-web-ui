@@ -11,6 +11,7 @@ import HuiSelectLoadStatus from './components/HuiSelectLoadStatus'
 import HuiLineEditPopover from './components/HuiLineEditPopover'
 import HuiAMapSelectAddress from "./components/HuiAMapSelectAddress"
 import HuiAMapSelectAddressDialog from './components/HuiAMapSelectAddressDialog'
+import HuiGridForm from "./components/HuiGridForm"
 
 export default [
   HuiLineEditDialog,
@@ -26,4 +27,5 @@ export default [
   HuiLineEditPopover,
   HuiAMapSelectAddress,
   HuiAMapSelectAddressDialog,
+  HuiGridForm,
 ]
