@@ -14,7 +14,7 @@ export interface HuiRegionTreePopoverPropsType {
   disabled?:boolean,
   /** 组件宽度 */
   width: number | string,
-  /** tree渲染数据 */
+  /** tree渲染数据 如果传入则通过treeData渲染 如果不传则默认获取所有的地市区县数据 */
   treeData?: any
 }
 
