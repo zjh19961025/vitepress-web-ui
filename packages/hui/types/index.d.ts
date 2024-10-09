@@ -292,6 +292,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         getData: () => any;
     }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
@@ -317,6 +322,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         handSort: boolean;
         isCanAppend: boolean;
@@ -324,6 +334,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         listData: {
             [key: string]: any;
         }[];
+        gridFromClass: string;
     }, true, {}, {}, {
         P: {};
         B: {};
@@ -354,6 +365,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         getData: () => any;
     }, {}, {}, {}, {
@@ -363,6 +379,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         listData: {
             [key: string]: any;
         }[];
+        gridFromClass: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -390,6 +407,11 @@ export declare const HuiGridForm: SFCWithInstall<{
         }[]>;
         default: () => any[];
     };
+    gridFromClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
 }>>, {
     getData: () => any;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
@@ -399,6 +421,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     listData: {
         [key: string]: any;
     }[];
+    gridFromClass: string;
 }, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<string, (_: {
         dataItem: any;
