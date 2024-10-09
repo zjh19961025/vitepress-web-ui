@@ -106,7 +106,7 @@ defineExpose({ getData })
             :placeholder="el.placeholder || '请输入'"
             class="inputFund"
           >
-            <template #append>{{ el.append }}</template>
+            <template v-if="testUtils.isNotEmpty(el.append)" #append>{{ el.append }}</template>
           </el-input>
         </div>
         <div v-if="isCheckProp && testUtils.isEmpty(item[el.prop])" class="c-danger lh-20">{{ el.errMsg || `请输入${el.title}` }}</div>
