@@ -271,6 +271,7 @@ async function onMessageBox() {
         hand-sort
         is-can-append
         hand-delete
+        grid-from-class="mt-0 test c-error"
         :is-have-operate="true" :config="config"
       />
       <el-button class="mt-10" @click="HuiGridFormRef.getData()">获取组件数据</el-button>
