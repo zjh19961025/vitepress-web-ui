@@ -21,7 +21,6 @@ const config = ref(
     prop: 'test2',
     title: '标题2',
     append: '扎',
-    value: 1,
     placeholder: '请选择',
     width: '30%',
   },
@@ -29,7 +28,6 @@ const config = ref(
     prop: 'test3',
     title: '标题3',
     append: '元',
-    value: 1,
     width: '20%',
   },
   {

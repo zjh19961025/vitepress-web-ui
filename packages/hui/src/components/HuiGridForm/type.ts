@@ -9,6 +9,8 @@ export type HuiGridFormProp = {
     config: hua5DynamicConfig[]
     /** 组件的数据源 */
     listData?:{[key:string]:any}[]
+    /** 组件透传的class */
+    gridFromClass:string
 }
 
 export interface hua5DynamicConfig {

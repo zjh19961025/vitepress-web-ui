@@ -20,6 +20,8 @@ const { handSort, isCanAppend, handDelete, config, listData } = withDefaults(def
   isCanAppend: false,
   /** 组件的数据源 */
   listData: () => { return [] },
+  /** 组件透传的class */
+  gridFromClass: 'mt-10',
 })
 /** 外部调用getData的时候进行校验设置为true用来显示报错信息 */
 const isCheckProp = ref(false)
@@ -68,7 +70,7 @@ defineExpose({ getData })
 </script>
 <template>
   <!-- 标题 -->
-  <div class="flex mt-10 w-100%" style=" width: 100% ">
+  <div class="flex w-100%" :class="gridFromClass" style=" width: 100% ">
     <div
       v-for="(item, index) in config" :key="index" class="font-bold pr-10"
       :style="{ width: item.width }"

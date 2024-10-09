@@ -8,13 +8,14 @@ HuiGridForm/HuiGridForm
 
 ### 属性
 
-| 属性名      | 说明             | 类型                  | 默认值 |
-| ----------- | ---------------- |---------------------| ------ |
-| isCanAppend | 是否可以进行添加 | boolean             | false  |
-| handSort    | 是否可以排序     | boolean             | false  |
-| handDelete  | 是否可以删除     | boolean             | false  |
-| config      | 组件的配置项     | hua5DynamicConfig[] | -      |
-| listData    | 组件的数据源     | obj[]               | []     |
+| 属性名        | 说明             | 类型                | 默认值 |
+| ------------- | ---------------- | ------------------- | ------ |
+| isCanAppend   | 是否可以进行添加 | boolean             | false  |
+| handSort      | 是否可以排序     | boolean             | false  |
+| handDelete    | 是否可以删除     | boolean             | false  |
+| config        | 组件的配置项     | hua5DynamicConfig[] | -      |
+| listData      | 组件的数据源     | obj[]               | []     |
+| gridFromClass | 组件动态class    | string              | mt-10  |
 
 **hua5DynamicConfig说明**
 
