@@ -19,6 +19,7 @@ HuiRegionTreePopover/HuiRegionTreePopoverMustLast
 | onlySelectLeaf | 只能选择到地区                   | boolean | false  |
 | treeLabelKey   | 树label对应的key                 | string  | title  |
 | isReadonly     | 输入框是否只读                   | boolean | true   |
+| treeData     | 自定义树的渲染数据[{title: '',value: '',children: [], ...}]                  | Tree | -   |
 
 ### 事件（defineEmits）
 

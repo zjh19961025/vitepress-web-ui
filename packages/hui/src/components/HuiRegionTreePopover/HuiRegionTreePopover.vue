@@ -65,12 +65,12 @@ watch(isShowTree, (val) => {
 })
 
 async function handleNodeClick(data) {
-  if ((props.onlySelectLeaf && testUtils.isSingleEmpty(data.children)) || !props.onlySelectLeaf) {
+  if ((props.onlySelectLeaf && testUtils.isEmpty(data.children)) || !props.onlySelectLeaf) {
     regionText.value = await getRegionNameByCode(data.id)
     region.value = data.id
     emit('onRegionChange', data.id)
   }
-  testUtils.isSingleEmpty(data.children) && (isShowTree.value = false)
+  testUtils.isEmpty(data.children) && (isShowTree.value = false)
 }
 
 function handleBackspace() {
