@@ -57,8 +57,8 @@ function getData() {
 function checkDataLegal() {
   // 遍历每一个对象
   for (const item of deepCloneListData.value) {
-    for (const key in item) {
-      if (testUtils.isEmpty(item[key])) {
+    for (const prop in config) {
+      if (testUtils.isEmpty(item[prop])) {
         return false
       }
     }
