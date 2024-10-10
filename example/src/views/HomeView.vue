@@ -34,7 +34,9 @@ const selectDic = ref([
     value: "http://127.0.0.1:5174/",
   },
 ])
-
+const listData = ref([
+  { test: 1, test1: 2, test2: 22, test13: '1', ss: '' },
+])
 const HuiGridFormRef = ref(null)
 const config = ref(
   [{
@@ -250,6 +252,11 @@ async function onMessageBox() {
   const [, res] = await HuiTool.msgBoxQues('要删除所有历史记录吗？', { type: 'danger', width: 500 })
   console.info("🚀 ~ file:HomeView method:onMessageBox line:204 -----", res)
 }
+
+function getData() {
+  const res = HuiGridFormRef.value.getData()
+  console.info("🚀 ~ file:HomeView method:getData line:258 -----", res)
+}
 </script>
 
 <template>
@@ -272,9 +279,9 @@ async function onMessageBox() {
         is-can-append
         hand-delete
         grid-from-class="mt-0 test c-error"
-        :is-have-operate="true" :config="config"
+        :config="config" :list-data="listData"
       />
-      <el-button class="mt-10" @click="HuiGridFormRef.getData()">获取组件数据</el-button>
+      <el-button class="mt-10" @click="getData">获取组件数据</el-button>
     </div>
     <div class="flex ml-10px">
       <div class="flex-y">
