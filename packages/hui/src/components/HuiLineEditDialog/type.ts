@@ -52,10 +52,16 @@ export interface HuiLineEditDialogPropsType {
      */
     doubleConfirmTips?: string,
     /**
-     * 其他属性
+     * input和select的其他属性
      */
     attr: {
       [key: string]: any
+    }
+    /**
+     * form的其他属性
+     */
+    formAttr:{
+        [key: string]: any
     }
   }
 

@@ -14,6 +14,7 @@
       :model="form"
       :rules="inputRules"
       size="small"
+      v-bind="formAttr"
       require-asterisk-position="right"
       class="mt-30 fw-bold w-100%"
       :label-width="labelWidth"
@@ -73,6 +74,7 @@ const props = withDefaults(defineProps<HuiLineEditDialogPropsType>(), {
   isSelectMuti: false,
   labelWidth: '94',
   attr: () => { return {} },
+  formAttr: () => { return {} },
 })
 // 事件通知
 const emits = defineEmits<HuiLineEditDialogEmitType>()
