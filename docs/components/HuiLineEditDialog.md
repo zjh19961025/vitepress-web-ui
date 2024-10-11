@@ -26,6 +26,8 @@ HuiLineEditDialog/LineEditInputOrTextarea
 | isSelectMuti        | select 是否多选              | boolean                      | false                |
 | isNeedDoubleConfirm | 提交是否需要二次确认         | boolean                      | false                |
 | doubleConfirmTips   | 二次确认说明                 | string                       | 确定要执行该操作吗？ |
+| attr                | 表单中select以及input的属性  | obj                          | -                    |
+| formAttr            | el-form的其他属性            | obj                          | -                    |
 
 ### 方法（defineExpose）
 
