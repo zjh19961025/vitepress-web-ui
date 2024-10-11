@@ -359,10 +359,11 @@ function getData() {
     <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
     <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
-      type="select" :rules="HuiRules.urlRule()"
+      type="select" :rules="[{ required: true, message: '请选择批量下次跟进时间' , trigger: 'blur' }]"
       :select-dic="selectDic"
-      :attr="{tagType:'success'}"
+      :attr="{tagType:'error'}"
       :is-select-muti="true"
+      :form-attr="{hideRequiredAsterisk:true}"
       :is-need-double-confirm="true" double-confirm-tips="测试二次确认"
       @on-value-change="onValueChange"
       @on-submit="handleRowEdit"
