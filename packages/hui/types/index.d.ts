@@ -486,6 +486,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         required: true;
         default: () => {};
     };
+    formAttr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
 }, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
@@ -545,6 +552,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         required: true;
         default: () => {};
     };
+    formAttr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
 }>> & {
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
@@ -558,6 +572,7 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     isSelectMuti: boolean;
     doubleConfirmTips: string;
     attr: {};
+    formAttr: {};
 }, {}>> & Record<string, any>;
 
 /**
