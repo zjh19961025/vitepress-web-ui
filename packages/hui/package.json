@@ -37,7 +37,7 @@
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@hua5/hua5-utils": "^1.0.3",
-    "@hua5/hua5-web-lib": "^1.0.1",
+    "@hua5/hua5-web-lib": "^1.0.12",
     "@tinymce/tinymce-vue": "^5",
     "@unocss/preset-rem-to-px": "^0.59.0",
     "element-plus": "^2.3.9",
