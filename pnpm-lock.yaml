@@ -12,8 +12,8 @@ importers:
         specifier: ^2.3.1
         version: 2.3.1(vue@3.4.29(typescript@5.4.5))
       '@hua5/hua5-web-lib':
-        specifier: ^1.0.10
-        version: 1.0.10(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))
+        specifier: ^1.0.13
+        version: 1.0.13(@hua5/hua5-utils@1.0.7)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))
       '@tinymce/tinymce-vue':
         specifier: ^5.1.1
         version: 5.1.1(vue@3.4.29(typescript@5.4.5))
@@ -28,8 +28,8 @@ importers:
         specifier: workspace:*
         version: link:packages/eslint-config
       '@hua5/hua5-utils':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.0.7
+        version: 1.0.7
       '@hua5/unocss-preset':
         specifier: workspace:*
         version: link:packages/unocss-preset
@@ -213,8 +213,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.6
       '@hua5/hua5-web-lib':
-        specifier: ^1.0.1
-        version: 1.0.7(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5))
+        specifier: ^1.0.12
+        version: 1.0.13(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))
       '@tinymce/tinymce-vue':
         specifier: ^5
         version: 5.1.1(vue@3.4.29(typescript@5.4.5))
@@ -693,20 +693,15 @@ packages:
   '@hua5/hua5-utils@1.0.6':
     resolution: {integrity: sha512-TRdD/FAlUU+kD08jFBXjaukbzqgwEpeUhIqTG5ZfV1yW5PnTk86q3PxbxO0MIcHwUf0MT/amt3YjojQCLo6EbQ==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-utils/-/@hua5/hua5-utils-1.0.6.tgz}
 
-  '@hua5/hua5-web-lib@1.0.10':
-    resolution: {integrity: sha512-0xxJvnUGXFKnMS587d/+/yB/Nkh6VcaojfsqTdzKUcJ4Nuy3n5EXi4OPCq3+7OBFP1XkZBoxuC/UfXdZlZAJ0g==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-web-lib/-/@hua5/hua5-web-lib-1.0.10.tgz}
-    peerDependencies:
-      '@hua5/hua5-utils': '>=1.0.2'
-      axios: ^1.6.8
-      vue: ^3.4.21
+  '@hua5/hua5-utils@1.0.7':
+    resolution: {integrity: sha512-mOSRS7G3vn9KPAn/Z/ETpc4KUbU7aNbTZiYUIFKs2Oo52TKkWm7IGSyOmqHhaUuRjm7A/6YFdtZB+p5xzTVVdw==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-utils/-/@hua5/hua5-utils-1.0.7.tgz}
 
-  '@hua5/hua5-web-lib@1.0.7':
-    resolution: {integrity: sha512-a7aml6bhXPP4qG8xmLrfayXZKW80sjN//+/CCBeKb6UXVrRuzn4uGqMZH9LnBU85D9oGuiDK6f/gQt5MJCuyrg==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-web-lib/-/@hua5/hua5-web-lib-1.0.7.tgz}
+  '@hua5/hua5-web-lib@1.0.13':
+    resolution: {integrity: sha512-Qp/8l8MxrAJeMzEj2iMOcH6x5oV8Oi2MWJkTrjrrgzik0Gh6sOXACjpIwE6YfiteyCM1+opiH46D37B+nYcFIQ==, tarball: https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/@hua5/hua5-web-lib/-/@hua5/hua5-web-lib-1.0.13.tgz}
     peerDependencies:
       '@hua5/hua5-utils': '>=1.0.2'
       axios: ^1.6.8
       vue: ^3.4.21
-      vue-router: ^4.3.0
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -1975,8 +1970,8 @@ packages:
   focus-trap@7.5.4:
     resolution: {integrity: sha512-N7kHdlgsO/v+iD/dMoJKtsSqs5Dz/dXZVebRgJw23LDk+jMi/974zyiOYDziY2JPp8xivq9BmUGwIJMiuSBi7w==}
 
-  follow-redirects@1.15.6:
-    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.6.tgz}
+  follow-redirects@1.15.9:
+    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.9.tgz}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -1987,8 +1982,8 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  form-data@4.0.0:
-    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==, tarball: https://registry.npmmirror.com/form-data/-/form-data-4.0.0.tgz}
+  form-data@4.0.1:
+    resolution: {integrity: sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==, tarball: https://registry.npmmirror.com/form-data/-/form-data-4.0.1.tgz}
     engines: {node: '>= 6'}
 
   fs-extra@11.2.0:
@@ -3829,18 +3824,19 @@ snapshots:
 
   '@hua5/hua5-utils@1.0.6': {}
 
-  '@hua5/hua5-web-lib@1.0.10(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))':
+  '@hua5/hua5-utils@1.0.7': {}
+
+  '@hua5/hua5-web-lib@1.0.13(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))':
     dependencies:
       '@hua5/hua5-utils': 1.0.6
       axios: 1.6.8
       vue: 3.4.29(typescript@5.4.5)
 
-  '@hua5/hua5-web-lib@1.0.7(@hua5/hua5-utils@1.0.6)(axios@1.6.8)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5))':
+  '@hua5/hua5-web-lib@1.0.13(@hua5/hua5-utils@1.0.7)(axios@1.6.8)(vue@3.4.29(typescript@5.4.5))':
     dependencies:
-      '@hua5/hua5-utils': 1.0.6
+      '@hua5/hua5-utils': 1.0.7
       axios: 1.6.8
       vue: 3.4.29(typescript@5.4.5)
-      vue-router: 4.3.3(vue@3.4.29(typescript@5.4.5))
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
@@ -4917,8 +4913,8 @@ snapshots:
 
   axios@1.6.8:
     dependencies:
-      follow-redirects: 1.15.6
-      form-data: 4.0.0
+      follow-redirects: 1.15.9
+      form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -5578,13 +5574,13 @@ snapshots:
     dependencies:
       tabbable: 6.2.0
 
-  follow-redirects@1.15.6: {}
+  follow-redirects@1.15.9: {}
 
   for-each@0.3.3:
     dependencies:
       is-callable: 1.2.7
 
-  form-data@4.0.0:
+  form-data@4.0.1:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
