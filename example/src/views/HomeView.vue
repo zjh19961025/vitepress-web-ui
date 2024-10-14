@@ -257,6 +257,53 @@ function getData() {
   const res = HuiGridFormRef.value.getData()
   console.info("🚀 ~ file:HomeView method:getData line:258 -----", res)
 }
+const testData = ref({ name: 'zs', address: '', count: '200', order: '' })
+const tableData2 = ref([
+  {
+    title: '订单数',
+    value: '',
+    prop: 'order',
+    class: 'c-disabled font-bold',
+    handler: (item) => funTest,
+    // rightText: '触达记录',
+  },
+  {
+    title: '性别',
+    value: '1',
+    prop: 'sex',
+    class: 'c-success font-bold',
+    handler: funTest,
+    rightText: '触达记录',
+  },
+  {
+    title: '数量',
+    value: '1',
+    prop: 'count',
+    class: 'c-disabled font-bold',
+    handler: funTest,
+    rightText: '触达记录',
+  },
+  {
+    title: '姓名',
+    value: '1',
+    prop: 'name',
+    class: 'c-disabled font-bold',
+    handler: funTest,
+    rightText: '触达记录',
+  },
+  {
+    title: '地址',
+    value: '',
+    prop: 'address',
+    class: 'c-disabled font-bold',
+    handler: funTest,
+    rightText: '触达记录',
+  },
+])
+
+function funTest() {
+  console.info("🚀 ~ file:HomeView method:funTest line:305 -----", 222)
+}
 </script>
 
 <template>
@@ -282,6 +329,19 @@ function getData() {
         :config="config" :list-data="listData"
       />
       <el-button class="mt-10" @click="getData">获取组件数据</el-button>
+    </div>
+    <div class="m-y-10">
+      <HuiDataView title-width="100" class="mt-20" :data="testData" :config="tableData2" :line-count="2">
+        <template #sex-right="scope">
+          <div class="c-danger">右侧插槽</div>
+        </template>
+        <template #sex-left="scope">
+          <div class="c-danger">左侧插槽</div>
+        </template>
+        <template #sex-title="scope">
+          <div class="c-danger">标题插槽</div>
+        </template>
+      </HuiDataView>
     </div>
     <div class="flex ml-10px">
       <div class="flex-y">
