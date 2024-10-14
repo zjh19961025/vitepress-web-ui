@@ -26,3 +26,10 @@ HuiDataViewConfig说明
 | class     | value项的动态class      | string         | -      |
 | handler   | rightText的点击触发事件 | function       | -      |
 
+### 插槽使用
+
+标题 ：prop + '-title'  
+
+value: prop + '-left' 
+
+右侧文字：prop + '-right'
