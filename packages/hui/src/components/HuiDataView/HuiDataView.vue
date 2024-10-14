@@ -27,7 +27,6 @@ watch(
 )
 // 手机端只能展示一行
 const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%')
-
 </script>
 
 <template>
@@ -35,9 +34,9 @@ const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%
     <div v-for="(item,index) in config" :key="item.prop" class="flex" :style="{ width: getWidth}">
       <!--标题-->
       <div
-        class="text-center bg-normal flex-center flex-shrink-0 text-14 b-(1px solid lighter) lh-32 text-regular !c-info noBorderTop"
+        class="text-center bg-normal flex-center flex-shrink-0 text-14 b-1px b-solid b-lighter lh-32 text-regular !c-info noBorderTop"
         :class="[
-          (index+1) <= lineCount ? '!b-t-(1px solid lighter)' :'',
+          (index+1) <= lineCount ? '!b-t-1px !b-t-solid !b-t-lighter' :'',
           (index % lineCount != 0 ? 'noBorderLeft': '' )
         ]"
         :style="{width: addUnit(titleWidth)}"
@@ -48,10 +47,10 @@ const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%
       </div>
       <!--  内容部分    -->
       <div
-        class="flex-1 b-(1px solid lighter) noBorderLeft text-regular"
+        class="flex-1 b-1px b-solid b-lighter noBorderLeft text-regular"
         :class="(index+1) > lineCount ? 'noBorderTop' :''"
       >
-        <div class="flex justify-between flex-center lh-32 p-x-10">
+        <div class="flex justify-between lh-32 p-x-10">
           <!--  value部分    -->
           <slot :name="item.prop + '-left'" v-bind="item">
             <div :class="item.class">{{ item.value }}</div>

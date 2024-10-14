@@ -240,6 +240,167 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
     disableClass: string;
 }, {}>> & Record<string, any>;
 
+/**
+ * 组件导出
+ */
+export declare const HuiDataView: SFCWithInstall<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
+        data: {
+            type: PropType<{
+                [key: string]: any;
+            }>;
+            default: () => {};
+        };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
+        };
+        lineCount: {
+            type: PropType<number>;
+            default: number;
+        };
+        titleWidth: {
+            type: PropType<string | number>;
+            default: string;
+        };
+    }>>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        data: {
+            type: PropType<{
+                [key: string]: any;
+            }>;
+            default: () => {};
+        };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
+        };
+        lineCount: {
+            type: PropType<number>;
+            default: number;
+        };
+        titleWidth: {
+            type: PropType<string | number>;
+            default: string;
+        };
+    }>>, {
+        data: {};
+        lineCount: number;
+        titleWidth: string | number;
+    }, true, {}, {}, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly< ExtractPropTypes<{
+        data: {
+            type: PropType<{
+                [key: string]: any;
+            }>;
+            default: () => {};
+        };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
+        };
+        lineCount: {
+            type: PropType<number>;
+            default: number;
+        };
+        titleWidth: {
+            type: PropType<string | number>;
+            default: string;
+        };
+    }>>, {}, {}, {}, {}, {
+        data: {};
+        lineCount: number;
+        titleWidth: string | number;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    data: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        default: () => {};
+    };
+    config: {
+        type: PropType< HuiDataViewConfig[]>;
+        required: true;
+    };
+    lineCount: {
+        type: PropType<number>;
+        default: number;
+    };
+    titleWidth: {
+        type: PropType<string | number>;
+        default: string;
+    };
+}>>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+    data: {};
+    lineCount: number;
+    titleWidth: string | number;
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: Partial<Record<string, (_: {
+        prop: string;
+        value: string;
+        title: string;
+        rightText?: string;
+        class?: string;
+        handler?: (item: any) => void;
+    }) => any>> & Partial<Record<string, (_: {
+        prop: string;
+        value: string;
+        title: string;
+        rightText?: string;
+        class?: string;
+        handler?: (item: any) => void;
+    }) => any>> & Partial<Record<string, (_: {
+        prop: string;
+        value: string;
+        title: string;
+        rightText?: string;
+        class?: string;
+        handler?: (item: any) => void;
+    }) => any>>;
+})> & Record<string, any>;
+
+declare interface HuiDataViewConfig {
+    /**
+     * 表格项id
+     * @type {string}
+     */
+    prop: string;
+    /**
+     * 表格项的值
+     * @type {string | null}
+     */
+    value: string | null;
+    /**
+     * 表格每一项的标题
+     * @type {string}
+     */
+    title: string;
+    /**
+     * 列表项右侧文字
+     * @type {string}
+     */
+    rightText?: string;
+    /**
+     * value项的动态class
+     * @type {string | null}
+     */
+    class?: string;
+    /**
+     * rightText的点击触发事件
+     * @type {function}
+     */
+    handler?: (item: any) => void;
+}
+
 export declare interface HuiDelegate {
     /**
      * 地区的所有数据
@@ -292,6 +453,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         getData: () => any;
     }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
@@ -317,6 +483,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         handSort: boolean;
         isCanAppend: boolean;
@@ -324,6 +495,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         listData: {
             [key: string]: any;
         }[];
+        gridFromClass: string;
     }, true, {}, {}, {
         P: {};
         B: {};
@@ -354,6 +526,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             }[]>;
             default: () => any[];
         };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
     }>>, {
         getData: () => any;
     }, {}, {}, {}, {
@@ -363,6 +540,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         listData: {
             [key: string]: any;
         }[];
+        gridFromClass: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -390,6 +568,11 @@ export declare const HuiGridForm: SFCWithInstall<{
         }[]>;
         default: () => any[];
     };
+    gridFromClass: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
 }>>, {
     getData: () => any;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
@@ -399,6 +582,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     listData: {
         [key: string]: any;
     }[];
+    gridFromClass: string;
 }, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<string, (_: {
         dataItem: any;
@@ -457,6 +641,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         default: string;
     };
     attr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
+    formAttr: {
         type: PropType<{
             [key: string]: any;
         }>;
@@ -522,6 +713,13 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
         required: true;
         default: () => {};
     };
+    formAttr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+        required: true;
+        default: () => {};
+    };
 }>> & {
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
@@ -535,6 +733,7 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     isSelectMuti: boolean;
     doubleConfirmTips: string;
     attr: {};
+    formAttr: {};
 }, {}>> & Record<string, any>;
 
 /**
