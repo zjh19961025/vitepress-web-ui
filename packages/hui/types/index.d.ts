@@ -346,25 +346,28 @@ export declare const HuiDataView: SFCWithInstall<{
 }, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<string, (_: {
         prop: string;
-        value: string;
+        value: string | string[];
         title: string;
         rightText?: string;
         class?: string;
         handler?: (item: any) => void;
+        type?: string;
     }) => any>> & Partial<Record<string, (_: {
         prop: string;
-        value: string;
+        value: string | string[];
         title: string;
         rightText?: string;
         class?: string;
         handler?: (item: any) => void;
+        type?: string;
     }) => any>> & Partial<Record<string, (_: {
         prop: string;
-        value: string;
+        value: string | string[];
         title: string;
         rightText?: string;
         class?: string;
         handler?: (item: any) => void;
+        type?: string;
     }) => any>>;
 })> & Record<string, any>;
 
@@ -378,7 +381,7 @@ declare interface HuiDataViewConfig {
      * 表格项的值
      * @type {string | null}
      */
-    value: string | null;
+    value: string | null | string[];
     /**
      * 表格每一项的标题
      * @type {string}
@@ -399,6 +402,11 @@ declare interface HuiDataViewConfig {
      * @type {function}
      */
     handler?: (item: any) => void;
+    /**
+     * 内容展示的类型，type== 'img' 那么显示图片
+     * @type {string}
+     */
+    type?: string;
 }
 
 export declare interface HuiDelegate {
@@ -1061,6 +1069,33 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
     treeLabelKey: string;
     onlySelectLeaf: boolean;
     isReadonly: boolean;
+}, {}>> & Record<string, any>;
+
+/**
+ * 地区树select
+ */
+export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<{
+    selectedRegions: PropType<string | string[]>;
+    treeData: {
+        type: PropType<any[]>;
+    };
+    disabledRegions: {
+        type: PropType<string[]>;
+        default: () => any[];
+    };
+}, {
+    selectedRegions: ModelRef<string | string[], string>;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    selectedRegions: PropType<string | string[]>;
+    treeData: {
+        type: PropType<any[]>;
+    };
+    disabledRegions: {
+        type: PropType<string[]>;
+        default: () => any[];
+    };
+}>>, {
+    disabledRegions: string[];
 }, {}>> & Record<string, any>;
 
 export declare const HuiRules: {
