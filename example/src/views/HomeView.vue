@@ -16,6 +16,23 @@ const region = ref('110102')
 const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
 const AMapSelectAddressDialogRef = ref(null)
+const selectedRegions = ref(null)
+const treeData = ref([{
+  "label": "1东城区",
+  "id": "110101",
+  "value": "110101",
+  "hasChildren": false,
+  "fullName": "北京市-北京市辖区-东城区",
+}])
+setTimeout(() => {
+  treeData.value = [{
+    "label": "111城区",
+    "id": "110101",
+    "value": "110101",
+    "hasChildren": false,
+    "fullName": "北京市-北京市辖区-东城区",
+  }]
+}, 3000)
 const popoverRow = ref({
   sort: 9,
 })
@@ -375,6 +392,10 @@ function funTest() {
         </div>
         <div class="mt-10px">
           <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />
+        </div>
+        <div class="mt-10px">
+          <HuiRegionTreeSelect :tree-data="treeData" multiple show-checkbox :disabled-regions="['110101', '110102']" />
+          selectedRegions: {{ selectedRegions }}
         </div>
         <div class="mt-10px">
           <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>

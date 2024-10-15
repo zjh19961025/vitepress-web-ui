@@ -21,6 +21,7 @@ declare module 'vue' {
     HuiAMapSelectAddressDialog:typeof import("@hua5/hua5-web-ui")["HuiAMapSelectAddressDialog"]
     HuiGridForm:typeof import("@hua5/hua5-web-ui")["HuiGridForm"]
     HuiDataView:typeof import("@hua5/hua5-web-ui")["HuiDataView"]
+    HuiRegionTreeSelect:typeof import("@hua5/hua5-web-ui")["HuiRegionTreeSelect"]
   }
 
   /**
