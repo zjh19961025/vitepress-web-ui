@@ -52,15 +52,27 @@ const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%
       >
         <div class="flex justify-between lh-32 p-x-10">
           <!--  value部分    -->
-          <slot :name="item.prop + '-left'" v-bind="item">
-            <div :class="item.class">{{ item.value }}</div>
-          </slot>
-          <!--  rightText部分    -->
-          <div class="flex-shrink-0">
-            <slot :name="item.prop + '-right'" v-bind="item">
-              <div class="c-primary hand" @click="item.handler?.(item)">{{ item.rightText }}</div>
-            </slot>
+          <div v-if="item?.type === 'img'" class="flex flex-wrap">
+            <el-image
+              v-for="(el,idx) in item.value" :key="idx"
+              :class="idx !== item.value.length ? 'mr-10' :''"
+              class="w-43 lh-43 m-y-5 "
+              :src="el"
+              :preview-src-list="[item.value[idx]]"
+              fit="cover"
+            />
           </div>
+          <template v-else>
+            <slot :name="item.prop + '-left'" v-bind="item">
+              <div :class="item.class">{{ item.value }}</div>
+            </slot>
+            <!--  rightText部分    -->
+            <div class="flex-shrink-0">
+              <slot :name="item.prop + '-right'" v-bind="item">
+                <div class="c-primary hand" @click="item.handler?.(item)">{{ item.rightText }}</div>
+              </slot>
+            </div>
+          </template>
         </div>
       </div>
     </div>
