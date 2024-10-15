@@ -54,7 +54,8 @@ export const sidebar = {
         { text: '地图地址选择弹窗', link: '/components/HuiAMapSelectAddressDialog' },
         { text: '命令式弹窗组件', link: '/components/msgBox' },
         { text: '动态网格表单', link: '/components/HuiGridForm' },
-        { text: '详情表格', link: '/components/HuiDataView' }
+        { text: '详情表格', link: '/components/HuiDataView' },
+        { text: '地区下拉选择', link: '/components/HuiRegionTreeSelect' }
       ],
     },
     {
