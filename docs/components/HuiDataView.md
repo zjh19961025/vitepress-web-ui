@@ -17,14 +17,15 @@ HuiDataView/HuiDataView
 
 HuiDataViewConfig说明
 
-| 属性名    | 说明                    | 类型           | 默认值 |
-| --------- | ----------------------- | -------------- | ------ |
-| prop      | 表格项主键              | string         | -      |
-| value     | 表格项的值              | string \| null | -      |
-| title     | 表格每一项的标题        | string         | -      |
-| rightText | 列表项右侧文字          | string         | -      |
-| class     | value项的动态class      | string         | -      |
-| handler   | rightText的点击触发事件 | function       | -      |
+| 属性名    | 说明                                                  | 类型                       | 默认值 |
+| --------- | ----------------------------------------------------- | -------------------------- | ------ |
+| prop      | 表格项主键                                            | string                     | -      |
+| value     | 表格项的值                                            | string \| null \| string[] | -      |
+| title     | 表格每一项的标题                                      | string                     | -      |
+| rightText | 列表项右侧文字                                        | string                     | -      |
+| class     | value项的动态class                                    | string                     | -      |
+| handler   | rightText的点击触发事件                               | function                   | -      |
+| type      | 内容部分显示的类型，目前支图片 type='img'那么显示图片 | string                     | -      |
 
 ### 插槽使用
 

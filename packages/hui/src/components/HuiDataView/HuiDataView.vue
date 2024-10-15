@@ -2,6 +2,7 @@
 import type { HuiDataViewProp } from './type'
 import { watch, computed } from "vue"
 import { webUtils } from '@hua5/hua5-web-lib'
+import { ElImage } from 'element-plus'
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiDataView',
@@ -53,10 +54,10 @@ const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%
         <div class="flex justify-between lh-32 p-x-10">
           <!--  value部分    -->
           <div v-if="item?.type === 'img'" class="flex flex-wrap">
-            <el-image
+            <ElImage
               v-for="(el,idx) in item.value" :key="idx"
               :class="idx !== item.value.length ? 'mr-10' :''"
-              class="w-43 lh-43 m-y-5 "
+              class="w-43 h-43 m-y-5 "
               :src="el"
               :preview-src-list="[item.value[idx]]"
               fit="cover"
