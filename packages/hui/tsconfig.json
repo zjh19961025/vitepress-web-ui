@@ -12,7 +12,7 @@
     },
     "types": [
       "./node_modules/@hua5/hua5-utils/dist/index.d.ts",
-      "@hua5/hua5-utils/global",
+      "@hua5/hua5-utils",
       "@hua5/hua5-web-lib/global",
     ]
   },
