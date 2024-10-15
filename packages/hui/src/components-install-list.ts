@@ -13,6 +13,7 @@ import HuiAMapSelectAddress from "./components/HuiAMapSelectAddress"
 import HuiAMapSelectAddressDialog from './components/HuiAMapSelectAddressDialog'
 import HuiGridForm from "./components/HuiGridForm"
 import HuiDataView from "./components/HuiDataView"
+import HuiRegionTreeSelect from "./components/HuiRegionTreeSelect"
 
 export default [
   HuiLineEditDialog,
@@ -30,4 +31,5 @@ export default [
   HuiAMapSelectAddressDialog,
   HuiGridForm,
   HuiDataView,
+  HuiRegionTreeSelect,
 ]

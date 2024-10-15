@@ -20,7 +20,7 @@ export interface HuiDataViewConfig {
      * 表格项的值
      * @type {string | null}
      */
-    value: string | null;
+    value: string | null | string[];
 
     /**
      * 表格每一项的标题
@@ -46,5 +46,10 @@ export interface HuiDataViewConfig {
      */
     handler?: (item:any)=> void
 
+    /**
+     * 内容展示的类型，type== 'img' 那么显示图片
+     * @type {string}
+     */
+    type?:string
 }
 
