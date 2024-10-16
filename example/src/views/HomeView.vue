@@ -38,8 +38,11 @@ const selectDic = ref([
   },
 ])
 const listData = ref([
-  { test: 1, test1: 2, test2: 22, test13: '1', ss: '' },
+
 ])
+setTimeout(() => {
+  listData.value = [{ test: 1, test1: 2, test2: 2, test13: '1', ss: '' }, { test: 1, test1: 2, test2: 2, test13: '1', ss: '' }]
+}, 3000)
 const HuiGridFormRef = ref(null)
 const config = ref(
   [{
@@ -261,6 +264,9 @@ function getData() {
   console.info("🚀 ~ file:HomeView method:getData line:258 -----", res)
 }
 const testData = ref({ name: 'zs', address: '', count: '200', order: '' })
+setTimeout(() => {
+  testData.value = { name: 'zs', address: '大理', count: '700', order: ['https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg'] }
+}, 3000)
 const tableData2 = ref([
   {
     title: '订单数',
