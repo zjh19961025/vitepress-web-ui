@@ -4,6 +4,7 @@
     :data="regionData"
     :filter-node-method="filterNodeMethod"
     filterable
+    :teleported="false"
   >
     <template #label="{ value }">
       <span>{{ setLabel(value) }}</span>

@@ -9,6 +9,7 @@ function onRegionChange(value) {
 <template>
   <HuiRegionTreePopover
     v-model:region="region"
+    tree-label-key="label"
     @on-region-change="onRegionChange"
   />
 </template>

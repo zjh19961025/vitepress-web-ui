@@ -24,6 +24,7 @@ function onRegionsSubmit({ id, regionList }) {
   <el-button @click="onRegionTreeDialogClick">打开地区选择弹框</el-button>
   <HuiRegionTreeDialog
     ref="regionTreeDialogRef"
+    tree-label-key="label"
     @on-submit="onRegionsSubmit"
   />
 </template>
