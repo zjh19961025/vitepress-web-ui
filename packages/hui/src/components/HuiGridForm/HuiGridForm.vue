@@ -61,18 +61,29 @@ function onHandleDelete(index:number) {
 
 function getData() {
   isCheckProp.value = true
-  return checkDataLegal() ? deepCloneListData.value : null
+  const resData = deepCloneListData.value.filter(item => !isItemAllEmpty(item))
+  return checkDataLegal(resData) ? resData : null
 }
-function checkDataLegal() {
+function checkDataLegal(resData) {
   // 遍历每一个对象
-  for (const item of deepCloneListData.value) {
+  for (const item of resData) {
     for (const configItem of props.config) {
+      const isRequired = configItem.required ?? true
+      if (!isRequired) continue
       if (testUtils.isEmpty(item[configItem.prop])) {
         return false
       }
     }
   }
   return true
+}
+// 校验是否每一项都为空
+function isItemAllEmpty(item) {
+  return Object.values(item).every(value => testUtils.isEmpty(value))
+}
+
+function isShowErrorTips(configItem, dataItem) {
+  return isCheckProp.value && testUtils.isEmpty(dataItem[configItem.prop]) && !isItemAllEmpty(dataItem) && (configItem.required ?? true)
 }
 
 defineExpose({ getData })
@@ -120,7 +131,7 @@ defineExpose({ getData })
             <template v-if="testUtils.isNotEmpty(el.append)" #append>{{ el.append }}</template>
           </el-input>
         </div>
-        <div v-if="isCheckProp && testUtils.isEmpty(item[el.prop])" class="c-danger lh-20">{{ el.errMsg || `请输入${el.title}` }}</div>
+        <div v-if="isShowErrorTips(el,item)" class="c-danger lh-20">{{ el.errMsg || `请输入${el.title}` }}</div>
       </div>
     </template>
     <div v-if="handSort || handDelete" class="w-58 flex-shrink-0 h-32 lh-32 hand">
