@@ -17,42 +17,7 @@ const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
 const AMapSelectAddressDialogRef = ref(null)
 const selectedRegions = ref(null)
-const selectedRegions1 = ref([])
-const treeData = ref()
-setTimeout(() => {
-  treeData.value = [
-    {
-      "label": "北京市辖区",
-      "id": "1101",
-      "value": "1101",
-      "hasChildren": true,
-      "fullName": "北京市-北京市辖区",
-      "children": [
-        {
-          "label": "东城区",
-          "id": "110101",
-          "value": "110101",
-          "hasChildren": false,
-          "fullName": "北京市-北京市辖区-东城区",
-        },
-        {
-          "label": "西城区",
-          "id": "110102",
-          "value": "110102",
-          "hasChildren": false,
-          "fullName": "北京市-北京市辖区-西城区",
-        },
-        {
-          "label": "朝阳区",
-          "id": "110105",
-          "value": "110105",
-          "hasChildren": false,
-          "fullName": "北京市-北京市辖区-朝阳区",
-        },
-      ],
-    },
-  ]
-}, 2000)
+const disabledRegions = ref(['110101', '110102'])
 
 const popoverRow = ref({
   sort: 9,
@@ -351,12 +316,6 @@ const tableData2 = ref([
 function funTest() {
   console.info("🚀 ~ file:HomeView method:funTest line:305 -----", 222)
 }
-
-const disabledRegions = ref([])
-disabledRegions.value = ['110101', '110102']
-setTimeout(() => {
-  disabledRegions.value = ['110101']
-}, 1000)
 </script>
 
 <template>
@@ -429,10 +388,9 @@ setTimeout(() => {
         <div class="mt-10px">
           <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />
         </div>
-        <div>单选：{{ selectedRegions }}</div>
-        <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" :tree-data="treeData" clearable />
-        <div>多选：{{ selectedRegions1 }}</div>
-        <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions1" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
+        <div class="mt-10px">
+          <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
+        </div>
         <div class="mt-10px">
           <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>
         </div>
