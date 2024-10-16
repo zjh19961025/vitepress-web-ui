@@ -8,26 +8,26 @@ defineOptions({
   name: 'HuiDataView',
 })
 // 接收父组件传递的数据
-const { config, lineCount, data } = withDefaults(defineProps<HuiDataViewProp>(), {
+const props = withDefaults(defineProps<HuiDataViewProp>(), {
   lineCount: 1,
   titleWidth: '100',
   data: () => { return {} },
 })
 /* 根据listData重新渲染value值*/
-watch(
-  data,
-  (newValue, oldValue) => {
-    const dataObj = newValue || {}
-    for (const item of config) {
-      const value = dataObj[item.prop]
-      if (!value) continue
-      item.value = value
-    }
-  },
-  { immediate: true },
+watch(() =>
+  props.data,
+(newValue, oldValue) => {
+  const dataObj = newValue || {}
+  for (const item of props.config) {
+    const value = dataObj[item.prop]
+    if (!value) continue
+    item.value = value
+  }
+},
+{ immediate: true },
 )
 // 手机端只能展示一行
-const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : lineCount) + '%')
+const getWidth = computed(() => 100 / (webUtils.isMobile() ? 1 : props.lineCount) + '%')
 </script>
 
 <template>

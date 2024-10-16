@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { ElInput, ElButton, ElSelect, ElOption } from 'element-plus'
 import type { HuiGridFormProp } from './type.ts'
 import { objectUtils, testUtils } from "@hua5/hua5-utils"
@@ -11,7 +11,7 @@ defineOptions({
 
 const { moveItem, removeItem } = useDynamicList()
 
-const { handSort, isCanAppend, handDelete, config, listData } = withDefaults(defineProps<HuiGridFormProp>(), {
+const props = withDefaults(defineProps<HuiGridFormProp>(), {
   /** 是否可以排序 */
   handSort: false,
   /** 是否可以删除 */
@@ -28,14 +28,23 @@ const isCheckProp = ref(false)
 /** addRow()方法 添加进listData的模板 */
 const dataTemplate:any = {}
 /** 使用deepClone防止直接修改prop传递进来的数据，作为组件的输出 */
-const deepCloneListData = ref(objectUtils.deepClone(listData))
+const deepCloneListData = ref(objectUtils.deepClone(props.listData))
+
+/* 根据listData重新渲染value值*/
+watch(() =>
+  props.listData,
+(newValue, oldValue) => {
+  deepCloneListData.value = newValue
+},
+{ immediate: true },
+)
 
 onMounted(() => {
-  for (const key in config) {
-    const item = config[key]
+  for (const key in props.config) {
+    const item = props.config[key]
     dataTemplate[item.prop] = ""
   }
-  if (testUtils.isEmpty(listData)) {
+  if (testUtils.isEmpty(props.listData)) {
     addRow()
   }
 })
@@ -57,7 +66,7 @@ function getData() {
 function checkDataLegal() {
   // 遍历每一个对象
   for (const item of deepCloneListData.value) {
-    for (const configItem of config) {
+    for (const configItem of props.config) {
       if (testUtils.isEmpty(item[configItem.prop])) {
         return false
       }
