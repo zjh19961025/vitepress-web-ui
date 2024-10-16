@@ -1,6 +1,7 @@
 <template>
   <ElTreeSelect
     v-model="selectedRegions"
+    class="hua5n-tree-select"
     :data="regionData"
     :filter-node-method="filterNodeMethod"
     filterable
@@ -80,12 +81,13 @@ defineExpose({
 </script>
 
 <style scoped lang='scss'>
-::v-deep(.el-select__selection) {
-  flex-wrap: wrap !important;
-}
+.hua5n-tree-select {
+  ::v-deep(.el-select__selection) {
+    flex-wrap: wrap !important;
+  }
 
-::v-deep(.el-select__wrapper) {
-  height: auto !important;
+  ::v-deep(.el-select__wrapper) {
+    height: auto !important;
+  }
 }
-
 </style>
