@@ -38,5 +38,7 @@ export interface hua5DynamicConfig {
     width:string,
     /** v-bind其他属性值 */
     attr?:{[key:string]:any}
+    /** 是否必填 */
+    required?:boolean,
 }
 
