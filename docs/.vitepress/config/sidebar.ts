@@ -45,6 +45,7 @@ export const sidebar = {
         { text: '富文本预览弹窗', link: '/components/HuiPreviewRichTextDialog' },
         { text: '地区选择弹窗', link: '/components/HuiRegionTreeDialog' },
         { text: '地区选择输入框', link: '/components/HuiRegionTreePopover' },
+        { text: '地区下拉选择', link: '/components/HuiRegionTreeSelect' },
         { text: 'select下拉状态', link: '/components/HuiSelectLoadStatus' },
         { text: '显示链接弹框', link: '/components/HuiShowUrlDialog' },
         { text: '字符串数组编辑弹窗', link: '/components/HuiStringArrayInputDialog' },
@@ -55,7 +56,6 @@ export const sidebar = {
         { text: '命令式弹窗组件', link: '/components/msgBox' },
         { text: '动态网格表单', link: '/components/HuiGridForm' },
         { text: '详情表格', link: '/components/HuiDataView' },
-        { text: '地区下拉选择', link: '/components/HuiRegionTreeSelect' }
       ],
     },
     {
