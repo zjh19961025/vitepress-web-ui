@@ -19,20 +19,21 @@ HuiGridForm/HuiGridForm
 
 **hua5DynamicConfig说明**
 
-| 属性名      | 说明                          | 类型                              | 默认值           |
-| ----------- | ----------------------------- |---------------------------------| ---------------- |
-| prop        | 列表项的key                   | string                          | -                |
-| append      | 输入框append插槽显示的内容    | string                          | -                |
-| placeholder | 提示内容                      | string                          | -                |
-| type        | 显示输入框还是下拉选择        | 'input' \| 'select'             | 请选择 \| 请输入 |
-| dataType    | 输入框数据类型 默认为number   | string                          | number           |
-| style       | 输入框的style主要用来设置颜色 | string                          | -                |
-| dict        | 下拉选择的数据字典            | label、value对象数组                 | -                |
-| readonly    | 是否只读                      | boolean                         | false            |
-| title       | 标题                          | string                          | -                |
-| errMsg      | 错误提示信息                  | string                          | -                |
-| width       | 标题宽度                      | string                          | -                |
+| 属性名      | 说明                          | 类型                                  | 默认值           |
+| ----------- | ----------------------------- | ------------------------------------- | ---------------- |
+| prop        | 列表项的key                   | string                                | -                |
+| append      | 输入框append插槽显示的内容    | string                                | -                |
+| placeholder | 提示内容                      | string                                | -                |
+| type        | 显示输入框还是下拉选择        | 'input' \| 'select'                   | 请选择 \| 请输入 |
+| dataType    | 输入框数据类型 默认为number   | string                                | number           |
+| style       | 输入框的style主要用来设置颜色 | string                                | -                |
+| dict        | 下拉选择的数据字典            | label、value对象数组                  | -                |
+| readonly    | 是否只读                      | boolean                               | false            |
+| title       | 标题                          | string                                | -                |
+| errMsg      | 错误提示信息                  | string                                | -                |
+| width       | 标题宽度                      | string                                | -                |
 | attr        | v-bind其他属性值              | input 和 select 属性，如：input-style | -                |
+| required    | 是否必填                      | boolean                               | true             |
 
 ### 方法（defineExpose）
 
