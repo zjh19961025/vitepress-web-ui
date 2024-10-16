@@ -50,6 +50,8 @@ declare interface hua5DynamicConfig {
     attr?: {
         [key: string]: any;
     };
+    /** 是否必填 */
+    required?: boolean;
 }
 
 /**
