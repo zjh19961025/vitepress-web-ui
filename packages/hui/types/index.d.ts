@@ -1077,7 +1077,7 @@ export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<{
  * 地区树select
  */
 export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<{
-    selectedRegions: PropType<string | string[]>;
+    modelValue: PropType<string | string[]>;
     treeData: {
         type: PropType<any[]>;
     };
@@ -1088,7 +1088,7 @@ export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<{
 }, {
     selectedRegions: ModelRef<string | string[], string>;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
-    selectedRegions: PropType<string | string[]>;
+    modelValue: PropType<string | string[]>;
     treeData: {
         type: PropType<any[]>;
     };

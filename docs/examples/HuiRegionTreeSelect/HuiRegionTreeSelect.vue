@@ -38,7 +38,7 @@ const treeData = ref([
 
 <template>
   <div>单选：{{ selectedRegions }}</div>
-  <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" :tree-data="treeData" clearable />
+  <HuiRegionTreeSelect v-model="selectedRegions" :tree-data="treeData" clearable />
   <div>多选：{{ selectedRegions1 }}</div>
-  <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions1" multiple show-checkbox clearable />
+  <HuiRegionTreeSelect v-model="selectedRegions1" multiple show-checkbox clearable />
 </template>
