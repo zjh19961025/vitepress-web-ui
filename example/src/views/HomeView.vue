@@ -392,10 +392,10 @@ function funTest() {
           />
         </div>
         <div class="mt-10px">
-          <HuiRegionTreePopover v-model:region="region" style="width: 200px;" @on-region-change="onRegionChange" />
+          <HuiRegionTreePopover v-model:region="region" tree-label-key="label" style="width: 200px;" @on-region-change="onRegionChange" />
         </div>
         <div class="mt-10px">
-          <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
+          <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" :remote-show-suffix="false" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
         </div>
         <div class="mt-10px">
           <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>
@@ -459,7 +459,7 @@ function funTest() {
       :rules="[{ required: true, message: '请输入标签', trigger: 'blur' }]"
       @on-submit="handleStringArrayInputSubmit"
     />
-    <HuiRegionTreeDialog ref="regionTreeDialogRef" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
+    <HuiRegionTreeDialog ref="regionTreeDialogRef" tree-label-key="label" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
   </div>
 </template>

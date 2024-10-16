@@ -28,6 +28,7 @@ function onRegionsSubmit({ id, regionList }) {
   <HuiRegionTreeDialog
     ref="regionTreeDialogRef"
     :is-confirm-close="false"
+    tree-label-key="label"
     @on-submit="onRegionsSubmit"
   />
 </template>

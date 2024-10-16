@@ -443,11 +443,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             type: PropType< hua5DynamicConfig[]>;
             required: true;
         };
-        handSort: {
+        isCanAppend: {
             type: PropType<boolean>;
             default: boolean;
         };
-        isCanAppend: {
+        handSort: {
             type: PropType<boolean>;
             default: boolean;
         };
@@ -473,11 +473,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             type: PropType< hua5DynamicConfig[]>;
             required: true;
         };
-        handSort: {
+        isCanAppend: {
             type: PropType<boolean>;
             default: boolean;
         };
-        isCanAppend: {
+        handSort: {
             type: PropType<boolean>;
             default: boolean;
         };
@@ -497,8 +497,8 @@ export declare const HuiGridForm: SFCWithInstall<{
             default: string;
         };
     }>>, {
-        handSort: boolean;
         isCanAppend: boolean;
+        handSort: boolean;
         handDelete: boolean;
         listData: {
             [key: string]: any;
@@ -516,11 +516,11 @@ export declare const HuiGridForm: SFCWithInstall<{
             type: PropType< hua5DynamicConfig[]>;
             required: true;
         };
-        handSort: {
+        isCanAppend: {
             type: PropType<boolean>;
             default: boolean;
         };
-        isCanAppend: {
+        handSort: {
             type: PropType<boolean>;
             default: boolean;
         };
@@ -542,8 +542,8 @@ export declare const HuiGridForm: SFCWithInstall<{
     }>>, {
         getData: () => any;
     }, {}, {}, {}, {
-        handSort: boolean;
         isCanAppend: boolean;
+        handSort: boolean;
         handDelete: boolean;
         listData: {
             [key: string]: any;
@@ -558,11 +558,11 @@ export declare const HuiGridForm: SFCWithInstall<{
         type: PropType< hua5DynamicConfig[]>;
         required: true;
     };
-    handSort: {
+    isCanAppend: {
         type: PropType<boolean>;
         default: boolean;
     };
-    isCanAppend: {
+    handSort: {
         type: PropType<boolean>;
         default: boolean;
     };
@@ -584,8 +584,8 @@ export declare const HuiGridForm: SFCWithInstall<{
 }>>, {
     getData: () => any;
 }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
-    handSort: boolean;
     isCanAppend: boolean;
+    handSort: boolean;
     handDelete: boolean;
     listData: {
         [key: string]: any;
