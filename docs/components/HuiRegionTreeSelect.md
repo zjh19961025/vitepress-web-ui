@@ -10,7 +10,7 @@ HuiRegionTreeSelect/HuiRegionTreeSelect
 
 | 属性名            | 说明             | 类型                | 默认值 |
 | -----------------| ---------------- | ------------------- | ------ |
-|  v-model:selectedRegions  | 地区编码  | 单选：string, 多选：[] | -      |
+| v-model  | 双向绑定的地区编码  | 单选：string, 多选：[] | -      |
 | disabledRegions  | 禁用地区编码，目前只能禁用叶子节点     | []    | -    |
 | treeData     | 自定义树的渲染数据[{title: '',value: '',children: [], ...}]，非必传，不传则为全部数据 | Tree | regionData |
 

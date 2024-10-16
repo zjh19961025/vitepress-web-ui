@@ -3,6 +3,4 @@ export interface treeSelectProps {
     treeData?: any[],
     /** 禁用列表 */
     disabledRegions?:string[],
-    /** 双向绑定数据 */
-    selectedRegions:string | string[]
   }

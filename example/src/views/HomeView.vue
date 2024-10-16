@@ -395,7 +395,8 @@ function funTest() {
           <HuiRegionTreePopover v-model:region="region" tree-label-key="label" style="width: 200px;" @on-region-change="onRegionChange" />
         </div>
         <div class="mt-10px">
-          <HuiRegionTreeSelect v-model:selectedRegions="selectedRegions" :remote-show-suffix="false" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
+          {{ selectedRegions }}
+          <HuiRegionTreeSelect v-model="selectedRegions" :remote-show-suffix="false" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
         </div>
         <div class="mt-10px">
           <ElButton @click="onRegionTreeDialogClick">地区树弹框</ElButton>

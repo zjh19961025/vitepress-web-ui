@@ -25,10 +25,9 @@ defineOptions({
 // 接收的参数
 const props = withDefaults(defineProps<treeSelectProps>(), {
   disabledRegions: () => [],
-  selectedRegions: () => [],
 })
 
-const selectedRegions = defineModel<string | string[]>('selectedRegions')
+const selectedRegions = defineModel<string | string[]>()
 const allRegionTree = ref([])
 
 onMounted(async() => {
