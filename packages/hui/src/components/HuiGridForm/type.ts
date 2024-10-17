@@ -6,14 +6,14 @@ export type HuiGridFormProp = {
     /** 是否可以删除 */
     handDelete?:boolean,
     /** 组件的配置项 */
-    config: hua5DynamicConfig[]
+    config: HuiGridFormConfig[]
     /** 组件的数据源 */
     listData?:{[key:string]:any}[]
     /** 组件透传的class */
     gridFromClass:string
 }
 
-export interface hua5DynamicConfig {
+export interface HuiGridFormConfig {
     /** 列表项的key */
     prop: string,
     /** 输入框append插槽显示的内容 */
