@@ -21,13 +21,14 @@ export interface HuiMsgBoxProp {
   /** 取消事件 */
   cancelHandler:()=> void,
 }
-const { iconType, type, content, cancelText, confirmText, closeBox, confirmHandler, cancelHandler, width } = withDefaults(defineProps<HuiMsgBoxProp>(), {
-  iconType: 'info',
-  type: 'info',
-  cancelText: '取消',
-  confirmText: '确定',
-  width: 320,
-})
+const {
+  iconType = 'info',
+  type = 'info',
+  cancelText = '取消',
+  confirmText = '确定',
+  width = 320,
+  content, closeBox, confirmHandler, cancelHandler,
+} = defineProps<HuiMsgBoxProp>()
 
 const iconTypeClass = computed<string>(() => {
   const iconTypeClassList = {
