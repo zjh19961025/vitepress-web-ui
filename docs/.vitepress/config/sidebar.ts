@@ -44,7 +44,6 @@ export const sidebar = {
         { text: '表格排序修改悬浮组件', link: '/components/HuiLineEditPopover' },
         { text: '富文本预览弹窗', link: '/components/HuiPreviewRichTextDialog' },
         { text: '地区选择弹窗', link: '/components/HuiRegionTreeDialog' },
-        { text: '地区选择输入框', link: '/components/HuiRegionTreePopover' },
         { text: '地区下拉选择', link: '/components/HuiRegionTreeSelect' },
         { text: 'select下拉状态', link: '/components/HuiSelectLoadStatus' },
         { text: '显示链接弹框', link: '/components/HuiShowUrlDialog' },

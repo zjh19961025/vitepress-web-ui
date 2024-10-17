@@ -4,14 +4,11 @@ import { Arrayable } from 'element-plus/es/utils';
 import { ComponentCustomProps } from 'vue';
 import { ComponentOptionsBase } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
-import { ComponentProvideOptions } from 'vue';
-import { CreateComponentPublicInstanceWithMixins } from 'vue';
+import { CreateComponentPublicInstance } from 'vue';
 import { DefineComponent } from 'vue';
 import { Directive } from 'vue';
 import { ExtractPropTypes } from 'vue';
 import { FormItemRule } from 'element-plus';
-import { GlobalComponents } from 'vue';
-import { GlobalDirectives } from 'vue';
 import { ModelRef } from 'vue';
 import { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
@@ -27,7 +24,7 @@ export default _default;
 /**
  * 倒计时按钮
  */
-export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<{
     poi: PropType<any>;
     width: {
         type: PropType<string>;
@@ -48,12 +45,12 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         type: PropType<boolean>;
         default: boolean;
     };
-}>, {
+}, {
     loadMap: () => void;
     setupMap: () => void;
-    poi: ModelRef<any, string, any, any>;
+    poi: ModelRef<any, string>;
     submitInfo: () => boolean;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     poi: PropType<any>;
     width: {
         type: PropType<string>;
@@ -74,17 +71,17 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         type: PropType<boolean>;
         default: boolean;
     };
-}>> & Readonly<{}>, {
+}>>, {
     width: string;
     disabled: boolean;
     height: string;
     showInput: boolean;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 地图选择位置弹窗
  */
-export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         default: string;
@@ -105,10 +102,10 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     showInput: {
         type: PropType<boolean>;
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (poi: any) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     title: {
@@ -131,17 +128,17 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     showInput: {
         type: PropType<boolean>;
     };
-}>> & Readonly<{
+}>> & {
     onOnSubmit?: (poi: any) => any;
-}>, {
+}, {
     title: string;
     width: string;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 倒计时按钮
  */
-export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         required: true;
@@ -170,9 +167,9 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<ExtractP
         required: true;
         default: string;
     };
-}>, {
+}, {
     resetState: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     click: () => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     title: {
@@ -203,20 +200,20 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<ExtractP
         required: true;
         default: string;
     };
-}>> & Readonly<{
+}>> & {
     onClick?: () => any;
-}>, {
+}, {
     type: "button" | "text";
     timeCount: string | number;
     enableClass: string;
     disableClass: string;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 组件导出
  */
 export declare const HuiDataView: SFCWithInstall<{
-    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
         data: {
             type: PropType<{
                 [key: string]: any;
@@ -235,13 +232,30 @@ export declare const HuiDataView: SFCWithInstall<{
             type: PropType<string | number>;
             default: string;
         };
-    }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
+    }>>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
         data: {
-            [key: string]: any;
+            type: PropType<{
+                [key: string]: any;
+            }>;
+            default: () => {};
         };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
+        };
+        lineCount: {
+            type: PropType<number>;
+            default: number;
+        };
+        titleWidth: {
+            type: PropType<string | number>;
+            default: string;
+        };
+    }>>, {
+        data: {};
         lineCount: number;
         titleWidth: string | number;
-    }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+    }, true, {}, {}, {
         P: {};
         B: {};
         D: {};
@@ -267,10 +281,8 @@ export declare const HuiDataView: SFCWithInstall<{
             type: PropType<string | number>;
             default: string;
         };
-    }>> & Readonly<{}>, {}, {}, {}, {}, {
-        data: {
-            [key: string]: any;
-        };
+    }>>, {}, {}, {}, {}, {
+        data: {};
         lineCount: number;
         titleWidth: string | number;
     }>;
@@ -296,13 +308,11 @@ export declare const HuiDataView: SFCWithInstall<{
         type: PropType<string | number>;
         default: string;
     };
-}>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
-    data: {
-        [key: string]: any;
-    };
+}>>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+    data: {};
     lineCount: number;
     titleWidth: string | number;
-}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<string, (_: {
         prop: string;
         value: string | string[];
@@ -397,7 +407,7 @@ export declare interface HuiDelegate {
  * 动态网格表单
  */
 export declare const HuiGridForm: SFCWithInstall<{
-    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
         config: {
             type: PropType< HuiGridFormConfig[]>;
             required: true;
@@ -425,9 +435,37 @@ export declare const HuiGridForm: SFCWithInstall<{
             required: true;
             default: string;
         };
-    }>> & Readonly<{}>, {
+    }>>, {
         getData: () => any;
-    }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
+    }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        config: {
+            type: PropType< HuiGridFormConfig[]>;
+            required: true;
+        };
+        isCanAppend: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handSort: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        handDelete: {
+            type: PropType<boolean>;
+            default: boolean;
+        };
+        listData: {
+            type: PropType<{
+                [key: string]: any;
+            }[]>;
+            default: () => any[];
+        };
+        gridFromClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
+    }>>, {
         isCanAppend: boolean;
         handSort: boolean;
         handDelete: boolean;
@@ -435,7 +473,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             [key: string]: any;
         }[];
         gridFromClass: string;
-    }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+    }, true, {}, {}, {
         P: {};
         B: {};
         D: {};
@@ -470,7 +508,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             required: true;
             default: string;
         };
-    }>> & Readonly<{}>, {
+    }>>, {
         getData: () => any;
     }, {}, {}, {}, {
         isCanAppend: boolean;
@@ -512,9 +550,9 @@ export declare const HuiGridForm: SFCWithInstall<{
         required: true;
         default: string;
     };
-}>> & Readonly<{}>, {
+}>>, {
     getData: () => any;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
     isCanAppend: boolean;
     handSort: boolean;
     handDelete: boolean;
@@ -522,7 +560,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         [key: string]: any;
     }[];
     gridFromClass: string;
-}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<string, (_: {
         dataItem: any;
         el: HuiGridFormConfig;
@@ -566,7 +604,7 @@ declare interface HuiGridFormConfig {
 /**
  * 组件导出
  */
-export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<{
     label: {
         type: PropType<string>;
         default: string;
@@ -626,10 +664,10 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         required: true;
         default: () => {};
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (row: any, prop: string) => void;
     onValueChange: (form: any, row?: any) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
@@ -692,10 +730,10 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         required: true;
         default: () => {};
     };
-}>> & Readonly<{
+}>> & {
     onOnSubmit?: (row: any, prop: string) => any;
     onOnValueChange?: (form: any, row?: any) => any;
-}>, {
+}, {
     label: string;
     title: string;
     type: string;
@@ -704,13 +742,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
     doubleConfirmTips: string;
-    attr: {
-        [key: string]: any;
-    };
-    formAttr: {
-        [key: string]: any;
-    };
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+    attr: {};
+    formAttr: {};
+}, {}>> & Record<string, any>;
 
 /**
  * 定义参数类型
@@ -724,7 +758,7 @@ declare type HuiLineEditDialogComboItem = {
  * 行编辑popover
  */
 export declare const HuiLineEditPopover: SFCWithInstall<{
-    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
+    new (...args: any[]): CreateComponentPublicInstance<Readonly< ExtractPropTypes<{
         row: PropType<{
             [key: string]: string;
         }>;
@@ -747,19 +781,46 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             type: PropType<string>;
             required: true;
         };
-    }>> & Readonly<{
+    }>> & {
         onConfirm?: (row: {
             [key: string]: string;
         }) => any;
-    }>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    }, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
         confirm: (row: {
             [key: string]: string;
         }) => void;
-    }, PublicProps, {
+    }, VNodeProps & AllowedComponentProps & ComponentCustomProps & Readonly< ExtractPropTypes<{
+        row: PropType<{
+            [key: string]: string;
+        }>;
+        width: {
+            type: PropType<number>;
+            required: true;
+            default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        baseClass: {
+            type: PropType<string>;
+            required: true;
+            default: string;
+        };
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
+    }>> & {
+        onConfirm?: (row: {
+            [key: string]: string;
+        }) => any;
+    }, {
         width: number;
         disabled: boolean;
         baseClass: string;
-    }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+    }, true, {}, {}, {
         P: {};
         B: {};
         D: {};
@@ -789,11 +850,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
             type: PropType<string>;
             required: true;
         };
-    }>> & Readonly<{
+    }>> & {
         onConfirm?: (row: {
             [key: string]: string;
         }) => any;
-    }>, {}, {}, {}, {}, {
+    }, {}, {}, {}, {}, {
         width: number;
         disabled: boolean;
         baseClass: string;
@@ -824,11 +885,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         type: PropType<string>;
         required: true;
     };
-}>> & Readonly<{
+}>> & {
     onConfirm?: (row: {
         [key: string]: string;
     }) => any;
-}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     confirm: (row: {
         [key: string]: string;
     }) => void;
@@ -836,7 +897,7 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     width: number;
     disabled: boolean;
     baseClass: string;
-}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+}, {}, string, {}> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
     };
@@ -853,27 +914,27 @@ export declare type HuiOptions = {
 /**
  * 富文本预览组件
  */
-export declare const HuiPreviewRichTextDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiPreviewRichTextDialog: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         default: string;
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     title: {
         type: PropType<string>;
         default: string;
     };
-}>> & Readonly<{}>, {
+}>>, {
     title: string;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 地区选择弹窗
  */
-export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<{
     accordion: {
         type: PropType<boolean>;
         default: boolean;
@@ -894,10 +955,10 @@ export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<Extract
         type: PropType<boolean>;
         default: boolean;
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (region: {
         id: string;
         regionList: any[];
@@ -923,99 +984,23 @@ export declare const HuiRegionTreeDialog: SFCWithInstall<DefineComponent<Extract
         type: PropType<boolean>;
         default: boolean;
     };
-}>> & Readonly<{
+}>> & {
     onOnSubmit?: (region: {
         id: string;
         regionList: any[];
     }) => any;
-}>, {
+}, {
     accordion: boolean;
     nodeKey: string;
     treeLabelKey: string;
     isConfirmClose: boolean;
     showCheckbox: boolean;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
-
-/**
- * 地区树Popover
- */
-export declare const HuiRegionTreePopover: SFCWithInstall<DefineComponent<ExtractPropTypes<{
-    region: PropType<string>;
-    width: {
-        type: PropType<string | number>;
-        required: true;
-        default: string;
-    };
-    disabled: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    accordion: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    treeLabelKey: {
-        type: PropType<string>;
-        default: string;
-    };
-    onlySelectLeaf: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    isReadonly: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    treeData: {
-        type: PropType<any>;
-    };
-}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    onRegionChange: (region: string) => void;
-}, string, PublicProps, Readonly< ExtractPropTypes<{
-    region: PropType<string>;
-    width: {
-        type: PropType<string | number>;
-        required: true;
-        default: string;
-    };
-    disabled: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    accordion: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    treeLabelKey: {
-        type: PropType<string>;
-        default: string;
-    };
-    onlySelectLeaf: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    isReadonly: {
-        type: PropType<boolean>;
-        default: boolean;
-    };
-    treeData: {
-        type: PropType<any>;
-    };
-}>> & Readonly<{
-    onOnRegionChange?: (region: string) => any;
-}>, {
-    width: string | number;
-    disabled: boolean;
-    accordion: boolean;
-    treeLabelKey: string;
-    onlySelectLeaf: boolean;
-    isReadonly: boolean;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 地区树select
  */
-export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<{
     modelValue: PropType<string | string[]>;
     treeData: {
         type: PropType<any[]>;
@@ -1024,9 +1009,9 @@ export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<Extract
         type: PropType<string[]>;
         default: () => any[];
     };
-}>, {
-    selectedRegions: ModelRef<string | string[], string, string | string[], string | string[]>;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, {
+    selectedRegions: ModelRef<string | string[], string>;
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     modelValue: PropType<string | string[]>;
     treeData: {
         type: PropType<any[]>;
@@ -1035,9 +1020,9 @@ export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<Extract
         type: PropType<string[]>;
         default: () => any[];
     };
-}>> & Readonly<{}>, {
+}>>, {
     disabledRegions: string[];
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 export declare const HuiRules: {
     /**
@@ -1116,7 +1101,7 @@ export declare const HuiRules: {
 /**
  * select下来加载状态组件
  */
-export declare const HuiSelectLoadStatus: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiSelectLoadStatus: SFCWithInstall<DefineComponent<{
     loading: {
         type: PropType<boolean>;
         required: true;
@@ -1129,7 +1114,7 @@ export declare const HuiSelectLoadStatus: SFCWithInstall<DefineComponent<Extract
         type: PropType<number>;
         required: true;
     };
-}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     loading: {
         type: PropType<boolean>;
         required: true;
@@ -1142,12 +1127,12 @@ export declare const HuiSelectLoadStatus: SFCWithInstall<DefineComponent<Extract
         type: PropType<number>;
         required: true;
     };
-}>> & Readonly<{}>, {}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}>>, {}, {}>> & Record<string, any>;
 
 /**
  * 链接预览弹窗
  */
-export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<{
     title: {
         type: PropType<string>;
         default: string;
@@ -1160,10 +1145,10 @@ export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<ExtractPro
         type: PropType<string>;
         default: string;
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     title: {
         type: PropType<string>;
         default: string;
@@ -1176,16 +1161,16 @@ export declare const HuiShowUrlDialog: SFCWithInstall<DefineComponent<ExtractPro
         type: PropType<string>;
         default: string;
     };
-}>> & Readonly<{}>, {
+}>>, {
     title: string;
     width: string;
     height: string;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 逗号分割字符串输入对话框
  */
-export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<{
     label: {
         type: PropType<string>;
         required: true;
@@ -1208,10 +1193,10 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<E
         type: PropType<boolean>;
         default: boolean;
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (id: string, info: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     label: {
@@ -1236,19 +1221,19 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<E
         type: PropType<boolean>;
         default: boolean;
     };
-}>> & Readonly<{
+}>> & {
     onOnSubmit?: (id: string, info: string) => any;
-}>, {
+}, {
     label: string;
     title: string;
     placeholder: string;
     tips: boolean;
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 富文本编辑弹窗
  */
-export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiTinymce: SFCWithInstall<DefineComponent<{
     tinymceContent: PropType<string>;
     width: {
         type: PropType<string>;
@@ -1268,7 +1253,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
             value: string;
         }[];
     };
-}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+}, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     tinymceContent: PropType<string>;
     width: {
         type: PropType<string>;
@@ -1288,16 +1273,16 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
             value: string;
         }[];
     };
-}>> & Readonly<{}>, {
+}>>, {
     width: string;
     height: string | number;
     linkAttribute: HuiTinymceLink[];
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  * 富文本编辑弹窗
  */
-export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<{
     width: {
         type: PropType<string>;
         required: true;
@@ -1316,10 +1301,10 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
             value: string;
         }[];
     };
-}>, {
+}, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onSubmit: (tinymceContent: string, row?: any, field?: string) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     width: {
@@ -1340,13 +1325,13 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
             value: string;
         }[];
     };
-}>> & Readonly<{
+}>> & {
     onOnSubmit?: (tinymceContent: string, row?: any, field?: string) => any;
-}>, {
+}, {
     width: string;
     height: string | number;
     linkAttribute: HuiTinymceLink[];
-}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+}, {}>> & Record<string, any>;
 
 /**
  *  链接支持的属性
@@ -1406,11 +1391,11 @@ declare type SFCWithInstall<T> = T & Plugin_2;
  * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="openNormalDialog" @close="closeNormalDialog" />
  */
 export declare const useHuiDialog: () => {
-    id: Ref<string, string>;
-    show: Ref<boolean, boolean>;
-    payload: Ref<{}, {}>;
-    dialogLoading: Ref<boolean, boolean>;
-    confirmLoading: Ref<boolean, boolean>;
+    id: Ref<string>;
+    show: Ref<boolean>;
+    payload: Ref<{}>;
+    dialogLoading: Ref<boolean>;
+    confirmLoading: Ref<boolean>;
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
 };
@@ -1425,17 +1410,14 @@ export declare const useHuiDialog: () => {
  * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
  */
 export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: UseHuiFormDialogParams) => {
-    show: Ref<boolean, boolean>;
+    show: Ref<boolean>;
     form: Ref<{
         [x: string]: any;
         id?: string | number;
-    }, UseHuiFormDialogForm | {
-        [x: string]: any;
-        id?: string | number;
     }>;
-    formRef: Ref<any, any>;
-    formLoading: Ref<boolean, boolean>;
-    confirmLoading: Ref<boolean, boolean>;
+    formRef: Ref<any>;
+    formLoading: Ref<boolean>;
+    confirmLoading: Ref<boolean>;
     open: (id?: string, defaultFormValue?: {}) => void;
     close: () => void;
     handleSubmit: () => void;
