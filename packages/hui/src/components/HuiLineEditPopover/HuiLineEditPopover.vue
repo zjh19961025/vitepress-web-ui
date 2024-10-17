@@ -8,11 +8,12 @@ defineOptions({
   name: 'HuiLineEditPopover',
 })
 
-const { field } = withDefaults(defineProps<HuiLineEditPopoverPropsType>(), {
-  width: 206,
-  baseClass: 'text-primary px-4',
-  disabled: false,
-})
+const {
+  width = 206,
+  baseClass = 'text-primary px-4',
+  disabled = false,
+  field,
+} = defineProps<HuiLineEditPopoverPropsType>()
 
 const row = defineModel<{[key:string]: string}>('row')
 
