@@ -728,23 +728,20 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
         width: {
             type: PropType<number>;
             required: true;
-            default: number;
-        };
-        disabled: {
-            type: PropType<boolean>;
-            required: true;
-            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
             required: true;
-            default: string;
         };
-        field: {
-            type: PropType<string>;
+        disabled: {
+            type: PropType<boolean>;
             required: true;
         };
     }>> & Readonly<{
@@ -755,11 +752,7 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         confirm: (row: {
             [key: string]: string;
         }) => void;
-    }, PublicProps, {
-        width: number;
-        disabled: boolean;
-        baseClass: string;
-    }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+    }, PublicProps, {}, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
         P: {};
         B: {};
         D: {};
@@ -770,34 +763,27 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
+        field: {
+            type: PropType<string>;
+            required: true;
+        };
         width: {
             type: PropType<number>;
             required: true;
-            default: number;
-        };
-        disabled: {
-            type: PropType<boolean>;
-            required: true;
-            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
             required: true;
-            default: string;
         };
-        field: {
-            type: PropType<string>;
+        disabled: {
+            type: PropType<boolean>;
             required: true;
         };
     }>> & Readonly<{
         onConfirm?: (row: {
             [key: string]: string;
         }) => any;
-    }>, {}, {}, {}, {}, {
-        width: number;
-        disabled: boolean;
-        baseClass: string;
-    }>;
+    }>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
@@ -805,23 +791,20 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     row: PropType<{
         [key: string]: string;
     }>;
+    field: {
+        type: PropType<string>;
+        required: true;
+    };
     width: {
         type: PropType<number>;
         required: true;
-        default: number;
-    };
-    disabled: {
-        type: PropType<boolean>;
-        required: true;
-        default: boolean;
     };
     baseClass: {
         type: PropType<string>;
         required: true;
-        default: string;
     };
-    field: {
-        type: PropType<string>;
+    disabled: {
+        type: PropType<boolean>;
         required: true;
     };
 }>> & Readonly<{
@@ -832,11 +815,7 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     confirm: (row: {
         [key: string]: string;
     }) => void;
-}, string, {
-    width: number;
-    disabled: boolean;
-    baseClass: string;
-}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
     };
