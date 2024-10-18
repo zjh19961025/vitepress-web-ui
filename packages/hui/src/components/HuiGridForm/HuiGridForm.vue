@@ -59,9 +59,12 @@ function onHandleDelete(index:number) {
   removeItem(deepCloneListData.value, index)
 }
 
-function getData() {
-  isCheckProp.value = true
+function getData(isCheck = true) {
   const resData = deepCloneListData.value.filter(item => !isItemAllEmpty(item))
+  if (!isCheck) {
+    return resData
+  }
+  isCheckProp.value = true
   return checkDataLegal(resData) ? resData : null
 }
 function checkDataLegal(resData) {
