@@ -4,8 +4,8 @@
 ``` js
 // @unocss-include
 ```
-* 边框使用
-```
-    b-(normal solid 1) // b-normal b-solid b-1
+* 边框使用： 
+    * 全边框 **b-\(normal solid 1\)** = b-normal b-solid b-1
+``` css
     b-t-1 b-t-solid b-t-normal // 顶部边框
 ```
