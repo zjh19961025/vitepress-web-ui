@@ -25,7 +25,7 @@ const marker: Ref<any> = ref(null)
 /** 高德地图配置 */
 const map: Ref<any> = ref(null)
 /** 地理位置的详细信息 */
-const poi = defineModel<any>('poi')
+const poi = defineModel<any>()
 
 watch(poi, (val) => {
   address.value = val.formattedAddress

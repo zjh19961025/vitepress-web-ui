@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<HuiTinymcePropsType>(), {
 const { linkExpandAttributeStr, linkSetup } = HuiTinymceLinkHooks({ props })
 const { setting } = HuiTinymceSettingHooks({ props, linkSetup, linkExpandAttributeStr })
 
-const tinymceContent = defineModel<string>('tinymceContent')
+const tinymceContent = defineModel<string>()
 
 </script>
 
