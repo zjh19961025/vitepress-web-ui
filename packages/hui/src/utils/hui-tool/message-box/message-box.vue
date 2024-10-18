@@ -113,7 +113,7 @@ const close = () => {
         <div>
           <i :class="[iconTypeClass,iconColorClass,'icon-com !text-27']" />
         </div>
-        <div class="text-14 font-bold text-normal ml-11">{{ content }}</div>
+        <div class="text-14 text-center font-bold text-normal ml-11 break-all">{{ content }}</div>
       </div>
       <template #footer>
         <div class="dialog-footer">
