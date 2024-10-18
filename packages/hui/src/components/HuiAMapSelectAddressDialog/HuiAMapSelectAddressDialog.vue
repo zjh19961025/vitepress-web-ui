@@ -54,12 +54,10 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" :show-input="true" width="100%" />
+    <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" class="m-b-40" :show-input="true" width="100%" />
     <template #footer>
-      <div class="p-t-40">
-        <ElButton @click="close">取 消</ElButton>
-        <ElButton type="primary" class="w-100" :loading="confirmLoading" @click="handleSubmit">确定</ElButton>
-      </div>
+      <ElButton @click="close">取 消</ElButton>
+      <ElButton type="primary" class="w-100" :loading="confirmLoading" @click="handleSubmit">确定</ElButton>
     </template>
   </ElDialog>
 </template>
