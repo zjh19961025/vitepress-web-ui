@@ -426,7 +426,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {
-        getData: () => any;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -471,7 +471,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {
-        getData: () => any;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -513,7 +513,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         default: string;
     };
 }>> & Readonly<{}>, {
-    getData: () => any;
+    getData: (isCheck?: boolean) => any;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
     isCanAppend: boolean;
     handSort: boolean;
