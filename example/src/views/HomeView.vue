@@ -224,7 +224,7 @@ function onTinymceSubmit(tinymceContent, row, field) {
   content.value = tinymceContent
 }
 
-const richTextContent = ref('')
+const richTextContent = ref('test')
 watch(richTextContent, (val) => {
   console.log('富文本内容', val)
 })
@@ -392,6 +392,9 @@ function funTest() {
           />
         </div>
         <div class="mt-10px">
+          <HuiRegionTreePopover v-model="region" tree-label-key="label" style="width: 200px;" @on-region-change="onRegionChange" />
+        </div>
+        <div class="mt-10px">
           {{ selectedRegions }}
           <HuiRegionTreeSelect v-model="selectedRegions" :remote-show-suffix="false" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
         </div>
@@ -423,11 +426,11 @@ function funTest() {
         </el-select>
 
         <div class="mt-10">
-          <HuiTinymce v-model:tinymceContent="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
+          <HuiTinymce v-model="richTextContent" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" width="500px" height="500px" />
         </div>
       </div>
       <div class="mt-10">
-        <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model:poi="poi" />
+        <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" />
       </div>
     </div>
 
