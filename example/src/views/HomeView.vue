@@ -40,8 +40,14 @@ const selectDic = ref([
 const listData = ref([
 
 ])
+
+const testDict = ref([
+  { label: 'ceshi', value: 1 },
+  { label: 'ceshi2', value: 2 },
+])
 setTimeout(() => {
-  listData.value = [{ test: 1, test1: 2, test2: 2, test13: '1', ss: '' }, { test: 1, test1: 2, test2: 2, test13: '1', ss: '' }]
+  testDict.value[0].disabled = true
+  // listData.value = [{ test: 1, test1: 2, test2: 2, test13: '1', ss: '' }, { test: 1, test1: 2, test2: 2, test13: '1', ss: '' }]
 }, 3000)
 const HuiGridFormRef = ref(null)
 const config = ref(
@@ -52,10 +58,7 @@ const config = ref(
     placeholder: '请选择',
     type: 'select',
     dataType: 'text',
-    dict: [
-      { label: 'ceshi', value: 1 },
-      { label: 'ceshi2', value: 2 },
-    ],
+    dict: testDict,
     style: 'color:#409EFF;font-weight: 700;',
     errMsg: '请输入今日鲜花数量',
     width: '20%',

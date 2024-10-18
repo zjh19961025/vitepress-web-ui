@@ -115,7 +115,7 @@ defineExpose({ getData })
           >
             <ElOption
               v-for="option in el.dict" :key="option.value"
-              :label="option.label" :value="option.value"
+              :label="option.label" :value="option.value" :disabled="option.disabled"
             />
           </ElSelect>
 
