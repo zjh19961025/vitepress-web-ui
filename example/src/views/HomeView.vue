@@ -392,9 +392,6 @@ function funTest() {
           />
         </div>
         <div class="mt-10px">
-          <HuiRegionTreePopover v-model="region" tree-label-key="label" style="width: 200px;" @on-region-change="onRegionChange" />
-        </div>
-        <div class="mt-10px">
           {{ selectedRegions }}
           <HuiRegionTreeSelect v-model="selectedRegions" :remote-show-suffix="false" multiple show-checkbox :disabled-regions="disabledRegions" clearable />
         </div>

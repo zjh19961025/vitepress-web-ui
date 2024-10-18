@@ -207,7 +207,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
     />
     <div class="AMap__content-box" :class="showInput ? '' :'noEvents'">
       <div :id="map__container" :style="{height:height}" class="AMap__content-container" tabindex="0" />
-      <div v-if="showInput" id="map__result" class="AMap__content-result">
+      <div v-if="showInput" id="map__result" :style="{height:height}" class="AMap__content-result">
         <h3 class="w-full text-center text-12">暂无搜索结果</h3>
       </div>
     </div>
@@ -244,7 +244,6 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
     &-result {
       display: block !important;
       width: 350px;
-      height: 450px;
       overflow-y: auto;
     }
   }
