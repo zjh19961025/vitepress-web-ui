@@ -28,7 +28,7 @@ export default _default;
  * 倒计时按钮
  */
 export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
-    poi: PropType<any>;
+    modelValue: PropType<any>;
     width: {
         type: PropType<string>;
         default: string;
@@ -54,7 +54,7 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     poi: ModelRef<any, string, any, any>;
     submitInfo: () => boolean;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
-    poi: PropType<any>;
+    modelValue: PropType<any>;
     width: {
         type: PropType<string>;
         default: string;
@@ -1152,7 +1152,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<E
  * 富文本编辑弹窗
  */
 export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes<{
-    tinymceContent: PropType<string>;
+    modelValue: PropType<string>;
     width: {
         type: PropType<string>;
         required: true;
@@ -1172,7 +1172,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         }[];
     };
 }>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
-    tinymceContent: PropType<string>;
+    modelValue: PropType<string>;
     width: {
         type: PropType<string>;
         required: true;
