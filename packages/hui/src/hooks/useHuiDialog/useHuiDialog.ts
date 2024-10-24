@@ -2,11 +2,10 @@ import { ref, toValue } from "vue"
 /**
  * 普通弹框通用逻辑
  * 集成 el-dialog 组件 的hooks，props 透传到 el-dialog
- * @param { getData, beforeOpen, beforeClose }
  * @returns
  * @example
  *  normalDialogTest.value?.open(id, payload)
- * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="openNormalDialog" @close="closeNormalDialog" />
+ * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="beforeOpen" @close="beforeClose" />
  */
 export const useHuiDialog = function() {
   const id = ref('')

@@ -1,29 +1,19 @@
 # 普通弹框通用逻辑
 
-### 用法
+## 使用注意
+* el-dialog 作为 根节点，使支持透传：props，事件监听，样式
+* **组件实例化的时候，hooks 就会被调用，而数据获取需要在弹框打开的时候，所以数据获取全部在  @open 事件中处理**
+* dialog 中的数据不会销毁，**注意数据的重置**
 
-在dialog组件中引入即可
-```ts
-import { useHuiDialog } from '@hua5/hua5-web-ui'
+## 弹框调用
+:::demo
+UseDialog/UseDialogTest
+:::
 
-const {
-  // 属性
-  id,
-  show,
-  payload,
-  dialogLoading,
-  confirmLoading,
-  // 方法
-  open,
-  close,
-} = useHuiDialog()
-
-defineExpose({
-  open,
-  close,
-})
-
-```
+## 弹框实现
+:::demo
+UseDialog/UseDialogDemo
+:::
 
 ### 返回值说明
 

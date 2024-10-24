@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const previewRichTextDialog = ref<any>(null)
 
-function onOpen() {
+function openRichDialog() {
   previewRichTextDialog.value?.open('id', {
     content: "<h1>Hello <strong style='color:red;'>World</strong></h1>",
   })
@@ -9,6 +9,6 @@ function onOpen() {
 </script>
 
 <template>
-  <el-button @click="onOpen">预览富文本</el-button>
+  <el-button @click="openRichDialog">预览富文本</el-button>
   <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
 </template>
