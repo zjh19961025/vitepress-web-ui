@@ -6,18 +6,15 @@
     top="35vh"
     :modal-append-to-body="false"
     append-to-body
-    @open="onOpen"
-    @close="onClose"
+    @close="beforeClose"
   >
     <el-form
       ref="formRef"
-      :loading="formLoading"
+      v-loading="formLoading"
       :model="form"
       :rules="rules"
       size="small"
       class="mt-10px fw-bold w-100%"
-      @open="onOpen"
-      @close="onClose"
       @submit.native.prevent="handleSubmit"
     >
       <el-form-item label="测试" prop="testProp" class="flex w-100%">
@@ -54,7 +51,6 @@
 
 <script setup lang="ts">
 import { HuiRules, useHuiFormDialog } from '@hua5/hua5-web-ui'
-// import { useHuiFormDialog } from './test2'
 import { ElMessageBox } from 'element-plus'
 const formModel = {
   testProp: "http://127.0.0.1:5173/",
@@ -69,10 +65,10 @@ const {
   show, open, close, form, formRef,
   formLoading, confirmLoading,
   handleCancel, handleSubmit,
-  onOpen, onClose,
 } = useHuiFormDialog({ formModel,
   isNeedDoubleConfirm: false,
   beforeSubmit, submitCheck, afterSubmit,
+  // doubleConfirmAction,
   put, post,
 })
 
@@ -84,6 +80,11 @@ const rules = {
   code: HuiRules.codeRule('请输入5位数字验证码', 5),
   phone: HuiRules.phoneNumRule(),
   numRange: HuiRules.numRangeRule(1, 10, '请输入1-10之间的数字'),
+}
+
+function beforeClose() {
+  formLoading.value = true
+  confirmLoading.value = true
 }
 
 function beforeSubmit(submitForm: any) {

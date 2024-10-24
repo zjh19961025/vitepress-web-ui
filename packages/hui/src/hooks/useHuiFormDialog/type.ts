@@ -22,6 +22,14 @@ export interface PayLoadType {
 
 export interface UseHuiFormDialogParams {
   /**
+   * 编辑接口
+   */
+  put?: any | null,
+  /**
+   * 新增接口
+   */
+  post?: any | null,
+  /**
    * 表单格式
    */
   formModel: UseHuiFormDialogForm,
@@ -53,6 +61,4 @@ export interface UseHuiFormDialogParams {
    * 二次确认方法，优先级高于配置, submitForm：要提交的表单; submitAction：提交吹; cancelAction: 取消提交处理
    */
   doubleConfirmAction?: (submitForm: UseHuiFormDialogForm, submitAction: (submitForm: UseHuiFormDialogForm) => void, cancelAction: () => void) => void
-  put?: any | null,
-  post?: any | null,
 }

@@ -9,7 +9,7 @@ import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
  * @returns
  * @example
  * formDialogTest.value?.open()
- * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
+ * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="beforeOpen" @close="beforeClose" />
  */
 export const useHuiFormDialog = function({
   formModel = {},
@@ -35,6 +35,8 @@ export const useHuiFormDialog = function({
   const formRef = ref<any>(null)
 
   const open = (id = "", defaultFormValue = {}) => {
+    resetLoading()
+    resetFormFields()
     form.value = { ...toValue(formModel), ...toValue(defaultFormValue) }
     form.value.id = id
     show.value = true
@@ -44,15 +46,12 @@ export const useHuiFormDialog = function({
     show.value = false
   }
 
-  const onOpen = () => {
+  function resetLoading() {
     formLoading.value = false
     confirmLoading.value = false
   }
 
-  const onClose = () => {
-    form.value = {}
-    formLoading.value = false
-    confirmLoading.value = false
+  function resetFormFields() {
     if (formRef.value) formRef.value?.resetFields()
   }
 
@@ -158,10 +157,10 @@ export const useHuiFormDialog = function({
 
     open,
     close,
+    resetLoading,
+    resetFormFields,
     handleSubmit,
     submitOk,
     handleCancel,
-    onOpen,
-    onClose,
   }
 }
