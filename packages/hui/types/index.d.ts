@@ -1343,7 +1343,6 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     resetLoading: () => void;
     resetFormFields: () => void;
     handleSubmit: () => void;
-    submitOk: (res: any) => void;
     handleCancel: () => void;
 };
 
