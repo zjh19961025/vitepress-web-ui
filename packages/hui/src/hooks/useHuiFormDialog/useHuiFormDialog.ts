@@ -160,7 +160,6 @@ export const useHuiFormDialog = function({
     resetLoading,
     resetFormFields,
     handleSubmit,
-    submitOk,
     handleCancel,
   }
 }

@@ -28,7 +28,7 @@ export default _default;
  * 倒计时按钮
  */
 export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
-    poi: PropType<any>;
+    modelValue: PropType<any>;
     width: {
         type: PropType<string>;
         default: string;
@@ -54,7 +54,7 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     poi: ModelRef<any, string, any, any>;
     submitInfo: () => boolean;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
-    poi: PropType<any>;
+    modelValue: PropType<any>;
     width: {
         type: PropType<string>;
         default: string;
@@ -426,7 +426,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {
-        getData: () => any;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -471,7 +471,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {
-        getData: () => any;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -513,7 +513,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         default: string;
     };
 }>> & Readonly<{}>, {
-    getData: () => any;
+    getData: (isCheck?: boolean) => any;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
     isCanAppend: boolean;
     handSort: boolean;
@@ -1152,7 +1152,7 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<E
  * 富文本编辑弹窗
  */
 export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes<{
-    tinymceContent: PropType<string>;
+    modelValue: PropType<string>;
     width: {
         type: PropType<string>;
         required: true;
@@ -1172,7 +1172,7 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         }[];
     };
 }>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
-    tinymceContent: PropType<string>;
+    modelValue: PropType<string>;
     width: {
         type: PropType<string>;
         required: true;
@@ -1302,11 +1302,10 @@ declare type SFCWithInstall<T> = T & Plugin_2;
 /**
  * 普通弹框通用逻辑
  * 集成 el-dialog 组件 的hooks，props 透传到 el-dialog
- * @param { getData, beforeOpen, beforeClose }
  * @returns
  * @example
  *  normalDialogTest.value?.open(id, payload)
- * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="openNormalDialog" @close="closeNormalDialog" />
+ * <NormalDialogTest ref="formDialogTest" top="40vh" width="60vw" @open="beforeOpen" @close="beforeClose" />
  */
 export declare const useHuiDialog: () => {
     id: Ref<string, string>;
@@ -1321,11 +1320,11 @@ export declare const useHuiDialog: () => {
 /**
  * 表单弹框通用逻辑
  * 集成 el-dialog 组件 的hooks, props 透传到 el-dialog
- * @param {*} HuiFormDialogParams
+ * @param {*} UseHuiFormDialogParams
  * @returns
  * @example
  * formDialogTest.value?.open()
- * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
+ * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="beforeOpen" @close="beforeClose" />
  */
 export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: UseHuiFormDialogParams) => {
     show: Ref<boolean, boolean>;
@@ -1341,11 +1340,11 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     confirmLoading: Ref<boolean, boolean>;
     open: (id?: string, defaultFormValue?: {}) => void;
     close: () => void;
+    resetLoading: () => void;
+    resetFormFields: () => void;
     handleSubmit: () => void;
     submitOk: (res: any) => void;
     handleCancel: () => void;
-    onOpen: () => void;
-    onClose: () => void;
 };
 
 declare interface UseHuiFormDialogConfirm {
@@ -1359,6 +1358,14 @@ declare interface UseHuiFormDialogForm {
 }
 
 declare interface UseHuiFormDialogParams {
+    /**
+     * 编辑接口
+     */
+    put?: any | null;
+    /**
+     * 新增接口
+     */
+    post?: any | null;
     /**
      * 表单格式
      */
@@ -1391,8 +1398,6 @@ declare interface UseHuiFormDialogParams {
      * 二次确认方法，优先级高于配置, submitForm：要提交的表单; submitAction：提交吹; cancelAction: 取消提交处理
      */
     doubleConfirmAction?: (submitForm: UseHuiFormDialogForm, submitAction: (submitForm: UseHuiFormDialogForm) => void, cancelAction: () => void) => void;
-    put?: any | null;
-    post?: any | null;
 }
 
 export { }

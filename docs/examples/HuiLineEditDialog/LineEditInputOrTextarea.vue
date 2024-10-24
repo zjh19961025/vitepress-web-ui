@@ -7,12 +7,12 @@ const testRow = {
   test: "234",
 }
 // 打开input弹窗
-function onOpenInput() {
+function openLineTextDialog() {
   lineEditInputDialog.value?.open('name', testRow)
 }
 
 // 打开textarea弹窗
-function onOpenTextarea() {
+function openLineAreaDialog() {
   lineEditTextareaDialog.value?.open('name', testRow)
 }
 
@@ -29,8 +29,8 @@ function handleRowEdit(row, prop) {
 </script>
 
 <template>
-  <div class="mb-10"><el-button type="primary" @click="onOpenInput">input 弹窗</el-button> 不带二次确认 </div>
-  <div><el-button type="primary" @click="onOpenTextarea">textarea 弹窗</el-button> 带二次确认 </div>
+  <div class="mb-10"><el-button type="primary" @click="openLineTextDialog">input 弹窗</el-button> 不带二次确认 </div>
+  <div><el-button type="primary" @click="openLineAreaDialog">textarea 弹窗</el-button> 带二次确认 </div>
   <HuiLineEditDialog
     ref="lineEditInputDialog"
     prop="name"

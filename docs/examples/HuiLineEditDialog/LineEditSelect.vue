@@ -30,7 +30,7 @@ const testRow = {
   },
 }
 // 打开弹窗
-function onOpen() {
+function openLineEditDialog() {
   lineEditDialog.value?.open('name', testRow)
 }
 
@@ -47,7 +47,7 @@ function handleRowEdit(row, prop) {
 </script>
 
 <template>
-  <el-button type="primary" @click="onOpen">选择弹窗</el-button>
+  <el-button type="primary" @click="openLineEditDialog">选择弹窗</el-button>
   <HuiLineEditDialog
     ref="lineEditDialog"
     prop="name"
