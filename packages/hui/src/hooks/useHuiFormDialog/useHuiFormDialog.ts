@@ -5,7 +5,7 @@ import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
 /**
  * 表单弹框通用逻辑
  * 集成 el-dialog 组件 的hooks, props 透传到 el-dialog
- * @param {*} HuiFormDialogParams
+ * @param {*} UseHuiFormDialogParams
  * @returns
  * @example
  * formDialogTest.value?.open()
