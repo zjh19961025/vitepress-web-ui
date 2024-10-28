@@ -29,19 +29,31 @@ const isCheckProp = ref(false)
 const dataTemplate:any = {}
 /** 使用deepClone防止直接修改prop传递进来的数据，作为组件的输出 */
 const deepCloneListData = ref(objectUtils.deepClone(props.listData))
+/** config, 选择的过程中，需要修改配置中的部分数据，但，原数据需要保留使用, 因此，使用 深拷贝 和 数据监听 */
+const columnConfig = ref(objectUtils.deepClone(props.config))
 
 /* 根据listData重新渲染value值*/
-watch(() =>
-  props.listData,
-(newValue, oldValue) => {
-  deepCloneListData.value = newValue
-},
-{ immediate: true },
+watch(() => props.listData,
+  (newValue, oldValue) => {
+    deepCloneListData.value = newValue
+    refresSelectDict()
+  },
+  { immediate: true },
+)
+
+watch(() => props.config,
+  (newValue) => {
+    columnConfig.value = objectUtils.deepClone(newValue)
+    refresSelectDict()
+  },
+  {
+    immediate: true,
+  },
 )
 
 onMounted(() => {
-  for (const key in props.config) {
-    const item = props.config[key]
+  for (const key in columnConfig.value) {
+    const item = columnConfig.value[key]
     dataTemplate[item.prop] = ""
   }
   if (testUtils.isEmpty(props.listData)) {
@@ -55,8 +67,9 @@ function onHandleMoveItem(index: number, type: string) {
   moveItem(deepCloneListData.value, index, type)
 }
 
-function onHandleDelete(index:number) {
-  removeItem(deepCloneListData.value, index)
+async function onHandleDelete(index:number) {
+  await removeItem(deepCloneListData.value, index)
+  refresSelectDict()
 }
 
 function getData(isCheck = true) {
@@ -70,7 +83,7 @@ function getData(isCheck = true) {
 function checkDataLegal(resData) {
   // 遍历每一个对象
   for (const item of resData) {
-    for (const configItem of props.config) {
+    for (const configItem of columnConfig.value) {
       const isRequired = configItem.required ?? true
       if (!isRequired) continue
       if (testUtils.isEmpty(item[configItem.prop])) {
@@ -89,13 +102,56 @@ function isShowErrorTips(configItem, dataItem) {
   return isCheckProp.value && testUtils.isEmpty(dataItem[configItem.prop]) && !isItemAllEmpty(dataItem) && (configItem.required ?? true)
 }
 
+/**
+ * 更新 select dict：可用不可用
+ */
+function refresSelectDict() {
+  // 定义要处理的 数据 和 结构
+  const selectObj = {}
+  for (const item of columnConfig.value) {
+    if (item.type !== "select") continue
+    if (item.reselected) continue
+    selectObj[item.prop] = {
+      configItem: item,
+      valueList: [],
+    }
+  }
+  // 数据获取
+  for (const dataItem of deepCloneListData.value) {
+    // 从对象中获取数据
+    for (const propKey in dataItem) {
+      const propValue = dataItem[propKey]
+      if (testUtils.isEmpty(propValue)) continue
+      const selectInfo = selectObj[propKey]
+      if (!selectInfo) continue
+      selectInfo.valueList.push(propValue)
+    }
+  }
+  // dict disabled 设置
+  for (const key in selectObj) {
+    const valueList = selectObj[key].valueList
+    const dict = selectObj[key].configItem.dict
+    // 获取 props.config 中的 dict
+    const propsItem = props.config.find((item) => item.prop == key)
+    const propsItemDict = propsItem?.dict || []
+    // 遍历 columnConfig 中的 dict
+    for (const dictItem of dict) {
+      // 如果 props dict 中 不可用，那么就不可用，否则，看是否已经被选中
+      const isUsed = valueList.includes(dictItem.value) // 是否已经被选择
+      const propsDictItem = propsItemDict.find((item) => item.value == dictItem.value)
+      dictItem.disabled = propsDictItem?.disabled || isUsed
+      dictItem.isUsed = isUsed
+    }
+  }
+}
+
 defineExpose({ getData })
 </script>
 <template>
   <!-- 标题 -->
   <div class="flex w-100%" :class="gridFromClass" style=" width: 100% ">
     <div
-      v-for="(item, index) in config" :key="index" class="font-bold pr-10"
+      v-for="(item, index) in columnConfig" :key="index" class="font-bold pr-10"
       :style="{ width: item.width }"
     >
       {{ item.title }}
@@ -103,7 +159,7 @@ defineExpose({ getData })
   </div>
   <!-- 主体 -->
   <div v-for="(item, idx) in deepCloneListData" :key="idx" class="flex mt-10 w-100%">
-    <template v-for="el in config" :key="el.prop">
+    <template v-for="el in columnConfig" :key="el.prop">
       <div class="flex-y pr-10 " :style="{ width: el.width }">
         <div v-if="$slots[el.prop]" class="flex">
           <slot :name="el.prop" v-bind="{dataItem: item, el, prop:el.prop}" />
@@ -114,12 +170,16 @@ defineExpose({ getData })
             v-bind="el.attr"
             v-model="item[el.prop]"
             :disabled="el.readonly"
+            :clearable="el.clearable ?? true"
             :placeholder="el.placeholder || '请选择'"
+            @change="refresSelectDict"
           >
             <ElOption
               v-for="option in el.dict" :key="option.value"
               :label="option.label" :value="option.value" :disabled="option.disabled"
-            />
+            >
+              <slot :name="`${el.prop}-option`" :option="option" :prop="el.prop" :prop-config="el" />
+            </ElOption>
           </ElSelect>
 
           <el-input
@@ -130,6 +190,7 @@ defineExpose({ getData })
             :readonly="el.readonly"
             :placeholder="el.placeholder || '请输入'"
             class="inputFund"
+            :input-style="el.style"
           >
             <template v-if="testUtils.isNotEmpty(el.append)" #append>{{ el.append }}</template>
           </el-input>

@@ -38,13 +38,16 @@ const selectDic = ref([
   },
 ])
 const listData = ref([
-
+  {
+    test: 1, test1: "123", test2: 1,
+  },
 ])
 
 const testDict = ref([
-  { label: 'ceshi', value: 1 },
+  { label: 'ceshi', value: 1, disabled: true },
   { label: 'ceshi2', value: 2 },
 ])
+
 setTimeout(() => {
   testDict.value[0].disabled = true
   // listData.value = [{ test: 1, test1: 2, test2: 2, test13: '1', ss: '' }, { test: 1, test1: 2, test2: 2, test13: '1', ss: '' }]
@@ -62,6 +65,8 @@ const config = ref(
     style: 'color:#409EFF;font-weight: 700;',
     errMsg: '请输入今日鲜花数量',
     width: '20%',
+    // reselected: true,
+    // clearable: false,
   },
   {
     prop: 'test1',
@@ -348,7 +353,11 @@ function funTest() {
         hand-delete
         grid-from-class="mt-0 test c-error"
         :config="config" :list-data="listData"
-      />
+      >
+        <template #test-option="{option, prop}">
+          {{ option.label + " " + prop + (option.isUsed ? "已占用" : (option.disabled ? "不可用" : "")) }}
+        </template>
+      </HuiGridForm>
       <el-button class="mt-10" @click="getData">获取组件数据</el-button>
     </div>
     <div class="m-y-10">
