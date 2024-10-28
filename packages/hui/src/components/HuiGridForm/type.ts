@@ -6,14 +6,14 @@ export type HuiGridFormProp = {
     /** 是否可以删除 */
     handDelete?:boolean,
     /** 组件的配置项 */
-    config: HuiGridFormConfig[]
+    config: HuiGridFormConfigItem[]
     /** 组件的数据源 */
     listData?:{[key:string]:any}[]
     /** 组件透传的class */
     gridFromClass:string
 }
 
-export interface HuiGridFormConfig {
+export interface HuiGridFormConfigItem {
     /** 列表项的key */
     prop: string,
     /** 输入框append插槽显示的内容 */
@@ -40,5 +40,9 @@ export interface HuiGridFormConfig {
     attr?:{[key:string]:any}
     /** 是否必填 */
     required?:boolean,
+    /** select 是否可以重复选择 */
+    reselected?: boolean,
+    /** 是否显示 x */
+    clearable?: boolean,
 }
 
