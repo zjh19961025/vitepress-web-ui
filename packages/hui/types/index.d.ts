@@ -399,7 +399,7 @@ export declare interface HuiDelegate {
 export declare const HuiGridForm: SFCWithInstall<{
     new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
         config: {
-            type: PropType< HuiGridFormConfig[]>;
+            type: PropType< HuiGridFormConfigItem[]>;
             required: true;
         };
         isCanAppend: {
@@ -444,7 +444,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         Defaults: {};
     }, Readonly< ExtractPropTypes<{
         config: {
-            type: PropType< HuiGridFormConfig[]>;
+            type: PropType< HuiGridFormConfigItem[]>;
             required: true;
         };
         isCanAppend: {
@@ -486,7 +486,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     __isSuspense?: never;
 } & ComponentOptionsBase<Readonly< ExtractPropTypes<{
     config: {
-        type: PropType< HuiGridFormConfig[]>;
+        type: PropType< HuiGridFormConfigItem[]>;
         required: true;
     };
     isCanAppend: {
@@ -523,14 +523,18 @@ export declare const HuiGridForm: SFCWithInstall<{
     }[];
     gridFromClass: string;
 }, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
-    $slots: Partial<Record<string, (_: {
+    $slots: Partial<Record<any, (_: {
         dataItem: any;
-        el: HuiGridFormConfig;
-        prop: string;
+        el: any;
+        prop: any;
+    }) => any>> & Partial<Record<`${any}-option`, (_: {
+        option: any;
+        prop: any;
+        propConfig: any;
     }) => any>>;
 })> & Record<string, any>;
 
-declare interface HuiGridFormConfig {
+declare interface HuiGridFormConfigItem {
     /** 列表项的key */
     prop: string;
     /** 输入框append插槽显示的内容 */
@@ -561,6 +565,10 @@ declare interface HuiGridFormConfig {
     };
     /** 是否必填 */
     required?: boolean;
+    /** select 是否可以重复选择 */
+    reselected?: boolean;
+    /** 是否显示 x */
+    clearable?: boolean;
 }
 
 /**
