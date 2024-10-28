@@ -139,7 +139,7 @@ function refresSelectDict() {
       // 如果 props dict 中 不可用，那么就不可用，否则，看是否已经被选中
       const isUsed = valueList.includes(dictItem.value) // 是否已经被选择
       const propsDictItem = propsItemDict.find((item) => item.value == dictItem.value)
-      dictItem.disabled = propsDictItem.disabled || isUsed
+      dictItem.disabled = propsDictItem?.disabled || isUsed
       dictItem.isUsed = isUsed
     }
   }
@@ -190,6 +190,7 @@ defineExpose({ getData })
             :readonly="el.readonly"
             :placeholder="el.placeholder || '请输入'"
             class="inputFund"
+            :input-style="el.style"
           >
             <template v-if="testUtils.isNotEmpty(el.append)" #append>{{ el.append }}</template>
           </el-input>
