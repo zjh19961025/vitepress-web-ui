@@ -34,10 +34,12 @@ HuiGridForm/HuiGridForm
 | width       | 标题宽度                      | string                                | -                |
 | attr        | v-bind其他属性值              | input 和 select 属性，如：input-style | -                |
 | required    | 是否必填                      | boolean                               | true             |
+| reselected  | select选择项是否可以重复选    | boolean                               | false            |
+| clearable   | 是否显示清除按钮              | boolean                               | true             |
 
 ### 方法（defineExpose）
 
-| 方法名  | 描述             | 参数 |
-| ------- | ---------------- | ---- |
-| getData | 获取组件最终数据 | -    |
+| 方法名  | 描述             | 参数                                                         |
+| ------- | ---------------- | ------------------------------------------------------------ |
+| getData | 获取组件最终数据 | isCheck:boblean，默认值为true,表示校验数据，当传入false的时候，表示不校验数据，返回动态列表数据 |
 
