@@ -48,6 +48,14 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         type: PropType<boolean>;
         default: boolean;
     };
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
+    };
 }>, {
     loadMap: () => void;
     setupMap: () => void;
@@ -74,11 +82,21 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         type: PropType<boolean>;
         default: boolean;
     };
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
+    };
 }>> & Readonly<{}>, {
     width: string;
     disabled: boolean;
     height: string;
     showInput: boolean;
+    iconPath: string;
+    iconClass: string;
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
@@ -105,6 +123,12 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     showInput: {
         type: PropType<boolean>;
     };
+    iconPath: {
+        type: PropType<string>;
+    };
+    iconClass: {
+        type: PropType<string>;
+    };
 }>, {
     open: (dataId?: string, info?: {}) => void;
     close: () => void;
@@ -130,6 +154,12 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     };
     showInput: {
         type: PropType<boolean>;
+    };
+    iconPath: {
+        type: PropType<string>;
+    };
+    iconClass: {
+        type: PropType<string>;
     };
 }>> & Readonly<{
     onOnSubmit?: (poi: any) => any;
