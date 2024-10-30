@@ -13,5 +13,5 @@ const poi = ref({
 </script>
 
 <template>
-  <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model:poi="poi" width="100%" />
+  <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" width="100%" />
 </template>

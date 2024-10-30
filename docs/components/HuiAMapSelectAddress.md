@@ -1,20 +1,24 @@
 # 地图信息显示组件
 
 ### 用法
+
 :::demo
 HuiAMapSelectAddress/HuiAMapSelectAddress
 :::
 
 ### 属性（props）
 
-| 属性名            | 说明     | 类型                                                         | 默认值 |
-| ----------------- | -------- | ------------------------------------------------------------ | ------ |
-| v-model:poi="poi" | 地址信息 | {<br />    latitude:string;<br />    longitude:string;<br />    formattedAddress:string<br />} | -      |
-| width             | 组件宽度 | string                                                       | 40vw   |
-| height            | 组件高度 | string                                                       | 40vh   |
+| 属性名            | 说明     | 类型                                                         | 默认值                                                       |
+| ----------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v-model="poi" | 地址信息 | {<br />    latitude:string;<br />    longitude:string;<br />    formattedAddress:string<br />} | -                                                            |
+| width             | 组件宽度 | string                                                       | 40vw                                                         |
+| height            | 组件高度 | string                                                       | 40vh                                                         |
+| iconPath          | 图标路径 | string                                                       | //a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png |
+| iconClass         | 图标样式 | string                                                       | w-19 h-32                                                    |
 
 ### 方法（defineExpose）
 
 | 方法名   | 描述                      | 参数 |
 | -------- | ------------------------- | ---- |
 | setupMap | 用于poi变化后调用重置地图 | -    |
+
