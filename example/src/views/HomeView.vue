@@ -4,6 +4,7 @@ import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
 import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
 import { ref } from "vue"
+import { id } from "element-plus/es/locales.mjs"
 
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
@@ -330,6 +331,40 @@ const tableData2 = ref([
 function funTest() {
   console.info("🚀 ~ file:HomeView method:funTest line:305 -----", 222)
 }
+const generatePoints = (numPoints) => {
+  const pointsArray = []
+  const baseLongitude = 100.0
+  const baseLatitude = 30.0
+  const iconPathDefault = 'http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
+  const iconPathAlternate = 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg'
+
+  for (let i = 1; i <= numPoints; i++) {
+    const randomLongitudeOffset = (Math.random() - 0.5) * 100 // 随机偏移量在 -5 到 5 之间
+    const randomLatitudeOffset = (Math.random() - 0.5) * 15 // 随机偏移量在 -5 到 5 之间
+
+    const longitude = baseLongitude + randomLongitudeOffset
+    const latitude = baseLatitude + randomLatitudeOffset
+    const name = `point${i}`
+    const iconPath = i % 2 ? iconPathAlternate : iconPathDefault // 使用不同的图标路径作为示例
+
+    const point = {
+      position: [longitude, latitude],
+      name: name,
+      id: '1',
+      iconPath: iconPath,
+    }
+
+    pointsArray.push(point)
+  }
+
+  return pointsArray
+}
+
+const points = ref(generatePoints(200))
+
+function pointClick(point) {
+  console.log(point)
+}
 </script>
 
 <template>
@@ -471,6 +506,8 @@ function funTest() {
     />
     <HuiRegionTreeDialog ref="regionTreeDialogRef" tree-label-key="label" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
+    <!-- 调试时HuiAMapSelectAddress和HuiAMapMassMarkers页面只能有一个，需要注释HuiAMapSelectAddress-->
+    <!-- <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :text-style="{'fontSize': 10, 'fillColor': '#fff', 'backgroundColor': '#eca232',padding: [2,2,2,10] ,'borderRadius': 4}" @point-click="pointClick" /> -->
   </div>
 </template>
 
