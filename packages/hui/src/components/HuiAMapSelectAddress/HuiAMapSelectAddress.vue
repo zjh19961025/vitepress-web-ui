@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { addAMap } from './config'
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils, typeUtils } from "@hua5/hua5-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick } from 'vue'
 import { ElInput } from 'element-plus'
@@ -16,6 +16,8 @@ const props = withDefaults(defineProps<HuiAMapSelectAddressPropsType>(), {
   showInput: false,
   width: '40vw',
   height: '40vh',
+  iconPath: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+  iconClass: 'w-19 h-32',
 })
 
 /** 选择的地址位置 */
@@ -83,6 +85,25 @@ function clearMarker() {
     marker.value = null
   }
 }
+// 添加标记点
+function addAddressMarker(address: string) {
+  // 自定义点标记内容
+  const markerContent = document.createElement('div')
+  // 点标记中的图标
+  const markerImg = document.createElement('img')
+  // 图标样式
+  markerImg.className = props.iconClass
+  // 图标路径
+  markerImg.src = props.iconPath
+  markerContent.appendChild(markerImg)
+  // 点标记中的文本
+  if (!address) return
+  const markerSpan = document.createElement('span')
+  markerSpan.className = 'AMap__marker'
+  markerSpan.innerHTML = address
+  markerContent.appendChild(markerSpan)
+  marker.value.setContent(markerContent) // 更新点标记内容
+}
 
 function getAddress(longitude: number, latitude: number) {
   // eslint-disable-next-line new-cap
@@ -95,23 +116,8 @@ function getAddress(longitude: number, latitude: number) {
           longitude,
           latitude,
         })
-        // 自定义点标记内容
-        const markerContent = document.createElement('div')
-        // 点标记中的图标
-        const markerImg = document.createElement('img')
-        markerImg.style.width = '19px'
-        markerImg.style.height = '34px'
-        markerImg.src =
-            '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
-        markerContent.appendChild(markerImg)
-        // 点标记中的文本
-        const markerSpan = document.createElement('span')
-        markerSpan.className = 'AMap__marker'
-        nextTick(() => {
-          markerSpan.innerHTML = poi.value.formattedAddress
-          markerContent.appendChild(markerSpan)
-          marker.value.setContent(markerContent) // 更新点标记内容
-        })
+        // 标记位置
+        addAddressMarker(poi.value.formattedAddress)
       }
     })
   })
