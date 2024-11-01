@@ -56,6 +56,7 @@ const formModel = {
   testProp: "http://127.0.0.1:5173/",
   jsonProp: '{"test": 1}',
   intNum: 1,
+  id: '2222',
   digitNum: 1.22,
   code: 56963,
   phone: 12345678901,
@@ -69,9 +70,13 @@ const {
   isNeedDoubleConfirm: false,
   beforeSubmit, submitCheck, afterSubmit,
   // doubleConfirmAction,
-  put, post,
+  put, post, permissionConfig: { postCode: 'addUserCode1', putCode: 'addUserCode1', postCodeTip: '无新增权限', putCodeTip: '无编辑权限' },
 })
-
+function checkRight(type) {
+  console.info("🚀 ~ file:FormDialogTest method:checkRight line:76 -----", type)
+  ElMessage.info('外部执行逻辑')
+  return false
+}
 const rules = {
   testProp: HuiRules.urlRule(),
   jsonProp: [HuiRules.jsonRule()],

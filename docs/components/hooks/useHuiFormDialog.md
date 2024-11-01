@@ -19,7 +19,7 @@ UseFormDialog/UseFormDialogDemo
 
 | 属性                | 说明                                                         | 类型     | 默认值                                                       |
 | ------------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
-| formModel           | 需要提交的表单格式，【form】中不在 【formModel】  中的属性会被删除   | object   | {}                                                           |
+| formModel           | 需要提交的表单格式，【form】中不在 【formModel】  中的属性会被删除 | object   | {}                                                           |
 | showSuccessTip      | 提交成功时是否显示提示                                       | boolean  | true                                                         |
 | isNeedDoubleConfirm | 表单提交时是否需要二次确认                                   | boolean  | false                                                        |
 | doubleConfirmConfig | 表单二次确认时放入提示配置                                   | object   | {<br />message: "是否确认提交",<br />payload: { iconType: 'success'},<br />payload配置参考msgBox传参} |
@@ -29,6 +29,17 @@ UseFormDialog/UseFormDialogDemo
 | afterSubmit         | 表单提交成功后的处理，接收一个提交成功后服务端返回的结果     | function | -                                                            |
 | put                 | 表单**修改**时的`api`方法                                    | function | -                                                            |
 | post                | 表单**新增**时的`api`方法                                    | function | -                                                            |
+| permissionConfig    | 表单权限配置对象，见下方说明                                 | object   | -                                                            |
+
+permissionConfig对象参数说明
+
+| 属性        | 说明                             | 类型     | 默认值 |
+| ----------- | -------------------------------- | -------- | ------ |
+| postCode    | 新增接口需要的权限code           | string   | -      |
+| putCode     | 编辑接口需要的权限code           | string   | -      |
+| postCodeTip | 新增接口没有权限的时候提示的文字 | string   | -      |
+| putCodeTip  | 编辑接口没有权限的时候提示的文字 | string   | -      |
+| checkRight  | 权限处理方法                     | function | -      |
 
 ### 返回值说明
 
@@ -46,5 +57,5 @@ UseFormDialog/UseFormDialogDemo
 | submitOk       | 事件，表单提交成功后触发                                    | 事件event | -      |
 | resetLoading   | 消除 formLoading 和 confirmLoading                           | function | -      |
 | resetFormFields   | 重置表单和表单校验                              | function | -      |
-
+| checkPermission | 用于主动校验是否有新增或者编辑的权限  ()=>boolean | function | - |
 

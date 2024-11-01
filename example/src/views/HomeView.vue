@@ -117,7 +117,7 @@ function onNormalDialogClose() {
 }
 
 function onFormDialogBtnClick() {
-  formDialogTest.value?.open('', { rigthCode: '1111' })
+  formDialogTest.value?.open('2222', { rigthCode: '1111' })
 }
 function onFormDialogOpen() {
   console.log("onFormDialogOpen", new Date().getTime())
@@ -331,6 +331,7 @@ const tableData2 = ref([
 function funTest() {
   console.info("🚀 ~ file:HomeView method:funTest line:305 -----", 222)
 }
+<<<<<<< HEAD
 const generatePoints = (numPoints) => {
   const pointsArray = []
   const baseLongitude = 100.0
@@ -365,6 +366,9 @@ const points = ref(generatePoints(200))
 function pointClick(point) {
   console.log(point)
 }
+=======
+
+>>>>>>> dev
 </script>
 
 <template>

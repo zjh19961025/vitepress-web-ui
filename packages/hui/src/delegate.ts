@@ -18,6 +18,12 @@ export interface HuiDelegate {
     serviceHost: string,
   },
   /**
+   * 权限列表
+   */
+  permission?:{
+    [key:string]:boolean,
+  }
+  /**
    * 其他配置
    */
   [key: string]: any;
@@ -46,6 +52,10 @@ window.huiDelegate = {
   amapConfig: {
     key: '',
     serviceHost: "",
+  },
+  permission: {
+    addUserCode: true,
+    editUserCode: true,
   },
 }
 export const defaultDelegate = window.huiDelegate
