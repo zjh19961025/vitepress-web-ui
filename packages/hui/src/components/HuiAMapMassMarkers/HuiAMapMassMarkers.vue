@@ -16,15 +16,19 @@ const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   direction: 'right',
   showLabel: true,
   anchor: 'bottom-center',
-  textStyle: {
-    fontSize: 12,
-    fillColor: '#2445f4',
-    backgroundColor: '#ccc',
-    borderRadius: 2,
+  textStyle: ()=>{
+    return {
+      fontSize: 12,
+      fillColor: '#2445f4',
+      backgroundColor: '#ccc',
+      borderRadius: 2,
+    }
   },
   iconType: 'iamge',
   iconPath: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
-  iconSize: [19, 32],
+  iconSize: ()=>{
+    return [19, 32]
+  },
 })
 
 /** 高德地图配置 */
