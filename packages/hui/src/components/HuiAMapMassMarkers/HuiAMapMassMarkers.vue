@@ -13,9 +13,12 @@ defineOptions({
 const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   width: '40vw',
   height: '60vh',
-  direction: 'right',
+  direction: 'top',
   showLabel: true,
   anchor: 'bottom-center',
+  mapCenter: () => {
+    return [102.832891, 24.880095]
+  },
   textStyle: () => {
     return {
       fontSize: 12,
@@ -46,7 +49,7 @@ function loadMap() {
     map.value = new window.AMap.Map('mapContainer', {
       zoom: 10,
       viewMode: '3D',
-      center: [102.832891, 24.880095],
+      center: poi.value.length ? poi.value[0].position : props.mapCenter,
       showLabel: props.showLabel,
     })
     // 标记图层
@@ -97,7 +100,7 @@ defineExpose({ handleLabelMarkerClick })
 </script>
 
 <template>
-  <div id="mapContainer" :style="{height:height}" />
+  <div id="mapContainer" :style="{height:height, width: width}" />
 </template>
 <style lang="scss" scoped>
 </style>

@@ -344,14 +344,14 @@ const generatePoints = (numPoints) => {
 
     const longitude = baseLongitude + randomLongitudeOffset
     const latitude = baseLatitude + randomLatitudeOffset
-    const name = `point${i}`
+    const name = `P${i}`
     const iconPath = i % 2 ? iconPathAlternate : iconPathDefault // 使用不同的图标路径作为示例
 
     const point = {
       position: [longitude, latitude],
       name: name,
       id: '1',
-      iconPath: iconPath,
+      iconPath,
     }
 
     pointsArray.push(point)
@@ -474,7 +474,7 @@ function pointClick(point) {
         </div>
       </div>
       <div class="mt-10">
-        <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" />
+        <!-- <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" /> -->
       </div>
     </div>
 
@@ -507,7 +507,7 @@ function pointClick(point) {
     <HuiRegionTreeDialog ref="regionTreeDialogRef" tree-label-key="label" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
     <!-- 调试时HuiAMapSelectAddress和HuiAMapMassMarkers页面只能有一个，需要注释HuiAMapSelectAddress-->
-    <!-- <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :text-style="{'fontSize': 10, 'fillColor': '#fff', 'backgroundColor': '#eca232',padding: [2,2,2,10] ,'borderRadius': 4}" @point-click="pointClick" /> -->
+    <!-- <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :text-style="{'fontSize': 10, 'backgroundColor': '#eee',padding: [] ,'borderRadius': 2}" :icon-size="[14, 22]" @point-click="pointClick" /> -->
   </div>
 </template>
 
