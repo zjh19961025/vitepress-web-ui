@@ -22,6 +22,7 @@ declare module 'vue' {
     HuiDataView:typeof import("@hua5/hua5-web-ui")["HuiDataView"]
     HuiRegionTreeSelect:typeof import("@hua5/hua5-web-ui")["HuiRegionTreeSelect"]
     HuiAMapMassMarkers:typeof import("@hua5/hua5-web-ui")["HuiAMapMassMarkers"]
+    
   }
 
   /**
