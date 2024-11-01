@@ -46,7 +46,7 @@ function loadMap() {
     map.value = new window.AMap.Map('mapContainer', {
       zoom: 10,
       viewMode: '3D',
-      center: [116.397428, 39.90923],
+      center: [102.832891, 24.880095],
       showLabel: props.showLabel,
     })
     // 标记图层
