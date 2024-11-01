@@ -3,7 +3,7 @@
  */
 export interface HuiAMapMassMarkersPropsType {
   /** 绑定的值 */
-  value?: IValueItem
+  value?: IPointItem
   /** 组件宽度 */
   width?: string
   /** 组件高度 */
@@ -14,7 +14,7 @@ export interface HuiAMapMassMarkersPropsType {
    */
   direction?: string
   /** 文本样式的配置对象 */
-  textStyle?: ItypeStyle
+  textStyle?: IPointTextStyle
   /** 图标类型 */
   iconType?: string
   /** 标记点图标路径 */
@@ -25,7 +25,7 @@ export interface HuiAMapMassMarkersPropsType {
   anchor?: string
 }
 
-interface IValueItem {
+export interface IPointItem {
   /** 位置名称 */
   name?: string;
   /** 经纬度 */
@@ -34,7 +34,7 @@ interface IValueItem {
   iconPath?: string;
 }
 
-interface ItypeStyle {
+export interface IPointTextStyle {
   /** 字体大小，单位为像素 */
   fontSize?:number | string,
   /** 文本颜色，例如 '#000000' */
