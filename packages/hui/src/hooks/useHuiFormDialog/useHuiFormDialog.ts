@@ -1,6 +1,7 @@
-import { ref, getCurrentInstance, toValue } from 'vue'
+import { ref, getCurrentInstance, toValue, computed } from 'vue'
 import { HuiTool } from "../../utils/index"
 import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
+import { ElMessage } from "element-plus"
 
 /**
  * 表单弹框通用逻辑
@@ -24,16 +25,19 @@ export const useHuiFormDialog = function({
   afterSubmit,
   doubleConfirmAction,
   put,
-  post }: UseHuiFormDialogParams,
+  post,
+  permissionConfig = {},
+}: UseHuiFormDialogParams,
 ) {
   const instance = getCurrentInstance()
-
   const show = ref(false)
   const form = ref<UseHuiFormDialogForm>({})
   const formLoading = ref(false)
   const confirmLoading = ref(false)
   const formRef = ref<any>(null)
-
+  const apiType = computed(() => {
+    return form.value.id ? 'put' : 'post'
+  })
   const open = (id = "", defaultFormValue = {}) => {
     resetLoading()
     resetFormFields()
@@ -55,10 +59,26 @@ export const useHuiFormDialog = function({
     if (formRef.value) formRef.value?.resetFields()
   }
 
+  function checkPermission() {
+    if (permissionConfig && permissionConfig?.checkRight) {
+      return permissionConfig.checkRight(apiType.value)
+    }
+    const code = apiType.value === 'put' ? permissionConfig?.putCode : permissionConfig?.postCode
+    if (!code) return true
+    const tip = apiType.value === 'put' ? permissionConfig?.putCodeTip : permissionConfig?.postCodeTip
+    const result = window.huiDelegate.permission[code] ?? false
+    if (!result) {
+      ElMessage.error(tip || '暂无权限，请联系管理员！')
+    }
+    return result
+  }
+
   /**
    * 处理提交
    */
   const handleSubmit = () => {
+    const isHavePermission = checkPermission()
+    if (!isHavePermission) return
     formRef?.value?.validate(async(valid: any) => {
       if (valid) {
         confirmLoading.value = true
@@ -161,5 +181,6 @@ export const useHuiFormDialog = function({
     resetFormFields,
     handleSubmit,
     handleCancel,
+    checkPermission,
   }
 }

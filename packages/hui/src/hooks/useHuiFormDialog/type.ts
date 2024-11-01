@@ -30,6 +30,31 @@ export interface UseHuiFormDialogParams {
    */
   post?: any | null,
   /**
+   * 权限相关配置
+   */
+  permissionConfig?:{
+    /**
+     * 新增接口需要的权限code
+     */
+    postCode?:string,
+    /**
+     * 编辑接口需要的权限code
+     */
+    putCode?:string,
+    /**
+     * 新增接口没有权限的时候提示的文字
+     */
+    postCodeTip?:string,
+    /**
+     * 编辑接口没有权限的时候提示的文字
+     */
+    putCodeTip?:string,
+    /**
+     * 权限处理方法
+     */
+    checkRight?:(type:string) => boolean,
+  },
+  /**
    * 表单格式
    */
   formModel: UseHuiFormDialogForm,

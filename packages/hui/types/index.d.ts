@@ -388,6 +388,12 @@ export declare interface HuiDelegate {
         serviceHost: string;
     };
     /**
+     * 权限列表
+     */
+    permission?: {
+        [key: string]: boolean;
+    };
+    /**
      * 其他配置
      */
     [key: string]: any;
@@ -399,7 +405,7 @@ export declare interface HuiDelegate {
 export declare const HuiGridForm: SFCWithInstall<{
     new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
         config: {
-            type: PropType< HuiGridFormConfig[]>;
+            type: PropType< HuiGridFormConfigItem[]>;
             required: true;
         };
         isCanAppend: {
@@ -444,7 +450,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         Defaults: {};
     }, Readonly< ExtractPropTypes<{
         config: {
-            type: PropType< HuiGridFormConfig[]>;
+            type: PropType< HuiGridFormConfigItem[]>;
             required: true;
         };
         isCanAppend: {
@@ -486,7 +492,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     __isSuspense?: never;
 } & ComponentOptionsBase<Readonly< ExtractPropTypes<{
     config: {
-        type: PropType< HuiGridFormConfig[]>;
+        type: PropType< HuiGridFormConfigItem[]>;
         required: true;
     };
     isCanAppend: {
@@ -523,14 +529,18 @@ export declare const HuiGridForm: SFCWithInstall<{
     }[];
     gridFromClass: string;
 }, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
-    $slots: Partial<Record<string, (_: {
+    $slots: Partial<Record<any, (_: {
         dataItem: any;
-        el: HuiGridFormConfig;
-        prop: string;
+        el: any;
+        prop: any;
+    }) => any>> & Partial<Record<`${any}-option`, (_: {
+        option: any;
+        prop: any;
+        propConfig: any;
     }) => any>>;
 })> & Record<string, any>;
 
-declare interface HuiGridFormConfig {
+declare interface HuiGridFormConfigItem {
     /** 列表项的key */
     prop: string;
     /** 输入框append插槽显示的内容 */
@@ -561,6 +571,10 @@ declare interface HuiGridFormConfig {
     };
     /** 是否必填 */
     required?: boolean;
+    /** select 是否可以重复选择 */
+    reselected?: boolean;
+    /** 是否显示 x */
+    clearable?: boolean;
 }
 
 /**
@@ -1326,7 +1340,7 @@ export declare const useHuiDialog: () => {
  * formDialogTest.value?.open()
  * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="beforeOpen" @close="beforeClose" />
  */
-export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post }: UseHuiFormDialogParams) => {
+export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post, permissionConfig, }: UseHuiFormDialogParams) => {
     show: Ref<boolean, boolean>;
     form: Ref<{
         [x: string]: any;
@@ -1365,6 +1379,31 @@ declare interface UseHuiFormDialogParams {
      * 新增接口
      */
     post?: any | null;
+    /**
+     * 权限相关配置
+     */
+    permissionConfig?: {
+        /**
+         * 新增接口需要的权限code
+         */
+        postCode?: string;
+        /**
+         * 编辑接口需要的权限code
+         */
+        putCode?: string;
+        /**
+         * 新增接口没有权限的时候提示的文字
+         */
+        postCodeTip?: string;
+        /**
+         * 编辑接口没有权限的时候提示的文字
+         */
+        putCodeTip?: string;
+        /**
+         * 权限处理方法
+         */
+        checkRight?: (type: string) => boolean;
+    };
     /**
      * 表单格式
      */

@@ -116,7 +116,7 @@ function onNormalDialogClose() {
 }
 
 function onFormDialogBtnClick() {
-  formDialogTest.value?.open('', { rigthCode: '1111' })
+  formDialogTest.value?.open('2222', { rigthCode: '1111' })
 }
 function onFormDialogOpen() {
   console.log("onFormDialogOpen", new Date().getTime())
