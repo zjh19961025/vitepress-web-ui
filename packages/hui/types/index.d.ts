@@ -25,28 +25,158 @@ declare const _default: {
 export default _default;
 
 /**
+ * 组件导出
+ */
+export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+    modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    anchor: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<IPointItem>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    showLabel: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    direction: {
+        type: PropType<"top" | "right" | "bottom" | "left" | "center">;
+        default: string;
+    };
+    textStyle: {
+        type: PropType<IPointTextStyle>;
+        default: () => {
+            fontSize: number;
+            fillColor: string;
+            backgroundColor: string;
+            borderRadius: number;
+        };
+    };
+    iconType: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconSize: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+    mapCenter: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+}>, {
+    handleLabelMarkerClick: (event: any, point: any) => void;
+}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    pointClick: (...args: any[]) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    anchor: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<IPointItem>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    showLabel: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    direction: {
+        type: PropType<"top" | "right" | "bottom" | "left" | "center">;
+        default: string;
+    };
+    textStyle: {
+        type: PropType<IPointTextStyle>;
+        default: () => {
+            fontSize: number;
+            fillColor: string;
+            backgroundColor: string;
+            borderRadius: number;
+        };
+    };
+    iconType: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconSize: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+    mapCenter: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+}>> & Readonly<{
+    onPointClick?: (...args: any[]) => any;
+}>, {
+    iconPath: string;
+    anchor: string;
+    width: string;
+    height: string;
+    showLabel: boolean;
+    direction: "top" | "right" | "bottom" | "left" | "center";
+    textStyle: IPointTextStyle;
+    iconType: string;
+    iconSize: [number, number];
+    mapCenter: [number, number];
+}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+
+/**
  * 倒计时按钮
  */
 export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
     modelValue: PropType<any>;
-    width: {
+    iconPath: {
         type: PropType<string>;
         default: string;
     };
     value: {
         type: PropType<any>;
     };
-    disabled: {
-        type: PropType<boolean>;
-        default: boolean;
+    width: {
+        type: PropType<string>;
+        default: string;
     };
     height: {
         type: PropType<string>;
         default: string;
     };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     showInput: {
         type: PropType<boolean>;
         default: boolean;
+    };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
     };
 }>, {
     loadMap: () => void;
@@ -55,30 +185,40 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     submitInfo: () => boolean;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     modelValue: PropType<any>;
-    width: {
+    iconPath: {
         type: PropType<string>;
         default: string;
     };
     value: {
         type: PropType<any>;
     };
-    disabled: {
-        type: PropType<boolean>;
-        default: boolean;
+    width: {
+        type: PropType<string>;
+        default: string;
     };
     height: {
         type: PropType<string>;
         default: string;
     };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     showInput: {
         type: PropType<boolean>;
         default: boolean;
     };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
+    };
 }>> & Readonly<{}>, {
+    iconPath: string;
     width: string;
-    disabled: boolean;
     height: string;
+    disabled: boolean;
     showInput: boolean;
+    iconClass: string;
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
@@ -89,21 +229,27 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
-    width: {
+    iconPath: {
         type: PropType<string>;
-        default: string;
     };
     value: {
         type: PropType<any>;
     };
-    disabled: {
-        type: PropType<boolean>;
+    width: {
+        type: PropType<string>;
+        default: string;
     };
     height: {
         type: PropType<string>;
     };
+    disabled: {
+        type: PropType<boolean>;
+    };
     showInput: {
         type: PropType<boolean>;
+    };
+    iconClass: {
+        type: PropType<string>;
     };
 }>, {
     open: (dataId?: string, info?: {}) => void;
@@ -115,21 +261,27 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
-    width: {
+    iconPath: {
         type: PropType<string>;
-        default: string;
     };
     value: {
         type: PropType<any>;
     };
-    disabled: {
-        type: PropType<boolean>;
+    width: {
+        type: PropType<string>;
+        default: string;
     };
     height: {
         type: PropType<string>;
     };
+    disabled: {
+        type: PropType<boolean>;
+    };
     showInput: {
         type: PropType<boolean>;
+    };
+    iconClass: {
+        type: PropType<string>;
     };
 }>> & Readonly<{
     onOnSubmit?: (poi: any) => any;
@@ -959,11 +1111,10 @@ export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<Extract
 export declare const HuiRules: {
     /**
      * 是否url
-     * @param isCanEmpty 是否可以为空，默认不能为空
      * @param tips 错误提示
      */
-    urlRule: (isCanEmpty?: boolean, tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+    urlRule: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
@@ -971,7 +1122,7 @@ export declare const HuiRules: {
      * @param tips 错误提示
      */
     versionRule: (tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
@@ -979,7 +1130,7 @@ export declare const HuiRules: {
      * @param tips 错误提示
      */
     jsonRule: (tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
@@ -1007,7 +1158,7 @@ export declare const HuiRules: {
      * @param codeLength 验证码长度
      */
     codeRule: (tips?: string, codeLength?: number) => {
-        validator: (rule: any, value: any, callback: any) => void;
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
@@ -1015,7 +1166,7 @@ export declare const HuiRules: {
      * @param tips 错误提示
      */
     phoneNumRule: (tips?: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
     /**
@@ -1024,8 +1175,8 @@ export declare const HuiRules: {
      * @param max 最大值
      * @param tips 错误提示
      */
-    numRangeRule: (min: number | string, max: number | string, tips: string) => {
-        validator: (rule: any, value: any, callback: any) => void;
+    numRangeRule: (min: any, max: any, tips: any) => {
+        validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };
 };
@@ -1283,6 +1434,42 @@ export declare const HuiTool: {
     msgBoxQues: (content: string, payload?: PayLoadType) => Promise<any>;
 };
 
+declare interface IPointItem {
+    /** id */
+    id?: number | string;
+    /** 位置名称 */
+    name?: string;
+    /** 经纬度 */
+    position: [number, number];
+    /** 标记图标 */
+    iconPath?: string;
+    /**
+     * 其他属性
+     */
+    [key: string]: any;
+}
+
+declare interface IPointTextStyle {
+    /** 字体大小，单位为像素 */
+    fontSize?: number | string;
+    /** 文本颜色，例如 '#000000' */
+    fillColor?: string;
+    /** 文本描边颜色 */
+    strokeColor?: string;
+    /** 文本描边宽度 */
+    strokeWidth?: string;
+    /** 文本背景颜色 */
+    backgroundColor?: string;
+    /** 文本的内边距，格式为 [top, right, bottom, left] */
+    padding?: [number, number, number, number];
+    /** 文本背景的圆角半径 */
+    borderRadius?: number;
+    /** 文本背景的边框宽度 */
+    borderWidth?: string;
+    /** 文本背景的边框颜色 */
+    borderColor?: string;
+}
+
 declare interface PayLoadType {
     /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
     iconType?: 'info' | 'success' | 'question';
@@ -1294,6 +1481,8 @@ declare interface PayLoadType {
     confirmText?: string;
     /** 弹窗宽度 */
     width?: number;
+    /** 弹窗样式类名 */
+    className?: string;
 }
 
 declare interface PayLoadType_2 {
@@ -1358,6 +1547,7 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     resetFormFields: () => void;
     handleSubmit: () => void;
     handleCancel: () => void;
+    checkPermission: () => boolean;
 };
 
 declare interface UseHuiFormDialogConfirm {
