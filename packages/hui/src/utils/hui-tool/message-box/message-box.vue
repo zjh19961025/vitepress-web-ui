@@ -111,7 +111,7 @@ const close = () => {
       align-center
       @closed="close"
     >
-      <div class="flex justify-center flex-center h-110" :class="[className]">
+      <div class="flex justify-center flex-center h-110 text-center" :class="[className]">
         <div>
           <i :class="[iconTypeClass,iconColorClass,'icon-com !text-27']" />
         </div>
