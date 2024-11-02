@@ -1,6 +1,5 @@
 export const addAMap = function() {
-  const result = isHaveAmapScript()
-  if (!result) return new Promise((resolve) => resolve(''))
+  removeAMap()
   window._AMapSecurityConfig = {
     serviceHost: window.huiDelegate.amapConfig.serviceHost,
   }
@@ -22,23 +21,12 @@ export const addAMap = function() {
   })
 }
 
-function isHaveAmapScript() {
+export const removeAMap = function(str = 'webapi') {
   const scriptTags = document.querySelectorAll('script')
-  let flag = true
   scriptTags.forEach((scriptTag) => {
-    if (scriptTag.src.includes('webapi')) {
-      flag = false
+    if (scriptTag.src.includes(str)) {
+      scriptTag.parentNode.removeChild(scriptTag)
     }
   })
-  return flag
-}
-
-export const removeAMap = function(str = 'webapi') {
-  // const scriptTags = document.querySelectorAll('script')
-  // scriptTags.forEach((scriptTag) => {
-  //   if (scriptTag.src.includes(str)) {
-  //     scriptTag.parentNode.removeChild(scriptTag)
-  //   }
-  // })
 }
 

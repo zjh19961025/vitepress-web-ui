@@ -507,7 +507,7 @@ function pointClick(point) {
     <HuiRegionTreeDialog ref="regionTreeDialogRef" tree-label-key="label" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
     <!-- 调试时HuiAMapSelectAddress和HuiAMapMassMarkers页面只能有一个，需要注释HuiAMapSelectAddress-->
-    <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :text-style="{'fontSize': 10, 'backgroundColor': '#eee',padding: [] ,'borderRadius': 2}" :icon-size="[14, 22]" @point-click="pointClick" />
+    <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :icon-size="[14, 22]" @point-click="pointClick" />
   </div>
 </template>
 

@@ -22,8 +22,8 @@ const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   textStyle: () => {
     return {
       fontSize: 12,
-      fillColor: '#2445f4',
-      backgroundColor: '#ccc',
+      fillColor: window.theme.colors.white,
+      backgroundColor: window.theme.colors.ccc,
       borderRadius: 2,
     }
   },
@@ -73,10 +73,9 @@ function loadMap() {
             },
           },
           icon: {
-            type: props.iconType,
+            type: 'iamge',
             image: point.iconPath || props.iconPath,
             size: props.iconSize,
-            anchor: props.anchor,
           },
         })
         labelsLayer.add(labelMarker)

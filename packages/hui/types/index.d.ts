@@ -33,10 +33,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    anchor: {
-        type: PropType<string>;
-        default: string;
-    };
     value: {
         type: PropType<IPointItem>;
     };
@@ -60,14 +56,10 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: string;
-            backgroundColor: string;
+            fillColor: any;
+            backgroundColor: any;
             borderRadius: number;
         };
-    };
-    iconType: {
-        type: PropType<string>;
-        default: string;
     };
     iconSize: {
         type: PropType<[number, number]>;
@@ -87,10 +79,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    anchor: {
-        type: PropType<string>;
-        default: string;
-    };
     value: {
         type: PropType<IPointItem>;
     };
@@ -114,14 +102,10 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: string;
-            backgroundColor: string;
+            fillColor: any;
+            backgroundColor: any;
             borderRadius: number;
         };
-    };
-    iconType: {
-        type: PropType<string>;
-        default: string;
     };
     iconSize: {
         type: PropType<[number, number]>;
@@ -135,13 +119,11 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
     onPointClick?: (...args: any[]) => any;
 }>, {
     iconPath: string;
-    anchor: string;
     width: string;
     height: string;
     showLabel: boolean;
     direction: "top" | "right" | "bottom" | "left" | "center";
     textStyle: IPointTextStyle;
-    iconType: string;
     iconSize: [number, number];
     mapCenter: [number, number];
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
@@ -1110,8 +1092,16 @@ export declare const HuiRegionTreeSelect: SFCWithInstall<DefineComponent<Extract
 
 export declare const HuiRules: {
     /**
+     * 校验必传
+     * @param {string} tips 错误提示
+     */
+    required: (tips?: string) => {
+        validator: (rule: any, value: any, callback: any) => any;
+        trigger: string;
+    };
+    /**
      * 是否url
-     * @param tips 错误提示
+     * @param {string} tips 错误提示
      */
     urlRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1119,7 +1109,7 @@ export declare const HuiRules: {
     };
     /**
      * 是否版本号
-     * @param tips 错误提示
+     * @param {string} tips 错误提示
      */
     versionRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1127,7 +1117,7 @@ export declare const HuiRules: {
     };
     /**
      * 是否json
-     * @param tips 错误提示
+     * @param {string} tips 错误提示
      */
     jsonRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1135,8 +1125,8 @@ export declare const HuiRules: {
     };
     /**
      * 验证整数
-     * @param isCanZero 是否能输0
-     * @param isCanNegative 是否能输负数
+     * @param {boolean} isCanZero 是否能输0
+     * @param {boolean} isCanNegative 是否能输负数
      */
     intNumRule: (isCanZero?: boolean, isCanNegative?: boolean) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1144,9 +1134,9 @@ export declare const HuiRules: {
     };
     /**
      * 验证小数
-     * @param digit 小数位数
-     * @param isCanZero 是否能输0
-     * @param isCanNegative 是否能输负数
+     * @param {number} digit 小数位数
+     * @param {boolean} isCanZero 是否能输0
+     * @param {boolean} isCanNegative 是否能输负数
      */
     digitNumRule: (digit?: number, isCanZero?: boolean, isCanNegative?: boolean) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1154,8 +1144,8 @@ export declare const HuiRules: {
     };
     /**
      * 验证码验证
-     * @param tips 错误提示
-     * @param codeLength 验证码长度
+     * @param {string} tips 错误提示
+     * @param {number} codeLength 验证码长度
      */
     codeRule: (tips?: string, codeLength?: number) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1163,7 +1153,7 @@ export declare const HuiRules: {
     };
     /**
      * 电话号码验证
-     * @param tips 错误提示
+     * @param {string} tips 错误提示
      */
     phoneNumRule: (tips?: string) => {
         validator: (rule: any, value: any, callback: any) => any;
@@ -1171,11 +1161,11 @@ export declare const HuiRules: {
     };
     /**
      * 验证数字范围
-     * @param min 最小值
-     * @param max 最大值
-     * @param tips 错误提示
+     * @param {number | string} min 最小值
+     * @param {number | string} max 最大值
+     * @param {string} tips 错误提示
      */
-    numRangeRule: (min: any, max: any, tips: any) => {
+    numRangeRule: (min: any, max: any, tips?: string) => {
         validator: (rule: any, value: any, callback: any) => any;
         trigger: string;
     };

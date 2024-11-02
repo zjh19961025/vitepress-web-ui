@@ -62,7 +62,6 @@ function updateSearchResults() {
 }
 
 function submitInfo() {
-  console.log(poi.value, 4567)
   if (testUtils.isNotEmpty(poi.value)) {
     return true
   } else {
@@ -153,7 +152,9 @@ function init(callback: () => void) {
     })(),
   })
   map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
-  initPoip()
+  setTimeout(() => {
+    initPoip()
+  })
   addClick()
   callback()
 }
@@ -174,7 +175,6 @@ function initPoip() {
 }
 
 function handlePoiPicked(poiResult: any) {
-  console.log(poiResult, 45465768)
   clearMarker()
   const source = poiResult.source
   const poiItem = poiResult.item
