@@ -55,6 +55,7 @@ export const sidebar = {
         { text: '命令式弹窗组件', link: '/components/msgBox' },
         { text: '动态网格表单', link: '/components/HuiGridForm' },
         { text: '详情表格', link: '/components/HuiDataView' },
+        { text: '地图海量标记', link: '/components/HuiAMapMassMarkers' },
       ],
     },
     {

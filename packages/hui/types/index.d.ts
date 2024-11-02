@@ -33,10 +33,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    anchor: {
-        type: PropType<string>;
-        default: string;
-    };
     value: {
         type: PropType<IPointItem>;
     };
@@ -60,14 +56,10 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: string;
-            backgroundColor: string;
+            fillColor: any;
+            backgroundColor: any;
             borderRadius: number;
         };
-    };
-    iconType: {
-        type: PropType<string>;
-        default: string;
     };
     iconSize: {
         type: PropType<[number, number]>;
@@ -87,10 +79,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    anchor: {
-        type: PropType<string>;
-        default: string;
-    };
     value: {
         type: PropType<IPointItem>;
     };
@@ -114,14 +102,10 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: string;
-            backgroundColor: string;
+            fillColor: any;
+            backgroundColor: any;
             borderRadius: number;
         };
-    };
-    iconType: {
-        type: PropType<string>;
-        default: string;
     };
     iconSize: {
         type: PropType<[number, number]>;
@@ -135,13 +119,11 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
     onPointClick?: (...args: any[]) => any;
 }>, {
     iconPath: string;
-    anchor: string;
     width: string;
     height: string;
     showLabel: boolean;
     direction: "top" | "right" | "bottom" | "left" | "center";
     textStyle: IPointTextStyle;
-    iconType: string;
     iconSize: [number, number];
     mapCenter: [number, number];
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;

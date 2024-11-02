@@ -15,14 +15,10 @@ export interface HuiAMapMassMarkersPropsType {
   direction?: 'top' | 'right' | 'bottom' | 'left' | 'center'
   /** 文本样式的配置对象 */
   textStyle?: IPointTextStyle
-  /** 图标类型 */
-  iconType?: string
   /** 标记点图标路径 */
   iconPath?:string
   /** 图标式样式 */
   iconSize?: [number, number],
-  /** 描点位置 */
-  anchor?: string
   /** map中心位置 */
   mapCenter?: [number, number]
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { testUtils } from "@hua5/hua5-utils"
 import { nextTick, onMounted, Ref, ref } from 'vue'
-import { loadMapScript } from './config.ts'
+import { addAMap } from '../AMapConfig.ts'
 const emit = defineEmits(['pointClick'])
 import type { HuiAMapMassMarkersPropsType } from './type.ts'
 
@@ -22,8 +22,8 @@ const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   textStyle: () => {
     return {
       fontSize: 12,
-      fillColor: '#2445f4',
-      backgroundColor: '#ccc',
+      fillColor: window.theme.colors.white,
+      backgroundColor: window.theme.colors.ccc,
       borderRadius: 2,
     }
   },
@@ -73,10 +73,9 @@ function loadMap() {
             },
           },
           icon: {
-            type: props.iconType,
+            type: 'iamge',
             image: point.iconPath || props.iconPath,
             size: props.iconSize,
-            anchor: props.anchor,
           },
         })
         labelsLayer.add(labelMarker)
@@ -88,7 +87,7 @@ function loadMap() {
 
 onMounted(async() => {
   try {
-    await loadMapScript()
+    await addAMap()
     loadMap()
   } catch (error) {
     console.error('Error loading map:', error)
