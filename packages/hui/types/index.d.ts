@@ -149,14 +149,14 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
 /**
  * 倒计时按钮
  */
-export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
     modelValue: PropType<any>;
     iconPath: {
         type: PropType<string>;
         default: string;
     };
     value: {
-        type: PropType<IPointItem>;
+        type: PropType<any>;
     };
     width: {
         type: PropType<string>;
@@ -232,11 +232,8 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     iconPath: {
         type: PropType<string>;
     };
-    height: {
-        type: PropType<string>;
-    };
-    iconPath: {
-        type: PropType<string>;
+    value: {
+        type: PropType<any>;
     };
     width: {
         type: PropType<string>;
@@ -267,11 +264,8 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
     iconPath: {
         type: PropType<string>;
     };
-    height: {
-        type: PropType<string>;
-    };
-    iconPath: {
-        type: PropType<string>;
+    value: {
+        type: PropType<any>;
     };
     width: {
         type: PropType<string>;
