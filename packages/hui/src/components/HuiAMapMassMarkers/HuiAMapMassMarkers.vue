@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { testUtils } from "@hua5/hua5-utils"
 import { nextTick, onMounted, Ref, ref } from 'vue'
-import { loadMapScript } from './config.ts'
+import { addAMap } from '../AMapConfig.ts'
 const emit = defineEmits(['pointClick'])
 import type { HuiAMapMassMarkersPropsType } from './type.ts'
 
@@ -88,7 +88,7 @@ function loadMap() {
 
 onMounted(async() => {
   try {
-    await loadMapScript()
+    await addAMap()
     loadMap()
   } catch (error) {
     console.error('Error loading map:', error)

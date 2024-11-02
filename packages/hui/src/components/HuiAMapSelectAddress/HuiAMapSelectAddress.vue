@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { addAMap } from './config'
-import { testUtils, typeUtils } from "@hua5/hua5-utils"
+import { addAMap } from '../AMapConfig'
+import { testUtils } from "@hua5/hua5-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick } from 'vue'
 import { ElInput } from 'element-plus'
@@ -62,6 +62,7 @@ function updateSearchResults() {
 }
 
 function submitInfo() {
+  console.log(poi.value, 4567)
   if (testUtils.isNotEmpty(poi.value)) {
     return true
   } else {
@@ -107,9 +108,13 @@ function addAddressMarker(address: string) {
 
 function getAddress(longitude: number, latitude: number) {
   // eslint-disable-next-line new-cap
-  new window.AMap.service('AMap.Geocoder', () => {
-    const geocoder = new window.AMap.Geocoder({})
-    geocoder.getAddress([longitude, latitude], (status:string, result:any) => {
+  // 加载 Geocoder 插件
+  window.AMap.plugin('AMap.Geocoder', function() {
+    // 创建一个 Geocoder 实例
+    const geocoder = new window.AMap.Geocoder()
+
+    // 使用 Geocoder 实例获取地址
+    geocoder.getAddress([longitude, latitude], (status, result) => {
       if (status === 'complete' && result.info === 'OK') {
         const regeocode = result.regeocode
         poi.value = Object.assign(regeocode, {
@@ -117,7 +122,11 @@ function getAddress(longitude: number, latitude: number) {
           latitude,
         })
         // 标记位置
-        addAddressMarker(poi.value.formattedAddress)
+        nextTick(() => {
+          addAddressMarker(poi.value.formattedAddress)
+        })
+      } else {
+        console.error('获取地址失败', result)
       }
     })
   })
@@ -125,8 +134,8 @@ function getAddress(longitude: number, latitude: number) {
 function addClick() {
   map.value.on('click', (e:any) => {
     const lnglat = e.lnglat
-    const P = lnglat.P || lnglat.Q
-    const R = lnglat.R
+    const P = lnglat.KT || lnglat.lat
+    const R = lnglat.KL || lnglat.lng
     addMarker(R, P)
     getAddress(R, P)
   })
@@ -165,17 +174,20 @@ function initPoip() {
 }
 
 function handlePoiPicked(poiResult: any) {
+  console.log(poiResult, 45465768)
   clearMarker()
   const source = poiResult.source
   const poiItem = poiResult.item
-  poi.value = Object.assign(poiItem, {
-    formattedAddress: poiItem.name,
-    longitude: poiItem.location?.R,
-    latitude: poiItem.location?.P,
+  nextTick(() => {
+    poi.value = Object.assign(poiItem, {
+      formattedAddress: poiItem.name,
+      longitude: poiItem.location?.KL,
+      latitude: poiItem.location?.kT,
+    })
+    if (source !== 'search') {
+      window.poiPicker.searchByKeyword(poiItem.name)
+    }
   })
-  if (source !== 'search') {
-    window.poiPicker.searchByKeyword(poiItem.name)
-  }
 }
 function loadMap() {
   addAMap().then(() => {
