@@ -29,6 +29,10 @@ export default _default;
  */
 export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractPropTypes<{
     modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
     anchor: {
         type: PropType<string>;
         default: string;
@@ -49,7 +53,7 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         default: boolean;
     };
     direction: {
-        type: PropType<string>;
+        type: PropType<"top" | "right" | "bottom" | "left" | "center">;
         default: string;
     };
     textStyle: {
@@ -65,11 +69,11 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    iconPath: {
-        type: PropType<string>;
-        default: string;
-    };
     iconSize: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+    mapCenter: {
         type: PropType<[number, number]>;
         default: () => number[];
     };
@@ -79,6 +83,10 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
     pointClick: (...args: any[]) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
     anchor: {
         type: PropType<string>;
         default: string;
@@ -99,7 +107,7 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         default: boolean;
     };
     direction: {
-        type: PropType<string>;
+        type: PropType<"top" | "right" | "bottom" | "left" | "center">;
         default: string;
     };
     textStyle: {
@@ -115,45 +123,46 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<string>;
         default: string;
     };
-    iconPath: {
-        type: PropType<string>;
-        default: string;
-    };
     iconSize: {
+        type: PropType<[number, number]>;
+        default: () => number[];
+    };
+    mapCenter: {
         type: PropType<[number, number]>;
         default: () => number[];
     };
 }>> & Readonly<{
     onPointClick?: (...args: any[]) => any;
 }>, {
+    iconPath: string;
     anchor: string;
     width: string;
     height: string;
     showLabel: boolean;
-    direction: string;
+    direction: "top" | "right" | "bottom" | "left" | "center";
     textStyle: IPointTextStyle;
     iconType: string;
-    iconPath: string;
     iconSize: [number, number];
+    mapCenter: [number, number];
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
  * 倒计时按钮
  */
-export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractPropTypes<{
     modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
-        type: PropType<any>;
+        type: PropType<IPointItem>;
     };
     width: {
         type: PropType<string>;
         default: string;
     };
     height: {
-        type: PropType<string>;
-        default: string;
-    };
-    iconPath: {
         type: PropType<string>;
         default: string;
     };
@@ -176,6 +185,10 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     submitInfo: () => boolean;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
     value: {
         type: PropType<any>;
     };
@@ -184,10 +197,6 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         default: string;
     };
     height: {
-        type: PropType<string>;
-        default: string;
-    };
-    iconPath: {
         type: PropType<string>;
         default: string;
     };
@@ -204,9 +213,9 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
         default: string;
     };
 }>> & Readonly<{}>, {
+    iconPath: string;
     width: string;
     height: string;
-    iconPath: string;
     disabled: boolean;
     showInput: boolean;
     iconClass: string;
@@ -220,17 +229,20 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
-    value: {
-        type: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    iconPath: {
+        type: PropType<string>;
     };
     width: {
         type: PropType<string>;
         default: string;
     };
     height: {
-        type: PropType<string>;
-    };
-    iconPath: {
         type: PropType<string>;
     };
     disabled: {
@@ -252,17 +264,20 @@ export declare const HuiAMapSelectAddressDialog: SFCWithInstall<DefineComponent<
         type: PropType<string>;
         default: string;
     };
-    value: {
-        type: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    iconPath: {
+        type: PropType<string>;
     };
     width: {
         type: PropType<string>;
         default: string;
     };
     height: {
-        type: PropType<string>;
-    };
-    iconPath: {
         type: PropType<string>;
     };
     disabled: {
@@ -1426,12 +1441,18 @@ export declare const HuiTool: {
 };
 
 declare interface IPointItem {
+    /** id */
+    id?: number | string;
     /** 位置名称 */
     name?: string;
     /** 经纬度 */
     position: [number, number];
     /** 标记图标 */
     iconPath?: string;
+    /**
+     * 其他属性
+     */
+    [key: string]: any;
 }
 
 declare interface IPointTextStyle {
@@ -1466,6 +1487,8 @@ declare interface PayLoadType {
     confirmText?: string;
     /** 弹窗宽度 */
     width?: number;
+    /** 弹窗样式类名 */
+    className?: string;
 }
 
 declare interface PayLoadType_2 {

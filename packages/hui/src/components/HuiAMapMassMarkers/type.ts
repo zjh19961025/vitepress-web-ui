@@ -12,7 +12,7 @@ export interface HuiAMapMassMarkersPropsType {
   showLabel?: boolean
   /** 文本相对于图标的方向 'top' 'right' 'bottom' 'left' 'center'
    */
-  direction?: string
+  direction?: 'top' | 'right' | 'bottom' | 'left' | 'center'
   /** 文本样式的配置对象 */
   textStyle?: IPointTextStyle
   /** 图标类型 */
@@ -23,15 +23,23 @@ export interface HuiAMapMassMarkersPropsType {
   iconSize?: [number, number],
   /** 描点位置 */
   anchor?: string
+  /** map中心位置 */
+  mapCenter?: [number, number]
 }
 
 export interface IPointItem {
+  /** id */
+  id?: number | string;
   /** 位置名称 */
   name?: string;
   /** 经纬度 */
   position: [number, number]
   /** 标记图标 */
   iconPath?: string;
+  /**
+   * 其他属性
+   */
+  [key: string]: any;
 }
 
 export interface IPointTextStyle {

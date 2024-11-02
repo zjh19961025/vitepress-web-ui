@@ -14,6 +14,8 @@ export interface HuiMsgBoxProp {
   confirmText:string,
   /** 弹窗宽度 */
   width:number,
+  /** 弹窗样式类名 */
+  className: string,
   /** 关闭事件 */
   closeBox: ()=> void,
   /** 确定事件事件 */
@@ -109,11 +111,11 @@ const close = () => {
       align-center
       @closed="close"
     >
-      <div class="flex justify-center flex-center h-110">
+      <div class="flex justify-center flex-center h-110" :class="[className]">
         <div>
           <i :class="[iconTypeClass,iconColorClass,'icon-com !text-27']" />
         </div>
-        <div class="text-14 text-center font-bold text-normal ml-11 break-all">{{ content }}</div>
+        <div class="text-14  font-bold text-normal ml-11 break-all">{{ content }}</div>
       </div>
       <template #footer>
         <div class="dialog-footer">
