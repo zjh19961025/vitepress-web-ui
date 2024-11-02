@@ -2,8 +2,24 @@ import { testUtils } from "@hua5/hua5-utils"
 
 export const HuiRules = {
   /**
+   * 校验必传
+   * @param {string} tips 错误提示
+   */
+  required: (tips = '此项为必填项') => {
+    return {
+      validator: (rule, value, callback) => {
+        if (testUtils.isEmpty(value)) {
+          return callback(new Error(tips))
+        }
+        callback()
+      },
+      trigger: 'blur',
+    }
+  },
+
+  /**
    * 是否url
-   * @param tips 错误提示
+   * @param {string} tips 错误提示
    */
   urlRule: (tips = '请输入正确的链接') => {
     return {
@@ -19,7 +35,7 @@ export const HuiRules = {
 
   /**
    * 是否版本号
-   * @param tips 错误提示
+   * @param {string} tips 错误提示
    */
   versionRule: (tips = '请输入正确的版本号') => {
     return {
@@ -35,7 +51,7 @@ export const HuiRules = {
 
   /**
    * 是否json
-   * @param tips 错误提示
+   * @param {string} tips 错误提示
    */
   jsonRule: (tips = '请输入一个正确的JsonObject') => {
     return {
@@ -51,8 +67,8 @@ export const HuiRules = {
 
   /**
    * 验证整数
-   * @param isCanZero 是否能输0
-   * @param isCanNegative 是否能输负数
+   * @param {boolean} isCanZero 是否能输0
+   * @param {boolean} isCanNegative 是否能输负数
    */
   intNumRule: (isCanZero = true, isCanNegative = true) => {
     return {
@@ -77,9 +93,9 @@ export const HuiRules = {
 
   /**
    * 验证小数
-   * @param digit 小数位数
-   * @param isCanZero 是否能输0
-   * @param isCanNegative 是否能输负数
+   * @param {number} digit 小数位数
+   * @param {boolean} isCanZero 是否能输0
+   * @param {boolean} isCanNegative 是否能输负数
    */
   digitNumRule: (digit = 2, isCanZero = true, isCanNegative = true) => {
     return {
@@ -107,8 +123,8 @@ export const HuiRules = {
 
   /**
    * 验证码验证
-   * @param tips 错误提示
-   * @param codeLength 验证码长度
+   * @param {string} tips 错误提示
+   * @param {number} codeLength 验证码长度
    */
   codeRule: (tips = '请输入正确的验证码', codeLength = 6) => {
     return {
@@ -124,7 +140,7 @@ export const HuiRules = {
 
   /**
    * 电话号码验证
-   * @param tips 错误提示
+   * @param {string} tips 错误提示
    */
   phoneNumRule: (tips = '请输入正确的电话号码') => {
     return {
@@ -140,11 +156,11 @@ export const HuiRules = {
 
   /**
    * 验证数字范围
-   * @param min 最小值
-   * @param max 最大值
-   * @param tips 错误提示
+   * @param {number | string} min 最小值
+   * @param {number | string} max 最大值
+   * @param {string} tips 错误提示
    */
-  numRangeRule: (min, max, tips) => {
+  numRangeRule: (min, max, tips = `输入的值必须在 ${min} 到 ${max} 之间`) => {
     return {
       validator: (rule, value, callback) => {
         if (testUtils.isNotEmpty(value)) {
