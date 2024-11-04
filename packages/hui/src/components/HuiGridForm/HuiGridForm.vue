@@ -149,7 +149,7 @@ defineExpose({ getData })
 </script>
 <template>
   <!-- 标题 -->
-  <div class="flex w-100%" :class="gridFromClass" style=" width: 100% ">
+  <div class="flex w-100% hui-grid-form-title" :class="gridFromClass" style=" width: 100% ">
     <div
       v-for="(item, index) in columnConfig" :key="index" class="font-bold pr-10"
       :style="{ width: item.width }"
@@ -158,7 +158,7 @@ defineExpose({ getData })
     </div>
   </div>
   <!-- 主体 -->
-  <div v-for="(item, idx) in deepCloneListData" :key="idx" class="flex mt-10 w-100%">
+  <div v-for="(item, idx) in deepCloneListData" :key="idx" class="flex mt-10 w-100% hui-grid-form-content">
     <template v-for="el in columnConfig" :key="el.prop">
       <div class="flex-y pr-10 " :style="{ width: el.width }">
         <div v-if="$slots[el.prop]" class="flex">
