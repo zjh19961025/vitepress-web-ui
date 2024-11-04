@@ -562,12 +562,18 @@ export declare const HuiGridForm: SFCWithInstall<{
         };
         gridFromClass: {
             type: PropType<string>;
-            required: true;
             default: string;
         };
-    }>> & Readonly<{}>, {
+        isCanDeleteItem: {
+            type: PropType<(item: any, index: number) => boolean>;
+        };
+    }>> & Readonly<{
+        onOnRemoveItem?: (item: any) => any;
+    }>, {
         getData: (isCheck?: boolean) => any;
-    }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
+    }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+        onRemoveItem: (item: any) => void;
+    }, PublicProps, {
         isCanAppend: boolean;
         handSort: boolean;
         handDelete: boolean;
@@ -607,10 +613,14 @@ export declare const HuiGridForm: SFCWithInstall<{
         };
         gridFromClass: {
             type: PropType<string>;
-            required: true;
             default: string;
         };
-    }>> & Readonly<{}>, {
+        isCanDeleteItem: {
+            type: PropType<(item: any, index: number) => boolean>;
+        };
+    }>> & Readonly<{
+        onOnRemoveItem?: (item: any) => any;
+    }>, {
         getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, {
         isCanAppend: boolean;
@@ -649,12 +659,18 @@ export declare const HuiGridForm: SFCWithInstall<{
     };
     gridFromClass: {
         type: PropType<string>;
-        required: true;
         default: string;
     };
-}>> & Readonly<{}>, {
+    isCanDeleteItem: {
+        type: PropType<(item: any, index: number) => boolean>;
+    };
+}>> & Readonly<{
+    onOnRemoveItem?: (item: any) => any;
+}>, {
     getData: (isCheck?: boolean) => any;
-}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
+}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onRemoveItem: (item: any) => void;
+}, string, {
     isCanAppend: boolean;
     handSort: boolean;
     handDelete: boolean;

@@ -10,7 +10,9 @@ export type HuiGridFormProp = {
     /** 组件的数据源 */
     listData?:{[key:string]:any}[]
     /** 组件透传的class */
-    gridFromClass:string
+    gridFromClass?:string
+    /** 是否可以删除的校验 */
+    isCanDeleteItem?:(item:any, index:number)=>boolean
 }
 
 export interface HuiGridFormConfigItem {
@@ -44,5 +46,15 @@ export interface HuiGridFormConfigItem {
     reselected?: boolean,
     /** 是否显示 x */
     clearable?: boolean,
+}
+
+/**
+ * 定义emit类型
+ */
+export type HuiGridFormEmitType = {
+    /**
+     * 删除后的自定义事件
+     */
+    "onRemoveItem": [item: any]
 }
 
