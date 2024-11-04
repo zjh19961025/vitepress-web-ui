@@ -71,7 +71,21 @@ function getHuiGridFormData() {
 // 渲染数据 用来设置回显
 const listData = ref([
   { test1: 1, test2: 2, test3: 3, test4: 4, test5: 5 },
+  { test1: 2, test2: 1, test3: 3, test4: 4, test5: 5 },
+
 ])
+
+function isCanDeleteItem(item, index) {
+  console.info("🚀 ~ file:HuiGridForm method:isCanDeleteItem line:77 -----", item, index)
+  if (index === 0) {
+    ElMessage.error("不可删除~")
+  }
+  return index !== 0
+}
+
+function onRemoveItem(item) {
+  ElMessage.success("删除成功~")
+}
 </script>
 
 <template>
@@ -82,7 +96,7 @@ const listData = ref([
       hand-sort
       is-can-append
       hand-delete
-      :config="config" :list-data="listData"
+      :config="config" :list-data="listData" :is-can-delete-item="isCanDeleteItem" @on-remove-item="onRemoveItem"
     >
       <!--   插槽用法整个替换   -->
       <template #test1="{dataItem,el}">

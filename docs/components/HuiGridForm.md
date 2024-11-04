@@ -8,16 +8,17 @@ HuiGridForm/HuiGridForm
 
 ### 属性
 
-| 属性名        | 说明             | 类型                | 默认值 |
-| ------------- | ---------------- | ------------------- | ------ |
-| isCanAppend   | 是否可以进行添加 | boolean             | false  |
-| handSort      | 是否可以排序     | boolean             | false  |
-| handDelete    | 是否可以删除     | boolean             | false  |
-| config        | 组件的配置项     | hua5DynamicConfig[] | -      |
-| listData      | 组件的数据源     | obj[]               | []     |
-| gridFromClass | 组件动态class    | string              | mt-10  |
+| 属性名          | 说明             | 类型                    | 默认值 |
+| --------------- | ---------------- | ----------------------- | ------ |
+| isCanAppend     | 是否可以进行添加 | boolean                 | false  |
+| handSort        | 是否可以排序     | boolean                 | false  |
+| handDelete      | 是否可以删除     | boolean                 | false  |
+| config          | 组件的配置项     | HuiGridFormConfigItem[] | -      |
+| listData        | 组件的数据源     | obj[]                   | []     |
+| gridFromClass   | 组件动态class    | string                  | mt-10  |
+| isCanDeleteItem | 删除校验方法     | function(item,index)    | -      |
 
-**hua5DynamicConfig说明**
+**HuiGridFormConfigItem说明**
 
 | 属性名      | 说明                          | 类型                                  | 默认值           |
 | ----------- | ----------------------------- | ------------------------------------- | ---------------- |
@@ -43,3 +44,8 @@ HuiGridForm/HuiGridForm
 | ------- | ---------------- | ------------------------------------------------------------ |
 | getData | 获取组件最终数据 | isCheck:boblean，默认值为true,表示校验数据，当传入false的时候，表示不校验数据，返回动态列表数据 |
 
+### 事件（defineEmits）
+
+| 事件名       | 说明           | 回调参数 |
+| :----------- | :------------- | :------- |
+| onRemoveItem | 删除成功后触发 | 删除对象 |
