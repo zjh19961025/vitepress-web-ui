@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { ElInput, ElButton, ElSelect, ElOption } from 'element-plus'
-import type { HuiGridFormProp } from './type.ts'
+import type { HuiGridFormProp, HuiGridFormEmitType } from './type.ts'
 import { objectUtils, testUtils } from "@hua5/hua5-utils"
 import { useDynamicList } from './HuiGridFormHooks.ts'
+// 事件通知
+const emits = defineEmits<HuiGridFormEmitType>()
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiGridForm',
@@ -68,7 +70,14 @@ function onHandleMoveItem(index: number, type: string) {
 }
 
 async function onHandleDelete(index:number) {
+  const item = deepCloneListData.value[index]
+  let isCanDelete = true
+  if (props.isCanDeleteItem) {
+    isCanDelete = await props.isCanDeleteItem(item, index)
+  }
+  if (!isCanDelete) return
   await removeItem(deepCloneListData.value, index)
+  emits('onRemoveItem', item)
   refresSelectDict()
 }
 

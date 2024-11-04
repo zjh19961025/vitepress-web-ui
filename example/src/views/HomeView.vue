@@ -328,6 +328,15 @@ const tableData2 = ref([
   },
 ])
 
+function isCanDeleteItem(item, index) {
+  console.info("🚀 ~ file:HomeView method:isCanDeleteItem line:332 -----", item, index)
+  return true
+}
+
+function onRemoveItem(item) {
+  console.info("🚀 ~ file:HomeView method:isCanDeleteItem line:337 -----", item)
+}
+
 function funTest() {
   console.info("🚀 ~ file:HomeView method:funTest line:305 -----", 222)
 }
@@ -387,7 +396,8 @@ function pointClick(point) {
         is-can-append
         hand-delete
         grid-from-class="mt-0 test c-error"
-        :config="config" :list-data="listData"
+        :config="config"
+        :list-data="listData" :is-can-delete-item="isCanDeleteItem" @on-remove-item="onRemoveItem"
       >
         <template #test-option="{option, prop}">
           {{ option.label + " " + prop + (option.isUsed ? "已占用" : (option.disabled ? "不可用" : "")) }}
