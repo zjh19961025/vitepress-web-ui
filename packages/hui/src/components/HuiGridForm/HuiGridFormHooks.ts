@@ -22,6 +22,9 @@ export const useDynamicList = () => {
     const [, res] = await HuiTool.msgBox('确定删除吗？')
     if (res) {
       arr.splice(idx, 1)
+      return true
+    } else {
+      return false
     }
   }
 

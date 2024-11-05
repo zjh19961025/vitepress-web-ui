@@ -76,7 +76,8 @@ async function onHandleDelete(index:number) {
     isCanDelete = await props.isCanDeleteItem(item, index)
   }
   if (!isCanDelete) return
-  await removeItem(deepCloneListData.value, index)
+  const res = await removeItem(deepCloneListData.value, index)
+  if (!res) return
   emits('onRemoveItem', item)
   refresSelectDict()
 }
