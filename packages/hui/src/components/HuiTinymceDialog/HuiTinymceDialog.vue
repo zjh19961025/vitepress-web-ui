@@ -64,7 +64,7 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <HuiTinymce v-model:tinymceContent="tinymceContent" :height="height" :link-attribute="linkAttribute" />
+    <HuiTinymce v-model="tinymceContent" :height="height" :link-attribute="linkAttribute" />
     <template #footer>
       <div>
         <ElButton @click="close">取 消</ElButton>
