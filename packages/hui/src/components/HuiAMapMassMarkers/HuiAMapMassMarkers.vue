@@ -2,13 +2,14 @@
 import { testUtils } from "@hua5/hua5-utils"
 import { nextTick, onMounted, Ref, ref } from 'vue'
 import { addAMap } from '../AMapConfig.ts'
-const emit = defineEmits(['pointClick'])
 import type { HuiAMapMassMarkersPropsType } from './type.ts'
 
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiAMapMassMarkers',
 })
+
+const emit = defineEmits(['pointClick'])
 
 const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   width: '40vw',
