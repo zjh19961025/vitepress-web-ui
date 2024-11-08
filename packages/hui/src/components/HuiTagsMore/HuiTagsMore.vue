@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ElTooltip, ElPopover } from 'element-plus'
+import HuiTags from "../HuiTags/HuiTags.vue"
 defineOptions({
   name: 'HuiTagsMore',
 })
