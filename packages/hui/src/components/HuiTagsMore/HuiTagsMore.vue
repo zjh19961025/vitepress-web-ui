@@ -45,7 +45,7 @@ onMounted(() => {
 })
 
 function dictItem(item) {
-  return props.dictObj[item]
+  return props.dictObj[item] || {}
 }
 
 </script>
@@ -59,14 +59,14 @@ function dictItem(item) {
           :key="index"
           effect="dark"
           :show-after="200"
-          :content="dictItem(item)?.tip || dictItem(item)?.v"
+          :content="dictItem(item).tip || dictItem(item).v"
           placement="top"
         >
-          <HuiTags class="m-b-5" :text="dictItem(item)?.v" :style="{backgroundColor:dictItem(item)?.color}" />
+          <HuiTags class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
         </ElTooltip>
       </template>
       <template v-else>
-        <HuiTags v-for="item in tagsList" :key="dictItem(item).k" class="m-b-5" :text="dictItem(item)?.v" :style="{backgroundColor:dictItem(item)?.color}" />
+        <HuiTags v-for="item in tagsList" :key="dictItem(item).k" class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
       </template>
     </div>
     <ElPopover
@@ -85,14 +85,14 @@ function dictItem(item) {
             :key="index"
             effect="dark"
             :show-after="200"
-            :content="dictItem(item)?.tip || dictItem(item)?.v"
+            :content="dictItem(item).tip || dictItem(item).v"
             placement="top"
           >
-            <HuiTags class="m-b-5" :text="dictItem(item)?.v" :style="{backgroundColor:dictItem(item)?.color}" />
+            <HuiTags class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
           </ElTooltip>
         </template>
         <template v-else>
-          <HuiTags v-for="item in tagsList" :key="dictItem(item)?.k" class="m-b-5" :text="dictItem(item)?.v" :style="{backgroundColor:dictItem(item)?.color}" />
+          <HuiTags v-for="item in tagsList" :key="dictItem(item).k" class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
         </template>
       </div>
     </ElPopover>
