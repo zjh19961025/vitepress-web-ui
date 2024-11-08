@@ -382,19 +382,19 @@ const sellerTagSelectorObj = ref({
     color: '#CA2020',
   },
   2: {
-    k: '1',
+    k: '2',
     v: '顺丰',
     tip: '顺丰',
     color: '#ca20b3',
   },
   3: {
-    k: '1',
+    k: '3',
     v: '邮政',
     tip: '邮政',
     color: '#0b5662',
   },
   4: {
-    k: '1',
+    k: '4',
     v: '菜鸟',
     tip: '菜鸟',
     color: '#c2eeff',
