@@ -570,7 +570,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
-        getData: (isCheck?: boolean) => any;
+        getData: (isCheck?: boolean) => Promise<any>;
     }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
         onRemoveItem: (item: any) => void;
     }, PublicProps, {
@@ -621,7 +621,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
-        getData: (isCheck?: boolean) => any;
+        getData: (isCheck?: boolean) => Promise<any>;
     }, {}, {}, {}, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -667,7 +667,7 @@ export declare const HuiGridForm: SFCWithInstall<{
 }>> & Readonly<{
     onOnRemoveItem?: (item: any) => any;
 }>, {
-    getData: (isCheck?: boolean) => any;
+    getData: (isCheck?: boolean) => Promise<any>;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRemoveItem: (item: any) => void;
 }, string, {
@@ -750,6 +750,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
+    rules: {
+        type: PropType<any>;
+    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -758,9 +761,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<string>;
         required: true;
         default: string;
-    };
-    rules: {
-        type: PropType<any>;
     };
     selectDic: {
         type: PropType< HuiLineEditDialogComboItem[]>;
@@ -816,6 +816,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
+    rules: {
+        type: PropType<any>;
+    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -824,9 +827,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<string>;
         required: true;
         default: string;
-    };
-    rules: {
-        type: PropType<any>;
     };
     selectDic: {
         type: PropType< HuiLineEditDialogComboItem[]>;
@@ -1320,6 +1320,84 @@ export declare const HuiStringArrayInputDialog: SFCWithInstall<DefineComponent<E
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
+ * 标签
+ */
+export declare const HuiTags: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+    text: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    tagType: {
+        type: PropType<"info" | "success" | "warning" | "danger" | "primary">;
+        default: string;
+    };
+    tagClass: {
+        type: PropType<string>;
+    };
+}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    text: {
+        type: PropType<string>;
+        required: true;
+        default: string;
+    };
+    tagType: {
+        type: PropType<"info" | "success" | "warning" | "danger" | "primary">;
+        default: string;
+    };
+    tagClass: {
+        type: PropType<string>;
+    };
+}>> & Readonly<{}>, {
+    text: string;
+    tagType: "info" | "success" | "warning" | "danger" | "primary";
+}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+
+/**
+ * 标签
+ */
+export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+    tagsList: {
+        type: ArrayConstructor;
+        default: () => any[];
+    };
+    dictObj: {
+        type: () => TagItem;
+        default: () => void;
+    };
+    showTips: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    width: {
+        type: NumberConstructor;
+        default: number;
+    };
+}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    tagsList: {
+        type: ArrayConstructor;
+        default: () => any[];
+    };
+    dictObj: {
+        type: () => TagItem;
+        default: () => void;
+    };
+    showTips: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    width: {
+        type: NumberConstructor;
+        default: number;
+    };
+}>> & Readonly<{}>, {
+    width: number;
+    tagsList: unknown[];
+    dictObj: TagItem;
+    showTips: boolean;
+}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+
+/**
  * 富文本编辑弹窗
  */
 export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes<{
@@ -1507,6 +1585,13 @@ declare interface PayLoadType_2 {
 export declare const selectLoadmore: Directive;
 
 declare type SFCWithInstall<T> = T & Plugin_2;
+
+declare interface TagItem {
+    k: string;
+    v: string;
+    color?: string;
+    tip?: string;
+}
 
 /**
  * 普通弹框通用逻辑

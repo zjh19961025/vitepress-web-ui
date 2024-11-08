@@ -56,6 +56,8 @@ export const sidebar = {
         { text: '动态网格表单', link: '/components/HuiGridForm' },
         { text: '详情表格', link: '/components/HuiDataView' },
         { text: '地图海量标记', link: '/components/HuiAMapMassMarkers' },
+        { text: '标签', link: '/components/HuiTags' },
+        { text: '标签详情', link: '/components/HuiTagsMore' },
       ],
     },
     {

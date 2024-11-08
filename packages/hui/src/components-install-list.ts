@@ -14,6 +14,8 @@ import HuiGridForm from "./components/HuiGridForm"
 import HuiDataView from "./components/HuiDataView"
 import HuiRegionTreeSelect from "./components/HuiRegionTreeSelect"
 import HuiAMapMassMarkers from "./components/HuiAMapMassMarkers"
+import HuiTags from "./components/HuiTags"
+import HuiTagsMore from "./components/HuiTagsMore"
 
 export default [
   HuiLineEditDialog,
@@ -32,4 +34,6 @@ export default [
   HuiDataView,
   HuiRegionTreeSelect,
   HuiAMapMassMarkers,
+  HuiTags,
+  HuiTagsMore,
 ]
