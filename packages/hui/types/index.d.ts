@@ -24,6 +24,10 @@ declare const _default: {
 };
 export default _default;
 
+export declare const formDialogPropsDef: {
+    permission: ObjectConstructor;
+};
+
 /**
  * 组件导出
  */
@@ -531,6 +535,29 @@ export declare interface HuiDelegate {
      * 其他配置
      */
     [key: string]: any;
+}
+
+declare interface HuiFormDialogParamsPermission {
+    /**
+     * 新增接口需要的权限code
+     */
+    postCode?: string;
+    /**
+     * 编辑接口需要的权限code
+     */
+    putCode?: string;
+    /**
+     * 新增接口没有权限的时候提示的文字
+     */
+    postCodeTip?: string;
+    /**
+     * 编辑接口没有权限的时候提示的文字
+     */
+    putCodeTip?: string;
+    /**
+     * 权限处理方法
+     */
+    checkRight?: (type: string) => boolean;
 }
 
 /**
@@ -1620,7 +1647,7 @@ export declare const useHuiDialog: () => {
  * formDialogTest.value?.open()
  * <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="beforeOpen" @close="beforeClose" />
  */
-export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post, permissionConfig, }: UseHuiFormDialogParams) => {
+export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubleConfirm, doubleConfirmConfig, beforeSubmit, submitCheck, afterSubmit, doubleConfirmAction, put, post, permission, }: UseHuiFormDialogParams) => {
     show: Ref<boolean, boolean>;
     form: Ref<{
         [x: string]: any;
@@ -1663,28 +1690,7 @@ declare interface UseHuiFormDialogParams {
     /**
      * 权限相关配置
      */
-    permissionConfig?: {
-        /**
-         * 新增接口需要的权限code
-         */
-        postCode?: string;
-        /**
-         * 编辑接口需要的权限code
-         */
-        putCode?: string;
-        /**
-         * 新增接口没有权限的时候提示的文字
-         */
-        postCodeTip?: string;
-        /**
-         * 编辑接口没有权限的时候提示的文字
-         */
-        putCodeTip?: string;
-        /**
-         * 权限处理方法
-         */
-        checkRight?: (type: string) => boolean;
-    };
+    permission?: HuiFormDialogParamsPermission;
     /**
      * 表单格式
      */

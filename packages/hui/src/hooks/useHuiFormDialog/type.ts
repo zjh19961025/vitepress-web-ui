@@ -20,6 +20,29 @@ export interface PayLoadType {
   width?: number
 }
 
+export interface HuiFormDialogParamsPermission{
+  /**
+   * 新增接口需要的权限code
+   */
+  postCode?:string,
+  /**
+   * 编辑接口需要的权限code
+   */
+  putCode?:string,
+  /**
+   * 新增接口没有权限的时候提示的文字
+   */
+  postCodeTip?:string,
+  /**
+   * 编辑接口没有权限的时候提示的文字
+   */
+  putCodeTip?:string,
+  /**
+   * 权限处理方法
+   */
+  checkRight?:(type:string) => boolean,
+}
+
 export interface UseHuiFormDialogParams {
   /**
    * 编辑接口
@@ -32,28 +55,7 @@ export interface UseHuiFormDialogParams {
   /**
    * 权限相关配置
    */
-  permissionConfig?:{
-    /**
-     * 新增接口需要的权限code
-     */
-    postCode?:string,
-    /**
-     * 编辑接口需要的权限code
-     */
-    putCode?:string,
-    /**
-     * 新增接口没有权限的时候提示的文字
-     */
-    postCodeTip?:string,
-    /**
-     * 编辑接口没有权限的时候提示的文字
-     */
-    putCodeTip?:string,
-    /**
-     * 权限处理方法
-     */
-    checkRight?:(type:string) => boolean,
-  },
+  permission?: HuiFormDialogParamsPermission,
   /**
    * 表单格式
    */

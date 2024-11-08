@@ -26,7 +26,7 @@ export const useHuiFormDialog = function({
   doubleConfirmAction,
   put,
   post,
-  permissionConfig = {},
+  permission = {},
 }: UseHuiFormDialogParams,
 ) {
   const instance = getCurrentInstance()
@@ -60,12 +60,12 @@ export const useHuiFormDialog = function({
   }
 
   function checkPermission() {
-    if (permissionConfig && permissionConfig?.checkRight) {
-      return permissionConfig.checkRight(apiType.value)
+    if (permission && permission?.checkRight) {
+      return permission.checkRight(apiType.value)
     }
-    const code = apiType.value === 'put' ? permissionConfig?.putCode : permissionConfig?.postCode
+    const code = apiType.value === 'put' ? permission?.putCode : permission?.postCode
     if (!code) return true
-    const tip = apiType.value === 'put' ? permissionConfig?.putCodeTip : permissionConfig?.postCodeTip
+    const tip = apiType.value === 'put' ? permission?.putCodeTip : permission?.postCodeTip
     const result = window.huiDelegate.permission[code] ?? false
     if (!result) {
       ElMessage.error(tip || '暂无权限，请联系管理员！')

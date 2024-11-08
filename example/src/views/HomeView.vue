@@ -400,6 +400,11 @@ const sellerTagSelectorObj = ref({
     color: '#c2eeff',
   },
 })
+function checkRight(type) {
+  console.info("🚀 ~ file:FormDialogTest method:checkRight line:76 -----", type)
+  ElMessage.info('外部执行逻辑')
+  return true
+}
 </script>
 
 <template>
@@ -528,7 +533,7 @@ const sellerTagSelectorObj = ref({
       ref="normalDialogTest" top="40vh" width="60vw" @open="onNormalDialogOpen"
       @close="onNormalDialogClose"
     />
-    <FormDialogTest ref="formDialogTest" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
+    <FormDialogTest ref="formDialogTest" :permission="{postCode:'editUserCode',putCode:'editUserCode',putCodeTip:'putCodeTip',checkRight}" top="20vh" width="40vw" @open="onFormDialogOpen" @close="onFormDialogClose" />
     <HuiLineEditDialog
       ref="lineEditDialog" prop="name" title="修改优惠券名称" label="优惠券名称"
       type="select" :rules="[{ required: true, message: '请选择批量下次跟进时间' , trigger: 'blur' }]"

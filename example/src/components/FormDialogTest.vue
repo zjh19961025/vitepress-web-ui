@@ -7,6 +7,7 @@
     :modal-append-to-body="false"
     append-to-body
     @close="beforeClose"
+    @open="handOpen"
   >
     <el-form
       ref="formRef"
@@ -50,8 +51,11 @@
 </template>
 
 <script setup lang="ts">
-import { HuiRules, useHuiFormDialog } from '@hua5/hua5-web-ui'
+import { formDialogPropsDef, HuiRules, useHuiFormDialog } from '@hua5/hua5-web-ui'
 import { ElMessageBox } from 'element-plus'
+const { permission = {}} = defineProps({
+  ...formDialogPropsDef,
+})
 const formModel = {
   testProp: "http://127.0.0.1:5173/",
   jsonProp: '{"test": 1}',
@@ -62,6 +66,9 @@ const formModel = {
   phone: 12345678901,
   numRange: 5,
 }
+function handOpen() {
+  console.info("🚀 ~ file:FormDialogTest method:handOpen line:70 -----", permission)
+}
 const {
   show, open, close, form, formRef,
   formLoading, confirmLoading,
@@ -70,13 +77,8 @@ const {
   isNeedDoubleConfirm: false,
   beforeSubmit, submitCheck, afterSubmit,
   // doubleConfirmAction,
-  put, post, permissionConfig: { postCode: 'addUserCode1', putCode: 'addUserCode1', postCodeTip: '无新增权限', putCodeTip: '无编辑权限' },
+  put, post, permission,
 })
-function checkRight(type) {
-  console.info("🚀 ~ file:FormDialogTest method:checkRight line:76 -----", type)
-  ElMessage.info('外部执行逻辑')
-  return false
-}
 const rules = {
   testProp: HuiRules.urlRule(),
   jsonProp: [HuiRules.jsonRule()],
