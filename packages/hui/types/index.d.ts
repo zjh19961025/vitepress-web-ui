@@ -570,7 +570,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
-        getData: (isCheck?: boolean) => Promise<any>;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
         onRemoveItem: (item: any) => void;
     }, PublicProps, {
@@ -621,7 +621,7 @@ export declare const HuiGridForm: SFCWithInstall<{
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
-        getData: (isCheck?: boolean) => Promise<any>;
+        getData: (isCheck?: boolean) => any;
     }, {}, {}, {}, {
         isCanAppend: boolean;
         handSort: boolean;
@@ -667,7 +667,7 @@ export declare const HuiGridForm: SFCWithInstall<{
 }>> & Readonly<{
     onOnRemoveItem?: (item: any) => any;
 }>, {
-    getData: (isCheck?: boolean) => Promise<any>;
+    getData: (isCheck?: boolean) => any;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
     onRemoveItem: (item: any) => void;
 }, string, {
@@ -750,9 +750,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
-    rules: {
-        type: PropType<any>;
-    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -761,6 +758,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<string>;
         required: true;
         default: string;
+    };
+    rules: {
+        type: PropType<any>;
     };
     selectDic: {
         type: PropType< HuiLineEditDialogComboItem[]>;
@@ -816,9 +816,6 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
-    rules: {
-        type: PropType<any>;
-    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -827,6 +824,9 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<string>;
         required: true;
         default: string;
+    };
+    rules: {
+        type: PropType<any>;
     };
     selectDic: {
         type: PropType< HuiLineEditDialogComboItem[]>;
