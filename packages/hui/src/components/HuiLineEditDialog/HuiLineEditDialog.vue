@@ -13,13 +13,12 @@
       ref="formRef"
       :model="form"
       :rules="inputRules"
-      size="small"
       v-bind="formAttr"
       require-asterisk-position="right"
-      class="mt-30 fw-bold w-100%"
+      class="mt-20"
       :label-width="labelWidth"
     >
-      <ElFormItem :label="label" prop="inputData" class="flex w-100%">
+      <ElFormItem :label="label" prop="inputData">
         <!-- input 输入栏 -->
         <el-input v-if="isInputType" v-bind="attr" ref="inputRef" v-model.trim="form.inputData" :type="type" :placeholder="inputPlaceHolder" clearable autosize @input="valueChange" @focus="valueChange" />
 
@@ -46,8 +45,8 @@
 
     <template #footer>
       <div>
-        <ElButton size="default" class="!text-[theme(colors.primary)] !border !border-1 !border-[theme(colors.primary)] !px-16 !text-14" @click="handleCancel">取 消</ElButton>
-        <ElButton type="primary" size="default" :loading="confirmLoading" class="w-120 !ml-20" @click="handleSubmit">确 定</ElButton>
+        <ElButton size="large" class="!c-primary !border !border-1 !border-[theme(colors.primary)] !px-16 !text-14" @click="handleCancel">取 消</ElButton>
+        <ElButton size="large" type="primary" :loading="confirmLoading" class="w-120 !ml-20" @click="handleSubmit">确 定</ElButton>
       </div>
     </template>
   </ElDialog>
