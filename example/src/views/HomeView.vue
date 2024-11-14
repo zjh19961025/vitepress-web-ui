@@ -420,6 +420,9 @@ function checkRight(type) {
   </div>
   <div class="">
     <div class=" flex-y mlr-10">
+      <div class="icon-com i-com-jiantou-xia-shixin" />
+      <div class="icon-com i-com-lajitong" />
+
       <div class="admin-remark">admin-remark</div>
       <div class="admin-link">admin-link</div>
       <div class=" text-regular bg-normal b-(dark solid 1) line-1 w-130">unocss color test 123</div>
