@@ -74,6 +74,7 @@ const props = withDefaults(defineProps<HuiLineEditDialogPropsType>(), {
   labelWidth: '94',
   attr: () => { return {} },
   formAttr: () => { return {} },
+  permission: () => { return {} },
 })
 // 事件通知
 const emits = defineEmits<HuiLineEditDialogEmitType>()
@@ -98,6 +99,8 @@ const valueChange = () => {
 }
 
 const handleSubmit = async() => {
+  const isHavePermission = checkPermission()
+  if (!isHavePermission) return
   formRef.value.validate(async(valid) => {
     if (valid) {
       row.value[props.prop] = form.inputData
@@ -121,6 +124,19 @@ const handleSubmit = async() => {
       return false
     }
   })
+}
+
+function checkPermission() {
+  const { code, tip, checkRight } = props.permission
+  if (checkRight) {
+    return checkRight()
+  }
+  if (!code) return true
+  const result = window.huiDelegate.permission[code] ?? false
+  if (!result) {
+    ElMessage.error(tip || '暂无权限，请联系管理员！')
+  }
+  return result
 }
 
 const beforeOpen = () => {
