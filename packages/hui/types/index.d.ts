@@ -777,6 +777,14 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
+    permission: {
+        type: PropType<{
+            code?: string;
+            tip?: string;
+            checkRight?: () => boolean;
+        }>;
+        default: () => {};
+    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -843,6 +851,14 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
         type: PropType<boolean>;
         default: boolean;
     };
+    permission: {
+        type: PropType<{
+            code?: string;
+            tip?: string;
+            checkRight?: () => boolean;
+        }>;
+        default: () => {};
+    };
     prop: {
         type: PropType<string>;
         required: true;
@@ -891,6 +907,11 @@ export declare const HuiLineEditDialog: SFCWithInstall<DefineComponent<ExtractPr
     title: string;
     type: string;
     isNeedDoubleConfirm: boolean;
+    permission: {
+        code?: string;
+        tip?: string;
+        checkRight?: () => boolean;
+    };
     labelWidth: string;
     selectDic: HuiLineEditDialogComboItem[];
     isSelectMuti: boolean;
