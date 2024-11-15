@@ -63,6 +63,15 @@ export interface HuiLineEditDialogPropsType {
     formAttr:{
         [key: string]: any
     }
+    /**
+     * 权限配置
+     */
+    permission?:{
+     code?: string,
+     tip?: string,
+     checkRight?: () => boolean
+  }
+
   }
 
 /**
