@@ -87,8 +87,7 @@ const onConfirmClick = () => {
   closeBox()
 }
 
-// 关闭动画处理时间
-const duration = '0.5s'
+// 关闭动画处理时const duration = '0.2s'
 /**
  * 关闭事件,保留动画执行时长
  */
