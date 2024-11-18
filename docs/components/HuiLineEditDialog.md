@@ -12,6 +12,11 @@ HuiLineEditDialog/LineEditSelect
 HuiLineEditDialog/LineEditInputOrTextarea
 :::
 
+### 权限校验
+:::demo
+HuiLineEditDialog/LineEditPermission
+:::
+
 ### 属性（props）
 
 | 属性名              | 说明                         | 类型                         | 默认值               |
@@ -28,6 +33,16 @@ HuiLineEditDialog/LineEditInputOrTextarea
 | doubleConfirmTips   | 二次确认说明                 | string                       | 确定要执行该操作吗？ |
 | attr                | 表单中select以及input的属性  | obj                          | -                    |
 | formAttr            | el-form的其他属性            | obj                          | -                    |
+| permission          | 表单权限配置对象，见下方说明  | object                      | -                     |
+
+
+permission对象参数说明
+
+| 属性        | 说明                             | 类型     | 默认值 |
+| ----------- | -------------------------------- | -------- | ------ |
+| code    | 需要的权限code           | string   | -      |
+| tip | 没有权限的时候提示的文字 | string   | -      |
+| checkRight  | 权限处理方法                     | function | -      |
 
 ### 方法（defineExpose）
 
