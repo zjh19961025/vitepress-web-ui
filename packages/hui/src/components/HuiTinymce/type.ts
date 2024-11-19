@@ -23,6 +23,11 @@ export interface HuiTinymcePropsType {
    * linkAttribute 接收参数的value可以是一个单词,如果是两个单词及以上组成必须用_连接（例:mp_appid）不能使用驼峰
    */
   linkAttribute: HuiTinymceLink[]
+  permission?: {
+    code?:'',
+    checkRight?:()=>boolean;
+    tip?:string
+  },
 }
 
 export interface HuiTinymcehooksPayloadBase {
