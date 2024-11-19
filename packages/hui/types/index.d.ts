@@ -526,10 +526,11 @@ export declare interface HuiDelegate {
         serviceHost: string;
     };
     /**
-     * 权限列表
+     * 获取按钮权限
+     * @returns
      */
-    permission?: {
-        [key: string]: boolean;
+    getBtnPermission?: () => {
+        [key: string]: any;
     };
     /**
      * 其他配置
@@ -1721,7 +1722,7 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     resetFormFields: () => void;
     handleSubmit: () => void;
     handleCancel: () => void;
-    checkPermission: () => boolean;
+    checkPermission: () => any;
 };
 
 declare interface UseHuiFormDialogConfirm {
