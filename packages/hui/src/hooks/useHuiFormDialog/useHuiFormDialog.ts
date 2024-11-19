@@ -66,7 +66,7 @@ export const useHuiFormDialog = function({
     const code = apiType.value === 'put' ? permission?.putCode : permission?.postCode
     if (!code) return true
     const tip = apiType.value === 'put' ? permission?.putCodeTip : permission?.postCodeTip
-    const result = window.huiDelegate.permission[code] ?? false
+    const result = window.huiDelegate.getBtnPermission()[code] ?? false
     if (!result) {
       ElMessage.error(tip || '暂无权限，请联系管理员！')
     }
