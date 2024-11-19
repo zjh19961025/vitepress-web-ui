@@ -139,6 +139,7 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     modelValue: PropType<any>;
     iconPath: {
         type: PropType<string>;
+        default: string;
     };
     value: {
         type: PropType<any>;
@@ -161,6 +162,7 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     };
     iconClass: {
         type: PropType<string>;
+        default: string;
     };
 }>, {
     loadMap: () => void;
@@ -171,6 +173,7 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     modelValue: PropType<any>;
     iconPath: {
         type: PropType<string>;
+        default: string;
     };
     value: {
         type: PropType<any>;
@@ -193,12 +196,15 @@ export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<Extrac
     };
     iconClass: {
         type: PropType<string>;
+        default: string;
     };
 }>> & Readonly<{}>, {
+    iconPath: string;
     width: string;
     height: string;
     disabled: boolean;
     showInput: boolean;
+    iconClass: string;
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
