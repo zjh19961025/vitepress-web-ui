@@ -1460,6 +1460,13 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1479,6 +1486,13 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         type: PropType<string | number>;
         required: true;
         default: string;
+    };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
     };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
@@ -1508,6 +1522,14 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+        default: () => {};
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1532,6 +1554,14 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+        default: () => {};
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1545,6 +1575,11 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
 }>, {
     width: string;
     height: string | number;
+    permission: {
+        code?: "";
+        checkRight?: () => boolean;
+        tip?: string;
+    };
     linkAttribute: HuiTinymceLink[];
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
