@@ -42,7 +42,7 @@ permission对象参数说明
 | ----------- | -------------------------------- | -------- | ------ |
 | code    | 需要的权限code           | string   | -      |
 | tip | 没有权限的时候提示的文字 | string   | -      |
-| checkRight  | 权限处理方法                     | function | -      |
+| checkRight  | 权限处理方法                     | （）=> boolean | -      |
 
 ### 方法（defineExpose）
 
