@@ -16,6 +16,8 @@ const props = withDefaults(defineProps<HuiAMapSelectAddressPropsType>(), {
   showInput: false,
   width: '40vw',
   height: '40vh',
+  iconPath: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+  iconClass: 'w-19 h-32',
 })
 
 /** 选择的地址位置 */
@@ -83,35 +85,47 @@ function clearMarker() {
     marker.value = null
   }
 }
+// 添加标记点
+function addAddressMarker(address: string) {
+  // 自定义点标记内容
+  const markerContent = document.createElement('div')
+  // 点标记中的图标
+  const markerImg = document.createElement('img')
+  // 图标样式
+  markerImg.className = props.iconClass
+  // 图标路径
+  markerImg.src = props.iconPath
+  markerContent.appendChild(markerImg)
+  // 点标记中的文本
+  if (!address) return
+  const markerSpan = document.createElement('span')
+  markerSpan.className = 'AMap__marker'
+  markerSpan.innerHTML = address
+  markerContent.appendChild(markerSpan)
+  marker.value.setContent(markerContent) // 更新点标记内容
+}
 
 function getAddress(longitude: number, latitude: number) {
   // eslint-disable-next-line new-cap
-  new window.AMap.service('AMap.Geocoder', () => {
-    const geocoder = new window.AMap.Geocoder({})
-    geocoder.getAddress([longitude, latitude], (status:string, result:any) => {
+  // 加载 Geocoder 插件
+  window.AMap.plugin('AMap.Geocoder', function() {
+    // 创建一个 Geocoder 实例
+    const geocoder = new window.AMap.Geocoder()
+
+    // 使用 Geocoder 实例获取地址
+    geocoder.getAddress([longitude, latitude], (status, result) => {
       if (status === 'complete' && result.info === 'OK') {
         const regeocode = result.regeocode
         poi.value = Object.assign(regeocode, {
           longitude,
           latitude,
         })
-        // 自定义点标记内容
-        const markerContent = document.createElement('div')
-        // 点标记中的图标
-        const markerImg = document.createElement('img')
-        markerImg.style.width = '19px'
-        markerImg.style.height = '34px'
-        markerImg.src =
-            '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
-        markerContent.appendChild(markerImg)
-        // 点标记中的文本
-        const markerSpan = document.createElement('span')
-        markerSpan.className = 'AMap__marker'
+        // 标记位置
         nextTick(() => {
-          markerSpan.innerHTML = poi.value.formattedAddress
-          markerContent.appendChild(markerSpan)
-          marker.value.setContent(markerContent) // 更新点标记内容
+          addAddressMarker(poi.value.formattedAddress)
         })
+      } else {
+        console.error('获取地址失败', result)
       }
     })
   })
@@ -119,8 +133,8 @@ function getAddress(longitude: number, latitude: number) {
 function addClick() {
   map.value.on('click', (e:any) => {
     const lnglat = e.lnglat
-    const P = lnglat.P || lnglat.Q
-    const R = lnglat.R
+    const P = lnglat.KT || lnglat.lat
+    const R = lnglat.KL || lnglat.lng
     addMarker(R, P)
     getAddress(R, P)
   })
@@ -138,7 +152,9 @@ function init(callback: () => void) {
     })(),
   })
   map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
-  initPoip()
+  setTimeout(() => {
+    initPoip()
+  })
   addClick()
   callback()
 }
@@ -162,14 +178,16 @@ function handlePoiPicked(poiResult: any) {
   clearMarker()
   const source = poiResult.source
   const poiItem = poiResult.item
-  poi.value = Object.assign(poiItem, {
-    formattedAddress: poiItem.name,
-    longitude: poiItem.location?.R,
-    latitude: poiItem.location?.P,
+  nextTick(() => {
+    poi.value = Object.assign(poiItem, {
+      formattedAddress: poiItem.name,
+      longitude: poiItem.location?.KL,
+      latitude: poiItem.location?.kT,
+    })
+    if (source !== 'search') {
+      window.poiPicker.searchByKeyword(poiItem.name)
+    }
   })
-  if (source !== 'search') {
-    window.poiPicker.searchByKeyword(poiItem.name)
-  }
 }
 function loadMap() {
   addAMap().then(() => {
