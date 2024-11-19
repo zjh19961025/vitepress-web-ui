@@ -5,6 +5,8 @@ import FormDialogTest from "@/components/FormDialogTest.vue"
 import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
 import { ref } from "vue"
 import { id } from "element-plus/es/locales.mjs"
+import { hlibDelegate } from "@/delegate/HlibDelegate"
+import { huiDelegate, testPermission } from "@/delegate/HuiDelegate"
 
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
@@ -405,6 +407,12 @@ function checkRight(type) {
   ElMessage.info('外部执行逻辑')
   return false
 }
+
+// 延迟删除权限，测试
+setTimeout(() => {
+  delete testPermission.addUserCode
+  console.log("permission delete", testPermission, huiDelegate.getBtnPermission())
+}, 15000)
 
 </script>
 

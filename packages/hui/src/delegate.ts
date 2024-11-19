@@ -18,11 +18,10 @@ export interface HuiDelegate {
     serviceHost: string,
   },
   /**
-   * 权限列表
-   */
-  permission?:{
-    [key:string]:boolean,
-  }
+     * 获取按钮权限
+     * @returns
+     */
+  getBtnPermission?: () => {[key: string]: any;};
   /**
    * 其他配置
    */
@@ -46,16 +45,15 @@ window.huiDelegate = {
   getRegionTree: () => {
     return []
   },
+  getBtnPermission: () => {
+    return {}
+  },
   putOss: async() => {
     return [{ msg: "delegate未实现上传接口" }, null]
   },
   amapConfig: {
     key: '',
     serviceHost: "",
-  },
-  permission: {
-    addUserCode: true,
-    editUserCode: true,
   },
 }
 export const defaultDelegate = window.huiDelegate

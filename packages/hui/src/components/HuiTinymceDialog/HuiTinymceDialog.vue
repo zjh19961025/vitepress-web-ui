@@ -47,7 +47,7 @@ function checkPermission() {
     return checkRight()
   }
   if (!code) return true
-  const result = window.huiDelegate.permission[code] ?? false
+  const result = window.huiDelegate.getBtnPermission()[code] ?? false
   if (!result) {
     ElMessage.error(tip || '暂无权限，请联系管理员！')
   }
