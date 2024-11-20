@@ -753,6 +753,8 @@ declare interface HuiGridFormConfigItem {
     reselected?: boolean;
     /** 是否显示 x */
     clearable?: boolean;
+    /** 是否还有option选项可以选择 */
+    isAllUsed?: boolean;
 }
 
 /**
