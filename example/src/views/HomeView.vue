@@ -49,6 +49,7 @@ const listData = ref([
 const testDict = ref([
   { label: 'ceshi', value: 1, disabled: true },
   { label: 'ceshi2', value: 2 },
+  { label: 'ceshi3', value: 3 },
 ])
 
 setTimeout(() => {
