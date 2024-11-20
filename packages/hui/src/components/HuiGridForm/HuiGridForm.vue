@@ -139,8 +139,9 @@ function refresSelectDict() {
   }
   // dict disabled 设置
   for (const key in selectObj) {
-    const valueList = selectObj[key].valueList
-    const dict = selectObj[key].configItem.dict
+    const selectObjItem = selectObj[key]
+    const valueList = selectObjItem.valueList
+    const dict = selectObjItem.configItem.dict
     // 获取 props.config 中的 dict
     const propsItem = props.config.find((item) => item.prop == key)
     const propsItemDict = propsItem?.dict || []
@@ -149,10 +150,14 @@ function refresSelectDict() {
       // 如果 props dict 中 不可用，那么就不可用，否则，看是否已经被选中
       const isUsed = valueList.includes(dictItem.value) // 是否已经被选择
       const propsDictItem = propsItemDict.find((item) => item.value == dictItem.value)
-      dictItem.disabled = propsDictItem?.disabled || isUsed
-      dictItem.isUsed = isUsed
+      dictItem.disabled = propsDictItem?.disabled
+      dictItem.isUsed = isUsed && !dictItem.disabled
     }
   }
+}
+
+function isShowSelectNoData(dict) {
+  return !dict.some(item => item.disabled || !item.isUsed)
 }
 
 defineExpose({ getData })
@@ -185,11 +190,15 @@ defineExpose({ getData })
             @change="refresSelectDict"
           >
             <ElOption
-              v-for="option in el.dict" :key="option.value"
+              v-for="option in el.dict"
+              v-show="!option.isUsed" :key="option.value"
               :label="option.label" :value="option.value" :disabled="option.disabled"
             >
               <slot :name="`${el.prop}-option`" :option="option" :prop="el.prop" :prop-config="el" />
             </ElOption>
+            <div v-if="isShowSelectNoData(el.dict)" class="h-25 flex items-center justify-center c-disabled">
+              <div>暂无数据</div>
+            </div>
           </ElSelect>
 
           <el-input
