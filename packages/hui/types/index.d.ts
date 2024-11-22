@@ -526,10 +526,11 @@ export declare interface HuiDelegate {
         serviceHost: string;
     };
     /**
-     * 权限列表
+     * 获取按钮权限
+     * @returns
      */
-    permission?: {
-        [key: string]: boolean;
+    getBtnPermission?: () => {
+        [key: string]: any;
     };
     /**
      * 其他配置
@@ -752,6 +753,8 @@ declare interface HuiGridFormConfigItem {
     reselected?: boolean;
     /** 是否显示 x */
     clearable?: boolean;
+    /** 是否还有option选项可以选择 */
+    isAllUsed?: boolean;
 }
 
 /**
@@ -1460,6 +1463,13 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1479,6 +1489,13 @@ export declare const HuiTinymce: SFCWithInstall<DefineComponent<ExtractPropTypes
         type: PropType<string | number>;
         required: true;
         default: string;
+    };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
     };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
@@ -1508,6 +1525,14 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+        default: () => {};
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1532,6 +1557,14 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
         required: true;
         default: string;
     };
+    permission: {
+        type: PropType<{
+            code?: "";
+            checkRight?: () => boolean;
+            tip?: string;
+        }>;
+        default: () => {};
+    };
     linkAttribute: {
         type: PropType< HuiTinymceLink[]>;
         required: true;
@@ -1545,6 +1578,11 @@ export declare const HuiTinymceDialog: SFCWithInstall<DefineComponent<ExtractPro
 }>, {
     width: string;
     height: string | number;
+    permission: {
+        code?: "";
+        checkRight?: () => boolean;
+        tip?: string;
+    };
     linkAttribute: HuiTinymceLink[];
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
@@ -1686,7 +1724,7 @@ export declare const useHuiFormDialog: ({ formModel, showSuccessTip, isNeedDoubl
     resetFormFields: () => void;
     handleSubmit: () => void;
     handleCancel: () => void;
-    checkPermission: () => boolean;
+    checkPermission: () => any;
 };
 
 declare interface UseHuiFormDialogConfirm {
