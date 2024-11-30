@@ -20,7 +20,7 @@ const row = defineModel<{[key:string]: string}>('row')
 const emit = defineEmits<HuiLineEditPopoverEmitType>()
 
 const show = ref(false)
-const data = ref(null)
+const data = ref('')
 const inputRef = ref<InstanceType<typeof ElInput> | null>(null)
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 
@@ -36,8 +36,8 @@ onMounted(() => {
 })
 
 function editShow() {
+  row.value[field] = data.value
   setTimeout(() => {
-    row.value[field] = data.value
     inputRef.value?.focus()
   }, 10)
 }
@@ -50,6 +50,7 @@ async function onFocus(event) {
 function confirm() {
   formRef.value?.validate((valid) => {
     if (valid) {
+      data.value = row.value[field]
       emit('confirm', toValue(row))
       close()
     }
