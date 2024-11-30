@@ -20,6 +20,7 @@ const row = defineModel<{[key:string]: string}>('row')
 const emit = defineEmits<HuiLineEditPopoverEmitType>()
 
 const show = ref(false)
+const data = ref(null)
 const inputRef = ref<InstanceType<typeof ElInput> | null>(null)
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 
@@ -30,6 +31,7 @@ const rules = {
 }
 
 onMounted(() => {
+  data.value = row.value[field]
   window.addEventListener('keyup', handleKeyUp)
 })
 
@@ -84,7 +86,7 @@ onBeforeUnmount(() => {
       <div v-if="show" class="flex">
         <el-form-item :prop="field">
           <el-input
-            ref="inputRef" v-model="row[field]" class="!m-2 p-0" size="small"
+            ref="inputRef" v-model="row[field]" class="!m-2 p-0"
             @keyup.enter.prevent="confirm"
             @focus="onFocus($event)"
           />
@@ -95,17 +97,16 @@ onBeforeUnmount(() => {
     </el-form>
     <template #reference>
       <span :class="[baseClass, disabled ? 'cursor-not-allowed' : 'cursor-pointer']">
-        <slot>{{ row[field] }}</slot>
+        <slot>{{ data }}</slot>
       </span>
     </template>
   </el-popover>
 </template>
 
 <style lang="scss" scoped>
-:deep(.el-input--small){
-  width: 102px;
-}
 :deep(.el-input__wrapper){
   padding: 0 15px !important;
+  width: 72px;
+  height: 28px;
 }
 </style>
