@@ -37,6 +37,7 @@ onMounted(() => {
 
 function editShow() {
   setTimeout(() => {
+    row.value[field] = data.value
     inputRef.value?.focus()
   }, 10)
 }
@@ -86,7 +87,7 @@ onBeforeUnmount(() => {
       <div v-if="show" class="flex">
         <el-form-item :prop="field">
           <el-input
-            ref="inputRef" v-model="row[field]" class="!m-2 p-0"
+            ref="inputRef" v-model="row[field]" class="!m-2 p-0" size="small"
             @keyup.enter.prevent="confirm"
             @focus="onFocus($event)"
           />
@@ -104,9 +105,11 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
+:deep(.el-input--small){
+  width: 102px;
+  height: 28px;
+}
 :deep(.el-input__wrapper){
   padding: 0 15px !important;
-  width: 72px;
-  height: 28px;
 }
 </style>
