@@ -17,5 +17,5 @@ export interface HuiCountDownButtonPropsType {
 }
 
 export type HuiCountDownButtonEmitType = {
-  "click": []
+  "click": [callback: (isStart?: boolean) => void]
 }
