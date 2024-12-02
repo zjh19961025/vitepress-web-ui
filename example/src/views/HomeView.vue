@@ -172,11 +172,9 @@ function handleStringArrayInputSubmit(id, inputInfo) {
   console.log("handleStringArrayInputSubmit", id, inputInfo)
 }
 
-function onGetCodeClick() {
+function onGetCodeClick(done) {
   console.log('开始倒计时了')
-  setTimeout(() => {
-    countDownButton.value.resetState()
-  }, 10000)
+  done(true)
 }
 
 function onRegionChange(value) {
