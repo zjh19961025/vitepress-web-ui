@@ -22,8 +22,12 @@ const leftCount = ref(0)
 let countDowntimer = null
 
 function handleClick() {
-  startcountDown()
-  emit('click')
+  emit('click', done)
+}
+
+// 是否开始倒计时回调函数
+function done(isStart = true) {
+  isStart && startcountDown()
 }
 
 function startcountDown() {
