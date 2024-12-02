@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const countDownButton = ref<any>(null)
 
-function onGetCodeClick() {
-  console.log('开始倒计时了, 10秒钟后倒计时自动结束')
+function onGetCodeClick(done) {
+  console.log('开始倒计时了, 3秒钟后倒计时自动结束')
   setTimeout(() => {
-    countDownButton.value?.resetState()
-  }, 10000)
+    done()
+  }, 3000)
 }
 </script>
 

@@ -311,7 +311,7 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<ExtractP
 }>, {
     resetState: () => void;
 }, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
-    click: () => void;
+    click: (callback: (isStart?: boolean) => void) => void;
 }, string, PublicProps, Readonly< ExtractPropTypes<{
     title: {
         type: PropType<string>;
@@ -342,7 +342,7 @@ export declare const HuiCountDownButton: SFCWithInstall<DefineComponent<ExtractP
         default: string;
     };
 }>> & Readonly<{
-    onClick?: () => any;
+    onClick?: (callback: (isStart?: boolean) => void) => any;
 }>, {
     type: "button" | "text";
     timeCount: string | number;

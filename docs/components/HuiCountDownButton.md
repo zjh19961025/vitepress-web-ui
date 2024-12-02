@@ -33,5 +33,5 @@ HuiCountDownButton/CountDownButton
 
 | 事件名 | 说明       | 回调参数 |
 | ------ | ---------- | -------- |
-| click  | 点击时触发 | -        |
+| click  | 点击时触发 | done()、done(true)、done(false) 默认参数为 true |
 
