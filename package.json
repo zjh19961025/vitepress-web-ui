@@ -1,5 +1,5 @@
 {
-  "packageManager": "pnpm@9.14.1+sha256.9978d5f40d4f376b054cf8c000cf8c326284344281e3c9bbf4e3d6f153b0e8de",
+  "packageManager": "pnpm@9.14.4+sha256.26a726b633b629a3fabda006f696ae4260954a3632c8054112d7ae89779e5f9a",
   "description": "web组件库",
   "workspaces": [
     "packages/*",
