@@ -26,7 +26,18 @@ const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 
 const rules = {
   [field]: [
-    { required: true, message: '请输入排序值', trigger: 'blur' },
+    {
+      validator: (rule, value, callback) => {
+        if (!value) {
+          callback(new Error('请输入排序值'))
+        } else if (isNaN(value)) {
+          callback(new Error('排序值必须是数字'))
+        } else {
+          callback()
+        }
+      },
+      trigger: 'blur',
+    },
   ],
 }
 
