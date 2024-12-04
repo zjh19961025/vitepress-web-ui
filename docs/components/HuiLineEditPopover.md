@@ -13,6 +13,7 @@ HuiLineEditPopover/HuiLineEditPopover
 | width             | 组件宽度                       | number                                            | 180               |
 | baseClass         | 组件基础样式类                 | string                                            | text-primary px-4 |
 | disabled          | 组件输入框是否禁用             | boolean                                           | false             |
+| rules               | 输入规则                     | any                          | -                    |
 
 ### 方法（defineEmits）
 
