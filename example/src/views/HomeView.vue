@@ -517,7 +517,7 @@ setTimeout(() => {
           <ElButton @click="onMessageBox">命令式弹窗组件</ElButton>
         </div>
         <div class="mt-10px">
-          <HuiLineEditPopover :row="popoverRow" field="sort" @confirm="lineEditPopoverConfirm" />
+          <HuiLineEditPopover :row="popoverRow" field="sort" :rules="[{ required: true, message: '请输入排序值' , trigger: 'blur' }, HuiRules.digitNumRule(2, true, true)]" @confirm="lineEditPopoverConfirm" />
         </div>
       </div>
       <div class="flex flex-col ml-10">

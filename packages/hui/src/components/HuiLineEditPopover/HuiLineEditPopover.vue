@@ -1,53 +1,35 @@
 <script lang="ts" setup>
 import { Check, Close } from '@element-plus/icons-vue'
 import { ElInput, ElPopover, ElButton, ElForm, ElFormItem } from 'element-plus'
-import { nextTick, onBeforeUnmount, onMounted, ref, toValue } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, toValue, computed, reactive } from 'vue'
 import type { HuiLineEditPopoverPropsType, HuiLineEditPopoverEmitType } from './type'
 
 defineOptions({
   name: 'HuiLineEditPopover',
 })
 
-const {
-  width = 206,
-  baseClass = 'text-primary px-4',
-  disabled = false,
-  field,
-} = defineProps<HuiLineEditPopoverPropsType>()
+const props = withDefaults(defineProps<HuiLineEditPopoverPropsType>(), {
+  width: 206,
+  baseClass: 'text-primary px-4',
+  disabled: false,
+})
 
 const row = defineModel<{[key:string]: string}>('row')
 
 const emit = defineEmits<HuiLineEditPopoverEmitType>()
 
+const form = reactive({ inputData: null })
 const show = ref(false)
-const data = ref('')
 const inputRef = ref<InstanceType<typeof ElInput> | null>(null)
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
-
-const rules = {
-  [field]: [
-    {
-      validator: (rule, value, callback) => {
-        if (!value) {
-          callback(new Error('请输入排序值'))
-        } else if (isNaN(value)) {
-          callback(new Error('排序值必须是数字'))
-        } else {
-          callback()
-        }
-      },
-      trigger: 'blur',
-    },
-  ],
-}
+const inputRules = computed(() => ({ 'inputData': props.rules }))
 
 onMounted(() => {
-  data.value = row.value[field]
   window.addEventListener('keyup', handleKeyUp)
 })
 
 function editShow() {
-  row.value[field] = data.value
+  form.inputData = row.value[props.field]
   setTimeout(() => {
     inputRef.value?.focus()
   }, 10)
@@ -61,7 +43,7 @@ async function onFocus(event) {
 function confirm() {
   formRef.value?.validate((valid) => {
     if (valid) {
-      data.value = row.value[field]
+      row.value[props.field] = form.inputData
       emit('confirm', toValue(row))
       close()
     }
@@ -95,11 +77,11 @@ onBeforeUnmount(() => {
     popper-style="height:76px;"
     @show="editShow"
   >
-    <el-form ref="formRef" :model="row" :rules="rules">
+    <el-form ref="formRef" :model="form" :rules="inputRules">
       <div v-if="show" class="flex">
-        <el-form-item :prop="field">
+        <el-form-item prop="inputData">
           <el-input
-            ref="inputRef" v-model="row[field]" class="!m-2 p-0" size="small"
+            ref="inputRef" v-model="form.inputData" class="!m-2 p-0" size="small"
             @keyup.enter.prevent="confirm"
             @focus="onFocus($event)"
           />
@@ -110,7 +92,7 @@ onBeforeUnmount(() => {
     </el-form>
     <template #reference>
       <span :class="[baseClass, disabled ? 'cursor-not-allowed' : 'cursor-pointer']">
-        <slot>{{ data }}</slot>
+        <slot>{{ row[field] }}</slot>
       </span>
     </template>
   </el-popover>

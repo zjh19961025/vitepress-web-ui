@@ -9,7 +9,9 @@ export interface HuiLineEditPopoverPropsType {
   /** 列表中显示内容的样式 */
   baseClass: string
   /** 禁用 */
-  disabled: boolean
+  disabled: boolean,
+  /** 输入规则, input 类有效 */
+  rules?: any,
 }
 
 /**
