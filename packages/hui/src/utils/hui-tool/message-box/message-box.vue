@@ -87,19 +87,14 @@ const onConfirmClick = () => {
   closeBox()
 }
 
-// 关闭动画处理时
-const duration = '0.2s'
 /**
- * 关闭事件,保留动画执行时长
+ * 关闭事件
  */
 const close = () => {
   isVisible.value = false
-  // 延迟一段时间进行关闭
-  setTimeout(() => {
-    if (closeBox) {
-      closeBox()
-    }
-  }, parseInt(duration.replace('0.', '').replace('s', '')) * 100)
+  if (closeBox) {
+    closeBox()
+  }
 }
 </script>
 

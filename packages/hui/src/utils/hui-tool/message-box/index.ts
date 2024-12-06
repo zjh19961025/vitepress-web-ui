@@ -31,6 +31,7 @@ export const hua5MsgBox = (content: string, payLoad:PayLoadType = {}) => {
 
     // 关闭弹层事件
     const closeBox = () => {
+      resolve(false)
       render(null, document.body)
     }
 
