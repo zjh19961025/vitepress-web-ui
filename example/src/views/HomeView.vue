@@ -265,7 +265,8 @@ function onSubmit(data) {
 
 async function onMessageBox() {
   // const [, res] = await HuiTool.msgBox('要删除所有历史记录吗？', { type: "danger" })
-  const [, res] = await HuiTool.msgBoxQues('要删除所有历史记录吗', { type: 'danger', width: 400, className: 'p-x-50 text-right' })
+  // const [, res] = await HuiTool.msgBoxQues('是否确定要执行打标操作', { type: 'danger', width: 400, tip: '确定后，将会按自动打标规则对买家进行打标' })
+  const [, res] = await HuiTool.msgBoxQues('<div class="c-red "><i>测试1234</i></div>', { width: 400, className: 'p-x-50 text-right', tip: '<div class="c-red "><i>测试tip</i></div>' })
   console.info("🚀 ~ file:HomeView method:onMessageBox line:204 -----", res)
 }
 
