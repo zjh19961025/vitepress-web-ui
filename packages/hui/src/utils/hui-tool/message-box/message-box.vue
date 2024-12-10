@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue"
 import { ElButton, ElDialog } from 'element-plus'
+import { testUtils } from "@hua5/hua5-utils"
 export interface HuiMsgBoxProp {
   /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
   iconType:'info' | 'success' | 'question',
   /** 控制图标展示的颜色 */
   type:'info' | 'warning' | 'success' | 'danger',
-  /** 弹窗显示的内容 */
-  content:string,
+  /** 弹窗显示的标题 */
+  title:string,
+  /** 弹窗显示的提示文本 */
+  tip:'',
   /** 取消按钮的文本 */
   cancelText:string,
   /** 确定按钮的文本 */
@@ -29,7 +32,7 @@ const {
   cancelText = '取消',
   confirmText = '确定',
   width = 320,
-  content, closeBox, confirmHandler, cancelHandler,
+  title, tip, closeBox, confirmHandler, cancelHandler,
 } = defineProps<HuiMsgBoxProp>()
 
 const iconTypeClass = computed<string>(() => {
@@ -96,6 +99,16 @@ const close = () => {
     closeBox()
   }
 }
+/**
+ * 判断是否是html标签的方法
+ */
+function isHtmlTag(str) {
+  // 去掉前后的空格
+  str = str.trim()
+  // 正则表达式匹配 HTML 标签
+  const regex = /^<([a-z1-6]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/i
+  return regex.test(str)
+}
 </script>
 
 <template>
@@ -106,11 +119,16 @@ const close = () => {
       align-center
       @closed="close"
     >
-      <div class="flex justify-center flex-center h-110 text-center" :class="[className]">
+      <div class="flex flex-center h-110 text-center" :class="[className]">
         <div>
           <i :class="[iconTypeClass,iconColorClass,'icon-com !text-27']" />
         </div>
-        <div class="text-14  font-bold text-normal ml-11 break-all">{{ content }}</div>
+        <div class="flex-y text-left">
+          <div v-if="isHtmlTag(title)" class="ml-11" v-html="title" />
+          <div v-else class="text-16  font-bold text-normal ml-11 break-all ">{{ title }}</div>
+          <div v-if="testUtils.isNotEmpty(tip) && isHtmlTag(tip)" class="m-t-5 ml-11 break-all" v-html="tip" />
+          <div v-else class="text-12 m-t-5 text-secondary ml-11 break-all">{{ tip }}</div>
+        </div>
       </div>
       <template #footer>
         <div class="dialog-footer">
