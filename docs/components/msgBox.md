@@ -9,8 +9,8 @@ msgBox/msgBox
 
 | 属性名  | 说明                                                         | 类型   | 默认值                                                       |
 | ------- | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| content | 弹窗组件显示的内容                                           | string | -                                                            |
-| payLoad | 弹窗组件的配置对象<br />{<br />iconType: 'info' \| 'success' \| 'question',<br /> type:'info' \| 'success' \| 'danger' \| 'warning',<br />cancleText:string,<br />confirmText:string,<br />}<br />iconType:图标的类型<br />width：弹窗宽度，<br />type:提示类型主要控制颜色<br />cancleText:取消按钮的文本<br />confirmText：确定按钮的文本<br />className：内容区域样式<br /> | object | type:'info',<br />iconType:'info'<br />cancleText：'取消'<br />confirmText: '确定' |
+| title   | 弹窗组件的标题                                               | string | -                                                            |
+| payLoad | 弹窗组件的配置对象<br />{<br />tip: string,<br />iconType: 'info' \| 'success' \| 'question',<br /> type:'info' \| 'success' \| 'danger' \| 'warning',<br />cancleText:string,<br />confirmText:string,<br />}<br />tip:弹窗的提示内容<br />iconType:图标的类型<br />width：弹窗宽度，<br />type:提示类型主要控制颜色<br />cancleText:取消按钮的文本<br />confirmText：确定按钮的文本<br />className：内容区域样式<br /> |        | type:'info',<br />iconType:'info'<br />cancleText：'取消'<br />confirmText: '确定' |
 
 ### 使用说明
 
