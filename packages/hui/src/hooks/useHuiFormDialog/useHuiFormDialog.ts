@@ -2,6 +2,7 @@ import { ref, getCurrentInstance, toValue, computed } from 'vue'
 import { HuiTool } from "../../utils/index"
 import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
 import { ElMessage } from "element-plus"
+import { objectUtils } from "@hua5/hua5-utils"
 
 /**
  * 表单弹框通用逻辑
@@ -41,7 +42,7 @@ export const useHuiFormDialog = function({
   const open = (id = "", defaultFormValue = {}) => {
     resetLoading()
     resetFormFields()
-    form.value = { ...toValue(formModel), ...toValue(defaultFormValue) }
+    form.value = { ...objectUtils.deepClone(formModel.value), ...toValue(defaultFormValue) }
     form.value.id = id
     show.value = true
   }
