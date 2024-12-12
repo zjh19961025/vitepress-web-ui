@@ -86,8 +86,12 @@ onBeforeUnmount(() => {
             @focus="onFocus($event)"
           />
         </el-form-item>
-        <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" type="primary" :icon="Check" @click="confirm" />
-        <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" :icon="Close" @click="close()" />
+        <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" type="primary" @click="confirm">
+          <i class="icon-com i-com-gou" style="font-size: 12px" />
+        </el-button>
+        <el-button class="!m-2 !w-32 !h-28 !text-18 !p-4 flex-shrink-0" @click="close()">
+          <i class="icon-com i-com-cha" style="font-size: 12px" />
+        </el-button>
       </div>
     </el-form>
     <template #reference>
