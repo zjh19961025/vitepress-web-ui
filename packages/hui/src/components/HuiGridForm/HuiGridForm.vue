@@ -65,7 +65,8 @@ onMounted(() => {
 function addRow() {
   deepCloneListData.value.push(objectUtils.deepClone(dataTemplate))
 }
-function onHandleMoveItem(index: number, type: string) {
+function onHandleMoveItem(index: number, type: string, isCanSort) {
+  if (!isCanSort) return
   moveItem(deepCloneListData.value, index, type)
 }
 
@@ -222,13 +223,13 @@ defineExpose({ getData })
         v-if="handSort"
         :class="idx === deepCloneListData.length - 1 ? '!text-[theme(backgroundColor.normal)]' : ''"
         class="icon-com i-com-jiantou-xia-shixin text-disabled ml-5 !text-13"
-        @click="onHandleMoveItem(idx, 'down')"
+        @click="onHandleMoveItem(idx, 'down',idx !== deepCloneListData.length - 1)"
       />
       <i
         v-if="handSort"
         :class="idx === 0 ? '!text-[theme(backgroundColor.normal)]' : ''"
         class="icon-com i-com-jiantou-shang-shixin text-disabled ml-5 !text-13"
-        @click="onHandleMoveItem(idx, 'up')"
+        @click="onHandleMoveItem(idx, 'up',idx !== 0)"
       />
       <i
         v-if="handDelete"
