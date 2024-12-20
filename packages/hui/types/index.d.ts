@@ -943,20 +943,26 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        field: {
-            type: PropType<string>;
-            required: true;
-        };
         width: {
             type: PropType<number>;
             required: true;
+            default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
             required: true;
+            default: string;
         };
-        disabled: {
-            type: PropType<boolean>;
+        rules: {
+            type: PropType<any>;
+        };
+        field: {
+            type: PropType<string>;
             required: true;
         };
     }>> & Readonly<{
@@ -967,7 +973,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         confirm: (row: {
             [key: string]: string;
         }) => void;
-    }, PublicProps, {}, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+    }, PublicProps, {
+        width: number;
+        disabled: boolean;
+        baseClass: string;
+    }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
         P: {};
         B: {};
         D: {};
@@ -978,27 +988,37 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
         row: PropType<{
             [key: string]: string;
         }>;
-        field: {
-            type: PropType<string>;
-            required: true;
-        };
         width: {
             type: PropType<number>;
             required: true;
+            default: number;
+        };
+        disabled: {
+            type: PropType<boolean>;
+            required: true;
+            default: boolean;
         };
         baseClass: {
             type: PropType<string>;
             required: true;
+            default: string;
         };
-        disabled: {
-            type: PropType<boolean>;
+        rules: {
+            type: PropType<any>;
+        };
+        field: {
+            type: PropType<string>;
             required: true;
         };
     }>> & Readonly<{
         onConfirm?: (row: {
             [key: string]: string;
         }) => any;
-    }>, {}, {}, {}, {}, {}>;
+    }>, {}, {}, {}, {}, {
+        width: number;
+        disabled: boolean;
+        baseClass: string;
+    }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
@@ -1006,20 +1026,26 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     row: PropType<{
         [key: string]: string;
     }>;
-    field: {
-        type: PropType<string>;
-        required: true;
-    };
     width: {
         type: PropType<number>;
         required: true;
+        default: number;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        required: true;
+        default: boolean;
     };
     baseClass: {
         type: PropType<string>;
         required: true;
+        default: string;
     };
-    disabled: {
-        type: PropType<boolean>;
+    rules: {
+        type: PropType<any>;
+    };
+    field: {
+        type: PropType<string>;
         required: true;
     };
 }>> & Readonly<{
@@ -1030,7 +1056,11 @@ export declare const HuiLineEditPopover: SFCWithInstall<{
     confirm: (row: {
         [key: string]: string;
     }) => void;
-}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+}, string, {
+    width: number;
+    disabled: boolean;
+    baseClass: string;
+}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
     };
@@ -1599,7 +1629,7 @@ declare interface HuiTinymceLink {
 export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;
-    msgBox: (content: string, payLoad?: PayLoadType) => Promise<any>;
+    msgBox: (title: string, payLoad?: PayLoadType) => Promise<any>;
     msgBoxSuccess: (content: string, payload?: PayLoadType) => Promise<any>;
     msgBoxQues: (content: string, payload?: PayLoadType) => Promise<any>;
 };
@@ -1641,6 +1671,8 @@ declare interface IPointTextStyle {
 }
 
 declare interface PayLoadType {
+    /** 弹窗提示文字内容· */
+    tip?: string;
     /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
     iconType?: 'info' | 'success' | 'question';
     /** 控制图标展示的颜色 */

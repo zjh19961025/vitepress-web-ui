@@ -53,7 +53,6 @@ const testDict = ref([
 ])
 
 setTimeout(() => {
-  testDict.value[0].disabled = true
   // listData.value = [{ test: 1, test1: 2, test2: 2, test13: '1', ss: '' }, { test: 1, test1: 2, test2: 2, test13: '1', ss: '' }]
 }, 3000)
 const HuiGridFormRef = ref(null)
@@ -62,7 +61,7 @@ const config = ref(
     prop: 'test',
     title: 'title1',
     append: '扎',
-    placeholder: '请选择',
+    placeholder: '请选择11',
     type: 'select',
     dataType: 'text',
     dict: testDict,
