@@ -13,6 +13,8 @@ export type HuiGridFormProp = {
     gridFromClass?:string
     /** 是否可以删除的校验 */
     isCanDeleteItem?:(item:any, index:number)=>boolean
+    /** 底部添加按钮文案 */
+    btnText?: string,
 }
 
 export interface HuiGridFormConfigItem {

@@ -24,6 +24,8 @@ const props = withDefaults(defineProps<HuiGridFormProp>(), {
   listData: () => { return [] },
   /** 组件透传的class */
   gridFromClass: 'mt-10',
+  /** 底部添加按钮文案 */
+  btnText: '添加',
 })
 /** 外部调用getData的时候进行校验设置为true用来显示报错信息 */
 const isCheckProp = ref(false)
@@ -240,7 +242,7 @@ defineExpose({ getData })
   </div>
   <!-- 添加操作 -->
   <ElButton v-if="isCanAppend" class="mt-10" @click="addRow">
-    添加
+    {{ props.btnText }}
     <template #icon>
       <i class="icon-com i-com-jiahao" />
     </template>
