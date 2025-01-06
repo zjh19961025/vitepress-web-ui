@@ -595,6 +595,10 @@ export declare const HuiGridForm: SFCWithInstall<{
         isCanDeleteItem: {
             type: PropType<(item: any, index: number) => boolean>;
         };
+        btnText: {
+            type: PropType<string>;
+            default: string;
+        };
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
@@ -609,6 +613,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             [key: string]: any;
         }[];
         gridFromClass: string;
+        btnText: string;
     }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
         P: {};
         B: {};
@@ -646,6 +651,10 @@ export declare const HuiGridForm: SFCWithInstall<{
         isCanDeleteItem: {
             type: PropType<(item: any, index: number) => boolean>;
         };
+        btnText: {
+            type: PropType<string>;
+            default: string;
+        };
     }>> & Readonly<{
         onOnRemoveItem?: (item: any) => any;
     }>, {
@@ -658,6 +667,7 @@ export declare const HuiGridForm: SFCWithInstall<{
             [key: string]: any;
         }[];
         gridFromClass: string;
+        btnText: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -692,6 +702,10 @@ export declare const HuiGridForm: SFCWithInstall<{
     isCanDeleteItem: {
         type: PropType<(item: any, index: number) => boolean>;
     };
+    btnText: {
+        type: PropType<string>;
+        default: string;
+    };
 }>> & Readonly<{
     onOnRemoveItem?: (item: any) => any;
 }>, {
@@ -706,6 +720,7 @@ export declare const HuiGridForm: SFCWithInstall<{
         [key: string]: any;
     }[];
     gridFromClass: string;
+    btnText: string;
 }, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
     $slots: Partial<Record<any, (_: {
         dataItem: any;
