@@ -449,7 +449,9 @@ setTimeout(() => {
         hand-delete
         grid-from-class="mt-0 test c-error"
         :config="config"
-        :list-data="listData" :is-can-delete-item="isCanDeleteItem" @on-remove-item="onRemoveItem"
+        :list-data="listData" :is-can-delete-item="isCanDeleteItem"
+        btn-text="添加数据"
+        @on-remove-item="onRemoveItem"
       >
         <template #test-option="{option, prop}">
           {{ option.label + " " + prop + (option.isUsed ? "已占用" : (option.disabled ? "不可用" : "")) }}
