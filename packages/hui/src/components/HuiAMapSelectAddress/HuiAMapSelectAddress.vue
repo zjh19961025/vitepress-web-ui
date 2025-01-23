@@ -2,9 +2,10 @@
 import { addAMap } from '../AMapConfig'
 import { testUtils } from "@hua5/hua5-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
-import { onMounted, Ref, ref, watch, nextTick, reactive, computed } from 'vue'
+import { onMounted, Ref, ref, watch, nextTick } from 'vue'
+import { ElInput } from 'element-plus'
 import type { HuiAMapSelectAddressPropsType } from './type.ts'
-import { selectLoadmore as vSelectLoadmore } from "../../directives/select-loadmore.ts"
+
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiAMapSelectAddress',
@@ -13,11 +14,12 @@ defineOptions({
 const props = withDefaults(defineProps<HuiAMapSelectAddressPropsType>(), {
   disabled: false,
   showInput: false,
-  width: '100%',
-  height: '490px',
+  width: '40vw',
+  height: '40vh',
   iconPath: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
-  iconClass: 'w-19 h-32 rel',
+  iconClass: 'w-19 h-32',
 })
+
 /** 选择的地址位置 */
 const address: Ref<string> = ref('')
 /** 高德地图配置 */
@@ -26,135 +28,46 @@ const marker: Ref<any> = ref(null)
 const map: Ref<any> = ref(null)
 /** 地理位置的详细信息 */
 const poi = defineModel<any>()
-/** 下拉列表选择的位置 */
-const selectAddress = ref('')
-/** 下拉列表数据 */
-const addressList = ref([])
-/** 地区树选择数据 */
-const regionTree = ref<any[]>([])
-/** 地区树选择 */
-const regionTreeValue = ref([])
-/** 地区tree转换的最终值 因为regionTree是一个数组 我们希望得到一个字符串 */
-const cityCode:any = ref('')
-/** 地图容器盒子 */
-const map__container = ref(getRandomString(2))
-
-onMounted(async() => {
-  regionTree.value = await window.huiDelegate.getRegionTree()
-  loadMap()
-})
-
-function loadMap() {
-  addAMap().then(() => {
-    setupMap()
-  })
-}
-
-function setupMap() {
-  nextTick(() => {
-    init(() => {
-      if (testUtils.isNotEmpty(poi.value)) {
-        const { provinceName, cityName, districtName, street, streetShort } = poi.value
-        addressList.value = [{ ...poi.value, pname: provinceName, cityname: cityName, adname: districtName, address: streetShort, name: street }]
-        selectAddress.value = poi.value.id
-        regionTreeValue.value = poi.value.regionCode
-      }
-      if (poi.value?.longitude && poi.value?.latitude) {
-        addMarker(poi.value.longitude, poi.value.latitude)
-        getAddress(poi.value.longitude, poi.value.latitude)
-      }
-      if (poi.value?.lon && poi.value?.lat) {
-        addMarker(poi.value.lon, poi.value.lat)
-        getAddress(poi.value.lon, poi.value.lat)
-      }
-    })
-  })
-}
-
-function init(callback: () => void) {
-  map.value = new window.AMap.Map(map__container.value, {
-    zoom: testUtils.isNotEmpty(poi.value) ? 23 : 13,
-    center: (() => {
-      if (poi.value?.longitude && poi.value?.latitude) {
-        return [poi.value.longitude, poi.value.latitude]
-      }
-      if (poi.value?.lon && poi.value?.lat) {
-        return [poi.value.lon, poi.value.lat]
-      }
-    })(),
-  })
-  map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
-  callback()
-}
-
-watch(regionTreeValue, (val) => {
-  if (testUtils.isArray(val)) {
-    cityCode.value = val[val.length - 1]
-  } else {
-    cityCode.value = val
-  }
-})
 
 watch(poi, (val) => {
   address.value = val.formattedAddress
 }, { deep: true })
 
-const placeSearchOptions = reactive({
-  city: computed(() => cityCode.value),
-  citylimit: false,
-  pageSize: 20,
-  pageIndex: 1,
-  extensions: 'all',
-})
-const count = ref(0)
-const keyword = ref('')
-watch(keyword, () => {
-  addressList.value = []
-  placeSearchOptions.pageIndex = 1
-})
-
-function addressChange(e) {
-  const target = addressList.value.find(item => item.id == e) || {}
-  poi.value = target
-  regionTreeValue.value = target.adcode
-  const P = target.location.KT || target.location.lat
-  const R = target.location.KL || target.location.lng
-  clearMarker()
-  addMarker(R, P)
-  getAddress(R, P)
-  map.value.setCenter([R, P]) // 设置地图中心点
-  map.value.setZoom(18) // 设置地图缩放级别
-}
-
-function handleInput(e) {
-  if (testUtils.isEmpty(e)) return
-  keyword.value = e
-  // 异步加载 AutoComplete 插件
-  window.AMap.plugin("AMap.PlaceSearch", async function() {
-    await nextTick()
-    // 实例化AutoComplete
-    var autoComplete = new window.AMap.PlaceSearch(placeSearchOptions)
-    // 根据关键字进行搜索 keyword 为搜索的关键词
-    autoComplete.search(keyword.value, function(status, result) {
-      // 搜索成功时，result 即是对应的匹配数据
-      if (testUtils.isEmpty(result) || testUtils.isEmpty(result.poiList.pois)) return
-      result.poiList.pois.forEach((item) => {
-        item.provinceName = item.pname
-        item.cityName = item.cityname
-        item.districtName = item.adname
-        item.street = item.address
-        item.streetShort = item.name
-      })
-      count.value = result.poiList.count
-      addressList.value.push(...result.poiList.pois)
+function setupMap() {
+  nextTick(() => {
+    init(() => {
+      if (poi.value?.longitude && poi.value?.latitude) {
+        addMarker(poi.value.longitude, poi.value.latitude)
+        getAddress(poi.value.longitude, poi.value.latitude)
+      }
+      if (poi.value?.location) {
+        addMarker(poi.value.location.lng, poi.value.location.lat)
+        getAddress(poi.value.location.lng, poi.value.location.lat)
+      }
     })
   })
 }
 
-function loadmore() {
-  if (addressList.value.length >= count.value) return
-  placeSearchOptions.pageIndex++
-  handleInput(keyword.value)
+function handleInput() {
+  updateSearchResults()
+}
+
+function updateSearchResults() {
+  if (!props.showInput) return
+  const resultDiv = document.getElementById('map__result')
+  setTimeout(() => {
+    const searchDiv = document.querySelector('.amap_lib_placeSearch')
+    resultDiv.innerHTML = searchDiv ? '' : `<h3 class="w-full text-center text-12">暂无搜索结果</h3>`
+  }, 200)
+}
+
+function submitInfo() {
+  if (testUtils.isNotEmpty(poi.value)) {
+    return true
+  } else {
+    HuiTool.err('请选择地址')
+    return false
+  }
 }
 
 function addMarker(longitude: number, latitude: number) {
@@ -186,7 +99,7 @@ function addAddressMarker(address: string) {
   // 点标记中的文本
   if (!address) return
   const markerSpan = document.createElement('span')
-  markerSpan.className = 'AMap__marker top-0 abs'
+  markerSpan.className = 'AMap__marker'
   markerSpan.innerHTML = address
   markerContent.appendChild(markerSpan)
   marker.value.setContent(markerContent) // 更新点标记内容
@@ -198,12 +111,18 @@ function getAddress(longitude: number, latitude: number) {
   window.AMap.plugin('AMap.Geocoder', function() {
     // 创建一个 Geocoder 实例
     const geocoder = new window.AMap.Geocoder()
+
     // 使用 Geocoder 实例获取地址
     geocoder.getAddress([longitude, latitude], (status, result) => {
       if (status === 'complete' && result.info === 'OK') {
+        const regeocode = result.regeocode
+        poi.value = Object.assign(regeocode, {
+          longitude,
+          latitude,
+        })
+        // 标记位置
         nextTick(() => {
-          const addressName = addressList.value.find(item => item.id == selectAddress.value)?.name || ''
-          addAddressMarker(addressName)
+          addAddressMarker(poi.value.formattedAddress)
         })
       } else {
         console.error('获取地址失败', result)
@@ -211,6 +130,73 @@ function getAddress(longitude: number, latitude: number) {
     })
   })
 }
+function addClick() {
+  map.value.on('click', (e:any) => {
+    const lnglat = e.lnglat
+    const P = lnglat.KT || lnglat.lat
+    const R = lnglat.KL || lnglat.lng
+    addMarker(R, P)
+    getAddress(R, P)
+  })
+}
+function init(callback: () => void) {
+  map.value = new window.AMap.Map(map__container.value, {
+    zoom: testUtils.isNotEmpty(poi.value) ? 23 : 13,
+    center: (() => {
+      if (poi.value?.longitude && poi.value?.latitude) {
+        return [poi.value.longitude, poi.value.latitude]
+      }
+      if (poi.value?.location) {
+        return [poi.value.location.lng, poi.value.location.lat]
+      }
+    })(),
+  })
+  map.value.setMapStyle('amap://styles/f695f9484e6fb466b6680b7806a5eae6")')
+  setTimeout(() => {
+    initPoip()
+  })
+  addClick()
+  callback()
+}
+
+function initPoip() {
+  if (!props.showInput) return
+  window.AMapUI.loadUI(['misc/PoiPicker'], (PoiPicker:any) => {
+    window.poiPicker = new PoiPicker({
+      input: 'map__input',
+      placeSearchOptions: {
+        map: map.value,
+        pageSize: 10,
+      },
+      searchResultsContainer: 'map__result',
+    })
+    window.poiPicker.on('poiPicked', handlePoiPicked)
+  })
+}
+
+function handlePoiPicked(poiResult: any) {
+  clearMarker()
+  const source = poiResult.source
+  const poiItem = poiResult.item
+  nextTick(() => {
+    poi.value = Object.assign(poiItem, {
+      formattedAddress: poiItem.name,
+      longitude: poiItem.location?.KL,
+      latitude: poiItem.location?.kT,
+    })
+    if (source !== 'search') {
+      window.poiPicker.searchByKeyword(poiItem.name)
+    }
+  })
+}
+function loadMap() {
+  addAMap().then(() => {
+    setupMap()
+  })
+}
+onMounted(() => {
+  loadMap()
+})
 
 function getRandomString(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -221,61 +207,38 @@ function getRandomString(length) {
   return 'map__container' + result
 }
 
-function submitInfo() {
-  if (testUtils.isNotEmpty(poi.value)) {
-    return true
-  } else {
-    HuiTool.err('请选择地址')
-    return false
-  }
-}
-
+const map__container = ref(getRandomString(2))
 defineExpose({ loadMap, setupMap, poi, submitInfo })
 </script>
 
 <template>
-  <div class="AMap">
-    <div class="flex h-32 lh-32 mb-20">
-      <div class="w-100 text-center">地区</div>
-      <ElCascader v-model="regionTreeValue" class="w-full" separator="-" :options="regionTree" placeholder="选择地区" />
-    </div>
-    <div class="flex h-32 lh-32 mb-20">
-      <div class="w-100 text-center">位置名称</div>
-      <el-select
-        v-model="selectAddress"
-        v-select-loadmore="loadmore"
-        class="loadmore"
-        filterable
-        remote
-        reserve-keyword
-        placeholder="小区名 / 店铺 / 写字楼 / 街道名称"
-        :remote-method="handleInput"
-        no-data-text="暂时查询不到数据"
-        @change="addressChange"
-      >
-        <el-option
-          v-for="item in addressList"
-          :key="item.id"
-          :label="item.name"
-          :value="item.id"
-        >
-          <div class="flex justify-between text-14">
-            <div class="c-regular">{{ item.name }}</div>
-            <div class="c-disabled">{{ item.pname + item.cityname + item.adname + item.address }}</div>
-          </div>
-        </el-option>
-      </el-select>
-    </div>
-    <div class="AMap__content-box" :style="{height:height}">
-      <div :id="map__container" class="AMap__content-container" tabindex="0" />
+  <div class="AMap" :style="{width:width,height:height}">
+    <ElInput
+      v-if="showInput"
+      id="map__input"
+      v-model="address"
+      class="AMap__content-input"
+      :readonly="props.disabled"
+      clearable
+      placeholder="输入关键字选取地点"
+      @input="handleInput"
+    />
+    <div class="AMap__content-box" :class="showInput ? '' :'noEvents'">
+      <div :id="map__container" :style="{height:height}" class="AMap__content-container" tabindex="0" />
+      <div v-if="showInput" id="map__result" :style="{height:height}" class="AMap__content-result">
+        <h3 class="w-full text-center text-12">暂无搜索结果</h3>
+      </div>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
+.noEvents{
+  pointer-events:none
+}
 ::v-deep(.AMap__marker){
   position: absolute;
   top: -20px;
-  right: -20px;
+  right: -118px;
   color: #fff;
   padding: 4px 10px;
   box-shadow: 1px 1px 1px rgba(10, 10, 10, 0.2);

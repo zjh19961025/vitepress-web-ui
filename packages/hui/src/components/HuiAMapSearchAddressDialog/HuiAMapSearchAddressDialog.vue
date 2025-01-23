@@ -2,15 +2,15 @@
 import { ref, toValue } from 'vue'
 import { useHuiDialog } from "../../hooks/index"
 import { ElButton, ElDialog } from 'element-plus'
-import HuiAMapSelectAddress from '../HuiAMapSelectAddress/HuiAMapSelectAddress.vue'
-import type { HuiAMapSelectAddressDialogPropsType, HuiTinymceDialogEmitType } from './type.ts'
+import HuiAMapSearchAddress from '../HuiAMapSearchAddress/HuiAMapSearchAddress.vue'
+import type { HuiAMapSearchAddressDialogPropsType, HuiTinymceDialogEmitType } from './type.ts'
 defineOptions({
-  name: 'HuiAMapSelectAddressDialog',
+  name: 'HuiAMapSearchAddressDialog',
 })
 
-withDefaults(defineProps<HuiAMapSelectAddressDialogPropsType>(), {
-  width: '80%',
-  title: '选择位置',
+withDefaults(defineProps<HuiAMapSearchAddressDialogPropsType>(), {
+  width: '800px',
+  title: '地图位置选择',
 })
 
 const emit = defineEmits<HuiTinymceDialogEmitType>()
@@ -35,7 +35,6 @@ function handleSubmit() {
   emit('onSubmit', poi.value)
   close()
 }
-
 defineExpose({
   open,
   close,
@@ -54,7 +53,7 @@ defineExpose({
     @open="beforeOpen"
     @close="beforeClose"
   >
-    <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" class="m-b-40" :show-input="true" width="100%" />
+    <HuiAMapSearchAddress v-bind="$props" ref="HuiAMapSelectAddressRef" v-model="poi" class="m-y-20" :show-input="true" width="100%" />
     <template #footer>
       <ElButton @click="close">取 消</ElButton>
       <ElButton type="primary" class="w-100" :loading="confirmLoading" @click="handleSubmit">确定</ElButton>

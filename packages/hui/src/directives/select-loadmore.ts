@@ -3,7 +3,7 @@ import { nextTick, Directive, type DirectiveBinding, App } from 'vue'
 
 export const selectLoadmore: Directive = {
   mounted(el: any, binding: DirectiveBinding) {
-    const selectDom = document.querySelector(".el-select-dropdown .el-select-dropdown__wrap")
+    const selectDom = document.querySelector(".loadmore .el-select-dropdown .el-select-dropdown__wrap")
     el.selectDomInfo = selectDom
     el.userLoadMore = loadMores
     function loadMores() {
