@@ -135,6 +135,150 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
 /**
  * 倒计时按钮
  */
+export declare const HuiAMapSearchAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+    modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    showInput: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
+    };
+}>, {
+    loadMap: () => void;
+    setupMap: () => void;
+    poi: ModelRef<any, string, any, any>;
+    submitInfo: () => boolean;
+}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
+    modelValue: PropType<any>;
+    iconPath: {
+        type: PropType<string>;
+        default: string;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+        default: string;
+    };
+    disabled: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    showInput: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
+    iconClass: {
+        type: PropType<string>;
+        default: string;
+    };
+}>> & Readonly<{}>, {
+    iconPath: string;
+    width: string;
+    height: string;
+    disabled: boolean;
+    showInput: boolean;
+    iconClass: string;
+}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+
+/**
+ * 地图选择位置弹窗
+ */
+export declare const HuiAMapSearchAddressDialog: SFCWithInstall<DefineComponent<ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconPath: {
+        type: PropType<string>;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+    };
+    showInput: {
+        type: PropType<boolean>;
+    };
+    iconClass: {
+        type: PropType<string>;
+    };
+}>, {
+    open: (dataId?: string, info?: {}) => void;
+    close: () => void;
+}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    onSubmit: (poi: any) => void;
+}, string, PublicProps, Readonly< ExtractPropTypes<{
+    title: {
+        type: PropType<string>;
+        default: string;
+    };
+    iconPath: {
+        type: PropType<string>;
+    };
+    value: {
+        type: PropType<any>;
+    };
+    width: {
+        type: PropType<string>;
+        default: string;
+    };
+    height: {
+        type: PropType<string>;
+    };
+    disabled: {
+        type: PropType<boolean>;
+    };
+    showInput: {
+        type: PropType<boolean>;
+    };
+    iconClass: {
+        type: PropType<string>;
+    };
+}>> & Readonly<{
+    onOnSubmit?: (poi: any) => any;
+}>, {
+    title: string;
+    width: string;
+}, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
+
+/**
+ * 倒计时按钮
+ */
 export declare const HuiAMapSelectAddress: SFCWithInstall<DefineComponent<ExtractPropTypes<{
     modelValue: PropType<any>;
     iconPath: {

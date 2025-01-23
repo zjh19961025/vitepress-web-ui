@@ -19,6 +19,7 @@ const region = ref('110102')
 const regionTreeDialogRef = ref(null)
 const tinymceDialogRef = ref(null)
 const AMapSelectAddressDialogRef = ref(null)
+const AMapSearchAddressDialogRef = ref(null)
 const selectedRegions = ref(null)
 const disabledRegions = ref(['110101', '110102'])
 
@@ -255,6 +256,28 @@ function onAMapSelectAddressClick() {
     formattedAddress: '云南省昆明市五华区黑林铺街道康宏小区(西门)',
   }
   AMapSelectAddressDialogRef.value.open('', poi)
+}
+
+function onAMapSearchAddressClick() {
+  const poi = {
+    "id": 85687,
+    "name": "vdfg",
+    "mobile": "13336505556",
+    "regionCode": "110102",
+    "provinceName": "北京市",
+    "cityName": "北京市辖区",
+    "districtName": "西城区",
+    "street": "7天优品酒店(北京天安门店)",
+    "streetShort": "7天优品酒店(北京天安门店)",
+    addressName: '7天优品酒店(北京天安门店)',
+    "door": "",
+    "isExact": 0,
+    "exactUpdateType": 0,
+    "lon": "116.382723",
+    "lat": "39.90447",
+    "isDefault": 0,
+  }
+  AMapSearchAddressDialogRef.value.open('', poi)
 }
 const HuiAMapSelectAddressRef = ref(null)
 function onSubmit(data) {
@@ -516,6 +539,9 @@ setTimeout(() => {
           <ElButton @click="onAMapSelectAddressClick">地图选择</ElButton>
         </div>
         <div class="mt-10px">
+          <ElButton @click="onAMapSearchAddressClick">search地图选择</ElButton>
+        </div>
+        <div class="mt-10px">
           <ElButton @click="onMessageBox">命令式弹窗组件</ElButton>
         </div>
         <div class="mt-10px">
@@ -561,6 +587,7 @@ setTimeout(() => {
     />
     <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
     <HuiAMapSelectAddressDialog ref="AMapSelectAddressDialogRef" @on-submit="onSubmit" />
+    <HuiAMapSearchAddressDialog ref="AMapSearchAddressDialogRef" @on-submit="onSubmit" />
     <HuiShowUrlDialog ref="showUrlDialog" title="查看链接" @close="showUrlDialogClose" />
     <HuiStringArrayInputDialog
       ref="stringArrayInputDialog"

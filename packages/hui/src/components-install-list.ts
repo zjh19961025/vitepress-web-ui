@@ -10,6 +10,8 @@ import HuiSelectLoadStatus from './components/HuiSelectLoadStatus'
 import HuiLineEditPopover from './components/HuiLineEditPopover'
 import HuiAMapSelectAddress from "./components/HuiAMapSelectAddress"
 import HuiAMapSelectAddressDialog from './components/HuiAMapSelectAddressDialog'
+import HuiAMapSearchAddress from "./components/HuiAMapSearchAddress"
+import HuiAMapSearchAddressDialog from "./components/HuiAMapSearchAddressDialog"
 import HuiGridForm from "./components/HuiGridForm"
 import HuiDataView from "./components/HuiDataView"
 import HuiRegionTreeSelect from "./components/HuiRegionTreeSelect"
@@ -30,6 +32,8 @@ export default [
   HuiLineEditPopover,
   HuiAMapSelectAddress,
   HuiAMapSelectAddressDialog,
+  HuiAMapSearchAddress,
+  HuiAMapSearchAddressDialog,
   HuiGridForm,
   HuiDataView,
   HuiRegionTreeSelect,
