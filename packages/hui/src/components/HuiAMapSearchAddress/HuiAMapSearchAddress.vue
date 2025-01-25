@@ -245,7 +245,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
       <div class="w-100 text-center">位置名称</div>
       <ElSelect
         v-model="selectAddress"
-        v-select-loadmore="loadmore"
+        v-select-loadmore="{className:'loadmore',callback:loadmore}"
         class="loadmore"
         filterable
         remote
