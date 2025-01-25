@@ -3,13 +3,13 @@ import { nextTick, Directive, type DirectiveBinding, App } from 'vue'
 
 export const selectLoadmore: Directive = {
   mounted(el: any, binding: DirectiveBinding) {
-    const selectDom = document.querySelector(".loadmore .el-select-dropdown .el-select-dropdown__wrap")
+    const selectDom = document.querySelector(`.${binding.value.className} .el-select-dropdown .el-select-dropdown__wrap`)
     el.selectDomInfo = selectDom
     el.userLoadMore = loadMores
     function loadMores() {
       // this.scrollTop 存在小数，导致加减存在1的误差
       const condition = Math.abs(this.scrollHeight - this.scrollTop - this.clientHeight) <= 1
-      if (condition) binding?.value()
+      if (condition) binding.value?.callback()
     }
     nextTick(() => {
       selectDom?.addEventListener('scroll', loadMores)
