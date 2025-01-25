@@ -5,6 +5,7 @@ import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick, reactive, computed } from 'vue'
 import type { HuiAMapSearchAddressPropsType } from './type.ts'
 import { selectLoadmore as vSelectLoadmore } from "../../directives/select-loadmore.ts"
+import { ElOption, ElSelect, ElCascader } from 'element-plus'
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiAMapSearchAddress',
@@ -242,7 +243,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
     </div>
     <div class="flex h-32 lh-32 mb-20">
       <div class="w-100 text-center">位置名称</div>
-      <el-select
+      <ElSelect
         v-model="selectAddress"
         v-select-loadmore="loadmore"
         class="loadmore"
@@ -255,7 +256,7 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
         no-data-text="暂时查询不到数据"
         @change="addressChange"
       >
-        <el-option
+        <ElOption
           v-for="item in addressList"
           :key="item.id"
           :label="item.addressName"
@@ -265,8 +266,8 @@ defineExpose({ loadMap, setupMap, poi, submitInfo })
             <div class="c-regular">{{ item.addressName }}</div>
             <div class="c-disabled">{{ item.pname + item.cityname + item.adname + item.address }}</div>
           </div>
-        </el-option>
-      </el-select>
+        </ElOption>
+      </ElSelect>
     </div>
     <div class="AMap__content-box" :style="{height:height}">
       <div :id="map__container" class="AMap__content-container" tabindex="0" />
