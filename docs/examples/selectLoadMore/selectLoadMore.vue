@@ -32,8 +32,10 @@ async function loadmore() {
 <template>
   <el-select
     v-model="selectValue"
-    v-select-loadmore="loadmore"
+    v-select-loadmore="{className:'loadmore',callback:loadmore}"
     placeholder="Select"
+    class="loadmore"
+    :teleported="false"
   >
     <el-option
       v-for="item in options"
