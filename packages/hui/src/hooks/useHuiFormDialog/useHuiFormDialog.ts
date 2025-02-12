@@ -42,7 +42,7 @@ export const useHuiFormDialog = function({
   const open = (id = "", defaultFormValue = {}) => {
     resetLoading()
     resetFormFields()
-    form.value = { ...objectUtils.deepClone(formModel.value), ...toValue(defaultFormValue) }
+    form.value = { ...objectUtils.deepClone(toValue(formModel)), ...toValue(defaultFormValue) }
     form.value.id = id
     show.value = true
   }
