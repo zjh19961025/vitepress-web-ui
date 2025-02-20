@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { HuiDataViewProp } from './type'
-import { watch, computed } from "vue"
-import { webUtils } from '@hua5/hua5-web-lib'
-import { ElImage } from 'element-plus'
+import type {HuiDataViewProp} from './type'
+import {computed, watch} from "vue"
+import {webUtils} from '@hua5/hua5-web-lib'
+import {ElImage} from 'element-plus'
 // 定义组件名字，全局安装的时候会用到
 defineOptions({
   name: 'HuiDataView',
@@ -19,9 +19,7 @@ watch(() =>
 (newValue, oldValue) => {
   const dataObj = newValue || {}
   for (const item of props.config) {
-    const value = dataObj[item.prop]
-    if (!value) continue
-    item.value = value
+    item.value = dataObj[item.prop]
   }
 },
 { immediate: true },
