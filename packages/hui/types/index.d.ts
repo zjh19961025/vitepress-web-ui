@@ -503,7 +503,6 @@ export declare const HuiDataView: SFCWithInstall<{
             type: PropType<{
                 [key: string]: any;
             }>;
-            default: () => {};
         };
         config: {
             type: PropType< HuiDataViewConfig[]>;
@@ -518,9 +517,6 @@ export declare const HuiDataView: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
-        data: {
-            [key: string]: any;
-        };
         lineCount: number;
         titleWidth: string | number;
     }, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
@@ -535,7 +531,6 @@ export declare const HuiDataView: SFCWithInstall<{
             type: PropType<{
                 [key: string]: any;
             }>;
-            default: () => {};
         };
         config: {
             type: PropType< HuiDataViewConfig[]>;
@@ -550,9 +545,6 @@ export declare const HuiDataView: SFCWithInstall<{
             default: string;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
-        data: {
-            [key: string]: any;
-        };
         lineCount: number;
         titleWidth: string | number;
     }>;
@@ -564,7 +556,6 @@ export declare const HuiDataView: SFCWithInstall<{
         type: PropType<{
             [key: string]: any;
         }>;
-        default: () => {};
     };
     config: {
         type: PropType< HuiDataViewConfig[]>;
@@ -579,9 +570,6 @@ export declare const HuiDataView: SFCWithInstall<{
         default: string;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
-    data: {
-        [key: string]: any;
-    };
     lineCount: number;
     titleWidth: string | number;
 }, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
