@@ -11,12 +11,12 @@ defineOptions({
 const props = withDefaults(defineProps<HuiDataViewProp>(), {
   lineCount: 1,
   titleWidth: '100',
-  data: () => { return {} },
 })
 /* 根据listData重新渲染value值*/
 watch(() =>
   props.data,
 (newValue, oldValue) => {
+  if(!props.data) return
   const dataObj = newValue || {}
   for (const item of props.config) {
     item.value = dataObj[item.prop]
