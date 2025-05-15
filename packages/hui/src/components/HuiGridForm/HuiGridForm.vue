@@ -60,7 +60,7 @@ onMounted(() => {
     const item = columnConfig.value[key]
     dataTemplate[item.prop] = ""
   }
-  if (testUtils.isEmpty(props.listData)) {
+  if (testUtils.isEmpty(props.listData) && props.isCanAppend) {
     addRow()
   }
 })
