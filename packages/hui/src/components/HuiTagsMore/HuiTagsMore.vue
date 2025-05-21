@@ -5,9 +5,10 @@ defineOptions({
   name: 'HuiTagsMore',
 })
 import { onMounted, ref } from 'vue'
+import { testUtils } from "@hua5/hua5-utils";
 export interface TagItem {
   k: string; // 标签value
-  v: string; // 标签文本
+  v: string; // 标签label
   color?: string;
   tip?:string;
 }
@@ -33,6 +34,14 @@ const props = defineProps({
     type: Number,
     default: 100,
   },
+  valueKey: {
+    type: String,
+    default: 'k',
+  },
+  labelKey: {
+    type: String,
+    default: 'v',
+  },
 })
 const parentDiv = ref(null)
 const tagsDiv = ref(null)
@@ -46,6 +55,13 @@ onMounted(() => {
 })
 
 function dictItem(item) {
+  // 兼容传递了 ['标签1','标签2','标签3'] 的情况也可以使用该组件
+  if(testUtils.isEmpty(props.dictObj)){
+    return {
+      [props.labelKey]: item,
+      [props.valueKey]: item,
+    }
+  }
   return props.dictObj[item] || {}
 }
 
@@ -60,14 +76,20 @@ function dictItem(item) {
           :key="index"
           effect="dark"
           :show-after="200"
-          :content="dictItem(item).tip || dictItem(item).v"
+          :content="dictItem(item).tip || dictItem(item)[labelKey]"
           placement="top"
         >
-          <HuiTags class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
+          <HuiTags class="m-b-5" :text="dictItem(item)[labelKey]" :style="{backgroundColor:dictItem(item).color}" />
         </ElTooltip>
       </template>
       <template v-else>
-        <HuiTags v-for="item in tagsList" :key="dictItem(item).k" class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
+        <HuiTags
+            v-for="item in tagsList"
+            :key="dictItem(item)[valueKey]"
+            class="m-b-5"
+            :text="dictItem(item)[labelKey]"
+            :style="{backgroundColor:dictItem(item).color}"
+        />
       </template>
     </div>
     <ElPopover
@@ -86,14 +108,20 @@ function dictItem(item) {
             :key="index"
             effect="dark"
             :show-after="200"
-            :content="dictItem(item).tip || dictItem(item).v"
+            :content="dictItem(item).tip || dictItem(item)[labelKey]"
             placement="top"
           >
-            <HuiTags class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
+            <HuiTags class="m-b-5" :text="dictItem(item)[labelKey]" :style="{backgroundColor:dictItem(item).color}" />
           </ElTooltip>
         </template>
         <template v-else>
-          <HuiTags v-for="item in tagsList" :key="dictItem(item).k" class="m-b-5" :text="dictItem(item).v" :style="{backgroundColor:dictItem(item).color}" />
+          <HuiTags
+              v-for="item in tagsList"
+              :key="dictItem(item)[valueKey]"
+              class="m-b-5"
+              :text="dictItem(item)[labelKey]"
+              :style="{backgroundColor:dictItem(item).color}"
+          />
         </template>
       </div>
     </ElPopover>

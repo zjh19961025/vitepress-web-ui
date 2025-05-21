@@ -1601,6 +1601,14 @@ export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropType
         type: NumberConstructor;
         default: number;
     };
+    valueKey: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelKey: {
+        type: StringConstructor;
+        default: string;
+    };
 }>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     tagsList: {
         type: ArrayConstructor;
@@ -1618,11 +1626,21 @@ export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropType
         type: NumberConstructor;
         default: number;
     };
+    valueKey: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelKey: {
+        type: StringConstructor;
+        default: string;
+    };
 }>> & Readonly<{}>, {
     width: number;
+    valueKey: string;
     tagsList: unknown[];
     dictObj: TagItem;
     showTips: boolean;
+    labelKey: string;
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
