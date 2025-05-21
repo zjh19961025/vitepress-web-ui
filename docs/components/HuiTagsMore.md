@@ -14,6 +14,8 @@ HuiTagsMore/HuiTagsMore
 | dictObj  | 字典对象                                   | TagItem | {}     |
 | showTips | 鼠标移入是否显示tip                        | bool    | false  |
 | width    | 容器宽度（超出显示省略号）                 | number  | 100    |
+| labelKey | 用来翻译label的字段                        | string  | v      |
+| valueKey | 用来翻译value的字段                        | string  | k      |
 
 TagItem类型说明
 
