@@ -8,14 +8,17 @@ HuiTagsMore/HuiTagsMore
 
 ### 属性
 
-| 属性名   | 说明                                       | 类型    | 默认值 |
-| -------- | ------------------------------------------ | ------- | ------ |
-| tagsList | 标签数组传入value组成的数组 eg:arr:[1,2,3] | []      | []     |
-| dictObj  | 字典对象                                   | TagItem | {}     |
-| showTips | 鼠标移入是否显示tip                        | bool    | false  |
-| width    | 容器宽度（超出显示省略号）                 | number  | 100    |
-| labelKey | 用来翻译label的字段                        | string  | v      |
-| valueKey | 用来翻译value的字段                        | string  | k      |
+| 属性名    | 说明                                       | 类型    | 默认值  |
+| --------- | ------------------------------------------ | ------- | ------- |
+| tagsList  | 标签数组传入value组成的数组 eg:arr:[1,2,3] | []      | []      |
+| dictObj   | 字典对象                                   | TagItem | {}      |
+| showTips  | 鼠标移入是否显示tip                        | bool    | false   |
+| width     | 容器宽度（超出显示省略号）                 | number  | 100     |
+| labelKey  | 用来翻译label的字段                        | string  | v       |
+| valueKey  | 用来翻译value的字段                        | string  | k       |
+| isElTag   | 是否使用el-tag标签                         | bool    | false   |
+| elTagType | el-tag的type                               | string  | primary |
+| elTagAttr | el-tag的其他属性                           | obj     | {}      |
 
 TagItem类型说明
 
