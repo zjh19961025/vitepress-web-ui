@@ -1609,6 +1609,18 @@ export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropType
         type: StringConstructor;
         default: string;
     };
+    isElTag: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    elTagType: {
+        type: StringConstructor;
+        default: string;
+    };
+    elTagAttr: {
+        type: ObjectConstructor;
+        default: () => {};
+    };
 }>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly< ExtractPropTypes<{
     tagsList: {
         type: ArrayConstructor;
@@ -1634,6 +1646,18 @@ export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropType
         type: StringConstructor;
         default: string;
     };
+    isElTag: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    elTagType: {
+        type: StringConstructor;
+        default: string;
+    };
+    elTagAttr: {
+        type: ObjectConstructor;
+        default: () => {};
+    };
 }>> & Readonly<{}>, {
     width: number;
     valueKey: string;
@@ -1641,6 +1665,9 @@ export declare const HuiTagsMore: SFCWithInstall<DefineComponent<ExtractPropType
     dictObj: TagItem;
     showTips: boolean;
     labelKey: string;
+    isElTag: boolean;
+    elTagType: string;
+    elTagAttr: Record<string, any>;
 }, {}, {}, {}, string, ComponentProvideOptions, true, {}, any>> & Record<string, any>;
 
 /**
