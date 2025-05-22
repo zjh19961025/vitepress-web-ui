@@ -474,9 +474,9 @@ setTimeout(() => {
     <HuiTags text="信息" type="info" />
   </div>
   <div class="w-100 p-t-10">
-    <HuiTagsMore show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj" labelKey="label" valueKey="value"/>
+    <HuiTagsMore :is-el-tag="true" :el-tag-attr="{size:'small'}" show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj" label-key="label" value-key="value" />
     <HuiTagsMore show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj2" />
-    <HuiTagsMore show-tips :tags-list="['非常好吃','人间美味啊','外酥里嫩','香甜可口','好吃到爆炸','妈妈的味道']"  />
+    <HuiTagsMore show-tips :tags-list="['非常好吃','人间美味啊','外酥里嫩','香甜可口','好吃到爆炸','妈妈的味道']" />
   </div>
   <div class="">
     <div class=" flex-y mlr-10">
