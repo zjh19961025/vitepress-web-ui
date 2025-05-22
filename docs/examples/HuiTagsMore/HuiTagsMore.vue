@@ -56,9 +56,10 @@ const sellerTagSelectorObj2 = ref({
 
 <template>
   <div class="w-100 p-t-10">
-    <HuiTagsMore show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj" labelKey="label" valueKey="value"/>
+    <HuiTagsMore show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj" label-key="label" value-key="value" />
     <HuiTagsMore show-tips :tags-list="[1,2,3,4]" :dict-obj="sellerTagSelectorObj2" />
-    <HuiTagsMore show-tips :tags-list="['非常好吃','人间美味啊','外酥里嫩','香甜可口','好吃到爆炸','妈妈的味道']"  />
+    <HuiTagsMore show-tips :tags-list="['非常好吃','人间美味啊','外酥里嫩','香甜可口','好吃到爆炸','妈妈的味道']" />
+    <HuiTagsMore is-el-tag show-tips :tags-list="['非常好吃','人间美味啊','外酥里嫩','香甜可口','好吃到爆炸','妈妈的味道']" />
   </div>
 </template>
 
