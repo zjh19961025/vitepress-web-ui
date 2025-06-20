@@ -59,6 +59,7 @@ export const sidebar = {
         { text: '地图海量标记', link: '/components/HuiAMapMassMarkers' },
         { text: '标签', link: '/components/HuiTags' },
         { text: '标签详情', link: '/components/HuiTagsMore' },
+        { text: '悬浮提示组件', link: '/components/HuiTip' },
       ],
     },
     {
