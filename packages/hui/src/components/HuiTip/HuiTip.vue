@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ElTooltip } from 'element-plus'
 import type { HuiTipProp } from './type.ts'
+defineOptions({
+  name: 'HuiTip',
+})
 // 默认props
 const {
   rclass,

@@ -1819,10 +1819,13 @@ declare interface HuiTinymceLink {
 }
 
 /**
- * 富文本编辑弹窗
+ * 悬浮提示组件
  */
 export declare const HuiTip: SFCWithInstall<{
     new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
+        rclass: {
+            type: PropType<string>;
+        };
         content: {
             type: PropType<string>;
         };
@@ -1834,6 +1837,9 @@ export declare const HuiTip: SFCWithInstall<{
             required: true;
         };
         iconClass: {
+            type: PropType<string>;
+        };
+        contentClass: {
             type: PropType<string>;
         };
         tipAttr: {
@@ -1849,6 +1855,9 @@ export declare const HuiTip: SFCWithInstall<{
         M: {};
         Defaults: {};
     }, Readonly< ExtractPropTypes<{
+        rclass: {
+            type: PropType<string>;
+        };
         content: {
             type: PropType<string>;
         };
@@ -1862,6 +1871,9 @@ export declare const HuiTip: SFCWithInstall<{
         iconClass: {
             type: PropType<string>;
         };
+        contentClass: {
+            type: PropType<string>;
+        };
         tipAttr: {
             type: PropType<{
                 [key: string]: any;
@@ -1872,6 +1884,9 @@ export declare const HuiTip: SFCWithInstall<{
     __isTeleport?: never;
     __isSuspense?: never;
 } & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    rclass: {
+        type: PropType<string>;
+    };
     content: {
         type: PropType<string>;
     };
@@ -1883,6 +1898,9 @@ export declare const HuiTip: SFCWithInstall<{
         required: true;
     };
     iconClass: {
+        type: PropType<string>;
+    };
+    contentClass: {
         type: PropType<string>;
     };
     tipAttr: {
