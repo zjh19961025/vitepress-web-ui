@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@hua5/eslint-config": "workspace:*",
-    "@hua5/hua5-utils": "^1.0.7",
+    "@hua5/hua5-utils": "^1.0.18",
     "@hua5/unocss-preset": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.2",
