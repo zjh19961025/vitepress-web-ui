@@ -26,6 +26,7 @@ declare module 'vue' {
     HuiAMapMassMarkers:typeof import("@hua5/hua5-web-ui")["HuiAMapMassMarkers"]
     HuiTags:typeof import("@hua5/hua5-web-ui")["HuiTags"]
     HuiTagsMore:typeof import("@hua5/hua5-web-ui")["HuiTagsMore"]
+    HuiTip:typeof import("@hua5/hua5-web-ui")["HuiTip"]
   }
 
   /**

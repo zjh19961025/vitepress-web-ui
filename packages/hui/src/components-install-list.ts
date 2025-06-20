@@ -18,6 +18,7 @@ import HuiRegionTreeSelect from "./components/HuiRegionTreeSelect"
 import HuiAMapMassMarkers from "./components/HuiAMapMassMarkers"
 import HuiTags from "./components/HuiTags"
 import HuiTagsMore from "./components/HuiTagsMore"
+import HuiTip from "./components/HuiTip"
 
 export default [
   HuiLineEditDialog,
@@ -40,4 +41,5 @@ export default [
   HuiAMapMassMarkers,
   HuiTags,
   HuiTagsMore,
+  HuiTip,
 ]

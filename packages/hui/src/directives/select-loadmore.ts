@@ -16,7 +16,7 @@ export const selectLoadmore: Directive = {
     })
   },
   beforeUnmount(el: any) {
-    if (el.userLoadMore) {
+    if (el.userLoadMore && el.selectDomInfo) {
       el.selectDomInfo.removeEventListener('scroll', el.userLoadMore)
       delete el.selectDomInfo
       delete el.userLoadMore

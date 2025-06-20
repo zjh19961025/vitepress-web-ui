@@ -7,6 +7,8 @@ import { ref } from "vue"
 import { id } from "element-plus/es/locales.mjs"
 import { hlibDelegate } from "@/delegate/HlibDelegate"
 import { huiDelegate, testPermission } from "@/delegate/HuiDelegate"
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const normalDialogTest = ref(null)
 const formDialogTest = ref(null)
@@ -463,9 +465,14 @@ setTimeout(() => {
   console.log("permission delete", testPermission, huiDelegate.getBtnPermission())
 }, 15000)
 
+function toPage() {
+  router.push('/components')
+}
+
 </script>
 
 <template>
+  <div class="w-full bg-sky p-10 c-white mb-20" @click="toPage">去组件页</div>
   <div class="flex">
     <HuiTags text="红色" type="error" />
     <HuiTags text="默认" type="primary" />

@@ -1818,6 +1818,85 @@ declare interface HuiTinymceLink {
     value: string;
 }
 
+/**
+ * 富文本编辑弹窗
+ */
+export declare const HuiTip: SFCWithInstall<{
+    new (...args: any[]): CreateComponentPublicInstanceWithMixins<Readonly< ExtractPropTypes<{
+        content: {
+            type: PropType<string>;
+        };
+        placement: {
+            type: PropType<"top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end">;
+        };
+        effect: {
+            type: PropType<"dark" | "light">;
+            required: true;
+        };
+        iconClass: {
+            type: PropType<string>;
+        };
+        tipAttr: {
+            type: PropType<{
+                [key: string]: any;
+            }>;
+        };
+    }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {}, true, {}, {}, GlobalComponents, GlobalDirectives, string, {}, any, ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly< ExtractPropTypes<{
+        content: {
+            type: PropType<string>;
+        };
+        placement: {
+            type: PropType<"top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end">;
+        };
+        effect: {
+            type: PropType<"dark" | "light">;
+            required: true;
+        };
+        iconClass: {
+            type: PropType<string>;
+        };
+        tipAttr: {
+            type: PropType<{
+                [key: string]: any;
+            }>;
+        };
+    }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & ComponentOptionsBase<Readonly< ExtractPropTypes<{
+    content: {
+        type: PropType<string>;
+    };
+    placement: {
+        type: PropType<"top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end">;
+    };
+    effect: {
+        type: PropType<"dark" | "light">;
+        required: true;
+    };
+    iconClass: {
+        type: PropType<string>;
+    };
+    tipAttr: {
+        type: PropType<{
+            [key: string]: any;
+        }>;
+    };
+}>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {}, {}, string, {}, GlobalComponents, GlobalDirectives, string, ComponentProvideOptions> & VNodeProps & AllowedComponentProps & ComponentCustomProps & (new () => {
+    $slots: {
+        icon?(_: {}): any;
+        default?(_: {}): any;
+    };
+})> & Record<string, any>;
+
 export declare const HuiTool: {
     ok: (msg: any) => void;
     err: (msg: any) => void;
