@@ -9,7 +9,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "element-plus/dist/index.css";
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // hua5WebUI相关
-import '@hua5/hua5-web-ui/style'
+import 'zjh-web-ui/style'
 import { huiDelegate } from '../../delegate/HuiDelegate'
 // hua5WebLib相关
 import { hlibDelegate } from '../../delegate/HlibDelegate'
@@ -36,13 +36,13 @@ export default {
     if(!import.meta.env.SSR){
       app.use(unocssPreset)
 
-      const hua5WebUI = await import("@hua5/hua5-web-ui")
+      const hua5WebUI = await import("zjh-web-ui")
       window.hua5WebUI=hua5WebUI
       app.use(hua5WebUI.default,{
         delegate: huiDelegate,
         isInstallComponents: true
       })
-      const hua5WebLib = await import("@hua5/hua5-web-lib")
+      const hua5WebLib = await import("zjh-web-lib")
       app.use(hua5WebLib.default, {
         delegate: hlibDelegate,
       })

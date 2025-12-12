@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { addAMap } from '../AMapConfig'
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 import { HuiTool } from "../../utils/hui-tool/index"
 import { onMounted, Ref, ref, watch, nextTick, reactive, computed } from 'vue'
 import type { HuiAMapSearchAddressPropsType } from './type.ts'

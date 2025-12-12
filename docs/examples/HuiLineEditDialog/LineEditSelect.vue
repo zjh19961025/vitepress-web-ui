@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // CSR 模式下正常使用es导入
-// import { HuiRules } from "@hua5/hua5-web-ui"
+// import { HuiRules } from "zjh-web-ui"
 
 // SSR || SSG 模式下，请使用这种导入方式
 const HuiRules = ref<any>({})
 onMounted(async() => {
-  const res = await import("@hua5/hua5-web-ui")
+  const res = await import("zjh-web-ui")
   HuiRules.value = res.HuiRules
 })
 

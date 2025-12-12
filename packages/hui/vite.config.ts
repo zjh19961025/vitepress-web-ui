@@ -21,7 +21,7 @@ export default defineConfig({
       // 排除不需要的依赖
       external: [
         'vue', 'unocss',
-        'element-plus', "@hua5/hua5-utils", "@hua5/hua5-web-lib", "@hua5/unocss-preset",
+        'element-plus', "zjh-utils", "zjh-web-lib", "@hua5/unocss-preset",
         "@tinymce/tinymce-vue", "@element-plus/icons-vue"],
       output: [
         {

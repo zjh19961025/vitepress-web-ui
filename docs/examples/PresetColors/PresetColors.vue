@@ -23,7 +23,7 @@
  * 为了兼容服务端渲染，不能在组件中直接 import hua5WebLib
  * 因此，挂载在 window 上供组件使用
  */
-// import { webUtils } from '@hua5/hua5-web-lib'
+// import { webUtils } from 'zjh-web-lib'
 import { uiTheme } from "@hua5/unocss-preset"
 import { ElMessage } from 'element-plus'
 

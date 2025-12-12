@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 import { nextTick, onMounted, Ref, ref } from 'vue'
 import { addAMap } from '../AMapConfig.ts'
 import type { HuiAMapMassMarkersPropsType } from './type.ts'
@@ -23,8 +23,8 @@ const props = withDefaults(defineProps<HuiAMapMassMarkersPropsType>(), {
   textStyle: () => {
     return {
       fontSize: 12,
-      fillColor: window.theme.colors.white,
-      backgroundColor: window.theme.colors.ccc,
+      // fillColor: window.theme.colors.white,
+      // backgroundColor: window.theme.colors.ccc,
       borderRadius: 2,
     }
   },

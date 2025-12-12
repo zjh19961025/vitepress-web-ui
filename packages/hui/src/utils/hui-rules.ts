@@ -1,4 +1,4 @@
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 
 export const HuiRules = {
   /**

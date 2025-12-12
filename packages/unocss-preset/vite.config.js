@@ -23,7 +23,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       // 排除不需要的依赖
-      external: ['vue', 'unocss', "@hua5/hua5-utils"],
+      external: ['vue', 'unocss', "zjh-utils"],
       output: [
         {
           // 打包成 es module

@@ -5,7 +5,7 @@ defineOptions({
   name: 'HuiTagsMore',
 })
 import { onMounted, ref } from 'vue'
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 export interface TagItem {
   k: string; // 标签value
   v: string; // 标签label

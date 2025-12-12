@@ -5,8 +5,8 @@
 ```ts{3-5,10-13}
 // main.ts
 import { createApp } from 'vue'
-import '@hua5/hua5-web-ui/style'
-import hua5WebUI from "@hua5/hua5-web-ui"
+import 'zjh-web-ui/style'
+import hua5WebUI from "zjh-web-ui"
 import { huiDelegate } from '@/delegate'
 import App from './App.vue'
 
@@ -23,7 +23,7 @@ app.mount('#app')
 ## HuiDelegate 配置说明
 
 ```ts
-import type { HuiDelegate } from "@hua5/hua5-web-ui"
+import type { HuiDelegate } from "zjh-web-ui"
 
 export const huiDelegate: HuiDelegate = {
   // 返回区域树
@@ -67,7 +67,7 @@ export declare interface HuiDelegate {
 {
   "compilerOptions": {
     // ...
-    "types": ["@hua5/hua5-web-ui/global"]
+    "types": ["zjh-web-ui/global"]
   }
 }
 ```

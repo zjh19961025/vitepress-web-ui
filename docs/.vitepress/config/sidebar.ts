@@ -1,4 +1,4 @@
-import {msgBox} from "@hua5/hua5-web-ui/src/utils/hui-tool/message-box";
+import {msgBox} from "zjh-web-ui/src/utils/hui-tool/message-box";
 
 export const sidebar = {
   '/unocssPreset/': [

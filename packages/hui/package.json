@@ -1,6 +1,6 @@
 {
-  "name": "@hua5/hua5-web-ui",
-  "version": "1.0.109",
+  "name": "zjh-web-ui",
+  "version": "1.0.10",
   "description": "",
   "type": "module",
   "keywords": [],
@@ -26,9 +26,6 @@
       "types": "./global.d.ts"
     }
   },
-  "publishConfig": {
-    "registry": "https://packages.aliyun.com/5f678e57db0493ecef911d98/npm/npm-registry/"
-  },
   "scripts": {
     "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,8 +33,8 @@
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@hua5/hua5-utils": "^1.0.3",
-    "@hua5/hua5-web-lib": "^1.0.12",
+    "zjh-utils": "^1.0.18",
+    "zjh-web-lib": "^1.0.15",
     "@tinymce/tinymce-vue": "^5",
     "@unocss/preset-rem-to-px": "^0.59.0",
     "element-plus": "^2.3.9",

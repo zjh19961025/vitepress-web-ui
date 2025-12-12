@@ -2,7 +2,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { ElInput, ElButton, ElSelect, ElOption } from 'element-plus'
 import type { HuiGridFormProp, HuiGridFormEmitType } from './type.ts'
-import { objectUtils, testUtils } from "@hua5/hua5-utils"
+import { objectUtils, testUtils } from "zjh-utils"
 import { useDynamicList } from './HuiGridFormHooks.ts'
 // 事件通知
 const emits = defineEmits<HuiGridFormEmitType>()

@@ -1,6 +1,6 @@
 import { h, render } from 'vue'
 import confirmComponent from './message-box.vue'
-import { to } from "@hua5/hua5-utils"
+import { to } from "zjh-utils"
 
 export interface PayLoadType {
   /** 弹窗提示文字内容· */

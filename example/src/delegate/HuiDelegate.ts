@@ -1,4 +1,4 @@
-import type { HuiDelegate } from "@hua5/hua5-web-ui"
+import type { HuiDelegate } from "zjh-web-ui"
 import { getRegionTree } from "./common"
 
 export const testPermission = {

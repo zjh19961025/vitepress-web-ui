@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElDialog, ElButton, ElInput, ElForm, ElFormItem, ElMessage } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
-import { stringUtils, testUtils } from '@hua5/hua5-utils'
+import { stringUtils, testUtils } from 'zjh-utils'
 import { reactive, ref, toValue } from 'vue'
 import type { HuiStringArrayInputDialogForm, HuiStringArrayInputDialogPropsType, HuiStringArrayInputDialogRules, HuiStringArrayInputDialogEmitType } from './type'
 const { id, show, payload, confirmLoading, open, close } = useHuiDialog()

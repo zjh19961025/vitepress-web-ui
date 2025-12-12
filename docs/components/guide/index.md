@@ -4,11 +4,11 @@
 
 ```bash
 # npm
-npm install @hua5/hua5-web-ui
+npm install zjh-web-ui
 
 # yarn
-yarn add @hua5/hua5-web-ui
+yarn add zjh-web-ui
 
 # pnpm
-pnpm add @hua5/hua5-web-ui
+pnpm add zjh-web-ui
 ```

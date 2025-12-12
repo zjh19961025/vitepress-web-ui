@@ -1,8 +1,8 @@
 <script setup>
-import { HuiTool, HuiRules, HuiCountDownButton, selectLoadmore as vSelectLoadmore } from "@hua5/hua5-web-ui"
+import { HuiTool, HuiRules, HuiCountDownButton, selectLoadmore as vSelectLoadmore } from "zjh-web-ui"
 import NormalDialogTest from "@/components/NormalDialogTest.vue"
 import FormDialogTest from "@/components/FormDialogTest.vue"
-import { addUnit, getRegionNameByCode } from "@hua5/hua5-web-lib"
+import { addUnit, getRegionNameByCode } from "zjh-web-lib"
 import { ref } from "vue"
 import { id } from "element-plus/es/locales.mjs"
 import { hlibDelegate } from "@/delegate/HlibDelegate"
@@ -497,9 +497,7 @@ function toPage() {
     <div class="text-danger bg-success" :style="[testStyle, addStyle({height: addUnit(200)}, 'string')]">uno
       test
     </div>
-    <div :style="{color: theme.colors.primary}">
-      覆盖颜色
-    </div>
+
     <div class="m-y-10">
       <HuiGridForm
         ref="HuiGridFormRef"
@@ -600,7 +598,6 @@ function toPage() {
         </div>
       </div>
       <div class="mt-10">
-        <HuiAMapSelectAddress ref="HuiAMapSelectAddressRef" v-model="poi" />
       </div>
     </div>
 
@@ -622,8 +619,6 @@ function toPage() {
       @on-submit="handleRowEdit"
     />
     <HuiPreviewRichTextDialog ref="previewRichTextDialog" />
-    <HuiAMapSelectAddressDialog ref="AMapSelectAddressDialogRef" @on-submit="onSubmit" />
-    <HuiAMapSearchAddressDialog ref="AMapSearchAddressDialogRef" @on-submit="onSubmit" />
     <HuiShowUrlDialog ref="showUrlDialog" title="查看链接" @close="showUrlDialogClose" />
     <HuiStringArrayInputDialog
       ref="stringArrayInputDialog"
@@ -635,7 +630,6 @@ function toPage() {
     <HuiRegionTreeDialog ref="regionTreeDialogRef" tree-label-key="label" :is-confirm-close="false" @on-submit="onRegionsSubmit" />
     <HuiTinymceDialog ref="tinymceDialogRef" :permission="{code:'editUserCode',tip:'富文本权限测试提示'}" :link-attribute="[{ title: '小程序AppId', value: 'mp_appid' }]" @on-submit="onTinymceSubmit" />
     <!-- 调试时HuiAMapSelectAddress和HuiAMapMassMarkers页面只能有一个，需要注释HuiAMapSelectAddress-->
-    <HuiAMapMassMarkers ref="amapMassMarkersRef" v-model="points" :icon-size="[14, 22]" @point-click="pointClick" />
   </div>
 </template>
 

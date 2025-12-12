@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HuiDataViewProp } from './type'
 import { computed, watch } from "vue"
-import { webUtils, addUnit } from '@hua5/hua5-web-lib'
+import { webUtils, addUnit } from 'zjh-web-lib'
 import { ElImage } from 'element-plus'
 // 定义组件名字，全局安装的时候会用到
 defineOptions({

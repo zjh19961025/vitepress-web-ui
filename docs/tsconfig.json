@@ -12,6 +12,6 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "types": ["element-plus/global", "vite/client", "@hua5/hua5-web-ui/global", "@hua5/hua5-web-lib/global"],
+    "types": ["element-plus/global", "vite/client", "zjh-web-ui/global", "zjh-web-lib/global"],
   }
 }

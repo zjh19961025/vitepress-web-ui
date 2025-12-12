@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue"
 import { ElButton, ElDialog } from 'element-plus'
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 export interface HuiMsgBoxProp {
   /** 控制图标展示类型 info:叹号 success:钩 question:问号 */
   iconType:'info' | 'success' | 'question',

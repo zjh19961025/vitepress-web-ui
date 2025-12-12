@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { formDialogPropsDef, HuiRules, useHuiFormDialog } from '@hua5/hua5-web-ui'
+import { formDialogPropsDef, HuiRules, useHuiFormDialog } from 'zjh-web-ui'
 import { ElMessageBox } from 'element-plus'
 const { permission = {}} = defineProps({
   ...formDialogPropsDef,

@@ -2,7 +2,7 @@
 function getHuiResolved(name) {
   return {
     name,
-    from: '@hua5/hua5-web-ui',
+    from: 'zjh-web-ui',
   }
 }
 

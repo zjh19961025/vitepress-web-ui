@@ -3,7 +3,7 @@
 // auto-import 配置
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-// import { HuiResolver } from "@hua5/hua5-web-ui/config/resolver"
+// import { HuiResolver } from "zjh-web-ui/config/resolver"
 
 export default function createAutoComponents() {
   return AutoImport({

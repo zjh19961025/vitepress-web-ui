@@ -2,7 +2,7 @@ import { ref, getCurrentInstance, toValue, computed } from 'vue'
 import { HuiTool } from "../../utils/index"
 import type { UseHuiFormDialogForm, UseHuiFormDialogParams } from "./type"
 import { ElMessage } from "element-plus"
-import { objectUtils } from "@hua5/hua5-utils"
+import { objectUtils } from "zjh-utils"
 
 /**
  * 表单弹框通用逻辑

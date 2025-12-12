@@ -2,7 +2,7 @@
 import { ElDialog, ElButton } from 'element-plus'
 import { useHuiDialog } from "../../hooks/index"
 import { ref, toValue } from 'vue'
-import { testUtils } from '@hua5/hua5-utils'
+import { testUtils } from 'zjh-utils'
 import type { HuiPreviewRichTextDialogPropsType } from './type'
 
 defineOptions({

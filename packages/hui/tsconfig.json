@@ -11,9 +11,9 @@
       "@/*": ["./src/*"],
     },
     "types": [
-      "./node_modules/@hua5/hua5-utils/dist/index.d.ts",
-      "@hua5/hua5-utils",
-      "@hua5/hua5-web-lib/global",
+      "./node_modules/zjh-utils/dist/index.d.ts",
+      "zjh-utils",
+      "zjh-web-lib/global",
     ]
   },
 }

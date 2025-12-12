@@ -60,8 +60,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: any;
-            backgroundColor: any;
             borderRadius: number;
         };
     };
@@ -106,8 +104,6 @@ export declare const HuiAMapMassMarkers: SFCWithInstall<DefineComponent<ExtractP
         type: PropType<IPointTextStyle>;
         default: () => {
             fontSize: number;
-            fillColor: any;
-            backgroundColor: any;
             borderRadius: number;
         };
     };

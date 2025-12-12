@@ -4,7 +4,7 @@
  */
 import type { App } from 'vue'
 import { uiTheme, type UITheme } from "./theme"
-import { objectUtils } from '@hua5/hua5-utils'
+import { objectUtils } from 'zjh-utils'
 
 /**
  * Window 全局变量声明

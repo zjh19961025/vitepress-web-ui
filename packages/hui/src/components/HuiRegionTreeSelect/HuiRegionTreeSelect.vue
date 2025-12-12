@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import { ElTreeSelect } from 'element-plus'
 import { ref, watch, onMounted, nextTick, computed } from 'vue'
-import { getRegionNameByCodeWithTree } from '@hua5/hua5-web-lib'
+import { getRegionNameByCodeWithTree } from 'zjh-web-lib'
 import type { treeSelectProps } from './type'
 
 defineOptions({

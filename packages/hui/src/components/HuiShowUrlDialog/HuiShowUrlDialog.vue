@@ -2,7 +2,7 @@
 import { ref, toValue } from "vue"
 import { useHuiDialog } from "../../hooks/index"
 import type { HuiShowUrlDialogPropsType } from './type'
-import { testUtils } from "@hua5/hua5-utils"
+import { testUtils } from "zjh-utils"
 import { ElDialog } from 'element-plus'
 
 defineOptions({

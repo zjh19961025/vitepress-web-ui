@@ -28,7 +28,7 @@ ComponentName
 {
   "compilerOptions": {
     // ...
-    "types": ["@hua5/hua5-web-ui/global"]
+    "types": ["zjh-web-ui/global"]
   }
 }
 ```

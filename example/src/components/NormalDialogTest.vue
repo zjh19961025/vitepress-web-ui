@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useHuiDialog } from "@hua5/hua5-web-ui"
+import { useHuiDialog } from "zjh-web-ui"
 const { show, open, close, dialogLoading } = useHuiDialog()
 defineExpose({
   open,
