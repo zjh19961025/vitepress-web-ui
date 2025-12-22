@@ -6,13 +6,13 @@
 // main.ts
 import { createApp } from 'vue'
 import 'zjh-web-ui/style'
-import hua5WebUI from "zjh-web-ui"
+import zjhWebUI from "zjh-web-ui"
 import { huiDelegate } from '@/delegate'
 import App from './App.vue'
 
 const app = createApp(App)
 
-app.use(hua5WebUI, {
+app.use(zjhWebUI, {
   delegate: huiDelegate,
   isInstallComponents: false // 是否自动安装组件, 默认为false
 })

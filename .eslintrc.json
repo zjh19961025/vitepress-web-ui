@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["@hua5/eslint-config"],
+  "extends": ["@zjh/eslint-config"],
   "rules": {
     // 自定义规则
     // promise函数中禁止使用async/await 

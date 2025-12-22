@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "hua5-web-ui"
+  name: "zjh-web-ui"
   tagline: web端快速开发基础UI组件支持
   actions:
     - theme: brand

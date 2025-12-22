@@ -21,7 +21,7 @@ export default defineConfig({
       // 排除不需要的依赖
       external: [
         'vue', 'unocss',
-        'element-plus', "zjh-utils", "zjh-web-lib", "@hua5/unocss-preset",
+        'element-plus', "zjh-utils", "zjh-web-lib", "@zjh/unocss-preset",
         "@tinymce/tinymce-vue", "@element-plus/icons-vue"],
       output: [
         {
@@ -41,7 +41,7 @@ export default defineConfig({
       // 指定入口文件
       entry: 'src/index.ts',
       // 组件库名称
-      name: 'hua5-web-ui',
+      name: 'zjh-web-ui',
     },
   },
 })

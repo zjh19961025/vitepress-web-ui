@@ -20,11 +20,11 @@
 
 <script setup lang="ts">
 /**
- * 为了兼容服务端渲染，不能在组件中直接 import hua5WebLib
+ * 为了兼容服务端渲染，不能在组件中直接 import zjhWebLib
  * 因此，挂载在 window 上供组件使用
  */
 // import { webUtils } from 'zjh-web-lib'
-import { uiTheme } from "@hua5/unocss-preset"
+import { uiTheme } from "@zjh/unocss-preset"
 import { ElMessage } from 'element-plus'
 
 const colorsCatKey = ["colors", "textColor", "backgroundColor", "borderColor"]
@@ -95,7 +95,7 @@ function onItemClick(colorCat, item) {
   const source = colorCat.copyFormat.replace('${color}', item.label)
   console.log("source", source)
 
-  window.hua5WebLib.webUtils.clipboard({ text: source }).then(() => ElMessage.success(`复制成功:${source}`))
+  window.zjhWebLib.webUtils.clipboard({ text: source }).then(() => ElMessage.success(`复制成功:${source}`))
 }
 </script>
 

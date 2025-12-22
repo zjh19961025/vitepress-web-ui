@@ -112,7 +112,7 @@ function isHtmlTag(str) {
 </script>
 
 <template>
-  <div class="hua5-message-box">
+  <div class="zjh-message-box">
     <ElDialog
       v-model="isVisible"
       :width="width"
@@ -141,7 +141,7 @@ function isHtmlTag(str) {
 </template>
 
 <style lang="scss">
-.hua5-message-box{
+.zjh-message-box{
   .el-dialog{
     border-radius: 8px !important;
   }

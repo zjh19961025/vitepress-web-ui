@@ -18,7 +18,7 @@ export interface PayLoadType {
   /** 弹窗样式类名 */
   className?: string,
 }
-export const hua5MsgBox = (title: string, payLoad:PayLoadType = {}) => {
+export const zjhMsgBox = (title: string, payLoad:PayLoadType = {}) => {
   const { iconType = 'info', type = 'info', cancelText, confirmText, width, className, tip } = payLoad
   return new Promise((resolve) => {
     // 取消按钮事件
@@ -58,5 +58,5 @@ export const hua5MsgBox = (title: string, payLoad:PayLoadType = {}) => {
 }
 
 export const msgBox = (title: string, payLoad?:PayLoadType) => {
-  return to(hua5MsgBox(title, payLoad))
+  return to(zjhMsgBox(title, payLoad))
 }

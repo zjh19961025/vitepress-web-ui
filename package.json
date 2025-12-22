@@ -8,13 +8,13 @@
   ],
   "keywords": [],
   "license": "ISC",
-  "author": "hua5",
+  "author": "zjh",
   "scripts": {
     "dev": "pnpm -C example dev",
     "build:ui": "pnpm -C packages/hui build",
     "docs:dev": "pnpm --dir docs dev",
     "docs:build": "pnpm --dir docs build",
-    "update:hua5": "pnpm update zjh-utils zjh-web-lib",
+    "update:zjh": "pnpm update zjh-utils zjh-web-lib",
     "publish:ui": "pnpm --dir packages/hui publish:ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "zjh-utils": "^1.0.18",
-    "@hua5/unocss-preset": "workspace:*",
+    "@zjh/unocss-preset": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.2",
     "@unocss/preset-rem-to-px": "^0.59.4",

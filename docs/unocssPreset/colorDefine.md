@@ -28,7 +28,7 @@ export default theme
 ```
 // main.js
 import appTheme from '../unocss.theme'
-import unocssPreset from '@hua5/unocss-preset'
+import unocssPreset from '@zjh/unocss-preset'
 
 // vue 相关
 app.use(unocssPreset, appTheme)

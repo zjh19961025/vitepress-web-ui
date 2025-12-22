@@ -11,7 +11,7 @@ export const HuiTinymceSettingHooks: HuiTinymceSettingHooksType = (settingPayloa
     convert_urls: false, // 禁止自动转换路径
     // 自定义工具栏
     toolbar: `code undo redo
-    | image axupimgs media hua5Link unlink
+    | image axupimgs media zjhLink unlink
     | alignleft aligncenter alignright alignjustify
     | forecolor fontsize
     | bold italic underline strikethrough fontfamily fontsizeinput blocks  

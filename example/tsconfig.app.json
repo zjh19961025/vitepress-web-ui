@@ -25,7 +25,7 @@
       "zjh-utils/global",
       "zjh-web-lib/global",
       "zjh-web-ui/global",
-      "@hua5/unocss-preset/global"
+      "@zjh/unocss-preset/global"
     ]
   }
 }

@@ -8,13 +8,13 @@ import { VPDemo } from '../../vitepress'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "element-plus/dist/index.css";
 import 'element-plus/theme-chalk/dark/css-vars.css'
-// hua5WebUI相关
+// zjhWebUI相关
 import 'zjh-web-ui/style'
 import { huiDelegate } from '../../delegate/HuiDelegate'
-// hua5WebLib相关
+// zjhWebLib相关
 import { hlibDelegate } from '../../delegate/HlibDelegate'
 // unocss相关
-import unocssPreset from '@hua5/unocss-preset'
+import unocssPreset from '@zjh/unocss-preset'
 import "virtual:uno.css";
 
 
@@ -36,21 +36,21 @@ export default {
     if(!import.meta.env.SSR){
       app.use(unocssPreset)
 
-      const hua5WebUI = await import("zjh-web-ui")
-      window.hua5WebUI=hua5WebUI
-      app.use(hua5WebUI.default,{
+      const zjhWebUI = await import("zjh-web-ui")
+      window.zjhWebUI=zjhWebUI
+      app.use(zjhWebUI.default,{
         delegate: huiDelegate,
         isInstallComponents: true
       })
-      const hua5WebLib = await import("zjh-web-lib")
-      app.use(hua5WebLib.default, {
+      const zjhWebLib = await import("zjh-web-lib")
+      app.use(zjhWebLib.default, {
         delegate: hlibDelegate,
       })
       /**
-       * 为了兼容服务端渲染，不能在组件中直接 import hua5WebLib
+       * 为了兼容服务端渲染，不能在组件中直接 import zjhWebLib
        * 因此，挂载在 window 上供组件使用
        */
-      window.hua5WebLib=hua5WebLib
+      window.zjhWebLib=zjhWebLib
     }
   }
 } satisfies Theme

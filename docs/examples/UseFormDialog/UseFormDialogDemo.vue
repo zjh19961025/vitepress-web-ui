@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 项目中 直接使用，会自动导入，此处doc中的引入方式
-const useHuiFormDialog = window.hua5WebUI.useHuiFormDialog
+const useHuiFormDialog = window.zjhWebUI.useHuiFormDialog
 // 模拟接口
 function put() {
   return new Promise((resolve) => {

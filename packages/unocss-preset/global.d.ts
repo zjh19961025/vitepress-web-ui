@@ -5,7 +5,7 @@ declare module 'vue' {
    * 已添加到原型上的
    */
   interface ComponentCustomProperties {
-    theme: typeof import('@hua5/unocss-preset')['uiTheme']
+    theme: typeof import('@zjh/unocss-preset')['uiTheme']
   }
 }
 export {}

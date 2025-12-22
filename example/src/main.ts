@@ -5,8 +5,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import 'virtual:uno.css'
 import router from './router'
-import hua5WebLib from "zjh-web-lib"
-import hua5WebUI from "zjh-web-ui"
+import zjhWebLib from "zjh-web-lib"
+import zjhWebUI from "zjh-web-ui"
 import { hlibDelegate } from "./delegate/HlibDelegate"
 import { huiDelegate } from "./delegate/HuiDelegate"
 import unocssPreset from 'zjh-web-ui'
@@ -15,10 +15,10 @@ import theme from '../unocss.theme'
 const app = createApp(App)
 
 app.use(router as any)
-app.use(hua5WebLib, {
+app.use(zjhWebLib, {
   delegate: hlibDelegate,
 })
-app.use(hua5WebUI, {
+app.use(zjhWebUI, {
   isInstallComponents: false,
   delegate: huiDelegate,
 })

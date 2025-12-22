@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 项目中 直接使用，会自动导入，此处doc中的引入方式
-const useHuiDialog = window.hua5WebUI.useHuiDialog
+const useHuiDialog = window.zjhWebUI.useHuiDialog
 
 const { id, payload, show, open, close, dialogLoading, confirmLoading } = useHuiDialog()
 

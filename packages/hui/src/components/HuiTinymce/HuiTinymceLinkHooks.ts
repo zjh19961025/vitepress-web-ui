@@ -14,7 +14,7 @@ export const HuiTinymceLinkHooks: HuiTinymceLinkHooksType = (linkPayload) => {
   })
 
   function linkSetup(editor: any) {
-    editor.ui.registry.addButton('hua5Link', {
+    editor.ui.registry.addButton('zjhLink', {
       icon: 'link',
       tooltip: '添加/修改链接',
       onAction: () => {

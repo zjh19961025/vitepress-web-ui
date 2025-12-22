@@ -16,7 +16,7 @@ const defaultOptions: HuiOptions = {
 let isInstalledHu5WebUI = false
 
 /**
- * hua5-web-ui install
+ * zjh-web-ui install
  * @param components
  * @returns
  */

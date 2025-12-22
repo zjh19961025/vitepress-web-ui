@@ -1,13 +1,13 @@
 # 安装
 ```bash
-pnpm add @hua5/unocss-preset
+pnpm add @zjh/unocss-preset
 ```
 
 * package.json
 ``` json
 {
     "dependencies": {
-        "@hua5/unocss-preset": "^1.0.3",
+        "@zjh/unocss-preset": "^1.0.3",
     },
     "devDependencies": {
         "@unocss/preset-rem-to-px": "^0.59.4",
@@ -25,7 +25,7 @@ pnpm add @hua5/unocss-preset
 ``` ts
 // uno.config.js
 import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss'
-import { presetHui } from '@hua5/unocss-preset/presetHui' // 核心配置， 基础预设引入 很重要
+import { presetHui } from '@zjh/unocss-preset/presetHui' // 核心配置， 基础预设引入 很重要
 import appTheme from './unocss.theme' // 主题定义
 import addminShortcuts from './unocss.shortcuts.ts' // 快捷方式定义
 export default defineConfig({
@@ -74,7 +74,7 @@ export default theme
 ```
 // main.js
 import appTheme from '../unocss.theme'
-import unocssPreset from '@hua5/unocss-preset'
+import unocssPreset from '@zjh/unocss-preset'
 
 // vue 相关
 app.use(unocssPreset, appTheme)

@@ -1,11 +1,11 @@
 {
   "name": "zjh-web-ui",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "",
   "type": "module",
   "keywords": [],
   "license": "ISC",
-  "author": "hua5",
+  "author": "zjh",
   "files": [
     "dist",
     "types",
