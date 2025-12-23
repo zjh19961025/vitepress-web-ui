@@ -500,10 +500,6 @@ export declare const HuiDataView: SFCWithInstall<{
                 [key: string]: any;
             }>;
         };
-        config: {
-            type: PropType< HuiDataViewConfig[]>;
-            required: true;
-        };
         lineCount: {
             type: PropType<number>;
             default: number;
@@ -511,6 +507,10 @@ export declare const HuiDataView: SFCWithInstall<{
         titleWidth: {
             type: PropType<string | number>;
             default: string;
+        };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, PublicProps, {
         lineCount: number;
@@ -528,10 +528,6 @@ export declare const HuiDataView: SFCWithInstall<{
                 [key: string]: any;
             }>;
         };
-        config: {
-            type: PropType< HuiDataViewConfig[]>;
-            required: true;
-        };
         lineCount: {
             type: PropType<number>;
             default: number;
@@ -539,6 +535,10 @@ export declare const HuiDataView: SFCWithInstall<{
         titleWidth: {
             type: PropType<string | number>;
             default: string;
+        };
+        config: {
+            type: PropType< HuiDataViewConfig[]>;
+            required: true;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
         lineCount: number;
@@ -553,10 +553,6 @@ export declare const HuiDataView: SFCWithInstall<{
             [key: string]: any;
         }>;
     };
-    config: {
-        type: PropType< HuiDataViewConfig[]>;
-        required: true;
-    };
     lineCount: {
         type: PropType<number>;
         default: number;
@@ -564,6 +560,10 @@ export declare const HuiDataView: SFCWithInstall<{
     titleWidth: {
         type: PropType<string | number>;
         default: string;
+    };
+    config: {
+        type: PropType< HuiDataViewConfig[]>;
+        required: true;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, {
     lineCount: number;

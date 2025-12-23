@@ -1,6 +1,6 @@
 import { defineConfig, transformerDirectives, transformerVariantGroup } from 'unocss'
 // eslint-disable-next-line import/no-unresolved
-import { presetHui } from '@hua5/unocss-preset/presetHui'
+import { presetHui } from '@zjh/unocss-preset/presetHui'
 
 export default defineConfig({
   // 预设
