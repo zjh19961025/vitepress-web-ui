@@ -9,7 +9,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-const siteBase = "/front-end/zjh-web-ui/"
+const siteBase = "/"
 
 export default defineConfig({
   base: siteBase, // 部署路径设置, host + base 进行访问
