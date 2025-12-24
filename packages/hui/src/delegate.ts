@@ -53,7 +53,7 @@ window.huiDelegate = {
   },
   amapConfig: {
     key: '',
-    serviceHost: "",
+      securityJsCode: "",
   },
 }
 export const defaultDelegate = window.huiDelegate

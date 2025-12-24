@@ -9,8 +9,8 @@ export const testPermission = {
 export const huiDelegate: HuiDelegate = {
   getRegionTree,
   amapConfig: {
-    key: '0510ba1445c11816c9d45d45c10c23fe',
-    serviceHost: 'http://192.168.31.5/_AMapService',
+    key: '4810b098b74c2f84de4d6f2da544d884',
+      securityJsCode: 'fa66a05abc2f5a4bf73382829d9bf6c4',
   },
   getBtnPermission: () => {
     return testPermission

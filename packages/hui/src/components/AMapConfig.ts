@@ -1,7 +1,7 @@
 export const addAMap = function() {
   removeAMap()
   window._AMapSecurityConfig = {
-    serviceHost: window.huiDelegate.amapConfig.serviceHost,
+      securityJsCode: window.huiDelegate.amapConfig.securityJsCode,
   }
   const key = window.huiDelegate.amapConfig.key
   return new Promise((resolve) => {
