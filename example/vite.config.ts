@@ -10,9 +10,11 @@ export default defineConfig(({ mode, command }) => {
   return {
     plugins: createVitePlugins(env, command === "build"),
     resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-      },
+      alias: [
+        { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+        { find: /^zjh-web-ui$/, replacement: fileURLToPath(new URL('../packages/hui/src/index.ts', import.meta.url)) },
+        { find: /^zjh-web-ui\/style$/, replacement: fileURLToPath(new URL('../packages/hui/src/css/index.scss', import.meta.url)) },
+      ],
       // 导入时想要省略的扩展名列表
       extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
